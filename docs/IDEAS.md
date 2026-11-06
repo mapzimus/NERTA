@@ -38,7 +38,7 @@ Real research and logic, with a good mix of fantasy and hopefulness.
 1. Place stations first, based on need: housing, jobs, hospitals, schools, entertainment, travel hubs, existing infrastructure.
 2. Draw lines through the stations afterward. Lines come from stations, not the other way around.
 
-**Starting list from the original plan:** Portland, Worcester, Hartford, Springfield, Manchester/Nashua, Burlington, and Providence. City transit research is in `research/`, especially `04-vermont-gateways-city-transit.md`.
+**Starting list from the original plan:** Portland, Worcester, Hartford, Springfield, Manchester/Nashua and Burlington. City transit research is in `research/`, especially `04-vermont-gateways-city-transit.md`.
 
 **Tools ready to reuse:** `boston-map/tools/stopcheck/` scored stops using Census population and jobs data, which is close to what the method needs.
 

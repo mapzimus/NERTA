@@ -37,7 +37,7 @@ Known problems:
 1. **~$125B total** doesn't include the commuter branches added in the last passes. Decide whether to update it.
 2. **Ferry track** runs 0.26 units over land near Georges Island.
 3. **Red Line poster key:** it was rearranged because text collided at bottom right, but the fix was never checked by eye. Look at it before trusting it.
-4. **Transfer data on the poster:** pills come from shared stop names plus a short manual list, which gives wrong results. Mattapan shows OL, Waltham shows CR and South Station shows no SL. Check every pill by hand before making more posters.
+4. **Transfer data on the poster:** pills come from shared stop names plus a short manual list, so a transfer can be missed if names differ. Check every pill by hand against the main map before making more posters.
 5. **Unfinished message:** Max once wrote "And I really want to I haven't" and it was cut off. Worth asking.
 
 Facts still on one source are marked in `boston-map/data/line_audit.md`.
