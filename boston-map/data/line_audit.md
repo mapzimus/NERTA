@@ -85,6 +85,11 @@ What backs each new piece of the map. **Two** = two sources. **One** = a single 
 | Columbia Point ferry stop | Ferry | Studied. WBUR, UMass Boston study and Boston Harbor Now agree on a ferry there; the terminal would use Fallon Pier. The link to Long Island is our routing | Two |
 | Winthrop Landing ferry | Ferry | Running route. MBTA Winthrop Ferry page and the Town of Winthrop agree. Dock position is schematic | Two |
 | Logan Office Center on Silver | Dashed | Real stop on Massport shuttle Route 66, per Massport. Our Silver Line is imagined | One |
+| Ferry to Salem and Gloucester | Ferry | Named in the MassDOT and MBTA Water Transportation Study. Mass.gov, MBTA and Streetsblog agree. Salem runs today | Two |
+| Nahant, Swampscott and Marblehead Harbor ferry stops | Ferry | Max's idea. No proposal found. Imagined | None |
+| Squantum Point ferry stop | Ferry | Real. The Marina Bay Ferry leaves from Squantum Point (mbferry.com), and Boston Harbor Now has a business plan for Columbia Point service | Two |
+| Hingham Shipyard ferry stop | Ferry | Real Hingham service (City of Quincy, MBTA ferry page). The exact terminal name is from memory, so unverified | One |
+| Salem Wharf ferry stop | Ferry | Running route. Salem Ferry Terminal on Blaney Street: City of Salem, Port of Salem and City Cruises agree | Two |
 | High-speed destinations | Gold in purple | Max's call: Concord via Lowell, Nashua and Manchester; NYC via Providence and New Haven; Albany via Worcester and Springfield; Montreal via Burlington VT; Bangor via Portsmouth, Portland and Augusta. NYC via Providence is the real corridor. The other routes were not checked against real plans | Invented except NYC |
 
 ## Added after the stop review

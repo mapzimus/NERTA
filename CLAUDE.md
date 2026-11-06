@@ -10,6 +10,10 @@ Read `HANDOVER.md` first. It says where the work stands and what's next.
 - Max sends many short messages while you work. A stopped tool call usually means he's adding something, not that he's upset. Read the next message and adjust.
 - When Max rejects something, it stays rejected. Check `docs/DECISIONS.md` before suggesting it again.
 
+## Style
+
+The house style lives in `skills/mbta-style/SKILL.md`. Use it for any new map or poster.
+
 ## Data rule
 
 Any assembled data needs 2 named sources before it's called accurate. Say where they agree or differ. With 1 source, label it unverified. Ask for an override IN ALL CAPS. An override covers one dataset only, and only Max can grant it.
@@ -22,6 +26,7 @@ Any assembled data needs 2 named sources before it's called accurate. Say where 
 - Don't name the Patriots or Tom Brady.
 - New stops and offshoots must be grounded in a real proposal or real plan. Label invented ones as invented in `boston-map/data/line_audit.md`.
 - Posts get the split credit: Max's concept and design, Claude Code's scripts.
+- Label style: "X LINE" first, then high-speed rows, with "TO" inline where it fits. Stop names use Center, St, Sq, Ave and Rd.
 - Crisp at high zoom, nothing overlapping. Run the checks before calling a map done.
 
 ## Checking a map

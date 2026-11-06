@@ -22,7 +22,7 @@
 
 - $21.5B tunnel: MassDOT four-track Central Artery estimate, in 2028 dollars, including vehicles and upstream work. Final report Table 23 ($21.53B, `research/01-massachusetts.md`) and press reports of about $21.5B agree. Other estimates run far lower, such as Harvard's.
 - $15B original Big Dig: reports give $14.6B to $14.8B; rounded. Higher figures that count interest exist and are not used.
-- ~$125B whole map: our rough sum, not a sourced figure. Tunnel $21.5B, plus regional rail $40.7B (Rail Vision, 2030 dollars), plus about 110 new miles at the Green Line Extension rate of about $0.53B a mile ($2.28B over 4.3 miles). The mileage is estimated by hand. Dollar years are mixed, and high-speed trains are not counted.
+- ~$125B whole map, 2026 dollars: our rough sum, not a sourced figure. See Cost estimate below.
 
 ## Commuter rail proposals and development (added in the final passes)
 
@@ -33,4 +33,21 @@
 - Foxborough to Mansfield: the track is real (Framingham Secondary, Wikipedia). Regular service on it is our idea.
 - Suffolk Downs drawn as a larger station: HYM says 10,000 homes; a 2020 Boston Planning release says about 7,000. The sources differ.
 - Everett stadium: the City of Everett says 25,000 seats; ENR says 24,000. The sources differ.
-- The ~$125B total does not include the commuter branches added in these passes.
+
+## Cost estimate, 2026 dollars
+
+Rough and ours. High-speed trains, ferries and buses aren't counted.
+
+| Part | Starting figure | To 2026 dollars | Result |
+|---|---|---|---|
+| Tunnel | $21.5B, top of MassDOT's 2018 range, in 2028 dollars (Boston Magazine, Wikipedia) | Back two years at 3% | $20B |
+| Regional rail | $29B Rail Vision, 2020 dollars | CPI, about 1.29 | $37B |
+| New commuter branches | About 30 miles, hand estimated | Allowance | $1B |
+| New subway lines | About 110 miles, hand estimated, at the Green Line Extension rate: $2.3B over 4.3 miles (FTA), or $0.53B a mile | CPI, about 1.14, gives $0.61B a mile | $67B |
+| **Total** | | | **About $125B** |
+
+- Original Big Dig: $14.8B final cost, 2007 (NBC News and others), times 1.61 on CPI gives about $24B. The separate $24B figure with interest is a coincidence and isn't what's shown.
+- The map total is about 5 times the Big Dig: $125B divided by $24B.
+- CPI: 207.3 for 2007 is confirmed. The 2026 value of 333.9 is a July reading from one third-party calculator. The 2020 and 2022 values are from memory. All of these should be rechecked against BLS.
+- The panel's New miles figure, about 140, is 110 subway miles plus 30 commuter miles, both hand estimated.
+- The T stops figure, 204, comes from `tools/audit.py`.

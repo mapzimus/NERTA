@@ -9,7 +9,7 @@ Everything is in `boston-map/output/` unless noted.
 | `t_map.png`, `t_map.pdf` | **The current map, drawn from the code.** Includes Max's title block edits, the Suffolk Downs ring and the South Salem label. |
 | `day08_rapid_transit.ai`, `day08_rapid_transit.png` | **Current Illustrator build and export** of the same map. |
 | `day08_rapid_transit_max_edits.ai` | Max's hand-edited file, kept for reference. Its edits are now in the code. It doesn't have the South Salem fix. |
-| `line_red.png`, `line_red.pdf` | Red Line poster sample, the only one so far. |
+| `line_<name>.png`, `.pdf` | Line posters: red, orange, blue, green, yellow, cyan, indigo, silver. |
 
 ## Older
 
@@ -35,7 +35,7 @@ The full 40-pass record is in [history/decision_log_all_passes.md](history/decis
 | Script | Draws |
 |---|---|
 | `make_tmap.py` | Current main map |
-| `make_line_poster.py` | Line posters (`red` so far) |
+| `make_line_poster.py` | All line posters. Add a line name to draw just one. |
 | `make_map.py` | The first New England map |
 | `make_regional.py` | The regional poster |
 | `build_extensions.py` | Builds the regional extension layers |

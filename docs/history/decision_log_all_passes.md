@@ -324,3 +324,11 @@ Thirty-ninth pass: new commuter stops and offshoots tied to real proposals. Stou
 Fortieth pass: Suffolk Downs drawn as a larger station, based on the planned redevelopment. Other development checks led to no map change.
 
 Forty-first pass: Park Street and Downtown Crossing labels moved. Winthrop Landing ferry and Office Center Silver stop added. Suffolk Downs ferry not added: no proposal found.
+
+Forty-second pass: North Station pill extended to Cyan. South Station label moved closer to its stop.
+
+Forty-third pass: North Shore ferry runs to Nahant, Swampscott and Marblehead, then off the map to Salem and Gloucester. Squantum Point and Hingham Shipyard added on the South Shore.
+
+Forty-fourth pass: Marblehead, Marblehead Neck and Salem Harbor brought inside the frame. Marblehead stop moved into town. Ferry routed around the Neck into Marblehead Harbor.
+
+Forty-fifth pass: consistency audit. Line labels, stop name abbreviations and the Key were made uniform. Salem Wharf added, and the ferry arrow now reads To Gloucester.

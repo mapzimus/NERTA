@@ -21,7 +21,7 @@ What's been settled, so nobody reopens it by accident. Detail is in [history/dec
 - Big stations get bigger names: Boston Central, North, South, West, Back Bay.
 - Coast comes from real Census towns bent to fit the diagram, not drawn by hand.
 - Furniture sits in the corners: title top left, Dig box and Key bottom right, sources bottom right.
-- **Transfer pills stay short.** Across most of the map they span one line gap; the longest span two. If two lines are far apart, move a line or use a real crossing.
+- **Transfer pills stay short.** Across most of the map they span one line gap. Boston Central spans two, and North Station spans three, from Green to Cyan, at Max's request. If two lines are far apart, move a line or use a real crossing.
 - Old-style colored transfer bars belong on the line posters, not the main map.
 
 ## The network
@@ -32,7 +32,8 @@ What's been settled, so nobody reopens it by accident. Detail is in [history/dec
 - **Yellow:** the ring around the core, through West Station, Kenmore, Longwood, Ruggles, Nubian and JFK/UMass.
 - **Cyan:** Assembly to Southie.
 - **Indigo:** the Fairmount corridor.
-- **Silver:** a short airport line, doubling back rather than looping. Logan Dock to Airport past all terminals, with Rental Cars and Parking stops.
+- **Silver:** a short airport line, doubling back rather than looping. Logan Dock to Airport past all terminals, with Office Center, Rental Cars and Parking stops. The SL pill sits inside the loop.
+- **Airport** is Tier 2: Blue, Yellow and Silver meet there.
 - **Blue:** Wyoma Sq and Winthrop Center branches, plus the west link to West Station.
 - **Letters:** a proposal only (see HANDOVER). Only the Green Line would have them. Other lines are named by end station, as the real Red Line is.
 
@@ -50,6 +51,14 @@ What's been settled, so nobody reopens it by accident. Detail is in [history/dec
   - Montreal via Burlington VT
   - Bangor via Portsmouth, Portland, Augusta
 - Springfield to New Haven via Hartford is part of the plan but **not shown**, because that leg is off the map.
+
+## Ferries
+
+Harbor Loop, Winthrop Landing, Columbia Point, Squantum Point, Hingham Shipyard, Hull, and a North Shore run to Nahant, Swampscott and Marblehead Harbors, around Marblehead Neck, to Salem Wharf. The arrow says `TO GLOUCESTER`.
+
+## Cost
+
+About $125B in 2026 dollars, about 5 times the Big Dig's $24B. The math is in `boston-map/data/SOURCES.md`.
 
 ## Development checks
 
@@ -69,6 +78,7 @@ Suffolk Downs was upgraded to a larger station. Sullivan, Stadium and West Stati
 - Patriots or Tom Brady naming
 - Long transfer pills, including the Longwood one
 - Natick and Framingham stops on the Worcester line
+- A logo for NERTA. The T stays.
 - Rockport as its own drawn branch
 - Invented offshoots with no proposal: Sudbury, Lynnfield, Medfield, Millis
 - Foxborough off the Greenbush line (wrong side of the region)

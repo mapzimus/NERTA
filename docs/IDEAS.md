@@ -42,17 +42,33 @@ Real research and logic, with a good mix of fantasy and hopefulness.
 
 **Tools ready to reuse:** `boston-map/tools/stopcheck/` scored stops using Census population and jobs data, which is close to what the method needs.
 
-## Commuter rail map
+## Regional commuter rail map
 
-Max thinks a separate commuter rail map could come back, now that there are spur lines and high-speed rail to show. It would have room for every real stop, which the main map can't fit, and the old 1970s purple commuter map is a good reference for the layout.
+This is the next big piece. Max's order: main map, every line on its own, then a regional commuter rail map. It has room for every real stop, spur lines, high-speed rail and proposals. The old 1970s purple commuter map is a good reference for the layout.
 
-## Line posters
+## Buses
 
-One poster per line, in the style of the official line maps, with transfer pills beside each station. The old Green Line poster's colored transfer bars are another option. Red sample exists. Hold the rest until the map is locked.
+Line posters feel incomplete without bus connections. Max's plan:
+- Show buses on the regional commuter rail map.
+- Show them very faintly on the main map, behind everything. This reverses the earlier call to leave buses off, so test it before committing to it.
+- Decide how a line poster lists bus routes, most likely as small route numbers beside each station, like the official posters.
+
+MBTA route data would drive this, and it needs its own design pass so it stays readable.
+
+## Top right corner of the main map
+
+This is the most crowded spot. Options, best first:
+1. **Add width on the right.** About 12 more units gives North Shore labels room. The Dig box and Key would shift right with it. The poster gets slightly wider.
+2. **Move the three label rows.** Shift the Newburyport and Bangor text left, above the Peabody line, away from Salem.
+3. **Add a North Shore inset box.** Clean, but it adds a new element to the map.
 
 ## Regional map
 
 The first New England maps in `boston-map/output/` could return as the NERTA system map, now that the project has room for them. Their ideas carry over too, such as Max's Newport to Providence link through Bristol. The decision log has the full regional network.
+
+## Suffolk Downs
+
+The new neighborhood is planned and on the map as a larger Blue Line station. A ferry doesn't fit: the nearest water is Belle Isle Marsh, a protected salt marsh. Winthrop Landing is the nearest realistic dock.
 
 ## Development-led stops
 

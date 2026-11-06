@@ -2,7 +2,7 @@
 
 New England Regional Transit Authority: a futuristic fantasy transit map project for Boston and New England, made for fun.
 
-It started as Day 8 (Utopia) of the 2026 #30DayMapChallenge: a dream Boston T map in the style of the station wall posters, titled **Rapid Transit**. It grew into something bigger than one day.
+It started as Day 8 (Utopia) of the 2026 #30DayMapChallenge: a dream Boston T map in the style of the station wall posters, titled **Boston's Rapid Transit**. It grew into something bigger than one day.
 
 This is a personal fantasy map. It is **not a real MBTA map** and has no connection to the MBTA.
 
@@ -26,16 +26,17 @@ This is a personal fantasy map. It is **not a real MBTA map** and has no connect
 - `data/shared/`: New England towns, rivers and rail layers.
 - `research/`: notes on Massachusetts, NH and Maine, CT, RI and western MA, Vermont and gateway cities, the Boston subway, and historic track.
 - `docs/`: decisions, versions, ideas and history.
+- `skills/mbta-style/`: the reusable style guide for making more maps like this.
 
 ## Rebuild the map
 
 ```bash
 cd boston-map/src
 python make_tmap.py
-python make_line_poster.py red
+python make_line_poster.py
 ```
 
-This writes `t_map.png` and `t_map.pdf`, and `line_red.png` and `line_red.pdf`, to `boston-map/output/`. Hand edits made in Illustrator are not in the code, so see the warning in [HANDOVER.md](HANDOVER.md).
+This writes `t_map.png`, `t_map.pdf` and a PNG and PDF for each line poster to `boston-map/output/`. Hand edits made in Illustrator are not in the code, so see the warning in [HANDOVER.md](HANDOVER.md).
 
 Needs Python with matplotlib, geopandas, shapely, numpy, scipy and Pillow, plus the Arial font.
 
