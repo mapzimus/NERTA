@@ -1,0 +1,69 @@
+stop,residents,jobs,total,pctile,nearest_T,mi
+Belmont Ctr,0,0,0,0,Riverside,348.67
+Winthrop Center,0,0,0,0,Wonderland,141.23
+Needham Junction,1348,718,2066,3,Eliot,3.31
+Lexington Ctr,1521,910,2432,3,Alewife,5.83
+Hersey,2254,383,2638,3,Eliot,2.99
+Franklin Park,2153,502,2655,3,Green Street,0.83
+Reading,2015,741,2757,3,Oak Grove,6.37
+Lexington Route 128,1437,1424,2862,4,Alewife,7.93
+Logan Terminals,19,3348,3367,4,Wood Island,1.18
+Saugus Center,2290,1090,3381,4,Oak Grove,3.86
+Greenwood,2891,586,3477,4,Oak Grove,3.2
+Wakefield,2597,1759,4357,6,Oak Grove,4.82
+East Saugus,3938,551,4489,6,Wonderland,2.97
+Cliftondale,3900,755,4656,6,Wonderland,3.01
+Melrose Highlands,4440,855,5296,6,Oak Grove,2.43
+Trapelo Rd,3186,2490,5677,7,Alewife,3.03
+Needham Heights,3181,3123,6304,9,Eliot,2.02
+VFW Parkway,5378,1378,6757,12,Forest Hills,2.88
+West Medford,6319,741,7061,15,Medford/Tufts,1.26
+West Roxbury,6320,743,7064,15,Forest Hills,2.35
+Waverley Sq,5244,2075,7319,15,Alewife,2.56
+Stadium,2164,5295,7459,15,Assembly,0.78
+Linden Sq,6769,951,7721,16,Wonderland,1.95
+Wyoming Hill,6265,1795,8061,17,Oak Grove,1.03
+Lynn Harbor,3544,4642,8187,17,Wonderland,3.55
+Arlington Heights,6960,1365,8326,18,Alewife,2.61
+Highland,6917,1633,8551,18,Forest Hills,2.32
+Hyde Park,7351,1252,8604,18,Mattapan,1.92
+Bellevue,7582,1658,9240,19,Forest Hills,1.89
+Newton Corner,6011,3577,9589,21,Boston College,1.51
+Encore,2408,7616,10024,21,Assembly,0.45
+Arlington Ctr,8337,2223,10561,24,Alewife,1.21
+Wellington Hill,10600,846,11447,24,Mattapan,0.91
+Oak Sq,9843,1679,11522,24,Boston College,0.75
+East Arlington,10147,2102,12250,25,Alewife,0.7
+Waltham,8247,4056,12304,25,Riverside,2.68
+Watertown,8422,4056,12479,25,Boston College,2.01
+Roslindale Village,10370,2963,13334,26,Forest Hills,1.24
+City Point,10169,4675,14845,29,Broadway,1.52
+Medford Hillside,12005,3428,15434,31,Medford/Tufts,0.53
+Navy Yard,11594,4596,16191,31,North Station,0.7
+Inner Belt,8359,8575,16934,35,East Somerville,0.29
+L Street,15524,2842,18367,40,Andrew,1.15
+Charlestown,11279,7632,18912,41,Community College,0.2
+Brighton Center,14704,4240,18944,41,Chiswick Road,0.59
+North Cambridge,15398,4260,19658,44,Davis,0.51
+Everett Sq,17318,2959,20277,46,Wellington,1.16
+Grove Hall,18958,3281,22239,50,Fields Corner,1.01
+Lynn,17629,5916,23546,53,Wonderland,4.27
+Bellingham Sq,18204,6647,24852,53,Wood Island,1.21
+Hyde Sq,17721,9963,27684,58,Heath Street,0.35
+Allston,20257,7525,27782,58,Allston Street,0.35
+City Square,17691,13329,31020,61,Community College,0.43
+Northampton,18458,17209,35668,63,Massachusetts Avenue,0.69
+Boston Medical,19052,17437,36490,63,Massachusetts Avenue,0.68
+West Broadway,12656,24268,36924,63,Broadway,0.19
+West Station,13078,23991,37069,63,Babcock Street,0.45
+Seaport,4361,35221,39583,66,South Station,0.76
+Convention Center,5474,35216,40691,68,Broadway,0.64
+Inman Sq,21443,19430,40873,68,Union Square,0.39
+BU Bridge,15914,27571,43486,71,Amory Street,0.23
+Landmark Center,23235,24264,47499,74,Fenway,0.1
+Mass Ave (MIT),10664,38252,48917,75,Kendall/MIT,0.61
+Mass & Cass,26762,25252,52015,75,Ruggles,0.15
+Binney,10657,44970,55628,77,Lechmere,0.46
+North End,16503,53068,69572,81,Haymarket,0.3
+Dover,27278,48704,75983,84,Tufts Medical Center,0.4
+Fort Point,8789,117061,125851,93,South Station,0.2
