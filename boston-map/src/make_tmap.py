@@ -385,6 +385,8 @@ def ferries(ax):
     georges = dock((178, 72))
     long_island = dock((166, 66))
     hull = dock((189, 60))
+    columbia = dock((148, 47))
+    print("columbia dock", [round(v, 1) for v in columbia])
     hingham = [to_basin[0][1], (134, 91), (162, 80), long_island, georges, hull]
     split = (176, 113)
     trunk = (134, 91)
@@ -402,7 +404,7 @@ def ferries(ax):
     if np.hypot(*(down[0] - np.array(BASIN[-1]))) > np.hypot(*(down[-1] - np.array(BASIN[-1]))):
         down = down[::-1]
     turn = smooth_open(np.array([up[-1], (BASIN[-1][0] - 1.6, BASIN[-1][1]), down[0]]), 3)
-    legs = route([q for _, q, _ in to_basin] + [tuple(up[0])]) + [up, turn, down] + route([tuple(down[-1])] + [q for _, q, _ in from_basin]) + route(hingham) + route(north) + route(salem)
+    legs = route([q for _, q, _ in to_basin] + [tuple(up[0])]) + [up, turn, down] + route([tuple(down[-1])] + [q for _, q, _ in from_basin]) + route(hingham) + route(north) + route(salem) + route([long_island, (153, 58), (150.5, 53), columbia])
     land = 0.0
     for xy in legs:
         off = LineString(xy).difference(wet)
@@ -413,6 +415,8 @@ def ferries(ax):
     print(f"ferry track over land: {land:.2f} units")
     cy = LineString(rounded([(140, 76), (149, 76), (152, 73), (152, 67), (149, 64), (122, 64)], 3))
     print(f"cyan southie in water: {cy.intersection(SEA.buffer(0)).length:.2f} units")
+    ax.scatter(*columbia, s=26, color=WHITE, edgecolor=INK, lw=1.2, zorder=3.2)
+    label(ax, columbia, "Columbia Point", "b", gap=1.8, fs=7.6, color=FERRY)
     for n, q, t in to_basin + from_basin[:-1]:
         if n in TRANSIT:
             continue
@@ -584,9 +588,18 @@ def main():
     ax.add_patch(Circle((tx, ty), tr, fc=WHITE, ec=INK, lw=4.5, zorder=12))
     ax.add_patch(Polygon([(tx - 5.1, ty + 4.3), (tx + 5.1, ty + 4.3), (tx + 5.1, ty + 2.0), (tx + 1.35, ty + 2.0), (tx + 1.35, ty - 5.2), (tx - 1.35, ty - 5.2),
                           (tx - 1.35, ty + 2.0), (tx - 5.1, ty + 2.0)], closed=True, fc=INK, ec="none", zorder=12.1))
-    ax.text(-25.5, 203, "Rapid Transit", fontsize=34, fontweight="bold", color=INK, va="center", zorder=12)
-    ax.text(-25.2, 198.2, "Map: Maxwell Howe\n#30DayMapChallenge Day 8 • Utopia", fontsize=12.5, color=INK, va="top", linespacing=1.2, zorder=12)
-    ax.text(-25.2, 192.1, "NOT A REAL MBTA MAP", fontsize=12.5, fontweight="bold", color=RED, va="top", zorder=12)
+    # Title block, matched to Max's Illustrator layout
+    ax.text(-25.5, 200.87, "Boston\u2019s", fontsize=34, fontweight="bold", color=INK, va="baseline", zorder=12)
+    bold = FontProperties(family="Arial", weight="bold")
+    tw = TextPath((0, 0), "Rapid T", size=34, prop=bold).get_extents().x1 / 4.836
+    ax.text(-25.5, 192.43, "Rapid T", fontsize=34, fontweight="bold", color=INK, va="baseline", zorder=12)
+    ax.text(-25.5 + tw - 0.054 * 34 / 4.836 + 0.15, 192.43, "ransit", fontsize=34, fontweight="bold", color=INK, va="baseline", zorder=12)
+    for t, y in (("Map: Maxwell Howe", 188.04), ("#30DayMapChallenge", 185.07), ("Day 8 \u2022 Utopia", 182.3)):
+        ax.text(-43.72, y, t, fontsize=11, color=INK, va="baseline", zorder=12)
+    narrow = FontProperties(fname=r"C:\Windows\Fonts\ARIALNI.TTF")
+    for k, t in enumerate(("This is a futuristic concept map", "and is not affiliated with the MBTA", "in any way. Most of the map decisions",
+                           "are grounded in real studies conducted,", "proposals made, or projections for", "future projects or development.")):
+        ax.text(-18.75, 188.5 - k * 2.978, t, fontproperties=narrow, fontsize=12, color="#000000", va="baseline", zorder=12)
     # Callout in the harbor, and the Key: one type system. Headings 11 bold, body 9.6, captions 7.6.
     for x0, y0, w_, h_ in ((157, 80, 62, 33), (157, -13.6, 62, 68.6)):
         ax.add_patch(FancyBboxPatch((x0, y0), w_, h_, boxstyle="square,pad=0", fc=WHITE, ec=INK, lw=1.4, zorder=11))

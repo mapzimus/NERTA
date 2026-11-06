@@ -7,7 +7,8 @@ What's been settled, so nobody reopens it by accident. Detail is in [history/dec
 - A personal fantasy, lightly grounded in reality. People should pore over it for hours and argue about it.
 - Very unique. Other maps are for comparison, never copied.
 - Local in-jokes reward zooming in, but they shouldn't push too hard.
-- Title is "Rapid Transit". No date on the map.
+- Title is "Boston's Rapid Transit", on two lines. No date on the map.
+- Max's disclaimer paragraph in the title block replaces "NOT A REAL MBTA MAP" on the main map.
 - Keep the T. No new logo for now.
 
 ## Look
@@ -15,7 +16,7 @@ What's been settled, so nobody reopens it by accident. Detail is in [history/dec
 - Style of the real station wall posters: a schematic on a 45-degree grid.
 - Solid is running today, striped is a real proposal, dashed is imagined.
 - Black edge on every dot, including ferries. Small white halos on labels.
-- No italics.
+- No italics, except Max's disclaimer paragraph (Arial Narrow Italic).
 - Lines running today are heaviest. New branches are lighter. Commuter rail is faded back.
 - Big stations get bigger names: Boston Central, North, South, West, Back Bay.
 - Coast comes from real Census towns bent to fit the diagram, not drawn by hand.

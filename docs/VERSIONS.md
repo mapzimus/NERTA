@@ -6,15 +6,15 @@ Everything is in `boston-map/output/` unless noted.
 
 | File | What it is |
 |---|---|
-| `t_map.png`, `t_map.pdf` | **The current map, drawn from the code.** Has everything through the Suffolk Downs ring and the South Salem label. |
-| `day08_rapid_transit_max_edits.ai` | **Max's hand-edited Illustrator file.** Newest design work, but the edits aren't in the code yet. It was opened from `t_map.pdf` before the South Salem fix, so it won't have that. |
+| `t_map.png`, `t_map.pdf` | **The current map, drawn from the code.** Includes Max's title block edits, the Suffolk Downs ring and the South Salem label. |
+| `day08_rapid_transit.ai`, `day08_rapid_transit.png` | **Current Illustrator build and export** of the same map. |
+| `day08_rapid_transit_max_edits.ai` | Max's hand-edited file, kept for reference. Its edits are now in the code. It doesn't have the South Salem fix. |
 | `line_red.png`, `line_red.pdf` | Red Line poster sample, the only one so far. |
 
 ## Older
 
 | File | What it is |
 |---|---|
-| `day08_rapid_transit.ai`, `day08_rapid_transit.png` | Illustrator build from before the Suffolk Downs ring. Has all 13 commuter routes and the real-proposal offshoots. |
 | `map.png`, `map.pdf` | The first idea: "What if the MBTA covered all of New England." A geographic map of the whole region, later dropped from Day 8. |
 | `regional_map.png`, `regional_map.pdf` | A second regional poster, also dropped. |
 | `draft_network.png` | Early network draft. |

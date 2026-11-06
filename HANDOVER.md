@@ -4,34 +4,33 @@ Last updated November 6, 2026.
 
 ## Where it stands
 
-- **Main map:** `boston-map/src/make_tmap.py` draws the current map. It renders here pixel-for-pixel the same as the Day 8 working copy, and the overlap checks pass.
+- **Main map:** `boston-map/src/make_tmap.py` draws the current map. This repo is now ahead of the Day 8 working copy, and the overlap checks pass. (`labels.py` flags "Rapid T | ransit". That's deliberate: the title is drawn in two pieces to tighten the T.)
 - **Day 8 deadline:** Sunday, November 8, 2026. The challenge post still has to go out.
 - **Red Line poster:** a sample exists at `boston-map/output/line_red.png`. Max said to do this one sample and **hold the rest until the main map's structure is locked in**.
 - **Project name:** NERTA stays a brainstorm. **Do not put it on the map yet.**
 
 ## Read this before you rebuild
 
-**Max made hand edits in Illustrator that are not in the code.** They're saved in `boston-map/output/day08_rapid_transit_max_edits.ai`. Nobody has compared that file to the code yet, so what he changed is unknown.
+Max's Illustrator edits are now in the code. A comparison showed they were all in the title block: the two-line "Boston's Rapid Transit" title, the moved credits and his disclaimer paragraph. His file is kept as `boston-map/output/day08_rapid_transit_max_edits.ai`.
 
-Running `make_tmap.py` does not touch that file, but any new `.ai` built from `t_map.pdf` will not include those edits.
-
-**Do this first:** ask Max what he changed, or compare the file against `t_map.pdf`, then move those changes into the code.
+Any later hand edit in Illustrator must be moved into the code too, or the next rebuild will lose it. The disclaimer uses Arial Narrow Italic, loaded from `C:\Windows\Fonts\ARIALNI.TTF`, so a machine without that font will need the path changed.
 
 ## Next steps, in order
 
-1. Find Max's Illustrator edits and move them into the code.
-2. Finish the map structure with the open items below.
-3. Export the final Day 8 files and post them.
-4. Make the remaining line posters once the structure is locked.
+1. Finish the map structure with the open items below.
+2. Export the final Day 8 files and post them.
+3. Make the remaining line posters once the structure is locked.
 
 ## Open items on the map
 
 Waiting on Max:
 1. **Green Line letters.** Proposed A for Watertown and F (or N) for Needham, with no letters on any other line. The A branch history is from memory, so verify it with 2 sources first.
-2. **Columbia Point ferry stop.** Max likes it and the sources support it (WBUR, the UMass Boston study, Boston Harbor Now). Not on the map yet.
+2. **Key doesn't match the commuter offshoots.** The Key says dashed means imagined, but Taunton and Marlborough are dashed and real proposals. Their hollow square stops aren't in the Key either. Fix the Key or change how they're drawn.
 3. **Shoreline and Charles River.** Max wants to explore doing these better. Not started.
 4. **Commuter rail map.** Max is thinking about bringing back a separate one. See `docs/IDEAS.md`.
-5. **Smaller calls left open:** North End ferry label (529 Commercial St or none), darker purple so gold reads better, renaming Seaver St for White Stadium, a second sports name (Pierce or Bergeron), striping Orange to Reading.
+5. **Langone Park nod.** Max said to add it if it checks out. Sources weren't clear on the details, so it was never added.
+6. **Post text.** `docs/history/day08_social_posts.md` predates the title change and commuter rail work, and says dashed means imagined. Rewrite it before posting, with the split AI credit.
+7. **Smaller calls left open:** North End ferry label (529 Commercial St or none), darker purple so gold reads better, renaming Seaver St for White Stadium, a second sports name (Pierce or Bergeron), striping Orange to Reading.
 
 Known problems:
 1. **~$125B total** doesn't include the commuter branches added in the last passes. Decide whether to update it.

@@ -52,7 +52,7 @@ One poster per line, in the style of the official line maps, with transfer pills
 
 ## Regional map
 
-The first New England maps in `boston-map/output/` could return as the NERTA system map, now that the project has room for them.
+The first New England maps in `boston-map/output/` could return as the NERTA system map, now that the project has room for them. Their ideas carry over too, such as Max's Newport to Providence link through Bristol. The decision log has the full regional network.
 
 ## Development-led stops
 

@@ -82,6 +82,7 @@ What backs each new piece of the map. **Two** = two sources. **One** = a single 
 | Fitchburg to Greenfield and North Adams | Label | Northern Tier Passenger Rail study. Two sources: CBS Boston, Wikipedia | Two |
 | Cape Cod via Middleborough | Label | Buzzards Bay extension option. One source: Buzzards Bay National Estuary Program | One |
 | Foxborough to Mansfield | Dashed | Real track (Framingham Secondary, Wikipedia). Regular service here is our idea | One |
+| Columbia Point ferry stop | Ferry | Studied. WBUR, UMass Boston study and Boston Harbor Now agree on a ferry there; the terminal would use Fallon Pier. The link to Long Island is our routing | Two |
 | High-speed destinations | Gold in purple | Max's call: Concord via Lowell, Nashua and Manchester; NYC via Providence and New Haven; Albany via Worcester and Springfield; Montreal via Burlington VT; Bangor via Portsmouth, Portland and Augusta. NYC via Providence is the real corridor. The other routes were not checked against real plans | Invented except NYC |
 
 ## Added after the stop review
