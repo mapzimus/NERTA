@@ -7,6 +7,7 @@ Last updated November 6, 2026.
 - **Main map:** `boston-map/src/make_tmap.py` draws the current map. This repo is now ahead of the Day 8 working copy, and the overlap checks pass. (`labels.py` flags "Rapid T | ransit". That's deliberate: the title is drawn in two pieces to tighten the T.)
 - **Day 8 deadline:** Sunday, November 8, 2026. The challenge post still has to go out.
 - **Red Line poster:** a sample exists at `boston-map/output/line_red.png`. Max said to do this one sample and **hold the rest until the main map's structure is locked in**.
+- **Master files:** `Desktop\30daymap\day08-utopia-boston*` match this repo as of the last commit. Overwrite them after any rebuild.
 - **Project name:** NERTA stays a brainstorm. **Do not put it on the map yet.**
 
 ## Read this before you rebuild
@@ -44,7 +45,7 @@ Facts still on one source are marked in `boston-map/data/line_audit.md`.
 ## Where things live outside this repo
 
 - **Day 8 working copy:** `D:\REPOS\30dmc-day08`, branch `day-08-utopia`, in `days/08-utopia/`. Its last commit is `fffb29b`. **All later work there is uncommitted and the branch was never pushed**, so this repo is the safe copy.
-- **Desktop finals:** `Desktop\30daymap\day08-utopia-boston*`. These are older than this repo: they have the 13-route commuter work but not the Suffolk Downs ring, the South Salem label fix or Max's hand edits.
+- **Desktop finals:** `Desktop\30daymap\day08-utopia-boston*` (`.png`, `-hires.png`, `.pdf`, `.ai`). The hi-res file is a 600 dpi Illustrator export.
 - **Reference images:** Max's photos of old T maps and the official Red Line poster were left out of this public repo on purpose.
 - **Full session transcript:** `C:\Users\mhowe\.claude\projects\D--REPOS-30-day-map-challenge-2026\6191c34a-246f-4fb5-a839-115daa477823.jsonl`.
 

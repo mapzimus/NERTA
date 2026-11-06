@@ -264,6 +264,9 @@ NUDGE["Broadway"] = (0, 0)
 SIDE["Museum of Fine Arts"] = "r"
 NUDGE.pop("Brigham Circle", None)
 SIDE["Encore"] = "x"
+SIDE["Park Street"] = "r"
+NUDGE["Park Street"] = (0.4, -1.0)
+SIDE["Downtown Crossing"] = "x"
 SHIFT = {"r": (1, 0), "l": (-1, 0), "tr": (1, 1), "tl": (-1, 1), "br": (1, -1), "bl": (-1, -1)}
 
 
@@ -386,6 +389,7 @@ def ferries(ax):
     long_island = dock((166, 66))
     hull = dock((189, 60))
     columbia = dock((148, 47))
+    winthrop = dock((172, 118))
     print("columbia dock", [round(v, 1) for v in columbia])
     hingham = [to_basin[0][1], (134, 91), (162, 80), long_island, georges, hull]
     split = (176, 113)
@@ -404,7 +408,7 @@ def ferries(ax):
     if np.hypot(*(down[0] - np.array(BASIN[-1]))) > np.hypot(*(down[-1] - np.array(BASIN[-1]))):
         down = down[::-1]
     turn = smooth_open(np.array([up[-1], (BASIN[-1][0] - 1.6, BASIN[-1][1]), down[0]]), 3)
-    legs = route([q for _, q, _ in to_basin] + [tuple(up[0])]) + [up, turn, down] + route([tuple(down[-1])] + [q for _, q, _ in from_basin]) + route(hingham) + route(north) + route(salem) + route([long_island, (153, 58), (150.5, 53), columbia])
+    legs = route([q for _, q, _ in to_basin] + [tuple(up[0])]) + [up, turn, down] + route([tuple(down[-1])] + [q for _, q, _ in from_basin]) + route(hingham) + route(north) + route(salem) + route([long_island, (153, 58), (150.5, 53), columbia]) + route([split, winthrop])
     land = 0.0
     for xy in legs:
         off = LineString(xy).difference(wet)
@@ -416,6 +420,8 @@ def ferries(ax):
     cy = LineString(rounded([(140, 76), (149, 76), (152, 73), (152, 67), (149, 64), (122, 64)], 3))
     print(f"cyan southie in water: {cy.intersection(SEA.buffer(0)).length:.2f} units")
     ax.scatter(*columbia, s=26, color=WHITE, edgecolor=INK, lw=1.2, zorder=3.2)
+    ax.scatter(*winthrop, s=26, color=WHITE, edgecolor=INK, lw=1.2, zorder=3.2)
+    label(ax, winthrop, "Winthrop Landing", "l", gap=1.8, fs=7.6, color=FERRY)
     label(ax, columbia, "Columbia Point", "b", gap=1.8, fs=7.6, color=FERRY)
     for n, q, t in to_basin + from_basin[:-1]:
         if n in TRANSIT:
@@ -531,10 +537,11 @@ def main():
     # Silver Line: a short airport shuttle, one line running both ways, from Logan Dock past every terminal to Airport
     stroke(ax, rounded([LOGAN, pts["Terminals"], (156, 112), (143, 125), (135, 125)], 2.4), SILVER, LW * 0.72, "dash", z=4.4)
     silver = [("A", (143.8, 99.8), -1.6, 1.8), ("B", (152, 116), 1.8, 1.8), ("C", (148.5, 119.5), 1.8, 1.8), ("E", (145, 123), 1.8, 1.8)]
-    for q in [LOGAN, (139.5, 125), (152, 108)] + [v[1] for v in silver]:
+    for q in [LOGAN, (141.6, 97.7), (139.5, 125), (152, 108)] + [v[1] for v in silver]:
         ax.scatter(*q, s=(LW * 0.62) ** 2, color=WHITE, edgecolor=INK, lw=0.5, zorder=8)
     label(ax, (143.5, 125), "Rental Cars", "t", gap=1.5, fs=7.6)
     label(ax, (152, 108), "Parking", "tl", gap=1.5, fs=7.6)
+    label(ax, (142.9, 96.7), "Office\nCenter", "r", gap=0, fs=7.2)
     for t, q, dx, dy in silver:
         ax.text(q[0] + dx, q[1] + dy, t, fontsize=8.8, fontweight="bold", color=INK, ha="center", va="center", zorder=11)
     barred = not_accessible()
@@ -560,6 +567,8 @@ def main():
     for t, xy, ha in CR_TEXT:
         ax.text(*xy, t, fontsize=7.4, fontweight="bold", color=CR_TEXT_COLOR, ha=ha, va="bottom", zorder=12)
     # Downtown names sit by hand around the capsules.
+    icon(ax, 99.7, 86.3)
+    label(ax, (98.5, 85.8), "Downtown\nCrossing", "l", gap=0, fs=8.4, halo=True)
     label(ax, (122, 98.2), "BOSTON\nCENTRAL", "r", gap=0, fs=16.5, weight="bold")
     label(ax, (122.2, 121.6), "NORTH\nSTATION", "r", gap=0, fs=11.6, weight="bold")
     label(ax, (120.6, 88), "SOUTH\nSTATION", "r", gap=0, fs=11.6, weight="bold")

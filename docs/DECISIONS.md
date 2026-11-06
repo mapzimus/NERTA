@@ -72,6 +72,7 @@ Suffolk Downs was upgraded to a larger station. Sullivan, Stadium and West Stati
 - Rockport as its own drawn branch
 - Invented offshoots with no proposal: Sudbury, Lynnfield, Medfield, Millis
 - Foxborough off the Greenbush line (wrong side of the region)
+- Suffolk Downs ferry (no proposal found, reopen only if one turns up)
 - East Saugus stop
 - The caption "Everything Boston ever drew..."
 - The line "What if the T went everywhere"

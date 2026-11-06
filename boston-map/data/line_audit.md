@@ -83,6 +83,8 @@ What backs each new piece of the map. **Two** = two sources. **One** = a single 
 | Cape Cod via Middleborough | Label | Buzzards Bay extension option. One source: Buzzards Bay National Estuary Program | One |
 | Foxborough to Mansfield | Dashed | Real track (Framingham Secondary, Wikipedia). Regular service here is our idea | One |
 | Columbia Point ferry stop | Ferry | Studied. WBUR, UMass Boston study and Boston Harbor Now agree on a ferry there; the terminal would use Fallon Pier. The link to Long Island is our routing | Two |
+| Winthrop Landing ferry | Ferry | Running route. MBTA Winthrop Ferry page and the Town of Winthrop agree. Dock position is schematic | Two |
+| Logan Office Center on Silver | Dashed | Real stop on Massport shuttle Route 66, per Massport. Our Silver Line is imagined | One |
 | High-speed destinations | Gold in purple | Max's call: Concord via Lowell, Nashua and Manchester; NYC via Providence and New Haven; Albany via Worcester and Springfield; Montreal via Burlington VT; Bangor via Portsmouth, Portland and Augusta. NYC via Providence is the real corridor. The other routes were not checked against real plans | Invented except NYC |
 
 ## Added after the stop review
