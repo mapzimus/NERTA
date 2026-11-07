@@ -113,7 +113,7 @@ def lines():
     # Yellow, the Urban Ring. Grand Junction section striped, the rest dashed.
     x += [(YELLOW, "dash", [(148, 104), (148, 105), (135, 118), (135, 137)], ["Terminals", "Airport", "Day Sq", "Bellingham Sq"]),
           (YELLOW, "dash", [(135, 137), (135, 150), (102, 150), (90, 138)],
-           ["Bellingham Sq", "Chelsea", "Everett Sq", "Stadium", "Encore+", "Sullivan Sq", "Inner Belt", "Lechmere"]),
+           ["Bellingham Sq", "Chelsea", "Everett Sq", "Stadium", "Sullivan Sq", "Inner Belt", "Lechmere"]),
           (YELLOW, "dash", [(140, 76), (148, 84), (148, 104)], ["Seaport", "Terminals"]),
           (YELLOW, "stripe", [(90, 138), (90, 120), (59, 89)], ["Lechmere", "Binney", "Kendall/MIT", "Mass Ave", "BU Bridge", "West Station"]),
           (YELLOW, "dash", [(59, 89), (54, 84), (50, 80), (50, 56), (114, 56), (118, 52)],
@@ -122,7 +122,7 @@ def lines():
     return x
 
 
-EXTRA = {"Encore+": (116.0, 150), "Sullivan Sq+": (102, 150), "Fenway+": (50, 76), "South Station+": (114, 78.5)}
+EXTRA = {"Sullivan Sq+": (102, 150), "Fenway+": (50, 76), "South Station+": (114, 78.5)}
 
 # Commuter rail, thin purple. All of it now runs through the tunnel, so no line ends downtown.
 CR_PATHS = [
@@ -239,7 +239,6 @@ for n in ("Broadway", "Andrew", "JFK/UMass", "North Quincy", "Wollaston", "Quinc
     NUDGE[n] = (NUDGE.get(n, (0, 0))[0] + 2.6, NUDGE.get(n, (0, 0))[1])
 TEXT["Hyde Park"] = "Hyde\nPark"
 SIDE.update({"Andrew": "l", "Fields Corner": "l"})
-NUDGE["Stadium"] = (NUDGE.get("Stadium", (0, 0))[0] + 10.3, NUDGE.get("Stadium", (0, 0))[1])  # clear of the Yellow Encore stop
 NUDGE["Andrew"] = (0, 0)
 NUDGE["Mass. Ave"] = (1.3, -0.9)  # clear of the larger Back Bay ring
 NUDGE["Fields Corner"] = (0, 0)
@@ -267,7 +266,6 @@ NUDGE["Broadway"] = (0, 0)
 SIDE["Museum of Fine Arts"] = "r"
 NUDGE.pop("Brigham Circle", None)
 SIDE["Encore"] = "x"
-SIDE["Encore+"] = "x"  # the Cyan Encore label covers both dots
 SIDE["Park Street"] = "r"
 NUDGE["Park Street"] = (0.4, -0.5)
 SIDE["Downtown Crossing"] = "x"
@@ -534,8 +532,6 @@ def main():
         stop(ax, pts[s], LW, True, edge=c)
     for s in RINGS:
         transfer(ax, pts[s], lw=LW)
-    transfer(ax, pts["Encore"], lw=LW)
-    transfer(ax, EXTRA["Encore+"], lw=LW)  # Encore on Yellow, just below the Cyan platform
     # The BIGGER Dig: heavy black bar with white dashes, stopping at the three stations.
     def four_tracks(x0, y0, x1, y1, z):
         """Black casing with four tracks: white local pair outside, gold express pair inside."""

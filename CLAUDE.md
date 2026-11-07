@@ -6,7 +6,7 @@ Read `HANDOVER.md` first. It says where the work stands and what's next.
 
 - Plain English, American spelling (color, gray, center) on maps and in replies.
 - Answer first, short numbered steps, lists of 5 or fewer, one question at a time.
-- Commit or push only when Max asks. This repo is public, so reference images stay out of it unless Max says otherwise.
+- Commit or push only when Max asks. This repo is public, so MBTA reference images stay private in `reference/private/`, listed in `reference/README.md`.
 - Max sends many short messages while you work. A stopped tool call usually means Max is adding something, not that Max is upset. Read the next message and adjust.
 - When Max rejects something, it stays rejected. Check `docs/DECISIONS.md` before suggesting it again.
 

@@ -341,4 +341,4 @@ Forty-eighth pass: Key explains high-speed rail as express. Station wheelchair i
 
 Forty-ninth pass: Logan Terminals renamed. Terminals D and F added. Red's Trapelo Rd loop removed so only Yellow wraps around. Tiers 1 and 2 enlarged. Ferry pills name their docks. Poster frames refit to each line, at 600 dpi. Stop count corrected to 215.
 
-Fiftieth pass: Encore added to Yellow, sharing the Cyan stop's label. Stadium label moved. Full audit of stops, transfers and crossings run against all saved versions. Poster audit script added.
+Fiftieth pass: full audit of stops, transfers and crossings run against all saved versions. Poster audit script added. Encore was briefly added to Yellow, then taken back off: Encore is a Cyan stop only. MBTA reference images stay private, with pointers in the docs.

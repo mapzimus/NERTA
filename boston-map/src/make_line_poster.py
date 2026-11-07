@@ -137,7 +137,7 @@ def yellow_layout():
             dict(stops=c_, path=[left(13), left(14), right(14), right(ups[0])], at=[left(13), g(3, 14), g(8, 14), right(ups[0])], side=["l", "b", "b", "r"]),
             dict(stops=d_, path=[right(ups[0]), right(ups[1])], at=[right(ups[0]), right(ups[1])], side="r"),
             dict(stops=e_, path=[right(ups[1]), right(ups[4])], at=[right(ups[k]) for k in (1, 2, 3, 4)], side="r"),
-            dict(stops=f_, path=[right(ups[4]), right(0), left(0)], at=[right(ups[k]) for k in (4, 5, 6)] + [g(24, 0), g(22.4, 0), g(19.4, 0), g(17, 0), left(0)], side=["r", "r", "r", "up", "up", "up", "up", "r"])]
+            dict(stops=f_, path=[right(ups[4]), right(0), left(0)], at=[right(ups[k]) for k in (4, 5, 6)] + [g(23.2, 0), g(20.6, 0), g(17.5, 0), left(0)], side=["r", "r", "r", "up", "up", "up", "r"])]
 
 
 def cyan_layout():

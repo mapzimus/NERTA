@@ -17,11 +17,11 @@ These were used for comparison only. Nothing on the map is copied from them.
 
 ## Images in `private/`
 
-This folder exists only on Max's machine. Git ignores it on purpose, because this repo is public.
+These are at `D:/REPOS/NERTA/reference/private/` on Max's machine. Max decided to keep them private, so git ignores the folder and a fresh clone won't have them. Ask Max if you need them.
 
 | File | What it is |
 |---|---|
-| `chat_01.png` | Reference image Max shared in chat |
+| `chat_01.png` | Photo of an older MBTA commuter rail map, "Going Your Way" |
 | `chat_02.png` | Max's photo of an older Green Line station map |
 | `chat_03.jpg` | Official MBTA Red Line poster, © MBTA, November 2024 |
 

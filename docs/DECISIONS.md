@@ -53,6 +53,7 @@ What's been settled, so nobody reopens it by accident. Detail is in [history/dec
 - Only Yellow gets a wraparound shape. Every other line is a straight line or a tree, so Red's invented Trapelo Rd link was removed. Lexington Route 128 and Waltham are now separate terminals.
 - Poster frames fit each line. Short lines get taller rows so every poster but Yellow and Green stands upright.
 - A poster's ferry pill names the dock when it has a different name from the station, such as "F via Lovejoy Wharf".
+- Encore is on Cyan only. Yellow runs past it without stopping, and that's correct.
 - High-speed rail, labels only:
   - Concord NH via Lowell, Nashua, Manchester
   - NYC via Providence, New Haven

@@ -60,6 +60,10 @@ To install a repo skill, copy its folder to `~/.claude/skills/`. Max's machine h
 
 Full citations are in `boston-map/data/SOURCES.md`.
 
+## Reference images
+
+MBTA reference images are private and not in git. `reference/README.md` lists them and says where they are.
+
 ## Check scripts
 
 All are in `boston-map/tools/`.

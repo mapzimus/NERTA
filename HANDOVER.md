@@ -52,7 +52,6 @@ It is a fan work. It is **not a real MBTA map**, and nothing here is an actual p
 2. **Shoreline and Charles River.** Marblehead, the Neck and Salem Harbor are done. The rest could be improved.
 3. **Langone Park nod.** Max said to add it if it checks out. Sources weren't clear, so it isn't on the map.
 4. **Smaller calls:** the North End ferry label, a darker purple so gold reads better, renaming Seaver St for White Stadium, a second sports name (Pierce or Bergeron), and striping Orange to Reading.
-5. **Reference images in the public repo.** See "Reference material" below.
 
 ## Known problems
 
@@ -113,11 +112,13 @@ Setup is in `docs/TOOLS.md`. This takes about 5 minutes.
 - **Hand edits vanish.** Any edit made only in Illustrator is lost at the next rebuild. Move it into the code.
 - **Font path.** The disclaimer loads Arial Narrow Italic from `C:\Windows\Fonts\ARIALNI.TTF`. Change the path on another machine.
 - **Stop count.** The panel's 215 is typed by hand. It's `audit.py`'s count plus the 10 stops only the Logan Silver Line uses. Update it when stops change.
-- **Hidden second stops.** Fenway and Encore each appear twice in `lines()`, once as `Fenway+` and `Encore+`. That's the same station where two lines run side by side.
+- **Hidden second stops.** Fenway appears twice in `lines()`, once as `Fenway+`. That's the same station where two lines run side by side.
 
 ## Reference material
 
-Links to the official MBTA maps and data are in `reference/README.md`. Three reference images, including an official MBTA poster and a station photo, sit in `reference/private/` on Max's machine. That folder is deliberately left out of git because this repo is public and the MBTA owns the poster. Everything else used to make the map is in this repo.
+Links to the official MBTA maps and data are in `reference/README.md`.
+
+Three reference images, including an official MBTA poster and a station photo, are kept private at `D:/REPOS/NERTA/reference/private/` on Max's machine. Max decided to keep them out of git because this repo is public and the MBTA owns the poster. A fresh clone won't have them, so ask Max if you need them. `reference/README.md` lists each file.
 
 ## Outside this repo
 

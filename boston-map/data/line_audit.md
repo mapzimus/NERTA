@@ -56,7 +56,6 @@ What backs each new piece of the map. **Two** = two sources. **One** = a single 
 | Yellow ring | Dashed, Grand Junction striped | Urban Ring studies. Closing it under the harbor is a fact-sheet note | Two for the corridor; tunnel one |
 | Longwood station, Yellow to the E | Transfer pill | Brief says a core station is missing | One |
 | Mass & Cass Treatment Center stop | Dashed | Ours | Invented |
-| Encore on Yellow | Dashed | Same stop as the Cyan Encore. Yellow runs just below it, so riders can change there | Same basis as the Encore stop |
 | Stadium stop | Dashed | Stadium site at old Mystic Station, not approved | Two for the site |
 | Encore stop | Dashed | Wynn funding offer, MBTA approval pending, disputed site | Two |
 | Cyan Line | Dashed | Max's design. Follows the Charlestown El and Atlantic Ave El corridors | Two for history; line invented |
