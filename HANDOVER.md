@@ -1,55 +1,130 @@
 # Handover
 
-Last updated November 6, 2026.
+Last updated November 6, 2026. This assumes you've never seen the project.
+
+## What this is
+
+NERTA is a personal fantasy transit project by Max Howe, a GIS analyst in Massachusetts. It imagines a future Boston subway and regional rail network, drawn in the style of the MBTA's station wall posters.
+
+It began as Day 8 (theme: Utopia) of the 2026 #30DayMapChallenge, a yearly online map-making event. The map outgrew one day, so it moved into this repo.
+
+It is a fan work. It is **not a real MBTA map**, and nothing here is an actual plan.
+
+**The finished pieces:**
+
+1. One main map, "Boston's Rapid Transit".
+2. Eight line posters: Red, Orange, Blue, Green, Yellow, Cyan, Indigo and Silver.
+
+**The main idea on the map:** "The BIGGER Dig", a four-track tunnel joining North Station and South Station at a new station called Boston Central. Around it are extended T lines, four new or rethought lines, all 13 commuter rail routes, high-speed rail and ferries.
+
+| Term | Meaning |
+|---|---|
+| The T | Boston's subway. MBTA is the agency that runs it |
+| The BIGGER Dig | Our North-South Rail Link tunnel, named after the Big Dig highway project |
+| Pill | The small colored capsule on a poster that shows a transfer, like `OL` or `CR` |
+| Solid, striped, dashed | Running today, a real proposal, imagined |
+| CR, HSR, F | Commuter rail, high-speed rail, ferry |
 
 ## Where it stands
 
-- **Main map:** `boston-map/src/make_tmap.py` draws the current map, titled "Boston's Rapid Transit". The checks pass. (`labels.py` flags "Rapid T | ransit". That's deliberate: the title is drawn in two pieces to tighten the T.)
-- **Line posters:** all eight are done: Red, Orange, Blue, Green, Yellow, Cyan, Indigo, Silver. Each shows transfers, including ferry (F) and high-speed rail (HSR) pills. Bus connections aren't on them yet.
-- **Master files:** `Desktop\30daymap\` holds the main map as `day08-utopia-boston*` and the posters as `day08-line-*.png`. Overwrite them after any rebuild.
-- **Day 8 deadline:** Sunday, November 8, 2026. The post hasn't gone out. Draft text is in `docs/history/day08_social_posts.md`.
-- **Project name:** NERTA stays a brainstorm. **Do not put it on the map yet.** The T stays, with no new logo.
-- **Style skill:** `skills/mbta-style/` is installed at `~/.claude/skills/mbta-style/`. Update both copies together.
+**Done and checked:**
 
-## Read this before you rebuild
+- The main map and all eight posters are final unless Max changes something.
+- Every stop on the main map is on its line's poster, and no poster has an extra stop. `boston-map/tools/poster_audit.py` checks this and every shared-stop pill. The map shows 215 T stops.
+- The label overlap checks pass. `labels.py` always flags "Rapid T | ransit", which is deliberate: the title is drawn in two pieces to tighten the T. `marks.py` always flags "Lynn Harbor" against its own dot.
+- High-resolution files are in the repo and in `Desktop\30daymap\` on Max's machine.
 
-Any hand edit in Illustrator must be moved into the code, or the next rebuild loses it. Max's earlier edits are already in. His file is kept as `boston-map/output/day08_rapid_transit_max_edits.ai`.
+**Not done:**
 
-The disclaimer uses Arial Narrow Italic, loaded from `C:\Windows\Fonts\ARIALNI.TTF`, so a machine without that font needs the path changed.
+- **The Day 8 post hasn't gone out. It's due Sunday, November 8, 2026.** Draft text is in `docs/history/day08_social_posts.md`. Max needs to review it first.
 
-Rebuild order: render with `tools/marks.py`, open `t_map.pdf` in Illustrator, save as `day08_rapid_transit.ai`, export PNG at 200 dpi to `output/` and 600 dpi to the Desktop, then copy the `.png`, `.ai` and `.pdf` to the Desktop names.
+## What to do next, in order
 
-## Next steps, in order
+1. Post Day 8.
+2. Choose a fix for the crowded top right corner. Options are in `docs/IDEAS.md`.
+3. Build the regional commuter rail map. The main map only shows commuter rail lightly, so this one carries the detail.
+4. Add buses: on the regional map, very faintly on the main map, and on the posters.
+5. Move to other New England cities, using the stations-first method in `docs/IDEAS.md`.
 
-1. Post Day 8. Max should review the draft text first.
-2. Choose a fix for the top right corner. Options are in `docs/IDEAS.md`.
-3. Build the regional commuter rail map.
-4. Work out buses: on the regional map, very faint on the main map, and on line posters.
-5. Then move to other New England cities, using the stations-first method in `docs/IDEAS.md`.
+## Open questions for Max
 
-## Open items
+1. **Green Line letters.** The proposal is A for Watertown and F or N for Needham. The A branch history is from memory, so check it with 2 sources first.
+2. **Shoreline and Charles River.** Marblehead, the Neck and Salem Harbor are done. The rest could be improved.
+3. **Langone Park nod.** Max said to add it if it checks out. Sources weren't clear, so it isn't on the map.
+4. **Smaller calls:** the North End ferry label, a darker purple so gold reads better, renaming Seaver St for White Stadium, a second sports name (Pierce or Bergeron), and striping Orange to Reading.
+5. **Reference images in the public repo.** See "Reference material" below.
 
-Waiting on Max:
-1. **Green Line letters.** Proposed A for Watertown and F (or N) for Needham, with no letters on any other line. The A branch history is from memory, so verify it with 2 sources first.
-2. **Shoreline and Charles River.** Marblehead, the Neck and Salem Harbor are done, using new anchor points in `SHORE`. The rest of the shoreline and the Charles are not started.
-3. **Langone Park nod.** Max said to add it if it checks out. Sources weren't clear on the details, so it was never added.
-4. **Smaller calls left open:** North End ferry label (529 Commercial St or none), darker purple so gold reads better, renaming Seaver St for White Stadium, a second sports name (Pierce or Bergeron), striping Orange to Reading.
+## Known problems
 
-Known problems:
-1. **Cost inputs:** three CPI values need checking against BLS, and the mileage is hand estimated. See `boston-map/data/SOURCES.md`.
-2. **Poster pills:** the F and HSR pills were set by hand. The Red poster was checked closely against the main map, and the rest were only looked over once. Check them when the map changes.
-3. **Ferry track** runs 0.25 units over land near Georges Island.
-4. **Top right corner** is still crowded, though nothing overlaps.
-5. **Unfinished message:** Max once wrote "And I really want to I haven't" and it was cut off. Worth asking.
+1. **Cost figure:** the $125B is rough. Three inflation inputs need checking against BLS, and the mileage is hand estimated. See `boston-map/data/SOURCES.md`.
+2. **Ferry track:** it runs slightly over land near Georges Island.
+3. **Dashed corners:** dash ends look clipped on tight curves when zoomed in, most on Yellow's sharp corner.
+4. **Top right corner:** crowded, though nothing overlaps.
+5. **Unfinished message:** Max once wrote "And I really want to I haven't" and it was cut off. Worth asking about.
 
-Facts still on one source are marked in `boston-map/data/line_audit.md`.
+Facts resting on one source are marked in `boston-map/data/line_audit.md`.
 
-## Where things live outside this repo
+## Where things are
 
-- **Day 8 working copy:** `D:\REPOS\30dmc-day08`, branch `day-08-utopia`, in `days/08-utopia/`. Its last commit is `fffb29b`. All later work there is uncommitted and the branch was never pushed, so this repo is the safe copy.
-- **Reference images:** Max's photos of old T maps and the official Red Line poster were left out of this public repo on purpose.
+| Need | Go to |
+|---|---|
+| Map and poster code | `boston-map/src/make_tmap.py`, `make_line_poster.py`, `station_kit.py` |
+| Finished images | `boston-map/output/`. `docs/VERSIONS.md` says which files are current |
+| What's been decided or rejected | `docs/DECISIONS.md` |
+| Evidence for every line and stop | `boston-map/data/line_audit.md`, `boston-map/data/SOURCES.md` |
+| Software, plugins, skills, setup | `docs/TOOLS.md` |
+| Reference material | `reference/README.md` |
+| Future ideas | `docs/IDEAS.md` |
+| Research notes | `research/` |
+| Pass-by-pass history | `docs/history/decision_log_all_passes.md` |
+| Rules for working on this | `CLAUDE.md` |
+
+## How to rebuild everything
+
+Setup is in `docs/TOOLS.md`. This takes about 5 minutes.
+
+1. Render the main map and run its checks:
+
+   ```bash
+   cd boston-map/tools
+   python marks.py
+   python labels.py make_tmap
+   python audit.py
+   ```
+
+2. Render the posters at 600 dpi, then check them against the map:
+
+   ```bash
+   cd ../src
+   python make_line_poster.py
+   cd ../tools
+   python poster_audit.py
+   ```
+
+3. In Illustrator, open `boston-map/output/t_map.pdf` and save it as `day08_rapid_transit.ai`.
+4. Export the artboard at 200 dpi as `day08_rapid_transit.png` and at 600 dpi as `day08_rapid_transit_hires.png`, both in `boston-map/output/`.
+5. On Max's machine, copy the results to `Desktop\30daymap\`:
+   - `day08_rapid_transit.png`, `.ai` and `t_map.pdf` become `day08-utopia-boston.png`, `.ai` and `.pdf`.
+   - `day08_rapid_transit_hires.png` becomes `day08-utopia-boston-hires.png`.
+   - Each `line_<name>.png` becomes `day08-line-<name>.png`.
+
+**Things that can bite you:**
+
+- **Hand edits vanish.** Any edit made only in Illustrator is lost at the next rebuild. Move it into the code.
+- **Font path.** The disclaimer loads Arial Narrow Italic from `C:\Windows\Fonts\ARIALNI.TTF`. Change the path on another machine.
+- **Stop count.** The panel's 215 is typed by hand. It's `audit.py`'s count plus the 10 stops only the Logan Silver Line uses. Update it when stops change.
+- **Hidden second stops.** Fenway and Encore each appear twice in `lines()`, once as `Fenway+` and `Encore+`. That's the same station where two lines run side by side.
+
+## Reference material
+
+Links to the official MBTA maps and data are in `reference/README.md`. Three reference images, including an official MBTA poster and a station photo, sit in `reference/private/` on Max's machine. That folder is deliberately left out of git because this repo is public and the MBTA owns the poster. Everything else used to make the map is in this repo.
+
+## Outside this repo
+
+- **Old Day 8 working copy:** `D:\REPOS\30dmc-day08`, branch `day-08-utopia`. It's out of date, so don't work there.
 - **Full session transcript:** `C:\Users\mhowe\.claude\projects\D--REPOS-30-day-map-challenge-2026\6191c34a-246f-4fb5-a839-115daa477823.jsonl`.
+- **Recovered Illustrator file:** `boston-map/output/day08_rapid_transit [Recovered]1111.ai` is an old crash recovery on Max's machine. It has no hand edits worth keeping and isn't in git.
 
-## Prompt for a new session
+## Starting a new Claude session
 
 > Read HANDOVER.md, CLAUDE.md and docs/DECISIONS.md in this repo. Then tell me where the map stands and what you need from me first.

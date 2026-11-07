@@ -20,7 +20,7 @@ What backs each new piece of the map. **Two** = two sources. **One** = a single 
 | Red to Arlington Heights, East Arlington | Striped | 1970s plan, 2026 Town Meeting vote, brief | Two |
 | Red to Lexington Route 128 | Striped | 1970s plan: WBUR, track map | Two |
 | Red to Waltham | Striped | 1947 plan, track map. Brief argues against it | Two |
-| Lexington to Waltham link, Trapelo Rd | Dashed | Ours | Invented |
+| Lexington to Waltham link, Trapelo Rd | Removed | Was invented, and it closed Red into a loop. Only Yellow gets a wraparound shape | Dropped |
 | North Cambridge stop | Solid line | Resident request to the planning board | One |
 | Mattapan Line | Solid | Runs today; drawn as Red like the real map | Exists |
 | Red-Blue Connector | Striped | In design, not funded to build | Two |
@@ -56,6 +56,7 @@ What backs each new piece of the map. **Two** = two sources. **One** = a single 
 | Yellow ring | Dashed, Grand Junction striped | Urban Ring studies. Closing it under the harbor is a fact-sheet note | Two for the corridor; tunnel one |
 | Longwood station, Yellow to the E | Transfer pill | Brief says a core station is missing | One |
 | Mass & Cass Treatment Center stop | Dashed | Ours | Invented |
+| Encore on Yellow | Dashed | Same stop as the Cyan Encore. Yellow runs just below it, so riders can change there | Same basis as the Encore stop |
 | Stadium stop | Dashed | Stadium site at old Mystic Station, not approved | Two for the site |
 | Encore stop | Dashed | Wynn funding offer, MBTA approval pending, disputed site | Two |
 | Cyan Line | Dashed | Max's design. Follows the Charlestown El and Atlantic Ave El corridors | Two for history; line invented |
@@ -70,7 +71,7 @@ What backs each new piece of the map. **Two** = two sources. **One** = a single 
 | Haverhill via Wildcat | Solid | Harvard model, TransitMatters | Two |
 | Peabody and Danvers to Lawrence | Dashed | Old Essex Railroad | Two for the corridor; dates differ |
 | South Salem stop | Striped | MBTA design solicitation July 2026 | One |
-| River Works | Purple stop | Exists today; moved toward Lynn in the diagram | Exists |
+| River Works | Removed | Exists today but mainly serves GE employees, so it was dropped from the future map | Dropped |
 | Franklin split at Readville | Solid | Real. Two sources: Wikipedia Franklin/Foxboro Line and Providence/Stoughton Line pages, with Readville on the MBTA Franklin schedule | Two |
 | Foxborough split at Walpole | Solid | Real junction per Wikipedia only (Framingham Secondary). Unverified | One |
 | Greenbush, Kingston, Fall River/New Bedford split at Braintree | Solid | Shared stops end at Braintree in the MBTA stop data. One source, unverified | One |
@@ -90,6 +91,9 @@ What backs each new piece of the map. **Two** = two sources. **One** = a single 
 | Squantum Point ferry stop | Ferry | Real. The Marina Bay Ferry leaves from Squantum Point (mbferry.com), and Boston Harbor Now has a business plan for Columbia Point service | Two |
 | Hingham Shipyard ferry stop | Ferry | Real Hingham service (City of Quincy, MBTA ferry page). The exact terminal name is from memory, so unverified | One |
 | Salem Wharf ferry stop | Ferry | Running route. Salem Ferry Terminal on Blaney Street: City of Salem, Port of Salem and City Cruises agree | Two |
+| Day Sq on Yellow | Dashed | Day Square infill is proposed on the Silver Line SL3 corridor, per Wikipedia and PLAN: East Boston coverage in Banker & Tradesman. Yellow follows that corridor here. Not confirmed in an MBTA document. No Blue Line proposal was found | Two, secondary |
+| Lewis Mall ferry stop | Ferry | MBTA East Boston ferry. The MBTA notice calls it East Boston at Lewis Mall Wharf. CBS, NBC and others agree on the route. Runs seasonally | Two |
+| Moakley Park on Yellow | Dashed | Imagined stop. Based on development plans, not a transit proposal: Moakley Park and Mary Ellen McCormack, per a Codex research document citing the City of Boston and the Boston Housing Authority. Those links were not independently checked | Unverified |
 | High-speed destinations | Gold in purple | Max's call: Concord via Lowell, Nashua and Manchester; NYC via Providence and New Haven; Albany via Worcester and Springfield; Montreal via Burlington VT; Bangor via Portsmouth, Portland and Augusta. NYC via Providence is the real corridor. The other routes were not checked against real plans | Invented except NYC |
 
 ## Added after the stop review
@@ -104,7 +108,12 @@ Residents and jobs within half a mile come from the 2020 Census and 2022 LODES. 
 | Marblehead branch from South Salem | Dashed | Old branch, from memory. About 3,900 | Unverified |
 | Woburn and Burlington branch | Dashed | Old Woburn Branch, from a Reddit comment; Burlington link is ours. About 25,000 jobs within a mile of Burlington Mall | Unverified |
 | Plymouth on the South Shore line | Label | Track and station exist, closed since 2021 | Two |
+| West Medford commuter rail transfer | Green pill | Real Lowell Line stop: Wikipedia and the Boston Globe | Two |
+| North Station ferry transfer | Pill | Lovejoy Wharf is listed by the MBTA as Lovejoy Wharf (North Station). Wikipedia also places it by the station | Two |
 | Parking stop on Silver | Dashed | Logan has central parking; position is schematic | Invented placement |
+| Terminal A, B, C, E order on Silver | Dashed | Shuttle routes pair A with B and C with E (Wikipedia, Airport station). Rider reports give A, B, C, E (Miles in Transit). No official stop list found | Two |
+| Terminal D on Silver | Dashed | Real terminal removed in 2006, per Boston.com and Aviation Pros. Rebuilt here as a future what-if | Two for the history; return is invented |
+| Terminal F on Silver | Dashed | Invented on purpose, as a joke to get people talking. No real Terminal F | Invented |
 | Silver Line as a Logan shuttle | Dashed | Replaces the free Massport buses between Airport Station, terminals, Rental Car Center and the dock. Stop order is schematic | Two for the buses; line invented |
 
 ## Local touches

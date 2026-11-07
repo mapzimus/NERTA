@@ -10,7 +10,9 @@ This is a personal fantasy map. It is **not a real MBTA map** and has no connect
 
 | If you want to... | Read |
 |---|---|
-| Pick up the work in a new session | [HANDOVER.md](HANDOVER.md) |
+| Pick up the work, with no prior context | [HANDOVER.md](HANDOVER.md) |
+| Set up the software, plugins and skills | [docs/TOOLS.md](docs/TOOLS.md) |
+| Find the MBTA reference material | [reference/README.md](reference/README.md) |
 | See what's been decided, and what was rejected | [docs/DECISIONS.md](docs/DECISIONS.md) |
 | See every version of the map and which is current | [docs/VERSIONS.md](docs/VERSIONS.md) |
 | Think about what comes next | [docs/IDEAS.md](docs/IDEAS.md) |
@@ -25,8 +27,9 @@ This is a personal fantasy map. It is **not a real MBTA map** and has no connect
 - `boston-map/tools/`: checks for overlaps, dots under pills, stops in water and routing, plus the stop scoring work.
 - `data/shared/`: New England towns, rivers and rail layers.
 - `research/`: notes on Massachusetts, NH and Maine, CT, RI and western MA, Vermont and gateway cities, the Boston subway, and historic track.
-- `docs/`: decisions, versions, ideas and history.
-- `skills/mbta-style/`: the reusable style guide for making more maps like this.
+- `docs/`: decisions, versions, ideas, tools, history and Claude's working notes.
+- `reference/`: links to the MBTA maps and data used for comparison.
+- `skills/`: `mbta-style`, the reusable style guide for making more maps like this, and `geospatial-mapmaker`, Max's general map guide.
 
 ## Rebuild the map
 
@@ -36,9 +39,9 @@ python make_tmap.py
 python make_line_poster.py
 ```
 
-This writes `t_map.png`, `t_map.pdf` and a PNG and PDF for each line poster to `boston-map/output/`. Hand edits made in Illustrator are not in the code, so see the warning in [HANDOVER.md](HANDOVER.md).
+This writes `t_map.png`, `t_map.pdf` and a 600 dpi PNG and vector PDF for each line poster to `boston-map/output/`. Hand edits made in Illustrator are not in the code, so see the warning in [HANDOVER.md](HANDOVER.md).
 
-Needs Python with matplotlib, geopandas, shapely, numpy, scipy and Pillow, plus the Arial font.
+Needs Python and the Arial font. Install packages with `pip install -r boston-map/requirements.txt`. The full setup is in [docs/TOOLS.md](docs/TOOLS.md).
 
 ## Credits and data
 

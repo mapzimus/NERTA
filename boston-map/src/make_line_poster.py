@@ -25,7 +25,7 @@ LWP = 12.0     # line width in points
 LWU = LWP / PPU
 CR_COLOR = M.CR_TEXT_COLOR
 CODES = {M.ORANGE: "OL", M.BLUE: "BL", M.GREEN: "GL", M.YELLOW: "YL", M.CYAN: "CL", M.INDIGO: "IL", M.RED: "RL"}
-PILL = {"HSR": M.HSR, "F": M.FERRY, "SL": M.SILVER, "OL": M.ORANGE, "BL": M.BLUE, "GL": M.GREEN, "YL": M.YELLOW, "CL": M.CYAN, "IL": M.INDIGO, "RL": M.RED, "CR": CR_COLOR}
+PILL = {"HSR": CR_COLOR, "F": M.FERRY, "SL": M.SILVER, "OL": M.ORANGE, "BL": M.BLUE, "GL": M.GREEN, "YL": M.YELLOW, "CL": M.CYAN, "IL": M.INDIGO, "RL": M.RED, "CR": CR_COLOR}
 NAMES = {"OL": "Orange Line", "BL": "Blue Line", "GL": "Green Line", "YL": "Yellow Line", "CL": "Cyan Line", "IL": "Indigo Line", "RL": "Red Line",
          "CR": "Commuter Rail", "HSR": "High-speed rail", "F": "Ferry", "SL": "Silver Line"}
 
@@ -43,8 +43,6 @@ def red_layout():
     ash = j + 4.1
     d = 0.8
     return [
-        dict(stops=["Lexington Route 128", "Trapelo Rd", "Waltham"], path=[g(4, 0), g(4, -1.6), g(-4, -1.6), g(-4, 2)],
-             at=[g(4, 0), g(0, -1.6), g(-4, 2)], side=["r", "t", "l"]),
         dict(stops=["Arlington Heights", "Lexington Ctr", "Lexington Route 128"], path=[g(4, 2), g(4, 0)], at=[g(4, 2), g(4, 1), g(4, 0)], side="r"),
         dict(stops=["Arlington Heights", "Arlington Ctr", "East Arlington", "Alewife"], path=[g(4, 2), g(4, 4.6), g(0, 8.6), g(0, a)],
              at=[g(4, 2), g(4, 3), g(4, 4), g(0, a)], side="r"),
@@ -122,15 +120,24 @@ def green_layout():
 
 
 def yellow_layout():
+    """Yellow is a ring, drawn as a leaning parallelogram: long 45-degree sides, short top and base."""
     a_, b_ = stops_of("Lechmere", "West Station"), stops_of("West Station", "JFK/UMass")
     c_, d_ = stops_of("JFK/UMass", "Seaport"), stops_of("Seaport", "Terminals")
     e_, f_ = stops_of("Terminals", "Bellingham Sq"), stops_of("Bellingham Sq", "Lechmere")
-    return [dict(stops=a_, path=[g(0, 0), g(0, 5)], at=col(a_, 0, 0), side="l"),
-            dict(stops=b_, path=[g(0, 5), g(0, 14)], at=col(b_, 0, 5), side="l"),
-            dict(stops=c_, path=[g(0, 14), g(0, 15.5), g(14, 15.5), g(14, 14)], at=[g(0, 14), g(7, 15.5), g(14, 14)], side=["l", "b", "r"]),
-            dict(stops=d_, path=[g(14, 14), g(14, 11.6)], at=[g(14, 14), g(14, 11.6)], side="r"),
-            dict(stops=e_, path=[g(14, 11.6), g(14, 8)], at=[g(14, 11.6), g(14, 9.8), g(14, 8)], side="r"),
-            dict(stops=f_, path=[g(14, 8), g(14, -1), g(0, -1), g(0, 0)], at=[g(14, 8), g(14, 6.7), g(14, 5.4), g(14, 4.1), g(14, 2.8), g(14, 1.5), g(0, 0)], side="r")]
+
+    def left(r):
+        return g(14 - r, r)
+
+    def right(r):
+        return g(25 - r, r)
+
+    ups = [12.6 - 1.75 * k for k in range(7)]  # Seaport up to Everett Sq, clear of the base corner
+    return [dict(stops=a_, path=[left(0), left(5)], at=[left(r) for r in range(6)], side=["t", "l", "l", "l", "l", "l"]),
+            dict(stops=b_, path=[left(5), left(13)], at=[left(5 + k * 8 / 9) for k in range(10)], side="l"),
+            dict(stops=c_, path=[left(13), left(14), right(14), right(ups[0])], at=[left(13), g(3, 14), g(8, 14), right(ups[0])], side=["l", "b", "b", "r"]),
+            dict(stops=d_, path=[right(ups[0]), right(ups[1])], at=[right(ups[0]), right(ups[1])], side="r"),
+            dict(stops=e_, path=[right(ups[1]), right(ups[4])], at=[right(ups[k]) for k in (1, 2, 3, 4)], side="r"),
+            dict(stops=f_, path=[right(ups[4]), right(0), left(0)], at=[right(ups[k]) for k in (4, 5, 6)] + [g(24, 0), g(22.4, 0), g(19.4, 0), g(17, 0), left(0)], side=["r", "r", "r", "up", "up", "up", "up", "r"])]
 
 
 def cyan_layout():
@@ -145,20 +152,23 @@ def indigo_layout():
 
 
 def silver_layout():
-    a_ = ["Logan Dock", "Office Center", "Terminal A", "Terminals", "Parking", "Terminal B", "Terminal C", "Terminal E", "Rental Cars", "Airport"]
-    return [dict(stops=a_, path=[g(0, 0), g(0, 9)], at=col(a_, 0, 0), side="r", style="dash")]
+    a_ = ["Logan Dock", "Office Center", "Terminal A", "Terminals", "Parking", "Terminal B", "Terminal C", "Terminal D", "Terminal E", "Terminal F", "Rental Cars", "Airport"]
+    return [dict(stops=a_, path=[g(0, 0), g(0, 11)], at=col(a_, 0, 0), side="r", style="dash")]
 
 
 # Transfers a shared stop name can't reveal: commuter rail, high-speed rail, ferries, Silver, and Boston Central.
-EXTRA_TRANSFERS = {"Porter": ["CR", "HSR"], "South Station": ["CR", "HSR"], "North Station": ["CR", "HSR"], "Back Bay": ["CR", "HSR"], "West Station": ["CR", "HSR"],
-                   "Ruggles": ["CR"], "Hyde Park": ["CR"], "Readville": ["CR"], "Sullivan Sq": ["CR", "HSR"], "Chelsea": ["CR", "HSR"], "Lynn": ["CR", "HSR"],
-                   "JFK/UMass": ["CR", "F"], "Quincy Center": ["CR"], "Braintree": ["CR"], "Waltham": ["CR"], "North Quincy": ["F"], "Aquarium": ["F"], "North End": ["F"],
+# High-speed rail only stops at Tier 1 and Tier 2 stations with a high-speed line: Boston Central, North, South, West and Back Bay.
+EXTRA_TRANSFERS = {"West Medford": ["CR"], "Porter": ["CR"], "South Station": ["CR", "HSR"], "North Station": ["CR", "HSR", "F"], "Back Bay": ["CR", "HSR"], "West Station": ["CR", "HSR"],
+                   "Ruggles": ["CR"], "Hyde Park": ["CR"], "Readville": ["CR"], "Sullivan Sq": ["CR"], "Chelsea": ["CR"], "Lynn": ["CR"],
+                   "JFK/UMass": ["CR", "F"], "Quincy Center": ["CR"], "Braintree": ["CR"], "Waltham": ["CR"], "North Quincy": ["F"], "Aquarium": ["F"], "Maverick": ["F"], "North End": ["F"],
                    "Lynn Harbor": ["F"], "Encore": ["F"], "Navy Yard": ["F"], "Seaport": ["F"], "Airport": ["SL"], "Terminals": ["SL"], "Logan Dock": ["F"], "State": ["CL", "CR", "HSR"],
                    "Boston Central": ["BL", "OL", "CR", "HSR"]}
 SILVER_LINKS = {"Airport": ["BL", "YL"], "Terminals": ["YL"], "Logan Dock": ["F"]}
 SHOW = {"State": "Boston Central"}
-PILL_DROP = {"Kenmore": 2.5, "Lechmere": -3.1}  # a branch runs where the pill would sit, so it hangs just below
-LAYOUTS = {"red": (M.RED, "RL", "Red" + chr(10) + "Line", red_layout, {"Mattapan", "Weymouth"}),
+FERRY_VIA = {"North Station": "Lovejoy Wharf", "Aquarium": "Long Wharf", "Maverick": "Lewis Mall", "JFK/UMass": "Columbia Point", "North Quincy": "Squantum Point"}  # dock has its own name
+STRETCH = {"silver": 1.8, "indigo": 2.2, "cyan": 1.35, "blue": 1.35}  # short lines get taller rows so every poster stands upright
+AFTER_NAME = {"Kenmore", "Lechmere"}  # a Green branch runs where the pill would sit, so it follows the station name
+LAYOUTS = {"red": (M.RED, "RL", "Red" + chr(10) + "Line", red_layout, {"Mattapan", "Weymouth", "Waltham", "Lexington Route 128"}),
            "orange": (M.ORANGE, "OL", "Orange" + chr(10) + "Line", orange_layout, {"Reading", "Wonderland", "Mattapan", "Readville", "VFW Parkway"}),
            "blue": (M.BLUE, "BL", "Blue" + chr(10) + "Line", blue_layout, {"West Station", "Winthrop Center", "Wyoma Sq"}),
            "green": (M.GREEN, "GL", "Green" + chr(10) + "Line", green_layout, {"West Medford", "Harvard", "Watertown", "Boston College", "Cleveland Circle", "Riverside", "Forest Hills", "VFW Parkway"}),
@@ -197,16 +207,36 @@ def width(text, fs, weight="normal"):
     return TextPath((0, 0), text, size=fs, prop=FontProperties(family="Arial", weight=weight)).get_extents().width / PPU
 
 
-def pills(ax, x, y, codes, sign):
+def gold_core(ax, x0, x1, y, h, z):
+    """High-speed pills copy the map line: gold inside commuter purple. Keeps them apart from Yellow Line pills."""
+    r = 0.55
+    ax.add_patch(FancyBboxPatch((x0 + r, y - h / 2 + r), x1 - x0 - 2 * r, h - 2 * r, boxstyle=f"round,pad=0,rounding_size={h / 2 - r}", fc=M.HSR, ec="none", zorder=z))
+
+
+def pill_text(code, station):
+    return f"F via {FERRY_VIA[station]}" if code == "F" and station in FERRY_VIA else code
+
+
+def pill_w(code, station):
+    text = pill_text(code, station)
+    return 6.6 if text == code else width(text, 8.2, "bold") + 2.6
+
+
+def pills(ax, x, y, codes, sign, station="", free=False):
     """Pills butt against the line on one side; each further pill tucks under the one before it."""
-    h, w, gap = 2.9, 6.6, 0.35
+    h, gap = 2.9, 0.35
+    near = x + sign * LWU / 2
     for i, code in enumerate(codes):
-        near = x + sign * (LWU / 2 + i * (w + gap))
+        w = pill_w(code, station)
+        text = pill_text(code, station)
         far = near + sign * w
-        tuck = near - sign * (LWU / 2 if i == 0 else h / 2 + gap)
+        tuck = near if free and i == 0 else near - sign * (LWU / 2 if i == 0 else h / 2 + gap)
         x0, x1 = sorted((tuck, far))
         ax.add_patch(FancyBboxPatch((x0, y - h / 2), x1 - x0, h, boxstyle=f"round,pad=0,rounding_size={h / 2}", fc=PILL[code], ec=M.PAPER, lw=1.2, zorder=4 - 0.1 * i))
-        ax.text((near + far) / 2 + sign * 0.25, y - 0.08, code, fontsize=8.6, fontweight="bold", color=INK if code in ("YL", "HSR") else WHITE, ha="center", va="center", zorder=4.5)
+        if code == "HSR":
+            gold_core(ax, x0, x1, y, h, 4.05 - 0.1 * i)
+        ax.text((near + far) / 2 + (0 if free else sign * 0.25), y - 0.08, text, fontsize=8.6 if text == code else 8.2, fontweight="bold", color=CR_COLOR if code == "HSR" else INK if code == "YL" else WHITE, ha="center", va="center", zorder=4.5)
+        near = far + sign * gap
 
 
 def name(ax, xy, text, side, bold, accessible):
@@ -215,6 +245,11 @@ def name(ax, xy, text, side, bold, accessible):
     x, y = xy
     gap = 3.3 if not bold else 4.2
     w = width(text, fs, weight)
+    if side == "up":
+        ax.text(x + 0.2, y + 2.3, text, fontsize=fs, fontweight=weight, color=INK, ha="left", va="bottom", rotation=45, rotation_mode="anchor", zorder=11)
+        if accessible:
+            M.icon(ax, x + 0.2 + (w - 0.4) * 0.707 + 1.4, y + 2.3 + (w - 0.4) * 0.707 + 0.6)
+        return
     if side == "b":
         ax.text(x, y - 2.6, text, fontsize=fs, fontweight=weight, color=INK, ha="center", va="top", zorder=11)
         return
@@ -239,13 +274,31 @@ def roundel(ax, x, y, r):
 def main(key):
     color, code, title, layout, ends = LAYOUTS[key]
     legs = layout()
+    f = STRETCH.get(key, 1)
+    for leg in legs:
+        leg["path"] = [(p[0], p[1] * f) for p in leg["path"]]
+        leg["at"] = [(p[0], p[1] * f) for p in leg["at"]]
     tr = transfers(color, key)
-    barred = M.not_accessible()
     xs = [p[0] for leg in legs for p in leg["path"]]
     ys = [p[1] for leg in legs for p in leg["path"]]
     x0, x1 = min(xs) - 40, max(xs) + 44
-    if x1 - x0 < 190:
-        x0, x1 = (x0 + x1) / 2 - 95, (x0 + x1) / 2 + 95
+    left, right = x0, x1
+    all_codes = set()
+    for leg in legs:
+        sides = leg["side"] if isinstance(leg["side"], list) else [leg["side"]] * len(leg["stops"])
+        for n, xy, side in zip(leg["stops"], leg["at"], sides):
+            codes = tr.get(n.rstrip("+"), [])
+            all_codes |= set(codes)
+            reach = LWU / 2 + sum(pill_w(c, n) + 0.35 for c in codes)
+            if codes and side == "l":
+                right = max(right, xy[0] + reach + 5)
+            elif codes and side == "r":
+                left = min(left, xy[0] - reach - 5)
+    x0, x1 = left, right
+    # Wide enough for the header row and the Key, centered on the drawing
+    need = max(122, 8 + (len(all_codes) + 3) // 4 * 27 + 3 + 7.4 + 30 + 5)
+    if x1 - x0 < need:
+        x0, x1 = (x0 + x1) / 2 - need / 2, (x0 + x1) / 2 + need / 2
     y1 = max(ys) + 26
     y0 = min(ys) - 31
     fig = plt.figure(figsize=((x1 - x0) * K, (y1 - y0) * K))
@@ -273,10 +326,13 @@ def main(key):
                 ax.scatter(*xy, s=(LWP * 1.02) ** 2, color=WHITE, edgecolor=INK, lw=2.6, zorder=9)
             else:
                 ax.scatter(*xy, s=(LWP * 0.56) ** 2, color=WHITE, edgecolor=INK, lw=0.7, zorder=9)
-            name(ax, xy, SHOW.get(n, M.TEXT.get(n, n)).replace(chr(10), " ").rstrip("+"), side, n in ends, n not in barred)
+            name(ax, xy, SHOW.get(n, M.TEXT.get(n, n)).replace(chr(10), " ").rstrip("+"), side, n in ends, False)
             if codes:
                 sign = 1 if side == "l" else -1
-                pills(ax, xy[0], xy[1] + PILL_DROP.get(n, 0), codes, sign) if side not in ("t", "b") else pills(ax, xy[0], xy[1] + 7.8 if side == "t" else xy[1] + 3.6, codes, 1)
+                if key == "green" and n in AFTER_NAME:
+                    pills(ax, xy[0] + 3.3 + width(n, 11.6) + 1.4 - LWU / 2, xy[1], codes, 1, n, free=True)
+                    continue
+                pills(ax, xy[0], xy[1], codes, sign, n) if side not in ("t", "b", "up") else pills(ax, xy[0], (xy[1] - 3.9 if key == "yellow" else xy[1] + 7.8) if side in ("t", "up") else xy[1] + 3.6, codes, -1 if side == "up" else 1)
 
     # Header
     hy = y1 - 11
@@ -291,7 +347,9 @@ def main(key):
     for i, c in enumerate(used):
         cx, cy = x0 + 8 + (i // 4) * 27, ky - 1.6 - (i % 4) * 4.4
         ax.add_patch(FancyBboxPatch((cx - 3.3, cy - 1.45), 6.6, 2.9, boxstyle="round,pad=0,rounding_size=1.45", fc=PILL[c], ec="none", zorder=12))
-        ax.text(cx, cy - 0.08, c, fontsize=8.6, fontweight="bold", color=INK if c in ("YL", "HSR") else WHITE, ha="center", va="center", zorder=13)
+        if c == "HSR":
+            gold_core(ax, cx - 3.3, cx + 3.3, cy, 2.9, 12.5)
+        ax.text(cx, cy - 0.08, c, fontsize=8.6, fontweight="bold", color=CR_COLOR if c == "HSR" else INK if c == "YL" else WHITE, ha="center", va="center", zorder=13)
         ax.text(cx + 4.8, cy - 0.05, NAMES[c], fontsize=8.8, color=INK, ha="left", va="center", zorder=13)
     kx = x0 + 8 + ((len(used) + 3) // 4) * 27 + 3
     for i, (st, t) in enumerate((("solid", "Running today"), ("stripe", "New: real proposal"), ("dash", "New: imagined"))):
@@ -299,13 +357,13 @@ def main(key):
         stroke(ax, np.array([(kx - 3, cy), (kx + 5, cy)]), color, LWP * 0.62, st, z=12)
         ax.text(kx + 7.4, cy - 0.05, t, fontsize=8.8, color=INK, ha="left", va="center", zorder=13)
     M.icon(ax, kx + 1, ky - 1.6 - 3 * 4.4)
-    ax.text(kx + 7.4, ky - 1.65 - 3 * 4.4, "Accessible station", fontsize=8.8, color=INK, ha="left", va="center", zorder=13)
+    ax.text(kx + 7.4, ky - 1.65 - 3 * 4.4, "All stations accessible", fontsize=8.8, color=INK, ha="left", va="center", zorder=13)
     ax.text(x1 - 5, hy + 4, "Map: Maxwell Howe", fontsize=9.6, color=INK, ha="right", va="center", zorder=13)
     ax.text(x1 - 5, hy, "#30DayMapChallenge Day 8 • Utopia", fontsize=9.6, color=INK, ha="right", va="center", zorder=13)
     ax.text(x1 - 5, hy - 4, "NOT A REAL MBTA MAP", fontsize=9.6, fontweight="bold", color=M.RED, ha="right", va="center", zorder=13)
 
     plt.rcParams["pdf.fonttype"] = 42
-    fig.savefig(OUT / f"line_{key}.png", dpi=200, facecolor=M.PAPER)
+    fig.savefig(OUT / f"line_{key}.png", dpi=600, facecolor=M.PAPER)
     fig.savefig(OUT / f"line_{key}.pdf", facecolor=M.PAPER)
     print("written", f"line_{key}.png")
     for n in done:

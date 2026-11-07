@@ -35,19 +35,19 @@ SILVER = "#7c878e"
 XLIM, YLIM = (-46, 222), (-20, 208)
 
 # Spots shared between lines, or that fix the shape of a line.
-CR_STOPS = [("River Works", (172, 179), "tl", "solid"), ("Swampscott", (204, 194), "l", "solid"), ("Marblehead", (214.5, 198.5), "t", "dash"), ("Woburn", (66, 201), "t", "dash"), ("Burlington", (80, 201), "r", "dash"),
+CR_STOPS = [("Swampscott", (204, 194), "l", "solid"), ("Marblehead", (214.5, 198.5), "t", "dash"), ("Woburn", (66, 201), "t", "dash"), ("Burlington", (80, 201), "r", "dash"),
             ("South Salem", (208.5, 198.5), None, "stripe"), ("Salem", (212, 203.8), "r", "solid"), ("Peabody", (194, 198.5), "b", "dash"), ("Danvers", (181, 198.5), "b", "dash"),
             ("Boston Landing", (15, 122), "t", "solid"), ("David Ortiz", (61.7, 86.3), "r", "solid"),
             
             ("", (46, 14), None, "solid"), ("Walpole", (34, -13), "l", "solid"), ("Foxborough", (34, -16), None, "solid"), ("Stoughton", (50, -7), None, "solid"),
             ("Newtonville", (6, 122), "b", "solid"), ("West Newton", (-3.5, 122), "b", "solid"), ("Wellesley", (-30, 122), "b", "solid"), ("Concord", (-15, 137), "l", "solid"), ("South\nActon", (-21, 143), "r", "solid"), ("Ayer", (-38, 160), "r", "solid"), ("Winchester", (53, 184), "r", "solid"), ("Anderson", (53, 189), "l", "solid"), ("Wilmington", (53, 194), "l", "solid"), ("Endicott", (43.5, -3.5), "l", "solid"), ("Norwood", (39.5, -7.5), "l", "solid"), ("Brockton", (121.6, -2), "r", "solid"), ("Bridgewater", (121.6, -8), "r", "solid"), ("Abington", (127.6, 2), "r", "solid"), ("Hanson", (133, -3.4), "r", "solid"), ("Kingston", (138.4, -8.8), "r", "solid"), ("East Weymouth", (130, 8), "b", "solid"), ("Hingham", (142, 4), "r", "solid"), ("Cohasset", (146.5, -0.5), "r", "solid"), ("Hudson", (-29, 140), "b", "dash"), ("Marlborough", (-40, 140), "b", "dash"), ("Mansfield", (46, -16), None, "dash"), ("North Easton", (57, -7), "b", "dash"), ("Easton Village", (64, -7), "t", "dash"), ("Raynham Place", (71, -7), "b", "dash"), ("Taunton", (78, -7), "t", "dash")]
 
-A = {"Arlington Ctr": (30, 160), "East Arlington": (38, 152), "Alewife": (44, 146), "Weymouth": (118, -7), "Bellingham Sq": (135, 137), "Wyoma Sq": (188, 192), "East Saugus": (160.5, 174), "Brighton Center": (20, 111), "Allston": (38, 111), "West Medford": (53, 175), "Eliot": (8, 38), "Porter": (58, 132), "Harvard": (66, 124), "Kendall/MIT": (80, 110),
+A = {"Moakley Park": (124.9, 58.9), "Day Sq": (135, 133.6), "Arlington Ctr": (30, 160), "East Arlington": (38, 152), "Alewife": (44, 146), "Weymouth": (118, -7), "Bellingham Sq": (135, 137), "Wyoma Sq": (188, 192), "East Saugus": (160.5, 174), "Brighton Center": (20, 111), "Allston": (38, 111), "West Medford": (53, 175), "Eliot": (8, 38), "Porter": (58, 132), "Harvard": (66, 124), "Kendall/MIT": (80, 110),
      "Charles/MGH": (90, 100), "Park Street": (96, 94), "Downtown Crossing": (103, 87), "South Station": (114, 76),
      "JFK/UMass": (118, 52), "Ashmont": (94, 26), "Braintree": (118, 8), "Arlington Heights": (20, 170),
      "Inner Belt": (94, 142), "Oak Grove": (110, 182), "Malden Center": (110, 174), "Saugus Center": (152, 174), "Lynn Common": (195, 188), "Reading": (110, 202), "Assembly": (110, 157), "Sullivan Sq": (110, 150), "Community College": (110, 136), "North Station": (110, 120),
      "Haymarket": (110, 112), "State": (110, 100), "Back Bay": (82, 66), "Ruggles": (72, 56), "Broadway": (118, 64), "Andrew": (118, 58), "Forest Hills": (43, 27), "VFW Parkway": (12, -4),
-     "Bowdoin": (96, 100), "Gov't Center": (102, 100), "Airport": (135, 125), "Encore": (121, 150), "Mass Ave": (70, 100), "Mattapan": (94, -10), "Dedham": (-2, -16), "Lexington Route 128": (-30, 170), "Waltham": (-30, 146), "Watertown": (-30, 106), "Wonderland": (176, 166), "Lynn Harbor": (188, 178), "Lynn": (195, 185),
+     "Bowdoin": (96, 100), "Gov't Center": (102, 100), "Airport": (135, 125), "Encore": (121, 150), "Mass Ave": (70, 100), "Mattapan": (94, -10), "Dedham": (-2, -16), "Lexington Route 128": (-26, 170), "Waltham": (-30, 146), "Watertown": (-30, 106), "Wonderland": (176, 166), "Lynn Harbor": (188, 178), "Lynn": (195, 185),
      "Medford/Tufts": (63, 165), "Lechmere": (90, 138), "Union Sq": (76, 138), "Boylston": (90, 88), "Arlington": (81, 84),
      "Copley": (75, 84), "Hynes": (59, 84), "Kenmore": (54, 84), "Fenway": (46, 76), "Longwood Medical Area": (59, 56), "Prudential": (69, 75), "Symphony": (69, 69), "Blandford St": (39, 89), "St. Mary's St": (39, 84),
      "Riverside": (-8, 22), "Harvard Ave": (20, 108), "Boston College": (-22, 66), "Norumbega": (-40, 92), "Newton City Hall": (-40, 84), "Cleveland Circle": (-14, 48),
@@ -60,8 +60,7 @@ def lines():
     x = []
     x += [(RED, "stripe", [(118, 8), (118, -7)], ["Braintree", "Weymouth"])]
     x += [(RED, "stripe", [(20, 170), (44, 146)], ["Arlington Heights", "Arlington Ctr", "East Arlington", "Alewife"]),
-          (RED, "dash", [(-30, 170), (-30, 146)], ["Lexington Route 128", "Trapelo Rd", "Waltham"]),
-          (RED, "stripe", [(20, 170), (-30, 170)], ["Arlington Heights", "Lexington Ctr", "Lexington Route 128"]),
+          (RED, "stripe", [(20, 170), (-26, 170)], ["Arlington Heights", "Lexington Ctr", "Lexington Route 128"]),
           (RED, "stripe", [(44, 146), (-30, 146)], ["Alewife", "Belmont Ctr", "Waverley Sq", "Waltham"]),
           (RED, "solid", [(44, 146), (118, 72), (118, 52)], ["Alewife", "North Cambridge", "Davis", "Porter", "Harvard", "Central", "Kendall/MIT", "Charles/MGH", "Park Street",
                                                              "Downtown Crossing", "South Station", "Broadway", "Andrew", "JFK/UMass"]),
@@ -112,18 +111,18 @@ def lines():
           (GREEN, "stripe", [(40, 32), (40, 30), (43, 27)], ["Hyde Sq", "Forest Hills"]),
           (GREEN, "stripe", [(8, 38), (8, 2), (12, -4)], ["Eliot", "Needham Heights", "Needham Junction", "Hersey", "VFW Parkway"])]
     # Yellow, the Urban Ring. Grand Junction section striped, the rest dashed.
-    x += [(YELLOW, "dash", [(148, 104), (148, 105), (135, 118), (135, 137)], ["Terminals", "Airport", "Bellingham Sq"]),
+    x += [(YELLOW, "dash", [(148, 104), (148, 105), (135, 118), (135, 137)], ["Terminals", "Airport", "Day Sq", "Bellingham Sq"]),
           (YELLOW, "dash", [(135, 137), (135, 150), (102, 150), (90, 138)],
-           ["Bellingham Sq", "Chelsea", "Everett Sq", "Stadium", "Sullivan Sq", "Inner Belt", "Lechmere"]),
+           ["Bellingham Sq", "Chelsea", "Everett Sq", "Stadium", "Encore+", "Sullivan Sq", "Inner Belt", "Lechmere"]),
           (YELLOW, "dash", [(140, 76), (148, 84), (148, 104)], ["Seaport", "Terminals"]),
           (YELLOW, "stripe", [(90, 138), (90, 120), (59, 89)], ["Lechmere", "Binney", "Kendall/MIT", "Mass Ave", "BU Bridge", "West Station"]),
           (YELLOW, "dash", [(59, 89), (54, 84), (50, 80), (50, 56), (114, 56), (118, 52)],
            ["West Station", "Kenmore", "Fenway+", "Longwood Medical Area", "Ruggles", "Melnea Cass", "Nubian", "Newmarket", "Boston Medical", "JFK/UMass"]),
-          (YELLOW, "dash", [(118, 52), (140, 74), (140, 76)], ["JFK/UMass", "Convention Center", "Seaport"])]
+          (YELLOW, "dash", [(118, 52), (140, 74), (140, 76)], ["JFK/UMass", "Moakley Park", "Convention Center", "Seaport"])]
     return x
 
 
-EXTRA = {"Sullivan Sq+": (102, 150), "Fenway+": (50, 76), "South Station+": (114, 78.5)}
+EXTRA = {"Encore+": (116.0, 150), "Sullivan Sq+": (102, 150), "Fenway+": (50, 76), "South Station+": (114, 78.5)}
 
 # Commuter rail, thin purple. All of it now runs through the tunnel, so no line ends downtown.
 CR_PATHS = [
@@ -145,10 +144,11 @@ CR_TEXT = [("LOWELL LINE", (51, 204.6), "right"), ("HAVERHILL LINE", (59.6, 205.
            ("FRAMINGHAM / WORCESTER LINE", (-44, 128.2), "left"), ("HIGH-SPEED RAIL TO ALBANY", (-44, 125.7), "left"), ("VIA WORCESTER, SPRINGFIELD", (-44, 123.2), "left"), ("NEWBURYPORT / ROCKPORT LINE", (209, 206.1), "right"), ("HIGH-SPEED RAIL TO BANGOR", (209, 203.6), "right"), ("VIA PORTSMOUTH, PORTLAND, AUGUSTA", (209, 201.1), "right"), ("PEABODY LINE TO LAWRENCE", (164, 204.5), "right"), ("PROVIDENCE LINE", (48, -13.2), "left"), ("FRANKLIN LINE", (27.6, -18), "right"), ("HIGH-SPEED RAIL TO NYC", (48, -15.9), "left"), ("VIA PROVIDENCE, NEW HAVEN", (48, -18.6), "left"),
            ("GREENBUSH LINE", (124, 9.4), "left"), ("KINGSTON LINE", (140.4, -12.8), "right"), ("TO PLYMOUTH", (142.8, -15.4), "right"), ("FALL RIVER / NEW BEDFORD LINE TO CAPE COD", (120, -18), "right")]
 
+BIG_CAPSULES = [(106, 120), (110, 100), (114.2, 77.2)]  # Tier 1 and Tier 2 capsules: North, Boston Central, South
 CAPSULES = [((118, 8), (121.6, 8)), ((43, 14), (46, 14)), ((118, 52), (121.6, 52)), ((118, 25.6), (121.6, 25.6)), ((20, 111), (20, 107.4)), ((106, 112), (110, 112)), ((106, 120), (118, 120)), ((110, 100), (118, 100)), ((46, 76), (50, 76)), ((114.2, 77.2), (117.8, 79.8)), ((135, 150), (135, 146))]
 RINGS = [r for r in ["Suffolk Downs", "Gov't Center", "Longwood Medical Area", "Braintree", "Lynn", "VFW Parkway", "Wonderland", "Stadium", "Park Street", "Downtown Crossing", "Kendall/MIT", "Harvard", "Lechmere", "Assembly", "Back Bay", "Ruggles", "Forest Hills", "JFK/UMass",
          "Ashmont", "Airport", "Kenmore", "Seaport", "Porter", "Charles/MGH", "Newmarket", "BU Bridge", "Terminals", "Alewife", "Mattapan", "Four Corners", "Convention Center", "Readville", "Orient Heights", "Aquarium", "Broadway", "Sullivan Sq", "Mass Ave", "Nubian", "Tufts Medical Ctr"] if r != "Airport"]
-ENDS = {"Winthrop Center": BLUE, "Weymouth": RED, "Mattapan": RED, "Oak Grove": ORANGE, "Wyoma Sq": BLUE, "West Medford": GREEN, "Boston College": GREEN, "Riverside": GREEN,
+ENDS = {"Lexington Route 128": RED, "Waltham": RED, "Winthrop Center": BLUE, "Weymouth": RED, "Mattapan": RED, "Oak Grove": ORANGE, "Wyoma Sq": BLUE, "West Medford": GREEN, "Boston College": GREEN, "Riverside": GREEN,
         "Cleveland Circle": GREEN, "Reading": ORANGE, "Watertown": GREEN}
 NEW_ON_OLD = set()
 HIDE = {"Airport", "Back Bay", "Ruggles", "West Station", "Boston Central", "Nubian", "Melnea Cass", "Lynn Common", "Gov't Center", "State", "North Station", "South Station", "Haymarket", "Longwood Medical Area"}
@@ -230,7 +230,7 @@ TEXT["City Square"] = "City\nSquare"
 NUDGE["Landmark Center"] = (0.8, 0)
 TEXT["Landmark Center"] = "Landmark\nCenter"
 SIDE["Medford Hillside"] = "l"
-SIDE.update({"East Saugus": "b", "Saugus Center": "t", "Lexington Route 128": "l", "Waltham": "l", "Trapelo Rd": "r"})
+SIDE.update({"East Saugus": "b", "Saugus Center": "t", "Lexington Route 128": "l", "Waltham": "l"})
 TEXT["Lexington Route 128"] = "Lexington\nRoute 128"
 TEXT["Saugus Center"] = "Saugus\nCenter"
 NUDGE["Hyde Park"] = (3.8, 0)
@@ -239,13 +239,16 @@ for n in ("Broadway", "Andrew", "JFK/UMass", "North Quincy", "Wollaston", "Quinc
     NUDGE[n] = (NUDGE.get(n, (0, 0))[0] + 2.6, NUDGE.get(n, (0, 0))[1])
 TEXT["Hyde Park"] = "Hyde\nPark"
 SIDE.update({"Andrew": "l", "Fields Corner": "l"})
+NUDGE["Stadium"] = (NUDGE.get("Stadium", (0, 0))[0] + 10.3, NUDGE.get("Stadium", (0, 0))[1])  # clear of the Yellow Encore stop
 NUDGE["Andrew"] = (0, 0)
+NUDGE["Mass. Ave"] = (1.3, -0.9)  # clear of the larger Back Bay ring
 NUDGE["Fields Corner"] = (0, 0)
 NUDGE["East Saugus"] = (-1.6, 0)
 NUDGE["East Somerville"] = (3, 1.6)
 HALOED.update({"Charles/MGH", "Mass. Ave", "Northampton", "Newmarket", "East Saugus", "Broadway", "East Somerville"})
 SIDE["Wyoma Sq"] = "l"
 SIDE["Terminals"] = "l"
+TEXT["Terminals"] = "Logan Terminals"  # plain "Terminals" read oddly beside the lettered terminals
 NUDGE["Terminals"] = (0, 1.5)
 HALOED.update({"Terminals", "Maverick"})
 SIDE["Stadium"] = "bl"
@@ -264,11 +267,14 @@ NUDGE["Broadway"] = (0, 0)
 SIDE["Museum of Fine Arts"] = "r"
 NUDGE.pop("Brigham Circle", None)
 SIDE["Encore"] = "x"
+SIDE["Encore+"] = "x"  # the Cyan Encore label covers both dots
 SIDE["Park Street"] = "r"
 NUDGE["Park Street"] = (0.4, -0.5)
 SIDE["Downtown Crossing"] = "x"
 TEXT.update({"Arlington Ctr": "Arlington Center", "Belmont Ctr": "Belmont Center", "Lexington Ctr": "Lexington Center", "Tufts Medical Ctr": "Tufts Medical\nCenter", "Park Street": "Park St", "L Street": "L St", "City Square": "City Sq", "Mass. Ave": "Mass Ave"})
-SHIFT = {"r": (1, 0), "l": (-1, 0), "tr": (1, 1), "tl": (-1, 1), "br": (1, -1), "bl": (-1, -1)}
+SIDE["Moakley Park"] = "br"
+SIDE["Day Sq"] = "r"
+NUDGE["Day Sq"] = (-1.1, 0.5)
 
 
 # Real shoreline points (lon, lat) and where each sits on the diagram. The real coast and islands are bent through these.
@@ -325,7 +331,7 @@ def river_mouths(ax):
 FERRY = "#2b7a9b"
 TO_BASIN = [("Long Wharf dock", (121, 103), "Long Wharf"), ("North End", (120.9, 113), ""), ("Lovejoy", (120.2, 125.5), "Lovejoy Wharf")]
 FROM_BASIN = [("Mouth", (119, 128.2), ""), ("Thompson Sq", (127, 138.4), ""), ("Mystic", (116.5, 154.5), ""), ("back", (129, 134), ""), ("Chelsea", (146, 143), "Chelsea Creek"), ("back2", (129, 134), ""),
-              ("East Boston", (128.5, 108), ""), ("Logan", (139, 95.5), "Logan Dock"), ("Fort", (157, 77), "Fort Independence"), ("Seaport", (143, 82), ""), ("back3", (134, 91), ""), ("Long Wharf dock", (121, 103), "")]
+              ("East Boston", (128.5, 108), "Lewis Mall"), ("Logan", (139, 95.5), "Logan Dock"), ("Fort", (157, 77), "Fort Independence"), ("Seaport", (143, 82), ""), ("back3", (134, 91), ""), ("Long Wharf dock", (121, 103), "")]
 HINGHAM = [(122, 106), (162, 80), (188, 61)]
 
 
@@ -444,7 +450,7 @@ def ferries(ax):
             continue
         ax.scatter(*q, s=26, color=WHITE, edgecolor=INK, lw=1.2, zorder=3.2)
         if t:
-            side = {"Lovejoy Wharf": "r", "Chelsea Creek": "t", "Logan Dock": "b", "Long Wharf": "r", "Fort Independence": "r"}[t]
+            side = {"Lewis Mall": "r", "Lovejoy Wharf": "r", "Chelsea Creek": "t", "Logan Dock": "b", "Long Wharf": "r", "Fort Independence": "r"}[t]
             label(ax, (q[0] + (3 if t == "Logan Dock" else 0), q[1] + (1.5 if t == "Lovejoy Wharf" else 0)), t, side, gap=1.8, fs=7.6, color=FERRY)
     # Stops along each bank, with names lying in the wider water
     ls_up, ls_down = LineString(up), LineString(down)
@@ -528,6 +534,8 @@ def main():
         stop(ax, pts[s], LW, True, edge=c)
     for s in RINGS:
         transfer(ax, pts[s], lw=LW)
+    transfer(ax, pts["Encore"], lw=LW)
+    transfer(ax, EXTRA["Encore+"], lw=LW)  # Encore on Yellow, just below the Cyan platform
     # The BIGGER Dig: heavy black bar with white dashes, stopping at the three stations.
     def four_tracks(x0, y0, x1, y1, z):
         """Black casing with four tracks: white local pair outside, gold express pair inside."""
@@ -539,42 +547,33 @@ def main():
             ax.plot([x0 + dx, x1 + dx], [y0 + dy, y1 + dy], color=col, lw=1.15, zorder=z + 0.1, solid_capstyle="butt")
     four_tracks(114, 120, 114, 76, 7)
     for a, b in CAPSULES:
-        transfer(ax, a, b, lw=LW * 1.05)
-    ax.scatter(*pts["Airport"], s=(LW * 1.7) ** 2, color=WHITE, edgecolor=INK, lw=LW * 0.28, zorder=10)
-    icon(ax, 137.6, 121.6)
-    label(ax, (138.8, 121.6), "AIRPORT", "r", gap=0, fs=10.4, weight="bold")
-    ax.scatter(*pts["West Station"], s=(LW * 1.7) ** 2, color=WHITE, edgecolor=INK, lw=LW * 0.28, zorder=10)
+        transfer(ax, a, b, lw=LW * (1.25 if a in BIG_CAPSULES else 1.05))
+    ax.scatter(*pts["Airport"], s=(LW * 2.0) ** 2, color=WHITE, edgecolor=INK, lw=LW * 0.32, zorder=10)
+    label(ax, (137.6, 121.6), "AIRPORT", "r", gap=0, fs=10.4, weight="bold")
+    ax.scatter(*pts["West Station"], s=(LW * 2.0) ** 2, color=WHITE, edgecolor=INK, lw=LW * 0.32, zorder=10)
     label(ax, (62, 90), "WEST\nSTATION", "r", gap=0, fs=11.6, weight="bold")
-    ax.scatter(*pts["Back Bay"], s=(LW * 1.7) ** 2, color=WHITE, edgecolor=INK, lw=LW * 0.28, zorder=10)
+    ax.scatter(*pts["Back Bay"], s=(LW * 2.0) ** 2, color=WHITE, edgecolor=INK, lw=LW * 0.32, zorder=10)
     label(ax, pts["Back Bay"], "BACK BAY", "up", gap=2.6, fs=11.6, weight="bold")
-    ax.scatter([114], [100], s=(LW * 2.3) ** 2, color=WHITE, edgecolor=INK, lw=LW * 0.3, zorder=9.8)
-    ax.scatter([114], [100], s=(LW * 1.5) ** 2, color=RED, edgecolor=WHITE, lw=LW * 0.3, zorder=10)
+    ax.scatter([114], [100], s=(LW * 2.8) ** 2, color=WHITE, edgecolor=INK, lw=LW * 0.36, zorder=9.8)
+    ax.scatter([114], [100], s=(LW * 1.8) ** 2, color=RED, edgecolor=WHITE, lw=LW * 0.32, zorder=10)
     real_water(ax, pts)
     river_mouths(ax)
     ferries(ax)
     # Silver Line: a short airport shuttle, one line running both ways, from Logan Dock past every terminal to Airport
     stroke(ax, rounded([LOGAN, pts["Terminals"], (156, 112), (156, 116), (147, 125), (135, 125)], 2.4), SILVER, LW * 0.72, "dash", z=4.4)
-    silver = [("A", (143.8, 99.8), -1.6, 1.8), ("B", (153.5, 118.5), 1.8, 1.8), ("C", (150.5, 121.5), 1.8, 1.8), ("E", (147.5, 124.5), 1.8, 1.8)]
+    silver = [("A", (143.8, 99.8), -1.6, 1.8), ("B", (154.4, 117.6), 1.4, 2.0), ("C", (152.5, 119.5), 1.8, 1.8), ("D", (150.6, 121.4), 1.8, 1.8),
+              ("E", (148.7, 123.3), 1.8, 1.8), ("F", (146.8, 124.6), 1.7, 2.1)]  # real order A, B, C, E; D came back and F is a joke
     for q in [LOGAN, (141.6, 97.7), (139.5, 125), (152, 108)] + [v[1] for v in silver]:
         ax.scatter(*q, s=(LW * 0.62) ** 2, color=WHITE, edgecolor=INK, lw=0.5, zorder=8)
-    label(ax, (143.5, 125), "Rental Cars", "t", gap=1.5, fs=7.6)
+    label(ax, (143, 125), "Rental Cars", "t", gap=1.5, fs=7.6)
     label(ax, (152, 108), "Parking", "tl", gap=1.5, fs=7.6)
     label(ax, (142.9, 96.7), "Office\nCenter", "r", gap=0, fs=7.2)
     for t, q, dx, dy in silver:
         ax.text(q[0] + dx, q[1] + dy, t, fontsize=8.8, fontweight="bold", color=INK, ha="center", va="center", zorder=11)
-    barred = not_accessible()
     for n, p in pts.items():
         s = SIDE.get(n, "r")
         if n in HIDE or s == "x":
             continue
-        if n not in barred and s in SHIFT:  # icon sits between the stop and its name
-            sx, sy = SHIFT[s]
-            flip = n in ("Thompson Sq",)  # name fills the gap beside the stop, so the icon goes on the far side
-            if flip:
-                icon(ax, p[0] - sx * 3.1, p[1])
-            g = 2.9 if sx and sy else 3.1
-            None if flip else icon(ax, p[0] + NUDGE.get(n, (0, 0))[0] + sx * g, p[1] + NUDGE.get(n, (0, 0))[1] + sy * (2.5 if sy else 0))
-            p = p if flip else (p[0] + sx * 2.0, p[1])
         big = n in ENDS
         if big:
             t = n.upper().replace(" ", "\n", 1) if len(n) > 9 or n == "Hyde Park" else n.upper()
@@ -585,8 +584,7 @@ def main():
     for t, xy, ha in CR_TEXT:
         ax.text(*xy, t, fontsize=7.4, fontweight="bold", color=CR_TEXT_COLOR, ha=ha, va="bottom", zorder=12)
     # Downtown names sit by hand around the capsules.
-    icon(ax, 99.7, 86.3)
-    label(ax, (98.5, 85.8), "Downtown\nCrossing", "l", gap=0, fs=8.4, halo=True)
+    label(ax, (99.9, 85.8), "Downtown\nCrossing", "l", gap=0, fs=8.4, halo=True)
     label(ax, (122, 98.2), "BOSTON\nCENTRAL", "r", gap=0, fs=16.5, weight="bold")
     label(ax, (122.2, 121.6), "NORTH\nSTATION", "r", gap=0, fs=11.6, weight="bold")
     label(ax, (120.6, 83.5), "SOUTH\nSTATION", "r", gap=0, fs=11.6, weight="bold")
@@ -637,7 +635,7 @@ def main():
     # Cost stats, all in 2026 dollars. One scale: 55 diagram units = $125B.
     ax.text(160.5, 96.5, "~$125B", fontsize=17, fontweight="bold", color=RED, zorder=12, va="top")
     ax.text(160.5, 92.5, "Whole map, rough estimate", fontsize=7, color=INK, zorder=12, va="top")
-    for x, big, small in ((183.5, "5x", "The Big Dig"), (195.5, "~140", "New miles"), (207, "204", "T stops")):
+    for x, big, small in ((183.5, "5x", "The Big Dig"), (195.5, "~140", "New miles"), (207, "215", "T stops")):
         ax.text(x, 96.3, big, fontsize=12.5, fontweight="bold", color=INK, zorder=12, va="top")
         ax.text(x, 92.5, small, fontsize=7, color=INK, zorder=12, va="top")
     u = 55 / 125
@@ -651,7 +649,7 @@ def main():
     lx, tx, ly = 160.5, 174.5, 51.2
     ax.text(lx, ly, "Key", fontsize=11, fontweight="bold", color=INK, va="center", zorder=12)
     rows = [("solid", RED, LW, "Running today"), ("stripe", RED, LW, "New: real proposal or strong case"), ("dash", RED, LW, "New: imagined"),
-            ("solid", PURPLE, 3.1, "Commuter rail, dashed where proposed"), ("hsr", PURPLE, 3.1, "High-speed rail"), ("ferry", "#2b7a9b", 1.5, "Ferries, including the Harbor Loop"), ("dig", INK, 0, "The BIGGER Dig, four tracks"), ("none", INK, 0, "Replacement shuttle buses: none")]
+            ("solid", PURPLE, 3.1, "Commuter rail, dashed where proposed"), ("hsr", PURPLE, 3.1, "High-speed rail, express, big stations only"), ("ferry", "#2b7a9b", 1.5, "Ferries, including the Harbor Loop"), ("dig", INK, 0, "The BIGGER Dig, four tracks"), ("none", INK, 0, "Replacement shuttle buses: none")]
     for i, (st, c, wd, t) in enumerate(rows):
         y = ly - 4.4 - i * 3.4
         if st == "none":
@@ -671,13 +669,15 @@ def main():
         ax.text(tx, y - i * 3.4, t, fontsize=9.6, va="center", color=INK, zorder=12)
     ax.text(lx, y - 14.4, "Stations", fontsize=11, fontweight="bold", color=INK, va="center", zorder=12)
     y0 = y - 18.2
-    ax.scatter([lx + 5.5], [y0], s=(LW * 1.6) ** 2, color=WHITE, edgecolor=INK, lw=2.2, zorder=12)
-    ax.scatter([lx + 5.5], [y0], s=(LW * 0.9) ** 2, color=RED, zorder=12.1)
-    ax.scatter([lx + 5.5], [y0 - 3.4], s=(LW * 1.3) ** 2, color=WHITE, edgecolor=INK, lw=2.2, zorder=12)
+    ax.scatter([lx + 5.5], [y0], s=(LW * 1.7) ** 2, color=WHITE, edgecolor=INK, lw=2.6, zorder=12)
+    ax.scatter([lx + 5.5], [y0], s=(LW * 1.0) ** 2, color=RED, zorder=12.1)
+    ax.scatter([lx + 5.5], [y0 - 3.4], s=(LW * 1.3) ** 2, color=WHITE, edgecolor=INK, lw=2.4, zorder=12)
     ax.scatter([lx + 5.5], [y0 - 6.8], s=(LW * 0.9) ** 2, color=WHITE, edgecolor=INK, lw=1.6, zorder=12)
     ax.scatter([lx + 5.5], [y0 - 10.2], s=46, marker="s", color=PURPLE, zorder=12)
-    for i, t in enumerate(("Tier 1: Boston Central", "Tier 2: North, South, West, Back Bay, Airport", "Tier 3: subway stations", "Tier 4: commuter rail stops, hollow if proposed")):
+    for i, t in enumerate(("Tier 1: Boston Central", "Tier 2: North, South, West, Back Bay, Airport", "Tier 3: subway stations", "Tier 4: commuter rail stops")):
         ax.text(tx, y0 - i * 3.4, t, fontsize=9.6, va="center", color=INK, zorder=12)
+    icon(ax, lx + 5.5, y0 - 13.6)
+    ax.text(tx, y0 - 13.6, "All stations accessible", fontsize=9.6, va="center", color=INK, zorder=12)
     ax.text(219, -16.4, "Layout schematic, not to scale. Buses not shown. Data: MBTA V3 API. Coast: US Census TIGER/Line.",
             fontsize=7.2, color=INK, ha="right", va="top", zorder=12)
     (DAY / "output").mkdir(exist_ok=True)

@@ -49,6 +49,7 @@ Commuter rail is thin and faded so subway lines lead. Its text stays dark enough
 
 ## Geometry
 
+- A ring line may wrap around. Every other line should read as a straight line or a tree, with no closed loops.
 - Lines run on a 45-degree grid with rounded corners. Remove wobble: a line should bend only for a reason.
 - Use a matplotlib figure about 18 inches wide, Arial, and data units of about 4.8 points each.
 - Black edge on every dot, including ferry stops.
@@ -61,6 +62,9 @@ Commuter rail is thin and faded so subway lines lead. Its text stays dark enough
 - Where two lines really cross, use a ring on the crossing. This beats a pill.
 - Pills span one line gap where possible. If a pill looks long, the fix is usually to move a line or use a real crossing.
 - On line posters, each transfer is a colored pill beside the station, with further pills tucked behind the first.
+- A ferry pill names the dock when it differs from the station, as in "F via Lovejoy Wharf".
+- High-speed pills are gold inside commuter purple, like the map line, so they can't be mistaken for a yellow line.
+- High-speed rail stops only at the top-tier stations. A high-speed line passing through a stop isn't a transfer.
 
 ## Labels
 
@@ -68,13 +72,15 @@ Commuter rail is thin and faded so subway lines lead. Its text stays dark enough
 - Line labels at the map edge: "X LINE" first, then high-speed rows, with "TO" inline where it fits. Slash-joined names copy the MBTA, as in `FRAMINGHAM / WORCESTER LINE`.
 - Terminals are bold capitals.
 - A label must sit next to its own dot and never closer to another stop's dot. Check this by eye, because overlap scripts can't.
-- Accessible icons sit between the stop and its name.
+- No station-by-station wheelchair icons on fantasy maps. Put one wheelchair symbol in the Key beside "All stations accessible".
 - No italics, except a disclaimer the user wrote.
 - Only the Green Line has branch letters. Other branches are named by end station.
 
 ## Layout
 
 Furniture sits in the corners: title top left, Key and any feature box bottom right, sources in small type at bottom right. The title block holds the roundel, title, credit, hashtag line and disclaimer.
+
+Line posters fit their own shape. Don't center a short line on a wide empty canvas. Set the frame from the drawing, the header and the Key, and give short lines taller rows so the poster stands upright. Export PNGs at 600 dpi and keep a vector PDF.
 
 ## Checks before calling anything done
 

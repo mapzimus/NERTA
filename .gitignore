@@ -3,3 +3,5 @@ __pycache__/
 .DS_Store
 Thumbs.db
 ~$*
+reference/private/
+*Recovered*1111.ai

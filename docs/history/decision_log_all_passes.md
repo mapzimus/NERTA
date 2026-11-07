@@ -332,3 +332,13 @@ Forty-third pass: North Shore ferry runs to Nahant, Swampscott and Marblehead, t
 Forty-fourth pass: Marblehead, Marblehead Neck and Salem Harbor brought inside the frame. Marblehead stop moved into town. Ferry routed around the Neck into Marblehead Harbor.
 
 Forty-fifth pass: consistency audit. Line labels, stop name abbreviations and the Key were made uniform. Salem Wharf added, and the ferry arrow now reads To Gloucester.
+
+Forty-sixth pass: all eight posters, a 2026-dollar cost panel, Airport as Tier 2. Day Sq added on Yellow and the Lewis Mall ferry stop labeled.
+
+Forty-seventh pass: Moakley Park stop added on Yellow between JFK/UMass and Convention Center.
+
+Forty-eighth pass: Key explains high-speed rail as express. Station wheelchair icons replaced by one Key note. River Works removed. High-speed pills limited to Tier 1 and 2 stations. Yellow poster redrawn as a parallelogram.
+
+Forty-ninth pass: Logan Terminals renamed. Terminals D and F added. Red's Trapelo Rd loop removed so only Yellow wraps around. Tiers 1 and 2 enlarged. Ferry pills name their docks. Poster frames refit to each line, at 600 dpi. Stop count corrected to 215.
+
+Fiftieth pass: Encore added to Yellow, sharing the Cyan stop's label. Stadium label moved. Full audit of stops, transfers and crossings run against all saved versions. Poster audit script added.

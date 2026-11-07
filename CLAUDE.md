@@ -6,8 +6,8 @@ Read `HANDOVER.md` first. It says where the work stands and what's next.
 
 - Plain English, American spelling (color, gray, center) on maps and in replies.
 - Answer first, short numbered steps, lists of 5 or fewer, one question at a time.
-- Commit or push only when Max asks.
-- Max sends many short messages while you work. A stopped tool call usually means he's adding something, not that he's upset. Read the next message and adjust.
+- Commit or push only when Max asks. This repo is public, so reference images stay out of it unless Max says otherwise.
+- Max sends many short messages while you work. A stopped tool call usually means Max is adding something, not that Max is upset. Read the next message and adjust.
 - When Max rejects something, it stays rejected. Check `docs/DECISIONS.md` before suggesting it again.
 
 ## Style
@@ -37,6 +37,7 @@ python labels.py make_tmap
 python marks.py
 python audit.py
 python routing.py
+python poster_audit.py
 ```
 
 `labels.py` finds text overlaps. `marks.py` finds dots touching dots, dots under pills and text over dots, and it redraws the map. Rendering and checks are not enough on their own: look at a crop of whatever changed.
@@ -46,4 +47,5 @@ python routing.py
 - Patch scripts: write them with the Write tool. Bash heredocs mangle `\n` in Python strings.
 - `lines()` in `make_tmap.py` is the single source for stops and line styles: solid is running today, stripe is a real proposal, dash is imagined.
 - Station labels become outlines in Illustrator. Only headings, the Key and the Dig box stay live text.
-- Illustrator route: open `t_map.pdf`, save as `.ai`, export PNG. Fix things in Python and rebuild where possible.
+- Illustrator route: open `t_map.pdf`, save as `.ai`, export PNG at 200 and 600 dpi. Fix things in Python and rebuild where possible.
+- The T stops figure on the panel is typed by hand: `audit.py`'s count plus the 10 Logan Silver stops.

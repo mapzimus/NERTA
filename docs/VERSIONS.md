@@ -6,17 +6,21 @@ Everything is in `boston-map/output/` unless noted.
 
 | File | What it is |
 |---|---|
-| `t_map.png`, `t_map.pdf` | **The current map, drawn from the code.** Includes Max's title block edits, the Suffolk Downs ring and the South Salem label. |
-| `day08_rapid_transit.ai`, `day08_rapid_transit.png` | **Current Illustrator build and export** of the same map. |
-| `day08_rapid_transit_max_edits.ai` | Max's hand-edited file, kept for reference. Its edits are now in the code. It doesn't have the South Salem fix. |
-| `line_<name>.png`, `.pdf` | Line posters: red, orange, blue, green, yellow, cyan, indigo, silver. |
+| `day08_rapid_transit_hires.png` | **The main map at its highest resolution**, 600 dpi from Illustrator. Use this for print or zooming. |
+| `day08_rapid_transit.png` | The main map at 200 dpi from Illustrator. Use this for posting. |
+| `day08_rapid_transit.ai` | The current Illustrator file. |
+| `t_map.pdf` | The main map as a vector PDF, drawn from the code. |
+| `t_map.png` | The 200 dpi working render, used by the checks. |
+| `line_<name>.png` | Line posters at 600 dpi: red, orange, blue, green, yellow, cyan, indigo, silver. |
+| `line_<name>.pdf` | The same posters as vector PDFs. |
+| `day08_rapid_transit_max_edits.ai` | Max's hand-edited file, kept for reference. Its edits are now in the code. |
 
 ## Older
 
 | File | What it is |
 |---|---|
-| `map.png`, `map.pdf` | The first idea: "What if the MBTA covered all of New England." A geographic map of the whole region, later dropped from Day 8. |
-| `regional_map.png`, `regional_map.pdf` | A second regional poster, also dropped. |
+| `map.png`, `map_hires.png`, `map.pdf` | The first idea: "What if the MBTA covered all of New England." A geographic map of the whole region, later dropped from Day 8. |
+| `regional_map.png`, `regional_map_hires.png`, `regional_map.pdf` | A second regional poster, also dropped. |
 | `draft_network.png` | Early network draft. |
 
 ## How the map evolved
@@ -27,8 +31,9 @@ Everything is in `boston-map/output/` unless noted.
 4. **Fantasy first:** the "Rapid Transit" title, and the Bigger Dig box with costs.
 5. **Commuter rail pass:** all 13 MBTA routes shown, with new stops and offshoots tied to real proposals.
 6. **This repo:** the project moves out of the challenge and keeps going.
+7. **Line posters:** one poster per line, each fitted to its own shape. Only Yellow wraps around.
 
-The full 40-pass record is in [history/decision_log_all_passes.md](history/decision_log_all_passes.md).
+The full pass-by-pass record is in [history/decision_log_all_passes.md](history/decision_log_all_passes.md).
 
 ## Scripts
 

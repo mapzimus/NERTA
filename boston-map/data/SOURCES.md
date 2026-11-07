@@ -50,4 +50,4 @@ Rough and ours. High-speed trains, ferries and buses aren't counted.
 - The map total is about 5 times the Big Dig: $125B divided by $24B.
 - CPI: 207.3 for 2007 is confirmed. The 2026 value of 333.9 is a July reading from one third-party calculator. The 2020 and 2022 values are from memory. All of these should be rechecked against BLS.
 - The panel's New miles figure, about 140, is 110 subway miles plus 30 commuter miles, both hand estimated.
-- The T stops figure, 204, comes from `tools/audit.py`.
+- The T stops figure, 215, is 205 from `tools/audit.py` plus the 10 stops only the Logan Silver Line uses: Logan Dock, Office Center, Parking, Rental Cars and Terminals A to F. The audit reads `lines()`, and those 10 are drawn separately.
