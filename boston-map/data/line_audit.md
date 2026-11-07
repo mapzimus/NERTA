@@ -122,7 +122,6 @@ Residents and jobs within half a mile come from the 2020 Census and 2022 LODES. 
 | David Ortiz (Lansdowne renamed) | Commuter stop | Ours, a tribute at the stop behind Fenway Park | Invented |
 | Red to Weymouth | Striped | Branch off the Braintree extension in older plans: track map | One |
 | Long Island Recovery Campus | Ferry stop | Mayor Wu's plan to rebuild the bridge and a recovery campus. Permits granted 2025, Quincy court fight unresolved in what we found. A ferry stop is ours | Two for the plan |
-| Duck Boats | Ferry label on the Charles | Ours | Invented |
 | Replacement shuttle buses: none | Key row | Joke | Invented |
 
 ## Ferries
@@ -130,8 +129,18 @@ Residents and jobs within half a mile come from the 2020 Census and 2022 LODES. 
 | Piece | On map | Basis | Evidence |
 |---|---|---|---|
 | Hingham / Hull, Lynn, Salem ferries, Georges Island stop | Dotted | Real services, some seasonal | One, unchecked |
-| Harbor Loop | Dotted | Ours | Invented |
 | "A ferry chartered in 1631" note | Text | MBTA history page and Wikipedia agree on 1631 and the Charlestown-Boston crossing. They differ on the third landing, so "first in the country" is left off | Two |
+| Ferry network, five routes | One color per route | Merged from 12 legs on November 6, 2026. Chelsea Creek dropped: no study names a dock there, and the one Chelsea site studied (Admirals Hill) was rejected | Judgment |
+| Inner Harbor: Encore, Navy Yard, Lovejoy Wharf, Long Wharf, Lewis Mall, Logan Dock, Fan Pier | Teal | MBTA ferry pages and Wikipedia (MBTA ferry) agree on Lovejoy, Long Wharf, Lewis Mall, Fan Pier and Logan. Boston Harbor Now's 2019 plan names Navy Yard Pier 4. Encore's free shuttle to Long Wharf: Encore Boston Harbor and MassLive. Wikipedia says "Lewis Wharf", the MBTA says "Lewis Mall" | Two |
+| Langone, North End dock | Teal | Max's name. No North End dock found in two sources | Unverified |
+| Charles River ferry: Cambridgeport, Kendall, Esplanade, Lovejoy Wharf, to Watertown Sq | Violet, labeled proposed | Wada Hoppah, a private 15-seat electric boat, waiting on DCR and Coast Guard approval as of July 2026: MassLive and CBS Boston. Watertown Sq, Cambridgeport and Esplanade appear in both. Kendall in one. Ending at Lovejoy instead of TD Garden is ours | Two for the service |
+| South Shore: Long Wharf, Columbia Point, Squantum Point, Hingham Shipyard | Oxblood | Squantum Point / Marina Bay: MBTA Quincy ferry page, Boston Harbor Now, Patriot Ledger. Hingham: two sources. Columbia Point at Fallon Pier: Boston Harbor Now only | Two, Columbia Point one |
+| North Shore: Long Wharf, Winthrop Landing, Lynn, Nahant, Swampscott and Marblehead Harbors, Salem Wharf, to Gloucester | Lime | Winthrop: MBTA ferry guide and the Town of Winthrop. Lynn Blossom St Pier: MBTA and Streetsblog. Salem: City of Salem, salem.org, City Cruises. Nahant, Swampscott and Marblehead are Max's idea | Two for Winthrop, Lynn, Salem; the rest invented |
+| Beverly dock | Lime | Max's idea. No ferry proposal checked. Glover Wharf, bent from real coordinates | Invented |
+| Danversport | Not shown | Max's idea. It falls off the sheet and the Danvers River is too narrow to draw, so Max left it off this map | Dropped |
+| Harbor Islands: Long Wharf, Spectacle, Long Island, Georges, Hull | Bronze | Boston Harbor Islands ferry schedule and NPS agree on Spectacle and Georges. Hull Pemberton Point: two sources. Long Island stop follows the recovery campus plan | Two, Long Island one |
+| Express, Langone bridge, Mystic and Chelsea stops, Suffolk Downs and Revere Beach links | Removed | Cut in the five-route merge for clutter. Suffolk Downs ferry was already rejected in DECISIONS.md | Dropped |
+| Haverhill line beside Orange | Solid purple | Drawn parallel from the Sullivan trunk past Oak Grove, where trains pass and do not stop. Max's observation. The old Wildcat-only drawing is replaced for this line | One |
 
 ## Accessibility icons
 

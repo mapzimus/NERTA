@@ -24,7 +24,7 @@ These are fan works. The real map is a reference to compare against, never a sou
 | Striped | Real proposal | Line with a white center |
 | Dashed | Imagined | Square dashes |
 
-Commuter rail is thin and faded so subway lines lead. Its text stays dark enough to read. High-speed rail is a gold line inside the commuter line, and ferries are dotted teal. Don't change these meanings between maps. The Key must explain every symbol on the map, and the Key is worth rechecking after any new symbol appears.
+Commuter rail is thin and faded so subway lines lead. Its text stays dark enough to read. High-speed rail is a gold line inside the commuter line, and ferries are dotted crimson so they stay clear of Cyan and the light water. Don't change these meanings between maps. The Key must explain every symbol on the map, and the Key is worth rechecking after any new symbol appears.
 
 ## Colors
 
@@ -41,7 +41,11 @@ Commuter rail is thin and faded so subway lines lead. Its text stays dark enough
 | Commuter line | `#a98aa8` |
 | Commuter text | `#80276c` |
 | High-speed gold | `#ffd23f` |
-| Ferry | `#2b7a9b` |
+| Ferry, Inner Harbor | `#00796d` |
+| Ferry, Charles | `#9e00ff` |
+| Ferry, South Shore | `#611824` |
+| Ferry, North Shore | `#9eb000` |
+| Ferry, Harbor Islands | `#79550c` |
 | Paper | `#fcfcfa` |
 | Water | `#c9e3ee` |
 | Coast | `#7fb2c6` |

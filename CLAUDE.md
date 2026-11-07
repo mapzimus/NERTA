@@ -10,6 +10,7 @@ Read `HANDOVER.md` first. It says where the work stands and what's next.
 - Commit or push only when Max asks. This repo is public, so MBTA reference images stay private in `reference/private/`, listed in `reference/README.md`.
 - Max sends many short messages while you work. A stopped tool call usually means Max is adding something, not that Max is upset. Read the next message and adjust.
 - When Max rejects something, it stays rejected. Check `docs/DECISIONS.md` before suggesting it again.
+- Do not overwrite files in `boston-map/output/`. New renders go in `boston-map/output/copies/` under a new name. `marks.py` and `make_line_poster.py` save over the finished map and posters. Do not run them unless Max names the exact file. Max decides later whether an old file is deleted.
 
 ## Style
 

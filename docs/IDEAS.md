@@ -48,6 +48,8 @@ This is the next big piece. Max's order: main map, every line on its own, then a
 
 ## Buses
 
+Later project, after the Sunday, November 8, 2026 Day 8 post. Not part of that post. Test on a copy.
+
 Line posters feel incomplete without bus connections. Max's plan:
 - Show buses on the regional commuter rail map.
 - Show them very faintly on the main map, behind everything. This reverses the earlier call to leave buses off, so test it before committing to it.

@@ -8,6 +8,7 @@ What's been settled, so nobody reopens it by accident. Detail is in [history/dec
 - Very unique. Other maps are for comparison, never copied.
 - Local in-jokes reward zooming in, but they shouldn't push too hard.
 - Title is "Boston's Rapid Transit", on two lines. No date on the map.
+- **Sheet extent, after Day 8:** half an inch more on the top and right, at the same scale, for Beverly. `XLIM, YLIM = (-46, 229.4), (-20, 215.4)`. Day 8 used `(-46, 222), (-20, 208)`. Danversport is left off this map: it would need about an inch on top, and without the Danvers River it looks wrong.
 - Max's disclaimer paragraph in the title block replaces "NOT A REAL MBTA MAP" on the main map.
 - Keep the T. No new logo for now.
 
@@ -64,7 +65,15 @@ What's been settled, so nobody reopens it by accident. Detail is in [history/dec
 
 ## Ferries
 
-Harbor Loop, Winthrop Landing, Columbia Point, Squantum Point, Hingham Shipyard, Hull, and a North Shore run to Nahant, Swampscott and Marblehead Harbors, around Marblehead Neck, to Salem Wharf. The arrow says `TO GLOUCESTER`.
+Five routes, one color each, drawn as round dots on a white wake so they read as boats, never as subway. Merged from Cursor's 12 legs on November 6, 2026, at Max's request.
+
+- **Inner Harbor** (teal): Encore, Navy Yard, Lovejoy Wharf, Langone, Long Wharf, Lewis Mall, Logan Dock, Fan Pier.
+- **Charles River** (violet, proposed): Cambridgeport, Kendall, Esplanade, Lovejoy Wharf, with an arrow to Watertown Sq.
+- **South Shore** (oxblood): Columbia Point, Squantum Point, Hingham Shipyard.
+- **North Shore** (lime): Winthrop Landing, Lynn, then Nahant, Swampscott and Marblehead Harbors to Salem Wharf and Beverly. The arrow says `TO GLOUCESTER`.
+- **Harbor Islands** (bronze): Spectacle, Long Island Recovery Campus, Georges, Hull.
+- Docks are white squares. A dock beside a station gets a fine dotted walking link and no name of its own.
+- Claude's calls, open to Max overruling: Chelsea Creek dropped, the express and the Langone pedestrian bridge dropped, Haverhill kept beside Orange, the Newburyport detour through Wonderland reverted.
 
 ## Cost
 

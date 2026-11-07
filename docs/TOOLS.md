@@ -58,6 +58,8 @@ To install a repo skill, copy its folder to `~/.claude/skills/`. Max's machine h
 | Coast and towns | US Census TIGER/Line | `data/shared/` |
 | Stop scoring | Census population and jobs data | `boston-map/tools/stopcheck/` |
 
+Census and BLS API keys live in `.env` at the repo root, as `CENSUS_API_KEY` and `BLS_API_KEY`. That file is gitignored. Never paste either key into a tracked file.
+
 Full citations are in `boston-map/data/SOURCES.md`.
 
 ## Reference images

@@ -36,21 +36,32 @@ It is a fan work. It is **not a real MBTA map**, and nothing here is an actual p
 
 **Not done:**
 
-- **The Day 8 post hasn't gone out. It's due Sunday, November 8, 2026.** Draft text is in `docs/history/day08_social_posts.md`. Max needs to review it first.
+- **Publish the existing Day 8 map on Sunday, November 8, 2026.** Use the files already in `boston-map/output/`. Do not redraw them for the post. Draft text is in `docs/history/day08_social_posts.md`. Max needs to review it first.
+- After Sunday, the project continues for fun. Buses are part of that later work, not the post.
+
+## Ferry pass, November 7, 2026 (branch `ferry-pass`, uncommitted)
+
+- Cursor's 12 ferry legs are merged into 5 routes with their own colors. `docs/DECISIONS.md` and `boston-map/data/line_audit.md` have the details.
+- Newest main map copy: `boston-map/output/copies/ferry5_final_lbl.png`. Posters: `copies/ferry5_<route>.png`. Nothing in `output/` itself was touched.
+- Safe render and checks: `safe_run.py` in the session scratchpad saves only to `copies/` under a new name. Copy it into `boston-map/tools/` if it should stay.
+- Label check: 62 flags, against 85 on the first five-route render. The only text-on-text flag is the deliberate "Rapid T | ransit". The rest are station names over water and ferry dots in tight channels: Aquarium, Navy Yard, NORTH STATION, MIT and Science Park. North Shore boats pass behind the Dig panel.
+- Cursor's state before this pass is backed up in the session scratchpad (`cursor_backup/`).
+- The sheet now has half an inch more on the top and right, at the same scale, so it's about 18.5 by 15.8 inches. Beverly is added. Newest copy: `copies/wide_v2_lbl.png`.
+- `cost-check` also edits this file. Merging the two branches will need this section kept by hand.
 
 ## What to do next, in order
 
-1. Post Day 8.
-2. Choose a fix for the crowded top right corner. Options are in `docs/IDEAS.md`.
-3. Build the regional commuter rail map. The main map only shows commuter rail lightly, so this one carries the detail.
-4. Add buses: on the regional map, very faintly on the main map, and on the posters.
+1. Publish Day 8 from the existing files.
+2. Choose a fix for the crowded top right corner. Options are in `docs/IDEAS.md`. Any trial is a copy.
+3. Build the regional commuter rail map, as a new map. The main map only shows commuter rail lightly, so this one carries the detail.
+4. Test buses on a copy: the regional map first, then maybe faintly on the main map and on the posters. This is a later project, after Sunday.
 5. Move to other New England cities, using the stations-first method in `docs/IDEAS.md`.
 
 ## Open questions for Max
 
 1. **Green Line letters.** The proposal is A for Watertown and F or N for Needham. The A branch history is from memory, so check it with 2 sources first.
 2. **Shoreline and Charles River.** Marblehead, the Neck and Salem Harbor are done. The rest could be improved.
-3. **Langone Park nod.** Max said to add it if it checks out. Sources weren't clear, so it isn't on the map.
+3. **Langone.** Max named the North End ferry dock Langone. A ferry there was not found in two sources, so it stays unverified.
 4. **Smaller calls:** the North End ferry label, a darker purple so gold reads better, renaming Seaver St for White Stadium, a second sports name (Pierce or Bergeron), and striping Orange to Reading.
 
 ## Known problems
@@ -78,9 +89,19 @@ Facts resting on one source are marked in `boston-map/data/line_audit.md`.
 | Pass-by-pass history | `docs/history/decision_log_all_passes.md` |
 | Rules for working on this | `CLAUDE.md` |
 
-## How to rebuild everything
+## Copies only
 
-Setup is in `docs/TOOLS.md`. This takes about 5 minutes.
+Max's rule, November 6, 2026: do not overwrite finished maps. Everything already in `boston-map/output/` stays, including the `day08-*` posting set, the Illustrator files, `t_map.pdf`, `t_map.png`, and the `line_*` posters.
+
+New renders go in `boston-map/output/copies/` under a new file name. Do not replace, export over, or copy onto an existing output file. Max decides later whether any old file is deleted.
+
+`marks.py` calls `make_tmap.py`, which saves over `output/t_map.png` and `output/t_map.pdf`. `make_line_poster.py` saves over `output/line_<name>.png` and `.pdf`. The Illustrator steps below save over the current `.ai` and PNG exports. Do not run any of that unless Max names the exact file.
+
+Copy nothing to `Desktop\30daymap\` until Max says the work is completely finished.
+
+## How the current files were built
+
+Setup is in `docs/TOOLS.md`. These steps overwrite the live files. They are frozen. Do not run them unless Max asks.
 
 1. Render the main map and run its checks:
 

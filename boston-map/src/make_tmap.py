@@ -8,6 +8,7 @@ from pathlib import Path
 import geopandas as gpd
 import csv
 import matplotlib.pyplot as plt
+import matplotlib.patheffects as pe
 import numpy as np
 from matplotlib.font_manager import FontProperties
 from matplotlib.patches import Circle, FancyBboxPatch, PathPatch, Polygon
@@ -20,7 +21,7 @@ from scipy.sparse.csgraph import dijkstra
 from scipy.spatial import cKDTree
 import shapely
 from shapely.geometry import LineString, Point, Polygon as ShapelyPolygon, box
-from shapely.ops import unary_union
+from shapely.ops import substring, unary_union
 from station_kit import INK, WHITE, bullet, label, place, rounded, smooth_closed, smooth_open, stop, stroke, transfer
 
 DAY = Path(__file__).resolve().parents[1]
@@ -32,7 +33,7 @@ PAPER, WATER, COAST = "#fcfcfa", "#c9e3ee", "#7fb2c6"
 LW, CR = 9.0, 3.4
 HSR = "#ffd23f"
 SILVER = "#7c878e"
-XLIM, YLIM = (-46, 222), (-20, 208)
+XLIM, YLIM = (-46, 229.4), (-20, 215.4)  # Day 8 was (-46, 222), (-20, 208)
 
 # Spots shared between lines, or that fix the shape of a line.
 CR_STOPS = [("Swampscott", (204, 194), "l", "solid"), ("Marblehead", (214.5, 198.5), "t", "dash"), ("Woburn", (66, 201), "t", "dash"), ("Burlington", (80, 201), "r", "dash"),
@@ -128,8 +129,8 @@ EXTRA = {"Sullivan Sq+": (102, 150), "Fenway+": (50, 76), "South Station+": (114
 CR_PATHS = [
     [(114, 120), (114, 149)],                                      # trunk to the Sullivan superstation
     [(-44, 166), (-10, 132), (88, 132), (100, 120), (114, 120)],               # Fitchburg
-    [(53, 206), (53, 175), (88, 175), (114, 149)],                 # Lowell and Haverhill, via the Wildcat
-    [(114, 139), (121, 146), (139, 146), (178, 185), (195, 185), (212, 202), (212, 208)],  # Newburyport, Rockport
+    [(53, 213.4), (53, 175), (88, 175), (114, 149)],               # Lowell, via the Wildcat
+    [(114, 139), (121, 146), (139, 146), (178, 185), (195, 185), (212, 202), (212, 215.4)],  # Newburyport, Rockport
     [(114, 76), (114, 72), (108, 66), (82, 66), (26, 122), (-44, 122)],  # Worcester
     [(82, 66), (76, 66), (46, 36), (46, -19.6)],                     # Providence
     [(46, -1), (34, -13), (29, -18)],                              # Franklin, leaves at Readville
@@ -138,9 +139,9 @@ CR_PATHS = [
     [(121.6, 8), (146, -16.4)],                                    # Kingston, Plymouth, Cape Cod
     [(121.6, 8), (138, 8), (152, -6)],                             # Greenbush
     [(46, -3), (50, -7)],                                          # Stoughton
-    [(53, 198), (58, 203), (58, 208)],                             # Haverhill
+    [(114, 149), (114, 160), (121, 160), (121, 167), (114, 167), (114, 198)],  # Haverhill, beside Orange, jogged past the Cyan pill
 ]
-CR_TEXT = [("LOWELL LINE", (51, 204.6), "right"), ("HAVERHILL LINE", (59.6, 205.6), "left"), ("HIGH-SPEED RAIL TO CONCORD NH", (51, 201.9), "right"), ("VIA LOWELL, NASHUA, MANCHESTER", (51, 199.2), "right"), ("FITCHBURG LINE TO GREENFIELD, NORTH ADAMS", (-7, 135.8), "left"), ("HIGH-SPEED RAIL TO MONTREAL VIA BURLINGTON VT", (-7, 133.2), "left"),
+CR_TEXT = [("LOWELL LINE", (51, 204.6), "right"), ("HAVERHILL LINE", (116.2, 178), "left"), ("HIGH-SPEED RAIL TO CONCORD NH", (51, 201.9), "right"), ("VIA LOWELL, NASHUA, MANCHESTER", (51, 199.2), "right"), ("FITCHBURG LINE TO GREENFIELD, NORTH ADAMS", (-7, 135.8), "left"), ("HIGH-SPEED RAIL TO MONTREAL VIA BURLINGTON VT", (-7, 133.2), "left"),
            ("FRAMINGHAM / WORCESTER LINE", (-44, 128.2), "left"), ("HIGH-SPEED RAIL TO ALBANY", (-44, 125.7), "left"), ("VIA WORCESTER, SPRINGFIELD", (-44, 123.2), "left"), ("NEWBURYPORT / ROCKPORT LINE", (209, 206.1), "right"), ("HIGH-SPEED RAIL TO BANGOR", (209, 203.6), "right"), ("VIA PORTSMOUTH, PORTLAND, AUGUSTA", (209, 201.1), "right"), ("PEABODY LINE TO LAWRENCE", (164, 204.5), "right"), ("PROVIDENCE LINE", (48, -13.2), "left"), ("FRANKLIN LINE", (27.6, -18), "right"), ("HIGH-SPEED RAIL TO NYC", (48, -15.9), "left"), ("VIA PROVIDENCE, NEW HAVEN", (48, -18.6), "left"),
            ("GREENBUSH LINE", (124, 9.4), "left"), ("KINGSTON LINE", (140.4, -12.8), "right"), ("TO PLYMOUTH", (142.8, -15.4), "right"), ("FALL RIVER / NEW BEDFORD LINE TO CAPE COD", (120, -18), "right")]
 
@@ -326,11 +327,76 @@ def river_mouths(ax):
     ax.plot(*smooth_open(BASIN, 2).T, color=WATER, lw=BASIN_PT, zorder=0.95, solid_capstyle="round", solid_joinstyle="round")
 
 
-FERRY = "#2b7a9b"
-TO_BASIN = [("Long Wharf dock", (121, 103), "Long Wharf"), ("North End", (120.9, 113), ""), ("Lovejoy", (120.2, 125.5), "Lovejoy Wharf")]
-FROM_BASIN = [("Mouth", (119, 128.2), ""), ("Thompson Sq", (127, 138.4), ""), ("Mystic", (116.5, 154.5), ""), ("back", (129, 134), ""), ("Chelsea", (146, 143), "Chelsea Creek"), ("back2", (129, 134), ""),
-              ("East Boston", (128.5, 108), "Lewis Mall"), ("Logan", (139, 95.5), "Logan Dock"), ("Fort", (157, 77), "Fort Independence"), ("Seaport", (143, 82), ""), ("back3", (134, 91), ""), ("Long Wharf dock", (121, 103), "")]
-HINGHAM = [(122, 106), (162, 80), (188, 61)]
+FERRY = "#00796d"  # Inner Harbor teal. Each route has its own color below.
+# Five ferry routes, one color each. Colors were checked against every T, commuter, high-speed
+# and bus color (CIEDE2000 over 15 for normal vision). Drawn as round dots on a white wake so they read as boats.
+FERRY_ROUTES = [
+    {"key": "inner-harbor", "title": "Inner Harbor", "color": "#00796d", "phase": 0.0,
+     "stops": ["Encore", "Navy Yard", "Lovejoy Wharf", "Langone", "Long Wharf", "Lewis Mall", "Logan Dock", "Fan Pier"],
+     "pills": {"Encore": ["CL"], "Navy Yard": ["CL"], "Lovejoy Wharf": ["GL", "OL", "CR"], "Langone": ["CL"],
+               "Long Wharf": ["BL", "CL"], "Lewis Mall": ["BL"], "Logan Dock": ["SL"], "Fan Pier": ["CL"]},
+     "note": "Follows the 1631 Charlestown crossing"},
+    {"key": "charles", "title": "Charles River, proposed", "color": "#9e00ff", "phase": 0.0,
+     "stops": ["Cambridgeport", "Kendall", "Esplanade", "Lovejoy Wharf"],
+     "pills": {"Kendall": ["RL", "YL"], "Esplanade": ["RL", "BL"], "Lovejoy Wharf": ["GL", "OL", "CR"]},
+     "note": "Continues west to Watertown Sq"},
+    {"key": "south-shore", "title": "South Shore", "color": "#611824", "phase": 0.63,
+     "stops": ["Long Wharf", "Columbia Point", "Squantum Point", "Hingham Shipyard"],
+     "pills": {"Long Wharf": ["BL", "CL"]}},
+    {"key": "north-shore", "title": "North Shore", "color": "#9eb000", "phase": 1.27,
+     "stops": ["Long Wharf", "Winthrop Landing", "Lynn", "Nahant Harbor", "Swampscott Harbor", "Marblehead Harbor", "Salem Wharf", "Beverly"],
+     "pills": {"Long Wharf": ["BL", "CL"], "Lynn": ["BL"]}, "note": "Continues to Gloucester"},
+    {"key": "harbor-islands", "title": "Harbor Islands", "color": "#79550c", "phase": 0.95,
+     "stops": ["Long Wharf", "Spectacle Island", "Long Island", "Georges Island", "Hull"],
+     "pills": {"Long Wharf": ["BL", "CL"]}},
+]
+ROUTE_COLOR = {r["key"]: r["color"] for r in FERRY_ROUTES}
+# Dock name: (rough spot, station it serves or None, label side or None, label gap, label text if different)
+DOCKS = {
+    "Encore": ((121.5, 152.5), "Encore", None, 0, None),
+    "Navy Yard": ((121.0, 131.5), "Navy Yard", None, 0, None),
+    "Lovejoy Wharf": ((120.2, 125.5), "North Station", None, 0, None),  # station names already label these three
+    "Langone": ((120.9, 113.0), "North End", None, 0, None),
+    "Long Wharf": ((121.0, 103.0), "Aquarium", None, 0, None),
+    "Lewis Mall": ((128.5, 108.0), "Maverick", "r", 1.8, None),
+    "Logan Dock": ((139.0, 95.5), None, "b", 2.0, None),
+    "Fan Pier": ((132.5, 80.5), "Courthouse", None, 0, None),
+    "Columbia Point": ((148.0, 47.0), None, "l", 1.8, None),
+    "Squantum Point": ((145.0, 39.0), None, "l", 1.8, None),
+    "Hingham Shipyard": ((150.0, 9.0), None, "r", 1.8, None),
+    "Hull": ((189.0, 60.0), None, "r", 1.8, None),
+    "Winthrop Landing": ((172.0, 118.0), None, "l", 1.8, None),
+    "Lynn": ((190.0, 174.0), "Lynn Harbor", None, 0, None),
+    "Nahant Harbor": ((208.0, 155.0), None, "l", 1.8, None),
+    "Swampscott Harbor": ((207.0, 187.0), None, "l", 1.6, "Swampscott\nHarbor"),
+    "Marblehead Harbor": ((215.5, 195.0), None, "l", 1.6, "Marblehead\nHarbor"),
+    "Salem Wharf": ((219.5, 205.6), None, "l", 1.2, "Salem\nWharf"),
+    "Beverly": ((218.7, 212.8), None, "r", 1.6, None),  # Glover Wharf, bent from (-70.879, 42.544)
+    "Spectacle Island": ((169.0, 76.0), None, "l", 1.8, None),
+    "Long Island": ((166.0, 66.0), None, "l", 1.8, "Long Island\nRecovery Campus"),
+    "Georges Island": ((178.0, 72.0), None, "r", 1.8, None),
+}
+# Built from FERRY_ROUTES for make_ferry_poster.py
+FERRY_LEGS = [{"key": r["key"], "title": r["title"], "kind": "strip", "outline": r["color"], "hub": r["stops"][0],
+               "hubs": [s for s in r["stops"] if s in ("Long Wharf", "Lovejoy Wharf")] or [r["stops"][0]],
+               "stops": r["stops"], "pills": r["pills"], "note": r.get("note"), "poster": True} for r in FERRY_ROUTES]
+
+
+# Boats stay out of these boxes: the Dig panel, the Key, and the BOSTON CENTRAL and SOUTH STATION names. NORTH STATION sits over the only channel to the Mystic.
+KEEP_OUT = [(156.2, 222, -20, 55.8), (121.5, 138.2, 93.3, 101.8), (120.0, 137.5, 80.6, 86.4), (152.5, 166.0, 68.6, 72.2)]  # last one is City Point
+
+
+def ferry_track(ax, xy, color, lw=3.4, z=2.6, phase=0.0, casing=True):
+    """Round dots in the route color on a white wake. Same pattern everywhere, so ferries never read as subway."""
+    xy = np.asarray(xy, float)
+    if casing:
+        ax.plot(*xy.T, color=WHITE, lw=lw + 2.6, solid_capstyle="round", solid_joinstyle="round", zorder=z)
+    ax.plot(*xy.T, color=color, lw=lw, ls=(phase, (0.01, 1.9)), dash_capstyle="round", zorder=z + 0.1, gid="ferry")
+
+
+def walk(ax, a, b):
+    """Walking link from a dock to its station: fine black dots, no text."""
+    ax.plot([a[0], b[0]], [a[1], b[1]], color=INK, lw=1.0, ls=(0, (0.01, 1.6)), dash_capstyle="round", zorder=6.4)
 
 
 def ferries(ax):
@@ -341,10 +407,12 @@ def ferries(ax):
     for n, xy in RIVERS.items():
         wet = wet.union(LineString(smooth_open(xy, 2)).buffer(WIDTH[n] / px / 2))
     wet = wet.union(LineString(smooth_open(BASIN, 2)).buffer(BASIN_PT / px / 2))
-    xs = np.arange(50, 222, step)
-    ys = np.arange(2, 208, step)
+    xs = np.arange(50, XLIM[1], step)
+    ys = np.arange(2, YLIM[1], step)
     gx, gy = np.meshgrid(xs, ys)
     inside = shapely.contains_xy(wet.buffer(-0.2), gx, gy)
+    for x0, x1, y0, y1 in KEEP_OUT:
+        inside &= ~((gx >= x0) & (gx <= x1) & (gy >= y0) & (gy <= y1))
     depth = distance_transform_edt(inside)
     idx = -np.ones(inside.shape, int)
     idx[inside] = np.arange(inside.sum())
@@ -371,6 +439,8 @@ def ferries(ax):
             if ia == ib:
                 continue
             _, pred = dijkstra(G, directed=False, indices=ia, return_predecessors=True)
+            if pred[ib] < 0:
+                print("  no water path between", [round(v, 1) for v in a], "and", [round(v, 1) for v in b])
             path, k = [], ib
             while k != ia and k >= 0:
                 path.append(k)
@@ -378,7 +448,7 @@ def ferries(ax):
             path.append(ia)
             xy = nodes[path[::-1]]
             xy = xy[::4] if len(xy) > 8 else xy
-            out.append(smooth_open(np.vstack([xy, nodes[ib]]), 3))
+            out.append(smooth_open(np.vstack([nodes[ia], xy, nodes[ib]]), 3))
         return out
 
     edge = wet.boundary
@@ -387,93 +457,99 @@ def ferries(ax):
         d = edge.interpolate(edge.project(Point(q)))
         return (d.x, d.y)
 
-    TRANSIT = ("Mouth", "back", "back2", "back3")
-    to_basin = [(n, q if n in TRANSIT else dock(q), t) for n, q, t in TO_BASIN]
-    from_basin = [(n, q if n in TRANSIT else dock(q), t) for n, q, t in FROM_BASIN]
-    georges = dock((178, 72))
-    long_island = dock((166, 66))
-    hull = dock((189, 60))
-    columbia = dock((148, 47))
-    winthrop = dock((172, 118))
-    # South Shore terminals inside the frame
-    squantum = dock((145, 39))
-    hingham_dock = dock((150, 9))
-    # North Shore run: Boston to Gloucester, with Nahant, Swampscott and Marblehead on the way
-    nahant = dock((208, 155))
-    swampscott = dock((207, 187))
-    marblehead = dock((215.5, 195))
-    salem_wharf = dock((219.5, 205.6))
-    print("columbia dock", [round(v, 1) for v in columbia])
-    hingham = [to_basin[0][1], (134, 91), (162, 80), long_island, georges, hull]
-    split = (176, 113)
-    trunk = (134, 91)
+    # Docks sit on the shore nearest their rough spot. Spectacle Island stays where it is drawn.
+    at = {n: (v[0] if n == "Spectacle Island" else dock(v[0])) for n, v in DOCKS.items()}
     global LOGAN
-    LOGAN = [q for n, q, _ in from_basin if n == "Logan"][0]
-    lynn = dock((190, 174))
-    north = [to_basin[0][1], trunk, (162, 80), split, (190, 150), lynn]
-    salem = [split, (200, 131), nahant, (221, 152), (221, 166), (209, 181), swampscott, (212, 186.8), (218.5, 185.8), (221.6, 189), (221.6, 195.5), (219, 198.5), marblehead]
-    basin = LineString(smooth_open(BASIN, 2))
-    # Boston side is on the right looking upriver from the locks
-    up = np.array(basin.offset_curve(-2.2).coords)
-    down = np.array(basin.offset_curve(2.2).coords)
-    if np.hypot(*(up[0] - np.array(BASIN[0]))) > np.hypot(*(up[-1] - np.array(BASIN[0]))):
-        up = up[::-1]
-    if np.hypot(*(down[0] - np.array(BASIN[-1]))) > np.hypot(*(down[-1] - np.array(BASIN[-1]))):
-        down = down[::-1]
-    turn = smooth_open(np.array([up[-1], (BASIN[-1][0] - 1.6, BASIN[-1][1]), down[0]]), 3)
-    legs = route([q for _, q, _ in to_basin] + [tuple(up[0])]) + [up, turn, down] + route([tuple(down[-1])] + [q for _, q, _ in from_basin]) + route(hingham) + route(north) + route(salem) + route([long_island, (153, 58), (150.5, 53), columbia]) + route([split, winthrop]) + route([(219, 198.5), (220.7, 200.7), salem_wharf]) + route([(218.5, 185.8), (220.6, 185.9)]) + route([(150.5, 53), squantum, (152, 30), hingham_dock])
+    LOGAN = at["Logan Dock"]
+
+    # Charles: one line down the middle of the river, from the bend west of the BU Bridge to Lovejoy Wharf.
+    charles = np.array(LineString(smooth_open(RIVERS["charles"], 2)).coords)
+    if charles[0][0] > charles[-1][0]:
+        charles = charles[::-1]
+    charles = charles[(charles[:, 0] >= 50) & (charles[:, 0] <= 114)]
+    river = LineString(charles)
+
+    def on_river(xy):
+        p = river.interpolate(river.project(Point(xy)))
+        return (p.x, p.y)
+
+    at["Cambridgeport"] = on_river((62, 140))
+    at["Kendall"] = on_river(PTS["Kendall/MIT"])
+    # Kendall and Charles/MGH face each other across the Longfellow Bridge, so the Esplanade landing sits upriver toward MIT.
+    s_k, s_m = river.project(Point(at["Kendall"])), river.project(Point(PTS["Mass Ave"]))
+    s_mid = s_k + 0.4 * (s_m - s_k)
+    at["Esplanade"] = (river.interpolate(s_mid).x, river.interpolate(s_mid).y)
+    river_station = {"Kendall": "Kendall/MIT"}
+
+    trunk, east = (134, 91), (162, 80)
+    split = (176, 116)
+    paths = {
+        "inner-harbor": [route([at["Encore"], at["Navy Yard"], at["Lovejoy Wharf"], at["Langone"], (126, 109), at["Long Wharf"],
+                                at["Lewis Mall"], at["Logan Dock"], at["Fan Pier"]])],  # (126, 109) keeps it off the Aquarium label
+        "charles": [[charles], route([tuple(charles[-1]), at["Lovejoy Wharf"]])],
+        "south-shore": [route([at["Long Wharf"], trunk, (150, 62), at["Columbia Point"], at["Squantum Point"], at["Hingham Shipyard"]])],
+        "north-shore": [route([at["Long Wharf"], trunk, east, at["Winthrop Landing"], split, (190, 150), at["Lynn"]]),
+                        route([split, (200, 131), at["Nahant Harbor"], (221, 152), (221, 166), (209, 181), at["Swampscott Harbor"], (212, 186.8),
+                               (218.5, 185.8), (221.6, 189), (221.6, 195.5), (219, 198.5), at["Marblehead Harbor"], at["Salem Wharf"], at["Beverly"]])],
+        "harbor-islands": [route([at["Long Wharf"], trunk, east, at["Spectacle Island"], at["Long Island"], at["Georges Island"], at["Hull"]])],
+    }
     land = 0.0
-    for xy in legs:
-        off = LineString(xy).difference(wet)
-        land += off.length
-        if off.length > 0.2:
-            print("  off water near", [round(v, 1) for v in off.bounds])
-        ax.plot(*xy.T, color=FERRY, lw=1.5, ls=(0, (1, 1.4)), zorder=2.5)
+    for rt in FERRY_ROUTES:  # all wakes first, then all dots, so shared channels show alternating colors
+        for group in paths[rt["key"]]:
+            for xy in group:
+                ax.plot(*np.asarray(xy).T, color=WHITE, lw=6.0, solid_capstyle="round", solid_joinstyle="round", zorder=2.6)
+                off = LineString(xy).difference(wet)
+                land += off.length
+    for rt in FERRY_ROUTES:
+        for group in paths[rt["key"]]:
+            for xy in group:
+                ferry_track(ax, xy, rt["color"], z=2.62, phase=rt["phase"], casing=False)
     print(f"ferry track over land: {land:.2f} units")
     cy = LineString(rounded([(140, 76), (149, 76), (152, 73), (152, 67), (149, 64), (122, 64)], 3))
     print(f"cyan southie in water: {cy.intersection(SEA.buffer(0)).length:.2f} units")
-    ax.scatter(*columbia, s=26, color=WHITE, edgecolor=INK, lw=1.2, zorder=3.2)
-    for q in (winthrop, squantum, hingham_dock, nahant, swampscott, marblehead, salem_wharf):
-        ax.scatter(*q, s=26, color=WHITE, edgecolor=INK, lw=1.2, zorder=3.2)
-    label(ax, (salem_wharf[0] - 1.0, salem_wharf[1]), "Salem\nWharf", "l", gap=0, fs=6.8, color=FERRY)
-    label(ax, squantum, "Squantum Point", "b", gap=1.8, fs=7.6, color=FERRY)
-    label(ax, hingham_dock, "Hingham Shipyard", "t", gap=1.8, fs=7.6, color=FERRY)
-    label(ax, nahant, "Nahant Harbor", "l", gap=1.8, fs=7.6, color=FERRY)
-    label(ax, (swampscott[0] - 1.4, 186.6), "Swampscott\nHarbor", "l", gap=0, fs=7.2, color=FERRY)
-    label(ax, (marblehead[0] - 1.5, 193.7), "Marblehead\nHarbor", "l", gap=0, fs=7.2, color=FERRY)
-    label(ax, winthrop, "Winthrop Landing", "l", gap=1.8, fs=7.6, color=FERRY)
-    label(ax, (145, 46.4), "Columbia Point", "l", gap=0, fs=7.6, color=FERRY)
-    for n, q, t in to_basin + from_basin[:-1]:
-        if n in TRANSIT:
-            continue
-        ax.scatter(*q, s=26, color=WHITE, edgecolor=INK, lw=1.2, zorder=3.2)
-        if t:
-            side = {"Lewis Mall": "r", "Lovejoy Wharf": "r", "Chelsea Creek": "t", "Logan Dock": "b", "Long Wharf": "r", "Fort Independence": "r"}[t]
-            label(ax, (q[0] + (3 if t == "Logan Dock" else 0), q[1] + (1.5 if t == "Lovejoy Wharf" else 0)), t, side, gap=1.8, fs=7.6, color=FERRY)
-    # Stops along each bank, with names lying in the wider water
-    ls_up, ls_down = LineString(up), LineString(down)
-    for ls, f in ((ls_up, 0.30), (ls_up, 0.56), (ls_up, 0.82), (ls_down, 0.20), (ls_down, 0.46), (ls_down, 0.72)):
-        q = ls.interpolate(f, normalized=True)
-        q = dock((q.x, q.y))
-        ax.scatter(*q, s=22, color=WHITE, edgecolor=INK, lw=1.1, zorder=3.2)
-    for t, (x, y), rot, ha_ in (("Esplanade", (90.5, 110.6), 56, "right"), ("Duck Boats", (89.2, 117.6), 54, "left")):
-        ax.text(x, y, t, fontsize=6.8, color=FERRY, rotation=rot, rotation_mode="anchor", ha=ha_, va="center", zorder=3.4)
-    ax.scatter(*lynn, s=26, color=WHITE, edgecolor=INK, lw=1.2, zorder=3.2)
-    for q in (long_island, georges, hull):
-        ax.scatter(*q, s=26, color=WHITE, edgecolor=INK, lw=1.2, zorder=3.2)
-    label(ax, georges, "Georges Island", "r", gap=1.8, fs=7.6, color=FERRY)
-    label(ax, hull, "Hull", "r", gap=1.8, fs=7.6, color=FERRY)
-    label(ax, long_island, "Long Island\nRecovery Campus", "b", gap=1.6, fs=7.6, color=FERRY)
-    ax.annotate("", xy=(221.95, 185.9), xytext=(220.6, 185.9), arrowprops=dict(arrowstyle="-|>,head_width=0.3,head_length=0.5", color=FERRY, lw=1.2), zorder=3)
-    ax.text(191.5, 152, "LYNN FERRY", fontsize=6.8, fontweight="bold", color=FERRY, ha="right", va="bottom", zorder=3)
-    ax.text(221.6, 182.9, "TO GLOUCESTER", fontsize=6.8, fontweight="bold", color=FERRY, ha="right", va="bottom", zorder=3)
-    ax.text(198, 67, "The Harbor Loop follows\na ferry chartered in 1631", fontsize=7.4, style="italic", color=FERRY, ha="left", va="bottom", zorder=3)
-    ax.text(188, 57.5, "HINGHAM / HULL FERRY", fontsize=6.8, fontweight="bold", color=FERRY, ha="right", va="bottom", zorder=3)
-    ax.text(175, 100, "HARBOR LOOP FERRY", fontsize=6.8, fontweight="bold", color=FERRY, ha="right", va="bottom", zorder=3) if False else None
+
+    # Docks: white square, dot in the route color (black where routes meet), walking link to the station.
+    serves = {}
+    for rt in FERRY_ROUTES:
+        for n in rt["stops"]:
+            serves.setdefault(n, []).append(rt["color"])
+    for n, cols in serves.items():
+        q = at[n]
+        station = river_station.get(n) or (DOCKS[n][1] if n in DOCKS else None)
+        if station:
+            if station in PTS:
+                walk(ax, q, PTS[station])
+            else:
+                print("dock station missing:", n, station)
+        ax.scatter(*q, s=52, marker="s", color=WHITE, edgecolor=INK, lw=1.0, zorder=7.2)
+        ax.scatter(*q, s=9, color=INK if len(cols) > 1 else cols[0], zorder=7.3)
+    for n, (_, _, side, gap, text) in DOCKS.items():
+        if side:
+            label(ax, at[n], text or n, side, gap=gap, fs=7.4, color=INK, halo=True)
+    for n, side in (("Cambridgeport", "r"), ("Esplanade", "l")):
+        label(ax, at[n], n, side, gap=1.8, fs=7.4, color=INK, halo=True)
+
+    def title(x, y, text, color, ha="right"):
+        ax.text(x, y, text, fontsize=7.0, fontweight="bold", color=color, ha=ha, va="bottom", zorder=6.6,
+                path_effects=[pe.withStroke(linewidth=2.4, foreground=WHITE)])
+
+    w0 = charles[0]
+    ax.annotate("", xy=(w0[0] - 2.4, w0[1]), xytext=(w0[0] + 0.2, w0[1]),
+                arrowprops=dict(arrowstyle="-|>,head_width=0.35,head_length=0.6", color=ROUTE_COLOR["charles"], lw=1.4), zorder=6.6)
+    title(w0[0] - 2.8, w0[1] - 0.9, "CHARLES FERRY, PROPOSED\nTO WATERTOWN SQ", ROUTE_COLOR["charles"])
+    title(188, 152, "NORTH SHORE FERRY", ROUTE_COLOR["north-shore"])
+    title(151.5, 56.5, "SOUTH SHORE FERRY", ROUTE_COLOR["south-shore"], ha="left")
+    title(184, 78.5, "HARBOR ISLANDS FERRY", ROUTE_COLOR["harbor-islands"], ha="left")
+    ferry_track(ax, [(221.6, 185.9), (227.4, 185.9)], ROUTE_COLOR["north-shore"], z=2.62, casing=True)
+    ax.annotate("", xy=(229.2, 185.9), xytext=(227.0, 185.9),
+                arrowprops=dict(arrowstyle="-|>,head_width=0.35,head_length=0.6", color=ROUTE_COLOR["north-shore"], lw=1.4), zorder=6.6)
+    title(228.8, 182.9, "TO GLOUCESTER", ROUTE_COLOR["north-shore"])
+    ax.text(198, 67, "The Inner Harbor ferry follows\na crossing chartered in 1631", fontsize=7.4, color=ROUTE_COLOR["inner-harbor"],
+            ha="left", va="bottom", zorder=3)
 
 
 def main():
-    w = 18.0
+    w = 18.0 * (XLIM[1] - XLIM[0]) / 268  # same scale as the 18-inch Day 8 sheet
     h = w * (YLIM[1] - YLIM[0]) / (XLIM[1] - XLIM[0])
     fig = plt.figure(figsize=(w, h), facecolor=PAPER)
     ax = fig.add_axes([0, 0, 1, 1])
@@ -484,22 +560,22 @@ def main():
     for path in CR_PATHS:
         stroke(ax, rounded(path, 3), PURPLE, 3.1, "solid", z=3)
     # Peabody-Danvers line: leaves the Rockport line at South Salem and runs on to the Haverhill line at Lawrence.
-    ax.plot(*rounded([(208.5, 198.5), (176, 198.5), (167, 207.5)], 3).T, color=PURPLE, lw=3.1, ls=(0, (2.2, 1.1)), dash_capstyle="butt", zorder=3)
+    ax.plot(*rounded([(208.5, 198.5), (176, 198.5), (160, 214.5)], 3).T, color=PURPLE, lw=3.1, ls=(0, (2.2, 1.1)), dash_capstyle="butt", zorder=3)
     for spur in ([(208.5, 198.5), (214.5, 198.5)], [(53, 188), (66, 201), (80, 201)], [(-21, 143), (-24, 140), (-40, 140)],
                  [(50, -7), (78, -7)], [(34, -16), (46, -16)]):
         ax.plot(*rounded(spur, 3).T, color=PURPLE, lw=3.1, ls=(0, (2.2, 1.1)), dash_capstyle="butt", zorder=3)
-    for (x0, y0), (x1, y1) in (((53, 202), (53, 206)), ((170, 204.5), (166.5, 208)), ((-41.2, 163.2), (-44, 166)), ((-40, 122), (-44, 122)), ((46, -17.6), (46, -19.8)), ((31.8, -15.2), (29, -18)),
-                               ((121.6, -14), (121.6, -18)), ((143.2, -13.6), (146, -16.4)), ((149.2, -3.2), (152, -6)), ((58, 204), (58, 208)), ((212, 205.6), (212, 207.8))):
+    for (x0, y0), (x1, y1) in (((53, 209.4), (53, 213.4)), ((162.8, 211.7), (159.4, 215.1)), ((-41.2, 163.2), (-44, 166)), ((-40, 122), (-44, 122)), ((46, -17.6), (46, -19.8)), ((31.8, -15.2), (29, -18)),
+                               ((121.6, -14), (121.6, -18)), ((143.2, -13.6), (146, -16.4)), ((149.2, -3.2), (152, -6)), ((114, 198), (114, 215.2)), ((212, 213), (212, 215.2))):
         ax.annotate("", xy=(x1, y1), xytext=(x0, y0), arrowprops=dict(arrowstyle="-|>,head_width=0.45,head_length=0.8", color=PURPLE, lw=0), zorder=3)
     label(ax, (207.5, 196.7), "South Salem", "r", gap=0, fs=6.9, color=CR_TEXT_COLOR)
     for name, xy, side, st in CR_STOPS:
         ax.scatter(*xy, s=46, marker="s", color=PURPLE if st == "solid" else WHITE, edgecolor=PURPLE, lw=1.4, zorder=6)
         if side:
             label(ax, xy, name, side, gap=2.2, fs=7.8, color=CR_TEXT_COLOR)
-    ax.plot(*rounded([(53, 206), (53, 175), (88, 175), (114, 149), (114, 72), (108, 66), (76, 66), (46, 36), (46, -19.6)], 3).T, color=HSR, lw=1.3, zorder=3.2)
+    ax.plot(*rounded([(53, 213.4), (53, 175), (88, 175), (114, 149), (114, 72), (108, 66), (76, 66), (46, 36), (46, -19.6)], 3).T, color=HSR, lw=1.3, zorder=3.2)
     ax.plot(*rounded([(114, 76), (114, 72), (108, 66), (82, 66), (26, 122), (-44, 122)], 3).T, color=HSR, lw=1.3, zorder=3.2)
     ax.plot(*rounded([(-44, 166), (-10, 132), (88, 132), (100, 120), (114, 120)], 3).T, color=HSR, lw=1.3, zorder=3.2)
-    ax.plot(*rounded([(114, 139), (121, 146), (139, 146), (178, 185), (195, 185), (212, 202), (212, 208)], 3).T, color=HSR, lw=1.3, zorder=3.2)
+    ax.plot(*rounded([(114, 139), (121, 146), (139, 146), (178, 185), (195, 185), (212, 202), (212, 215.4)], 3).T, color=HSR, lw=1.3, zorder=3.2)
     label(ax, (45, -14.3), "Mansfield", "l", gap=0, fs=7.8, color=CR_TEXT_COLOR)
     label(ax, (35.4, -18.2), "Foxborough", "r", gap=0, fs=7.8, color=CR_TEXT_COLOR)
     label(ax, (51, -5.2), "Stoughton", "r", gap=0, fs=7.8, color=CR_TEXT_COLOR)
@@ -645,7 +721,7 @@ def main():
     lx, tx, ly = 160.5, 174.5, 51.2
     ax.text(lx, ly, "Key", fontsize=11, fontweight="bold", color=INK, va="center", zorder=12)
     rows = [("solid", RED, LW, "Running today"), ("stripe", RED, LW, "New: real proposal or strong case"), ("dash", RED, LW, "New: imagined"),
-            ("solid", PURPLE, 3.1, "Commuter rail, dashed where proposed"), ("hsr", PURPLE, 3.1, "High-speed rail, express, big stations only"), ("ferry", "#2b7a9b", 1.5, "Ferries, including the Harbor Loop"), ("dig", INK, 0, "The BIGGER Dig, four tracks"), ("none", INK, 0, "Replacement shuttle buses: none")]
+            ("solid", PURPLE, 3.1, "Commuter rail, dashed where proposed"), ("hsr", PURPLE, 3.1, "High-speed rail, express, big stations only"), ("ferry", FERRY, 3.4, "Ferries, one color per route"), ("dig", INK, 0, "The BIGGER Dig, four tracks"), ("none", INK, 0, "Replacement shuttle buses: none")]
     for i, (st, c, wd, t) in enumerate(rows):
         y = ly - 4.4 - i * 3.4
         if st == "none":
@@ -653,7 +729,10 @@ def main():
         elif st == "dig":
             four_tracks(lx + 0.6, y, lx + 10.4, y, 12)
         elif st == "ferry":
-            ax.plot([lx, lx + 11], [y, y], color=c, lw=wd, ls=(0, (1, 1.4)), zorder=12)
+            ax.plot([lx, lx + 11], [y, y], color=WHITE, lw=6.0, solid_capstyle="round", zorder=12)
+            for k, rt in enumerate(FERRY_ROUTES):
+                x0 = lx + 0.6 + k * 2.2
+                ax.scatter([x0], [y], s=(wd * 1.05) ** 2, color=rt["color"], zorder=12.1)
         else:
             stroke(ax, [(lx, y), (lx + 11, y)], c, wd, "solid" if st == "hsr" else st, z=12)
         if st == "hsr":
