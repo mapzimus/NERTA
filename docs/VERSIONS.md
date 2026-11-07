@@ -6,6 +6,7 @@ Everything is in `boston-map/output/` unless noted.
 
 | File | What it is |
 |---|---|
+| `day08-utopia-boston*`, `day08-line-*.png` | **The posting set**, named for the 30 Day Map Challenge. Copies of the files below. |
 | `day08_rapid_transit_hires.png` | **The main map at its highest resolution**, 600 dpi from Illustrator. Use this for print or zooming. |
 | `day08_rapid_transit.png` | The main map at 200 dpi from Illustrator. Use this for posting. |
 | `day08_rapid_transit.ai` | The current Illustrator file. |

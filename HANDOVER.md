@@ -32,7 +32,7 @@ It is a fan work. It is **not a real MBTA map**, and nothing here is an actual p
 - The main map and all eight posters are final unless Max changes something.
 - Every stop on the main map is on its line's poster, and no poster has an extra stop. `boston-map/tools/poster_audit.py` checks this and every shared-stop pill. The map shows 215 T stops.
 - The label overlap checks pass. `labels.py` always flags "Rapid T | ransit", which is deliberate: the title is drawn in two pieces to tighten the T. `marks.py` always flags "Lynn Harbor" against its own dot.
-- High-resolution files are in the repo and in `Desktop\30daymap\` on Max's machine.
+- High-resolution files are in `boston-map/output/`. The posting set is the `day08-*` files there.
 
 **Not done:**
 
@@ -102,10 +102,12 @@ Setup is in `docs/TOOLS.md`. This takes about 5 minutes.
 
 3. In Illustrator, open `boston-map/output/t_map.pdf` and save it as `day08_rapid_transit.ai`.
 4. Export the artboard at 200 dpi as `day08_rapid_transit.png` and at 600 dpi as `day08_rapid_transit_hires.png`, both in `boston-map/output/`.
-5. On Max's machine, copy the results to `Desktop\30daymap\`:
+5. Copy the results to the posting set in `boston-map/output/`:
    - `day08_rapid_transit.png`, `.ai` and `t_map.pdf` become `day08-utopia-boston.png`, `.ai` and `.pdf`.
    - `day08_rapid_transit_hires.png` becomes `day08-utopia-boston-hires.png`.
    - Each `line_<name>.png` becomes `day08-line-<name>.png`.
+
+Copy nothing to `Desktop\30daymap\` until Max says the work is completely finished.
 
 **Things that can bite you:**
 
