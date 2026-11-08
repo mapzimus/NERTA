@@ -39,6 +39,26 @@ It is a fan work. It is **not a real MBTA map**, and nothing here is an actual p
 - **Publish the existing Day 8 map on Sunday, November 8, 2026.** Use the files already in `boston-map/output/`. Do not redraw them for the post. Draft text is in `docs/history/day08_social_posts.md`. Max needs to review it first.
 - After Sunday, the project continues for fun. Buses are part of that later work, not the post.
 
+## November 8, 2026: finals (read this first)
+
+- **Finals are in `boston-map/output/final/`, `Downloads\NERTA-final\` and `Desktop\NERTA-FINAL-Disclaimer\`:** the main map, 8 T posters, the Ferry Map, 14 ferry route posters, 15 rail line posters, the combined rail poster, the regional rail map and the rail network display. `docs/VERSIONS.md` lists what each was made from. `boston-map/tools/finalize.py <slug> <pdf> [<png>]` saves a newly signed-off map; it never overwrites.
+- **Release v1.0 (post these):** `Desktop\NERTA-FINAL-Disclaimer\v1.0\<map>\`, with and without the disclaimer, "v1.0" bottom-left. `boston-map/tools/release_v1.py` makes them from the signed-off PDFs; a later change means a new final, then a new version number.
+- **Social sizes:** `boston-map/tools/export_social.py` (sources in `research/social-media-sizes-2026-11-07.md`).
+- **Label rule (Max):** "id prefer overlapping the color before putting the text confusingly far away." Names sit by their own stop, on a colored line if need be; nothing touches.
+- **Orange Line north (Max, November 8):** ends at North Reading; a loop from Greenwood to Market St (Lynnfield) and back in at Reading skips Wakefield. Both invented. 227 T stops. The website, rail and tram sessions were told.
+- **Parking:** P at 34 T stations, `make_tmap.PARKING`, sources in `research/parking-and-bleachery-2026-11-08.md`.
+- **Still open:** the tram session's three maps are in review (round 2 findings in `research/audit-tram-r2-2026-11-08.json`); the London boat's name is Max's pick.
+- **nerta.fun logos:** `site/assets/logo/` has the 12-color T and NERTA mark (stripes rising to the right) and `nerta_37.svg`, the 37-color website-only alternate.
+
+## Late November 7, 2026: newest state (read this first)
+
+- **Release block on every map posted November 8 (Max):** the disclaimer paragraph, "Map: Maxwell Howe", "#30DayMapChallenge" and "Day 8 • Utopia". The main map draws its own. Posters call `draw_release()` from `boston-map/src/release_tag.py`. Web versions leave it out.
+- **Finished maps go to `C:\Users\mhowe\Desktop\NERTA-FINAL-Disclaimer\`, sized for social media, only when Max says that map is final.** Maps tie together, so most stay open for a long time.
+- **Side sessions:** the rail poster (`make_rail_poster.py`, newest `copies/rail_poster_v7`), the tram poster (`tools/make_tram_realmap.py`, `src/tram_merge.py`), and the nerta.fun site. Each writes its changes for other maps to `research/<name>-changes-for-all-maps.md`; the main-map session applies them to every map.
+- **Max wants individual line posters** for the ferry, commuter rail and high-speed networks, as well as the combined posters.
+- **London ferry (invented):** Long Wharf becomes an international port with a transatlantic boat to London. Working name "Atlantic Clipper", not final.
+- **nerta.fun** (from the site session): a static Cloudflare Worker, source in `site/`, deployed with `npx wrangler deploy` from `site/`. `site/tools/render_web_maps.py` makes web map versions (name under NERTA, @mapzimus in the water, no hashtag, Day 8, disclaimer or MBTA sources) into `boston-map/output/copies/web/` only; then `site/tools/build_assets.py` and `site/tools/build_pages.py`. Site rules: never say MBTA, no dates, the network must match the maps and posters exactly, only rider stats and money figures are made up (seeded random), pods are canon and never explained. In progress there: network data rebuilt from the posters, real lat/lon in `site/data/locations.json`, a geographic map later. Draft renders in `output/copies/` are never committed (673 MB).
+
 ## Release pass, November 7, 2026 (branch `ferry-pass`, uncommitted)
 
 - **Post this set:** `boston-map/output/copies/release_2026-11-08/`. It has `current_map.png` (600 dpi), `current_map.pdf` (vector), and the eight `line_*` posters as PNG and PDF. Ferry route posters are held back.
@@ -142,7 +162,7 @@ Copy nothing to `Desktop\30daymap\` until Max says the work is completely finish
 
 - **Hand edits vanish.** Any edit made only in Illustrator is lost at the next rebuild. Move it into the code.
 - **Font path.** The disclaimer loads Arial Narrow Italic from `C:\Windows\Fonts\ARIALNI.TTF`. Change the path on another machine.
-- **Stop count.** The panel's 224 is typed by hand. It's `audit.py`'s count plus the 10 stops only the Logan Silver Line uses. Update it when stops change.
+- **Stop count.** The panel's 225 is typed by hand. It's `audit.py`'s count plus the 10 stops only the Logan Silver Line uses. Update it when stops change.
 - **Hidden second stops.** Fenway appears twice in `lines()`, once as `Fenway+`. That's the same station where two lines run side by side.
 
 ## Reference material

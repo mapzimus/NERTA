@@ -1,0 +1,233 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.036085,
+     42.34174
+    ]
+   },
+   "properties": {
+    "name": "Vertex Tower",
+    "invented": true,
+    "sources": [
+     "placed by hand"
+    ],
+    "verified": false,
+    "note": "Brand-new supertall with its own Cyan stop in the Seaport loop, between Seaport and City Point. Name nods to Vertex Pharmaceuticals at Fan Pier; the tower is ours. Placed by hand between the two stations"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.062162,
+     42.366299
+    ]
+   },
+   "properties": {
+    "name": "TD Garden",
+    "note": "Event service: extra Orange, Green and Cyan trains for Garden events (line posters)",
+    "invented": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "Wikipedia"
+    ],
+    "verified": true,
+    "agreement": "Nominatim (OpenStreetMap) and Wikipedia 11 m apart"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.0971,
+     42.346461
+    ]
+   },
+   "properties": {
+    "name": "Fenway Park",
+    "note": "Event service: extra Green and Yellow trains for Fenway events (line posters)",
+    "invented": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "Wikipedia"
+    ],
+    "verified": true,
+    "agreement": "Nominatim (OpenStreetMap) and Wikipedia 56 m apart"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.069256,
+     42.395528
+    ]
+   },
+   "properties": {
+    "name": "Encore Boston Harbor",
+    "note": "Casino with its own Cyan stop and Mystic River dock; event boats and trains (Cyan poster, ferry notice)",
+    "invented": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "Wikipedia"
+    ],
+    "verified": true,
+    "agreement": "Nominatim (OpenStreetMap) and Wikipedia 142 m apart"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.066378,
+     42.391871
+    ]
+   },
+   "properties": {
+    "name": "Stadium site",
+    "note": "Proposed stadium at the old Mystic power plant, Everett: its own Stadium stop on Cyan and Yellow, a Mystic dock, event trains and boats. Seats: City of Everett 25,000, ENR 24,000 (sources differ). Not approved",
+    "invented": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "Wikipedia"
+    ],
+    "verified": true,
+    "agreement": "Nominatim (OpenStreetMap) and Wikipedia 71 m apart"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.073701,
+     42.357299
+    ]
+   },
+   "properties": {
+    "name": "Hatch Memorial Shell",
+    "note": "Event dock on the Charles River (ferry passenger notice)",
+    "invented": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "Wikipedia"
+    ],
+    "verified": true,
+    "agreement": "Nominatim (OpenStreetMap) and Wikipedia 2 m apart"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.11773,
+     42.352223
+    ]
+   },
+   "properties": {
+    "name": "Agganis Arena",
+    "note": "Event dock on the Charles River (ferry passenger notice)",
+    "invented": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "Wikipedia"
+    ],
+    "verified": true,
+    "agreement": "Nominatim (OpenStreetMap) and Wikipedia 5 m apart"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.035935,
+     42.348503
+    ]
+   },
+   "properties": {
+    "name": "Leader Bank Pavilion",
+    "note": "Event dock 'Pavilion' on the Seaport boat (ferry passenger notice)",
+    "invented": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "Wikipedia"
+    ],
+    "verified": true,
+    "agreement": "Nominatim (OpenStreetMap) and Wikipedia 19 m apart"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.997187,
+     42.39051
+    ]
+   },
+   "properties": {
+    "name": "Suffolk Downs",
+    "note": "Point is the Blue Line station (Nominatim); the redevelopment surrounds it. Wikipedia's coordinates are rounded and sit 1 km off. Redevelopment drawn as a larger Blue Line station, with ferry landings. Homes: HYM 10,000, Boston Planning 2020 about 7,000 (sources differ)",
+    "invented": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "Wikipedia"
+    ],
+    "verified": false,
+    "agreement": "Nominatim (OpenStreetMap) and Wikipedia 1054 m apart"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.966072,
+     42.320515
+    ]
+   },
+   "properties": {
+    "name": "Long Island Recovery Campus",
+    "note": "Mayor Wu's recovery campus plan (permits 2025); a Harbor Islands ferry stop is ours",
+    "invented": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "Wikipedia"
+    ],
+    "verified": true,
+    "agreement": "Nominatim (OpenStreetMap) and Wikipedia 60 m apart"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.048752,
+     42.320175
+    ]
+   },
+   "properties": {
+    "name": "Dorchester Bay City (Columbia Point)",
+    "note": "Real development on the old Bayside Expo site (master plan approved September 2023, per research/tram-route-assessment.md); docs/IDEAS.md names it as a development-led stop",
+    "invented": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)"
+    ],
+    "verified": false,
+    "agreement": "one source only"
+   }
+  }
+ ]
+}

@@ -1,0 +1,639 @@
+{
+  "summary": "Round-2 audit of the three tram maps (Tram Network poster v4, tram map v15, tram station display v3)",
+  "agentCount": 4,
+  "logs": [],
+  "result": [
+    {
+      "key": "network",
+      "checked": "File: D:\\REPOS\\NERTA\\boston-map\\output\\copies\\tram_network_v4.png (29824x28264, 600 dpi). All coordinates below are full-size pixels in this PNG. The PDF next to it uses the same layout at 600/72 scale.\n\nHow I checked it:\n1. Visual pass. I cut the whole sheet into 36 tiles of 6300 px, each overlapping the next by 900 px, and shrank each to 1400 px. I read every tile that has content (30 of them) and read every label in them. Crops are in C:\\Users\\mhowe\\AppData\\Local\\Temp\\claude\\8c6edb261a248c64\\78f945b2-284d-46fa-8b1f-22d30e849230\\scratchpad\\audit_tram_r2\\network\\. The far-right strip (x>27900, y<16200) has nothing in it.\n2. Close-ups. About 30 crops at full size or half size: header logo, release block, Key rows, the FREE tag on the map, Malden Center, Waltham, Hillside/Edge Hill, Arsenal Sq, Reservoir St, Hastings Ln/Winthrop St, Gladstone St, Orient Heights, American Legion Hwy, Harvard, Central/University Park, MIT/Technology Sq, Fenway/Mission Park, Kenmore/Ruggles, Roxbury Crossing, Pill Hill, Broadway/Dover, Nubian, Forest Hills, Seaver St/Grove Hall/Quincy St, Codman Sq, Ashmont, Quincy Center (badge vs stop arm), Wellington/Sullivan, Woodlawn and Barry's Corner.\n3. Measured check from the PDF drawing layer. It found 372 stops, 374 label blocks and 198 pills or badges. For every label I computed its nearest stop by edge and by center, and listed every label, pill or stop pair closer than 30 px. Nothing touches anything. The closest gaps are the intended ones: name to its own pill 24-26 px, pill to pill 15-21 px, and the badge 220 to Quincy Center's cross arm about 25 px.\n\nThings that pass:\n- Header: the multicolor logo is there. The T has three layers (black outline, a band of colored diagonal stripes rising to the right in about 12 colors, white core), and the NERTA pill is ringed in the same colors. It is not single pink.\n- Release block: the disclaimer has MOST in bold, followed by \"Map: Maxwell Howe\", \"#30DayMapChallenge\" and \"Day 8 • Utopia\". It is now about the same height as the title.\n- Stop symbol: Max's circle with a cross whose arms run past the circle, on the map (+ on straight lines, X on diagonals) and in the Key.\n- Key: the Charlie Points row (CP roundel, \"Pay with Charlie Points. Monthly passes available.\") and the FREE row (tag on a line, \"Free ride, no Charlie Points needed\") are both there. The accessible row, all 32 routes and all 8 transfer pills are also listed.\n- FREE tag: it sits on route 23 between Grove Hall and Four Corners.\n- Waltham: shows both RL and CR pills.\n- Route captions: all 32 sit next to a line that carries their route. The 116 and 455 captions are a special case (see the low finding).\n- Nothing is cut off. The Passenger Notice box and the footer line are intact.\n\nRound 1 findings that apply to this poster, all checked:\n- Malden Center: fixed. The OL and CR pills now sit under MALDEN CENTER, ending just left of its own stop, and nothing orange sits over Prospect St.\n- \"15 Dudley St\": fixed. It is now beside the 15 near Fields Corner, about 855 px from the 23.\n- Mission Park and Brookline Village: fixed. Mission Park GL is now above the line, and Brigham Circle has clear space.\n- Waltham CR: fixed.\n- \"100 Fellsway\": fixed. It is now beside the 100 diagonal under Fourth St.\n- Release block size: fixed.\n- Forest Hills pills vs Arborway: the gap is fixed, but the new FOREST HILLS label position causes a new problem (first finding).",
+      "findings": [
+        {
+          "image": "tram_network_v4.png",
+          "where": "Forest Hills. 'FOREST HILLS' at (13954-14628, 17279-17349). OL/GL pills at (13954-14563, 17375-17505). Forest Hills stop (13842,17617). Arborway stop (14741,17617). 'Arborway' at (14268-14647, 17721-17805).",
+          "problem": "The bold name and its OL/GL pills hover over the middle of the double line between the two stops: 203 px from the Forest Hills circle and 204 px from the Arborway circle. The block's center is 502 px from one stop and 503 px from the other. 'Arborway' also sits between the two stops. A stranger can read the Arborway stop as Forest Hills.",
+          "severity": "medium",
+          "fix": "Move the FOREST HILLS name and pills about 185 px left and 40 px up, so the block starts over the Forest Hills stop: name at about (13770-14444, 17239-17309), pills at about (13770-14379, 17335-17465). That keeps the pills about 70 px clear of the stop's upper-right arm and about 55 px clear of the 38 line from Sedgwick St. The block center is then about 370 px from Forest Hills and 700 px from Arborway. Leave 'Arborway' where it is."
+        },
+        {
+          "image": "tram_network_v4.png",
+          "where": "Seaver St / Grove Hall. 'Seaver St' at (15864-16254, 17425-17491) with its OL pill at (16299-16596, 17393-17523). Seaver St stop (15770,17617). 'Grove Hall' at (15765-16179, 17174-17240) with its OL pill at (16224-16521, 17142-17272). Grove Hall stop (16653,17207). FREE tag at about (16680-16985, 17337-17432) on the 23. Four Corners (17063,17618).",
+          "problem": "'Seaver St OL' floats up and to the right of its stop, stacked right under 'Grove Hall OL'. Its pill ends 84 px from the FREE tag, so the row reads 'Seaver St OL FREE' and points at the 23 line. The block's center is about as close to the Grove Hall stop (495 px) as to its own (482 px). Meanwhile the 'Grove Hall' text is closer to the Seaver St stop (290 px edge to edge) than to its own (387 px). A stranger could swap the two stations or think Seaver St is the free stop.",
+          "severity": "medium",
+          "fix": "Put 'Seaver St' at its own stop's level, just right of the circle: about (15905-16295, 17580-17646), sitting on the 16 line with a halo. Stack its OL pill directly above the name at about (15905-16202, 17425-17555). That leaves about 150 px between it and 'Grove Hall OL' and about 480 px between it and the FREE tag."
+        },
+        {
+          "image": "tram_network_v4.png",
+          "where": "Ruggles. 'RUGGLES' at (13586-14045, 14504-14575). OL/YL/CR pills at (14090-15012, 14474-14605). Ruggles stop (15145,14539) with the 22 badge at (15246-15422, 14302-14437). 'Brigham Circle' at (13385-13964, 14733-14817). Brigham Circle stop (13621,15130). Roxbury Crossing stop (14555,15129).",
+          "problem": "The name is about 1,010 px from its own stop but 468 px from the Brigham Circle stop and 666 px from the Roxbury Crossing stop. It sits 158 px above 'Brigham Circle', so 'RUGGLES / Brigham Circle / GL' reads as one stack. Only the pill chain leads to the right stop.",
+          "severity": "medium",
+          "fix": "Move the name next to its own stop: right-align 'RUGGLES' about 50 px left of the circle, at about (14550-15008, 14504-14575). Move the OL YL CR pills to a row directly above the name, at about (14090-15012, 14345-14476). That row is about 210 px below Kenmore's pills and about 275 px below 'Boston Medical'."
+        },
+        {
+          "image": "tram_network_v4.png",
+          "where": "Broadway on route 9. 'Broadway' at (17018-17411, 14268-14352). RL at (17456-17753, 14235-14366) and CL at (17769-18066, 14235-14366). Broadway stop (18159,14142). Dover stop (17305,13958) with 'Dover OL' to its right.",
+          "problem": "The name sits right under the Dover stop. Its center is 363 px from Dover and 961 px from its own stop, and only the RL/CL pills lead to Broadway. This is the 'text confusingly far away' case.",
+          "severity": "medium",
+          "fix": "Center 'Broadway' under its own stop at about (17962-18355, 14300-14384), which keeps it 40 px clear of the stop's bottom arm. Stack the RL and CL pills under it at about (17854-18464, 14410-14541), the same way Malden Center and Fenway stack theirs. 'Dorchester St' is still about 420 px to the right."
+        },
+        {
+          "image": "tram_network_v4.png",
+          "where": "Name-then-pills rows on the left side of a stop. Worst case: 'West Station' at (9672-10174, 12454-12521), with BL GL YL CR at (10219-11454, 12422-12553). West Station stop (11586,12515). Arsenal Yards stop (9944,11692). The same pattern, with lower risk, shows up at Coolidge Corner, Mass Ave, Northampton, Boston Medical, Talbot Ave, Navy Yard, Uphams Corner and Wellington Hill.",
+          "problem": "With four pills between the name and the stop, 'West Station' is 1,325 px from its own stop and 675 px from the Arsenal Yards stop. That breaks the closer-to-its-own-stop rule. The others are 380-410 px from their own stop and slightly closer to a neighbor. They read fine as rows, so the risk is low.",
+          "severity": "low",
+          "fix": "West Station: right-align the name about 50 px left of the circle, at about (10947-11449, 12454-12521). Put the four pills in a row directly above the name, at about (10213-11449, 12300-12431). The others can stay unless Max wants the same treatment everywhere."
+        },
+        {
+          "image": "tram_network_v4.png",
+          "where": "Route 95 row. 'Hastings Ln' at (11725-12187, 6366-6449), stop (11956,6198). 'Winthrop St' at (12234-12702, 6433-6517), stop (12414,6198).",
+          "problem": "The two names are only 47 px apart and their rows overlap by 16 px. They read as one row: 'Hastings Ln Winthrop St'.",
+          "severity": "low",
+          "fix": "Move 'Hastings Ln' above the line, centered on its own stop, at about (11725-12187, 5950-6033). That space is empty and about 48 px clear of the stop's top arm. Winthrop St stays below."
+        },
+        {
+          "image": "tram_network_v4.png",
+          "where": "'Fenway' at (12443-12750, 14540-14624) with GL/YL at (12443-13053, 14648-14779). 'Mission Park' at (12316-12824, 14875-14941) with GL at (12869-13166, 14842-14972).",
+          "problem": "Fenway's pills sit between the two names, 63-96 px above the Mission Park row. 'GL YL / Mission Park GL' can be read as Mission Park's transfers.",
+          "severity": "low",
+          "fix": "Once RUGGLES moves next to its stop (finding above), put Fenway's GL YL on the name's row after the name, at about (12795-13405, 14517-14648), the way the Key shows. That row is clear of David Ortiz CR above."
+        },
+        {
+          "image": "tram_network_v4.png",
+          "where": "'116 Inland Revere' at about (23236-24040, 7534-7669) and '455 Lynn and Salem' at about (23890-24795, 8189-8324). Both are on the shared double line from American Legion Hwy (22816,7436) to Sagamore St to Wonderland.",
+          "problem": "The two routes split at American Legion Hwy: the 116 goes to Cushman Ave and the 455 to Ward St and Salem. Both captions sit on the shared stretch, so they can't tell a reader which branch is which. Only the end badges can.",
+          "severity": "low",
+          "fix": "Move '116 Inland Revere' to the left of the 116-only diagonal, between 'American Legion Hwy' and 'Cushman Ave', at about (21600-22400, 7580-7700). Move '455 Lynn and Salem' to the empty left side of the 455-only diagonal near Burns St, at about (22350-23200, 6800-6935)."
+        },
+        {
+          "image": "tram_network_v4.png",
+          "where": "'Technology Sq' at (15107-15689, 11859-11943), below its stop (15398,11690). MIT row: 'MIT' at (14654-14800, 12044-12109), BL at (14845-15142, 12011-12142), YL at (15158-15455, 12011-12142).",
+          "problem": "MIT's YL pill sits 68 px directly under 'Technology Sq', so YL can be read as Technology Sq's transfer.",
+          "severity": "low",
+          "fix": "Swap sides: put 'Technology Sq' above its stop at about (15107-15689, 11440-11524), and put 'Tremont St' below its own stop at about (14547-14986, 11860-11926). That puts the name clear of MIT's pills and keeps the two names off the same row."
+        },
+        {
+          "image": "tram_network_v4.png",
+          "where": "'ORIENT HEIGHTS' at (20594-21393, 10134-10205), with BL at (21096-21393, 10230-10361). 'Chester Ave' at (20665-21146, 10409-10476), stop (20508,10443).",
+          "problem": "The BL pill is only 48 px above 'Chester Ave' and overlaps its last letters left to right, so a stranger could read it as Chester Ave's transfer.",
+          "severity": "low",
+          "fix": "Raise 'ORIENT HEIGHTS' and its BL pill about 40 px: name at y 10094-10165, pill at y 10190-10321. The gap to 'Chester Ave' becomes about 88 px, and the name still lines up with its stop (10169)."
+        },
+        {
+          "image": "tram_network_v4.png",
+          "where": "Route 70 diagonal. 'Hillside / Rd' at (1922-2202, 10905-11079), under the Hillside Rd stop (2116,10731). 'Edge / Hill Rd' at (2248-2508, 11190-11365), under the Edge Hill Rd stop (2432,11047). The next stop down is Palmer St (2747,11362).",
+          "problem": "Each two-line name hangs under its own stop, but its second line is level with the next stop down and just to its left: 88 px from its own stop versus 143 px from the next. This is the stair-step pattern from round 1. It reads correctly here, but the empty space on the left would remove all doubt.",
+          "severity": "low",
+          "fix": "Put each name on one line, left of its own stop and level with it: 'Hillside Rd' at about (1575-1975, 10690-10773), 'Edge Hill Rd' at about (1775-2295, 11005-11089). Both are clear of the Market Place Dr and Hillside cross arms. 'Palmer St' can stay."
+        },
+        {
+          "image": "tram_network_v4.png",
+          "where": "'60 Route 9' caption at about (8531-9059, 15195-15330), right before 'Catlin Rd' (9194-9554, 15299-15365). The Key's routes list has the same '60 Route 9' entry at about (338-900, 25519-25618).",
+          "problem": "The 60's name, 'Route 9', can be read as tram route 9 (Broadway), which runs somewhere else. The caption also sits only 136 px from 'Catlin Rd' on almost the same row.",
+          "severity": "low",
+          "fix": "Consider naming the 60 by its end, like 'Dedham' and 'Walpole': for example '60 Chestnut Hill'. That is Max's call, because line_audit.md lists the 60 as 'Route 9'. Either way, center the caption between 'Duffley Ct' and 'Catlin Rd' below the line, at about x 8250-8780."
+        },
+        {
+          "image": "tram_network_v4.png",
+          "where": "Key, 'Transfer stop: NERTA lines in pills after the name' row at about (1180-3100, 21950-22020). On the map, Malden Center, Fenway, Forest Hills, Wellington, Allston, Boston Landing, West Medford, Brookline Hills, Brigham Circle, Watertown, West Broadway, Waltham and Orient Heights all put their pills under the name.",
+          "problem": "The Key says pills come after the name, but about a dozen stations stack them under it. The mismatch is minor, but it is one more thing a first-time reader has to work out.",
+          "severity": "low",
+          "fix": "Change the Key text to 'NERTA lines in pills after or under the name'."
+        }
+      ]
+    },
+    {
+      "key": "map_west",
+      "checked": "File: D:\\REPOS\\NERTA\\boston-map\\output\\copies\\tram_map_v15.png (13770x12270). My area was x 0-7574, plus the header and the Key. All coordinates below are in full-size pixels.\n\nHow I checked:\n- Tiled the left half into 35 overlapping crops (1700 px tiles, 150 px overlap, shown at 82%). Tiles with no trams were checked at low resolution.\n- Made about 25 full-size zooms and three 3x zooms. I read every label in my area.\n- Stop centers come from the vector circles in tram_map_v15.pdf (x 8.333 to get pixels). Label boxes come from dark-pixel bounds in the PNG. The distances quoted run from each label box to each stop center.\n- Read clearly_own() and nearer() in boston-map/src/make_tram_map.py to see why the label audit passes the misplaced names.\n- Crops are in C:\\Users\\mhowe\\AppData\\Local\\Temp\\claude\\8c6edb261a248c64\\78f945b2-284d-46fa-8b1f-22d30e849230\\scratchpad\\audit_tram_r2\\left\\\n\nPasses:\n- Header logo: the three-layer T is striped diagonally in about 12 colors, rising to the right. The NERTA pill is ringed in the same colors, not single pink.\n- Release block (about x 380-3020, y 830-1460): the disclaimer with MOST in bold italic, \"Map: Maxwell Howe\", \"#30DayMapChallenge\" and \"Day 8 • Utopia\". The bullet renders correctly.\n- Key (about x 11250-13680, y 10680-12100) has all its rows:\n  - Tram line and Tram stop. The stop symbol is a circle with a cross whose arms run past the circle.\n  - Transfer stop, Route number and NERTA rail.\n  - Commuter rail.\n  - The Charlie Points row with the CP badge.\n  - The FREE row.\n  - The pods line and the dropped-stops note.\n- Stop symbol on the map matches the Key. Diagonal stops use the cross turned 45°.\n- FREE tag (6750-7050, 8449-8541) sits on route 23 between Four Corners and Vassar St, and touches nothing.\n- Waltham: its ring (1800,3780) links by a black capsule to the commuter rail square at about (1603,3975).\n- Bleachery: still an unlabeled white dot at (1800,4250).\n- Nothing is cut off at the sheet edges in my area.\n\nRound 1 fixes confirmed in my area:\n- Chestnut Hill Mall now sits level with its own stop.\n- Reservoir St is near its own stop at normal size.\n- Angell St, Seaver St, Whiting St, Grove Hall, Bray St and Egleston Sq are fixed.\n- Emerson Rd is now near its own stop.\n- The route 240 names down to Frederickson Dr are level with their stops.\n- Achorn St is no longer stacked.\n- Nubian is now at full station-label size.\n- Woodbine St, West Cottage St, Birchwood St, East Hoyle St, Riverview Rd and Oak Square Ave were dropped from the map.\n- No shrunk labels are left in my area.\n\nRound 1 problems still open:\n- Route 38 stair-step.\n- Route 215 stair-step.\n- Courtland Rd.\n- The Nubian route-end pills.\n- Palmer St and Milton St were moved, but each now crowds a different stop.\n\nNot checked: the right half of the map, except labels belonging to stops at x below 7650.",
+      "findings": [
+        {
+          "image": "tram_map_v15.png",
+          "where": "Route 70 west of Waltham. Stops: Market Place Dr (1225,3495), Hillside Rd (1331,3601), Edge Hill Rd (1412,3682), Palmer St (1499,3756), Fiske St (1612,3770), Waltham ring (1800,3780). Labels: 'Hillside Rd' (1394-1632, 3495-3532), 'Edge Hill Rd' (1475-1753, 3576-3623), 'Fiske St' (1524-1704, 3640-3676), 'Palmer St' (1222-1447, 3810-3850).",
+          "problem": "'Fiske St' is closer to the Palmer St stop (84 px) than to its own stop (94 px). It also hangs as a second line under 'Edge Hill Rd', so the two read as one name. The names stair-step too: 'Hillside Rd' sits level with the Market Place Dr stop, 'Edge Hill Rd' with the Hillside Rd stop, and 'Fiske St' with the Edge Hill Rd stop. A stranger reading across gets three stops wrong. The round 1 Palmer St fix moved the problem instead of solving it.",
+          "severity": "high",
+          "fix": "The stops are only about 115 px apart on a 45° line, which is too tight for level names. Stretch the tail up-left into the empty space (x 300-1200, y 3000-3500 is open) so Market Place Dr, Hillside Rd and Edge Hill Rd sit about 170 px apart. Then put each name level with its own stop, on the right, 20 px clear of the circle. Move 'Fiske St' right so it no longer overhangs Palmer St: about x 1575-1755 with its bottom at y 3715 (the Red Line edge is at x 1781). Leave 'Palmer St' where it is."
+        },
+        {
+          "image": "tram_map_v15.png",
+          "where": "Ashmont. 'Milton St' at (7044-7239, 9516-9552). Its stop is at (7140,9630). Ashmont ring at (7000,9470). The 22 and 23 pills end at y ≈ 9503, directly above the label.",
+          "problem": "'Milton St' is closer to the Ashmont ring (64 px) than to its own stop (78 px). It sits 13 px under the 22 and 23 pills, so it reads as a caption for Ashmont's routes.",
+          "severity": "high",
+          "fix": "Move it down and right to sit just above its own stop: about x 7080-7280, bottom at y ≈ 9588, crossing the 215 line and the river with a halo. That puts it about 45 px from its stop, more than 100 px from the Ashmont ring, and about 45 px below the pills."
+        },
+        {
+          "image": "tram_map_v15.png",
+          "where": "Allston. 'Barry's / Corner' at (4649-4803, 5220-5302). Its stop is at (4725,5395); the Everett St stop is at (4565,5318). 'Everett St' label at (4270-4509, 5372-5431).",
+          "problem": "The name is closer to the Everett St stop (86 px) than to its own stop (93 px). Its second line, 'Corner', sits level with the Everett St stop and just to its right. A stranger reads the Everett St stop as Barry's Corner.",
+          "severity": "high",
+          "fix": "Shift the two-line name about 70 px right (x ≈ 4720-4875, same y), so it crosses the Green Line and the 66 line with a halo. That gives about 93 px to its own stop and about 155 px to Everett St. Another option is to put it below-right of its own stop."
+        },
+        {
+          "image": "tram_map_v15.png",
+          "where": "Forest Hills, left of the route 38 diagonal. Labels:\n- 'Sedgwick St' (4020-4300, 9280-9325)\n- 'Aldwin Rd' (4020-4246, 9355-9391)\n- 'Granfield Ave' (3843-4146, 9415-9451)\n- 'Goldsmith St' (3734-4025, 9479-9516)\n- 'Louder's Ln' (3681-3941, 9561-9597)\n- 'Whitcomb Ave' (3536-3861, 9642-9678)\n- 'Weld St' (3593-3770, 9734-9770)\nRoute 38 stops: Sedgwick St (4364,9306), Goldsmith St (4085,9585), Louder's Ln (4004,9666), Whitcomb Ave (3922,9748), Weld St (3830,9840), Fletcher St (3749,9921). Route 34 stops: Aldwin Rd (4310,9460), Granfield Ave (4228,9542).",
+          "problem": "'Aldwin Rd' and 'Granfield Ave' are 34 stops, but their names sit on the 38's side, with the 38 line running between each name and its stop. 'Granfield Ave' is nearly as close to the Goldsmith St stop (134 px) as to its own (122 px). The column reads as eight names for six route 38 stops.\n\nBelow that, the round 1 stair-step is still unfixed. 'Louder's Ln' sits level with the Goldsmith St stop, 'Whitcomb Ave' with the Louder's Ln stop and 'Weld St' with the Whitcomb Ave stop. No name sits on the Weld St stop's row.",
+          "severity": "high",
+          "fix": "There is no room for 'Aldwin Rd' and 'Granfield Ave' on the 34's own side: the Forest Hills ring and its pills fill it.\n- Preferred: drop both stops from this map by adding them to MAP_DROP['34'] and MAP_DROP['34E']. They stay on the posters.\n- Alternative: bend the 38 so it leaves Forest Hills further west, opening space for the two names beside their own stops.\n\nThen, on the 38, set each name's vertical center at its own stop's height, with its right edge about 15-20 px left of the circle: Goldsmith St at y 9585, Louder's Ln at 9666, Whitcomb Ave at 9748, Weld St at 9840."
+        },
+        {
+          "image": "tram_map_v15.png",
+          "where": "Route 215, Courtland Circle to Cross St.\nStops: Courtland Circle (7315,9660), Guilford Rd (7397,9742), Emerson Rd (7478,9823), Franklin St (7559,9904), Stedman St (7640,9985), Quarry St (7811,9984), Cross St (7892,9903).\nLabels: 'Courtland Circle' (7398-7762, 9533-9570), 'Guilford Rd' (7458-7711, 9636-9672), 'Emerson Rd' (7541-7819, 9717-9753), 'Cross St' (7638-7832, 9797-9834), 'Franklin St' (7264-7505, 9958-9994), 'Stedman St' (7321-7586, 10039-10076).",
+          "problem": "The round 1 stair-step on the 215 is still there. Every name sits level with the wrong stop: 'Guilford Rd' with Courtland Circle, 'Emerson Rd' with Guilford Rd, and 'Franklin St' with Stedman St. 'Cross St' continues the Guilford and Emerson staircase. It is only 15 px farther from the Franklin St stop (106 px) than from its own (91 px), so it reads as Franklin St's name. 'Courtland Circle' floats 122 px from its stop.",
+          "severity": "high",
+          "fix": "Put each name level with its own stop, about 15-20 px clear of the circle:\n- Upper-right side: Courtland Circle at y 9660, Guilford Rd at 9742, Emerson Rd at 9823, crossing the river with a halo.\n- Lower-left side: Franklin St at y 9904 and Stedman St at 9985.\n- 'Cross St': right of its own stop at y 9903 (about x 7950-8145), below 'Granite St' and left of the Red Line."
+        },
+        {
+          "image": "tram_map_v15.png",
+          "where": "Code: boston-map/src/make_tram_map.py, clearly_own() at lines 80-89, used by nearer() at lines 508-515 and by check() at lines 875-879.",
+          "problem": "clearly_own() accepts a name if either the nearest-edge test or the box-center test passes. A name centered over its stop passes the center test even when its nearest edge is closer to another stop. That is how 'Fiske St', 'Milton St', 'Barry's Corner', 'Huron Village', 'Catlin Rd' and 'Fisher Ave' all passed the label audit. The stair-step pattern also passes, because only distance is tested.",
+          "severity": "medium",
+          "fix": "Require the nearest-edge test, or both tests, instead of either one. Add a row rule as well: reject a placement when another stop's center falls inside the name's vertical band, within about 200 px on the name's open side. Then re-run labels.py and audit.py."
+        },
+        {
+          "image": "tram_map_v15.png",
+          "where": "End-of-route pills:\n- Nubian: '66 1 15 23' at (6176-6578, 7808-7867). That is 63 px above the Whiting St stop (6407,7930) and 120 px from the Nubian ring (6530,7988).\n- Harvard: '66 1 71 75 78' at (5644-6149, 4421-4486), 22 px under 'Arsenal Sq' (5569-5816, 4352-4399).\n- Wellington: '110 100 106' at (7354-7722, 2453-2518), 18 px under 'Mystic Valley Pkwy' (7180-7610, 2388-2434).",
+          "problem": "Each pill row sits on the wrong stop or name. Strangers will read Whiting St as the end of routes 66, 1, 15 and 23. The Harvard and Wellington rows read as a second line of 'Arsenal Sq' and 'Mystic Valley Pkwy'. Round 1 asked for the Nubian pills to sit beside the Nubian ring, and they still don't.",
+          "severity": "medium",
+          "fix": "- Nubian: stack the four pills 2×2 directly over the Nubian ring (about x 6435-6625, y 7745-7870). Move 'Melnea Cass' right, or below its ring on the Yellow Line with a halo, so nothing touches.\n- Harvard: drop the pill row about 45 px (y ≈ 4466-4531) so it hugs the Harvard ring's upper right, at least 60 px below 'Arsenal Sq'.\n- Wellington: raise 'Mystic Valley Pkwy' about 20 px (y ≈ 4368-2414 is wrong; use y ≈ 2368-2414), leaving a gap of at least 40 px above the pills."
+        },
+        {
+          "image": "tram_map_v15.png",
+          "where": "Names exactly or nearly tied between two stops:\n- 'Huron Village' (4675-4977, 4190-4236): own stop (4826,4319) is 83 px away; the Reservoir St stop (4986,4319) is also 83 px.\n- 'Catlin Rd' (3594-3799, 7490-7526): own stop (3697,7619) is 93 px; the Fisher Ave stop (3583,7619) is 94 px.\n- 'Fisher Ave' (3466-3701, 7692-7728): own stop is 73 px; the Catlin Rd stop is also 73 px.",
+          "problem": "Each name is centered on its own stop but overhangs the stop next door, so it is no closer to its own stop than to the neighbor. Catlin Rd and Fisher Ave could be read swapped. 'Catlin Rd' also nearly touches 'Henry St' (3806-4000, 7431-7478) corner to corner.",
+          "severity": "medium",
+          "fix": "- 'Huron Village': set it on two lines ('Huron / Village') centered over its stop (x ≈ 4745-4905), or shift it left until its right end is at x ≤ 4905.\n- 'Fisher Ave': right-align it to end at x ≈ 3615.\n- 'Catlin Rd': left-align it to start at x ≈ 3665.\n- 'Henry St': raise it about 15 px so it stays clear of Catlin Rd."
+        },
+        {
+          "image": "tram_map_v15.png",
+          "where": "Gray station names nearly tied:\n- 'Bellevue' (3422-3612, 10101-10137): own ring (3662,10195) is 77 px; the Dedham Mall stop (3350,10170) is 79 px.\n- 'Oak Sq' (2483-2648, 5114-5160): own ring (2712,5220) is 88 px; the Louise St stop (2630,5018) is 96 px.",
+          "problem": "Both station names sit about halfway between their ring and a tram stop. A stranger could read the Dedham Mall stop as Bellevue and the Louise St stop as Oak Sq.",
+          "severity": "medium",
+          "fix": "- 'Bellevue': put it directly above its ring, centered at x 3662 with its bottom at y ≈ 10140, crossing the 38 and Orange lines with a halo. That is about 55 px from the ring and more than 150 px from Dedham Mall.\n- 'Oak Sq': put it centered below its ring (about x 2628-2796, y 5275-5320). That space is empty."
+        },
+        {
+          "image": "tram_map_v15.png",
+          "where": "South of Roslindale on route 34.\nStops: Beech St (4122,9898), Cowing St (4041,9979), Carol Circle (3959,10061), De Soto Rd (3878,10142).\nLabels: 'Beech St' (4179-4383, 9952-9988), 'Cowing St' (about 4095-4328, 10032-10075), 'Carol Circle' (about 4013-4280, 10112-10155), 'De Soto Rd' (about 3933-4197, 10193-10237).",
+          "problem": "This is the same stair-step as round 1. Each name is about 80 px below-right of its own stop, and level with the next stop down, about 136 px to its left. Reading across, 'Beech St' pairs with the Cowing St stop, 'Cowing St' with Carol Circle and 'Carol Circle' with De Soto Rd.",
+          "severity": "medium",
+          "fix": "Raise each name about 55 px so its vertical center sits at its own stop's height, with its left edge 15-20 px right of the circle: Beech St at y 9898, Cowing St 9979, Carol Circle 10061, De Soto Rd 10142."
+        },
+        {
+          "image": "tram_map_v15.png",
+          "where": "A stop with its own name on one side and a neighbor's name on the other, at the same height:\n- Livermore Rd stop (4097,4018): 'Strawberry Hill' (4273-4601, 4025-4072) is on its row; Strawberry Hill's own stop is (4212,4130).\n- Brookfield Rd stop (3916,10985): 'Ellis Ave' (4060-4246, 10961-10997) is on its row; Ellis Ave's own stop is (3996,11067).\n- Walpole ring (3999,11419): 'East Walpole' (4146-4440, 11386-11432) is on its row; East Walpole's own stop is (4087,11331).\n- Frederickson Dr stop (6220,11895): 'Acorn Dr' (5880-6082, 11873-11909) is on its row; Acorn Dr's own stop is (6141,11978).\n- Brook Rd stop (6253,10257): 'Columbine Rd' (6366-6685, 10214-10250) is on its row; Columbine Rd's own stop is (6310,10160). It is also stacked under 'Milton'.\n- Albert Ave stop (5947,3221): 'Staunton Rd' (5524-5804, 3197-3234) is on its row; Staunton Rd's own stop is (5867,3303). 'Albert Ave' itself floats above-left at (5656-5887, 3116-3152).\n- Route 95: 'Ten Hills Rd' (7415-7684, 2720-2756) is stacked 27 px under 'Moreland St' (7277-7550, 2657-2693); its own stop is (7355,2825).",
+          "problem": "Each stop sits between two names on the same row, so a stranger cannot tell which name belongs to it. Each name is still nearer its own stop (78-95 px versus 113-176 px), but the reading across the row is wrong.",
+          "severity": "medium",
+          "fix": "Move each name to its own stop's height, 15-20 px clear of the circle:\n- Strawberry Hill: right of its stop at y ≈ 4107-4152.\n- Ellis Ave: right of its stop at y ≈ 11067.\n- East Walpole: right of its stop at y ≈ 11308-11355.\n- Acorn Dr: left of its stop at y ≈ 11978.\n- Columbine Rd: right of its stop at y ≈ 10140-10180.\n- Staunton Rd: left of its stop at y ≈ 3303.\n- Albert Ave: left of its stop at y ≈ 3221.\n- Ten Hills Rd: right of its stop at y ≈ 2825.\nCrossing a colored line with a halo is fine."
+        },
+        {
+          "image": "tram_map_v15.png",
+          "where": "- 'Hastings Ln' (5513-5777, 2042-2089) and 'Winthrop St' (5792-6058, 2042-2088) share a row with a 15 px gap.\n- 'Fellsway / West' (first line 7229-7424, 1805-1849) and 'Prospect St' (7439-7700, 1815-1861) have a 15 px gap.",
+          "problem": "On a phone these read as single strings: 'Hastings Ln Winthrop St' and 'Fellsway Prospect St'. Round 1 flagged Hastings Ln running into Winthrop St in v5, and it is still there.",
+          "severity": "medium",
+          "fix": "- 'Winthrop St': move it above the line, centered on its stop at x 5925 (about x 5792-6058, bottom at y ≈ 1905). The space is empty.\n- 'Prospect St': shift it about 50 px right (x ≈ 7489-7750, same y). It stays over its stop at x 7569 and clears the Orange Line edge at x ≈ 7782."
+        },
+        {
+          "image": "tram_map_v15.png",
+          "where": "'Courtland Rd' at (5226-5522, 8903-8940). Its stop is at (5585,9008). The route 16 line runs along y ≈ 8990 under the label and curves up within about 12 px of its last letter, at about (5533,8930).",
+          "problem": "The name sits on the route 16 line, and the 16 runs between the name and its own route 31 stop. It reads as naming the 16 line. Round 1 flagged this and it is still open.",
+          "severity": "medium",
+          "fix": "Center it under its own stop: x ≈ 5437-5733, y ≈ 9055-9095. It will sit on the 31 line with a halo and just touch the Orange Line's halo at about x 5740. That keeps it clear of 'Canterbury St' (5111-5427, 9139-9188)."
+        },
+        {
+          "image": "tram_map_v15.png",
+          "where": "'Sylvia Rd' at (6365-6576, 2458-2507). Its stop is at (6633,2403), on the 101. The route 78 vertical line at x ≈ 6375 runs between the Corey Ln stop (6375,2335) and the Ely Rd stop (6375,2620).",
+          "problem": "The name starts on top of the route 78 line, between two 78 stops. A stranger reads it as part of the 78, or as an unmarked 78 stop.",
+          "severity": "medium",
+          "fix": "Center it under its own stop: x ≈ 6525-6740, y ≈ 2458-2502, crossing the 101 line with a halo. That puts it about 55 px from its stop and more than 100 px from any other stop."
+        },
+        {
+          "image": "tram_map_v15.png",
+          "where": "Route 71 and 64 row.\nStops: Irving St (2192,4718), Walnut St (2532,4718), Vineland St (2910,4810).\nLabels: 'Irving St' (1962-2150, 4760-4805), 'Walnut St' (2270-2489, 4762-4799), 'Vineland St' (2585-2846, 4786-4823).",
+          "problem": "All three names sit left of their stops. 'Walnut St' starts 78 px after the Irving St stop. 'Vineland St' is 85 px from the Walnut St stop. A stranger who reads the name after a stop pairs the Irving St stop with 'Walnut St' and the Walnut St stop with 'Vineland St'.",
+          "severity": "medium",
+          "fix": "- 'Irving St': center it under its stop (x ≈ 2098-2286).\n- 'Walnut St': center it under its stop (x ≈ 2422-2642).\n- 'Vineland St': move it right of its own stop at its height (x ≈ 2965-3230, y ≈ 4786-4823), crossing the line to Boston Landing with a halo."
+        },
+        {
+          "image": "tram_map_v15.png",
+          "where": "Pill Hill stop at (4104,7466) and Henry St stop at (4046,7524). Labels: 'Henry St' (3806-4000, 7431-7478) and 'Pill Hill' (4147-4293, 7506-7542).",
+          "problem": "These two stop circles are drawn 46 px wide; every other tram stop and the Key use 75 px. Each name also sits level with the other stop, although each is nearer its own (65 versus 104 px, and 59 versus 101 px).",
+          "severity": "low",
+          "fix": "Draw the two stops at the standard size, spreading them along the Green Line if needed. Put each name level with its own stop: Henry St on the left at y ≈ 7524, Pill Hill on the right at y ≈ 7466."
+        },
+        {
+          "image": "tram_map_v15.png",
+          "where": "'Nubian' (gray) at (6450-6612, 8045-8085), directly under the Nubian ring (6530,7988).",
+          "problem": "The name's halo cuts the line coming in from Roxbury St (y ≈ 8043) and the line leaving for Adams St (y ≈ 8068). The two lines look as if they pass straight under the name instead of entering the ring.",
+          "severity": "low",
+          "fix": "If the pills move over the ring (see the pills finding), put 'Nubian' down-left of the ring between the Whiting St and Waumbeck St stops. Otherwise lift the name 10-15 px so its halo stops short of the line ends."
+        },
+        {
+          "image": "tram_map_v15.png",
+          "where": "'Mackin St' at (3774-4001, 5146-5195). Its stop is at (3887,5295). The Green Line runs at y ≈ 5205-5235, between the name and the stop.",
+          "problem": "The name sits above the Green Line while its stop is below it, so it looks a little like a Green Line station name. It is still the only stop nearby.",
+          "severity": "low",
+          "fix": "Put it under its own stop (x ≈ 3774-4001, y ≈ 5345-5390), between the route 70 and 66 lines."
+        }
+      ]
+    },
+    {
+      "key": "map_east",
+      "checked": "File checked: D:\\REPOS\\NERTA\\boston-map\\output\\copies\\tram_map_v15.png (13770 x 12270, 600 dpi). My part runs from x 6196 to the right edge. All coordinates are full-size pixels in that file.\n\nHow I checked it:\n- Cut the area into 31 overlapping tiles of 1800 px, each shrunk to 1400 px wide, and looked at every one.\n- Nine tiles were open water. A pixel count confirmed they have no dark or gray text, so I skipped them.\n- Opened about 30 more crops at full size wherever names, stops or pills were close together.\n- Checked each name's distance to its own stop and to every nearby stop, ring, capsule and pill.\n- Checked the stop order against boston-map/data/tram/tram_draft.json, and the stops left off this map against MAP_DROP in src/make_tram_map.py.\n\nAreas covered:\n- Medford, Malden and Somerville: routes 100, 106, 101 and 95, the Wellington, Malden Center and Sullivan pills, and the edge of route 78.\n- Everett, Chelsea and Revere: routes 110, 111, 116 and 712, Wonderland and Orient Heights.\n- Lynn and Salem: route 455.\n- Downtown: North Station, Haymarket and Kendall.\n- South Boston: route 9.\n- Roxbury and Dorchester: Nubian, routes 1, 15, 16, 22 and 23, Uphams Corner, Four Corners and Codman Sq.\n- Ashmont, Milton and route 240.\n- Quincy: routes 215, 216, 220, 222 and 225, and Hingham.\n- The Key and the footer.\n\nRequested checks:\n- FREE tag: present on route 23, between Four Corners and Vassar St (about 6749-7051, 8447-8544). It sits on the stretch only the 23 uses.\n- Key: has the Charlie Points row (CP coin) and the FREE row (FREE pill on a tram line).\n- Tram stop symbol: Max's circle with a cross whose arms run past the circle, in the Key and on the map. On diagonal lines and at route ends the map turns the cross 45 degrees, so it looks like an X.\n- Header and release block: both sit in the left half. I glanced at them: the multicolor T with stripes rising to the right, the NERTA pill with a color ring, and the release block (MOST in bold, Map: Maxwell Howe, #30DayMapChallenge, Day 8 • Utopia) are all present.\n- Waltham: in the left half, so I did not check it.\n\nRound 1 findings that fall in my part:\n- Fixed:\n  - Foster St and Chubbuck St are back at full size and no longer under the Quincy Center ring.\n  - Dartmouth St, Arnold St, Moreland Rd and route 222 west of Weymouth Heights are left off this map.\n  - Veterans Rd and Winthrop Beach now sit level with their own stops.\n  - Nubian is full size, and Whiting St is beside its own stop.\n  - Woodbine St and West Cottage St are left off; Grove Hall sits level with its ring.\n  - Seaver St is above its ring.\n  - The Bradley Woods Dr and Bulow Rd circles no longer overlap.\n  - Park Ave now sits closer to its own stop.\n  - Essex St and Salem are fixed.\n  - The shrunk names are back to normal size.\n- Not fixed or only partly fixed:\n  - Charles St still touches the Malden Center capsule.\n  - Sagamore St is still almost as close to the American Legion Hwy stop as to its own.\n  - Route 215 names are still stepped (each one level with the stop before it).\n  - Cedar St and South Salem.\n  - The Nubian route numbers moved, and now sit over Whiting St.\n  - The same stepped pattern still shows on the 455, 712, 216, 220/222 and 101.",
+      "findings": [
+        {
+          "image": "tram_map_v15.png",
+          "where": "Route 215 down leg, Quincy (x 7250-8100, y 9530-10080). Stops: Courtland Circle (7315,9658), Guilford Rd (7397,9738), Emerson Rd (7478,9820), Franklin St (7560,9902), Stedman St (7640,9983); Cross St (7892,9902) on the up leg. Names: Courtland Circle (7398-7763, 9530-9575), Guilford Rd (7457-7715, 9635-9678), Emerson Rd (7538-7822, 9715-9760), Cross St (7637-7833, 9795-9840), Franklin St (7262-7508, 9955-10000).",
+          "problem": "Every name on the down leg sits level with the stop before it. Guilford Rd is level with the Courtland Circle stop, Emerson Rd with Guilford Rd's, and Franklin St with Stedman St's. Cross St sits inside the V, level with the Emerson Rd stop, and is only about 12 px closer to its own stop than to Franklin St's. Courtland Circle is 117 px from its stop, tucked 30 px under the Ashmont 215 pill. Reading across, a stranger gets nearly every name on this stretch wrong. Round 1 flagged this and it is not fixed.",
+          "severity": "high",
+          "fix": "Put each name level with its own stop.\n1. Inside the V, to the right: Courtland Circle (about 7370-7735, 9640-9684), Guilford Rd (about 7452-7710, 9716-9760), Emerson Rd (about 7533-7817, 9798-9842).\n2. To the left: Franklin St (about 7262-7505, 9880-9924) and Stedman St (about 7320-7585, 9961-10005).\n3. Cross St to the right of its own stop (about 7947-8143, 9880-9924).\nEach name stays about 15-20 px clear of its circle and of the line."
+        },
+        {
+          "image": "tram_map_v15.png",
+          "where": "Route 712, Winthrop. Stops: Sunset Rd (10083,4078), Paine St (10197,4192), Golden Dr (10313,4308). Names: Sunset Rd (9792-10030, 4130-4172, left of the line), Paine St (10258-10450, 4085-4128), Golden Dr (10375-10608, 4202-4245).",
+          "problem": "Paine St sits level with the Sunset Rd stop, and Golden Dr sits level with the Paine St stop. Sunset Rd hangs below-left, nearer the Paine St stop's height than its own. Reading across, Sunset Rd and Paine St swap, and the Paine St stop reads as Golden Dr.",
+          "severity": "high",
+          "fix": "Put each name right of its own stop at the stop's height, about 50 px right of the stop's center: Sunset Rd (about 10137-10375, 4056-4100), Paine St (about 10251-10443, 4170-4214), Golden Dr (about 10367-10600, 4286-4330). Leave Teragram St, Veterans Rd, Winthrop Beach and Point Shirley as they are."
+        },
+        {
+          "image": "tram_map_v15.png",
+          "where": "Route 455, Salem. South Salem ring (12725,842); Cedar St stop (12750,743); Essex St stop (12821,670). South Salem name (gray) at 12372-12665, 738-780; Cedar St name at 12497-12698, 643-683.",
+          "problem": "South Salem sits at exactly the Cedar St stop's height. It is about the same distance from that pink stop as from its own black ring (about 48 px and 54 px edge to edge). Cedar St sits level with the Essex St stop. The two names stack as a list left of the wrong stops, so the Cedar St stop reads as South Salem. Round 1 found the same problem here and it is only partly fixed.",
+          "severity": "high",
+          "fix": "1. Put South Salem left of its ring, at the ring's height (about 12372-12665, 821-863), on the commuter rail line with a halo.\n2. Lower Cedar St to its own stop's height, left of the stop (about 12490-12697, 722-764)."
+        },
+        {
+          "image": "tram_map_v15.png",
+          "where": "Route 106 below Malden Center. Malden Center capsule (7800-8030, 2042-2098); Charles St stop (7920,2185); Medford St stop (8000,2268). Charles St name at 7980-8218, 2085-2125; Medford St name at 8060-8310, 2162-2205.",
+          "problem": "The C of 'Charles St' sits on the Malden Center capsule's lower-right corner. Round 1 flagged this touch and it is not fixed. Medford St sits level with the Charles St stop, so reading across, the first stop below Malden Center reads as Medford St, and 'Charles St' looks like part of the Malden Center label.",
+          "severity": "high",
+          "fix": "1. Put Charles St right of its own stop at the stop's height (about 7975-8213, 2163-2207), crossing the commuter rail line with a halo.\n2. Put Medford St right of its own stop at its height (about 8055-8305, 2246-2290).\nBelmont St stays where it is."
+        },
+        {
+          "image": "tram_map_v15.png",
+          "where": "Sagamore St name (10650-10885, 2415-2497, two lines). Sagamore St stop (10928,2365); American Legion Hwy stop (10700,2343).",
+          "problem": "'Sagamore' still sits directly under the American Legion Hwy stop. Measured to the edge of each circle, the name is about 28 px from its own stop and 34 px from American Legion Hwy. Measured from the middle of the name, American Legion Hwy is closer. A stranger reads the American Legion Hwy stop as Sagamore St. Round 1 rated this high, and it is improved but not fixed.",
+          "severity": "high",
+          "fix": "Put 'Sagamore / St' on two lines centered directly above its own stop (about 10810-11045, 2210-2305). That keeps it at least 25 px clear of the Ward St to American Legion Hwy line and clear of the Orange Line."
+        },
+        {
+          "image": "tram_map_v15.png",
+          "where": "Nubian route numbers 66, 1, 15 and 23 in one row (6178-6577, 7810-7868). Whiting St stop (6407,7930); Nubian ring (6530,7987).",
+          "problem": "The '15' pill sits 24 px above the Whiting St stop, and the Nubian ring is about 80 px away. The Key says pills mark each end of a route, so a stranger reads the 66, 1, 15 and 23 as ending at Whiting St. Round 1 asked for these pills to sit beside the Nubian ring.",
+          "severity": "high",
+          "fix": "Stack the four pills in one column directly above the Nubian ring (about 6487-6574, 7650-7935). The bottom pill then sits about 14 px from Nubian and about 42 px from Whiting St, and stays 26 px clear of 'Melnea Cass'."
+        },
+        {
+          "image": "tram_map_v15.png",
+          "where": "Route 240 at Milton. Columbine Rd stop (6308,10158); Brook Rd stop (6248,10255), with 'Brook Rd' to its left. Columbine Rd name at 6365-6688, 10213-10255.",
+          "problem": "'Columbine Rd' sits at the Brook Rd stop's height, to its right, while 'Brook Rd' sits on the left. That stop looks like it has two names, and the real Columbine Rd stop has no name at its height.",
+          "severity": "high",
+          "fix": "Put Columbine Rd left of its own stop at the stop's height (about 5930-6253, 10136-10180), below the faded red line. Or put it right of the stop at its height after moving the gray 'Milton' name (6590-6728, 10120-10168) to the right of its ring."
+        },
+        {
+          "image": "tram_map_v15.png",
+          "where": "Route 216 V, Quincy. Stops: Curlew Rd (8710,9230), Oakwood Rd (8790,9310), Roach St (8872,9392), Figurehead Ln (8953,9473), Darrow St (9300,9368). Names: Oakwood Rd (8852-9148, 9205-9247), Roach St (8933-9145, 9287-9328), Darrow St (9010-9238, 9347-9388).",
+          "problem": "Oakwood Rd sits level with the Curlew Rd stop, and Roach St level with the Oakwood Rd stop. Darrow St belongs to the other side of the V but is stacked right under Roach St, level with the Roach St stop 138 px to its left. Inside the V the names read as one list, and the Roach St stop's row reads 'Darrow St'.",
+          "severity": "medium",
+          "fix": "1. Put each name on the left side of the V right of its own stop, at the stop's height: Curlew Rd (about 8765-9003, 9208-9252), Oakwood Rd (about 8845-9141, 9288-9332), Roach St (about 8927-9139, 9370-9414). Each stays about 20 px clear of the next stop.\n2. Move Darrow St to the right of its own stop (about 9355-9583, 9346-9390), over the water with a halo."
+        },
+        {
+          "image": "tram_map_v15.png",
+          "where": "Quincy Center. Top pill row 216, 225, 222 (7692-8070, 9285-9345). Newcomb St name at 8083-8310, 9275-9360; Newcomb St stop (8368,9425). Southern Artery name at 8505-8710, 9400-9490; Southern Artery stop (8450,9343).",
+          "problem": "The '222' pill ends 13 px before 'Newcomb' on the same row, so it reads '216 225 222 Newcomb St', as if those routes belong to Newcomb St. 'Southern Artery' sits at the Newcomb St stop's height, to its right, so reading across that row gives the wrong name.",
+          "severity": "medium",
+          "fix": "1. Move the top pill row (216, 225, 222) about 40 px left, so '222' ends at least 50 px before 'Newcomb'.\n2. Raise 'Southern Artery' (two lines) to its own stop's height, right of the stop (about 8505-8710, 9300-9390). That keeps it 32 px from the Chickatabot Rd stop and 42 px from the Oakwood Rd stop."
+        },
+        {
+          "image": "tram_map_v15.png",
+          "where": "Ashmont. Ashmont ring (7000,9470); pills 22, 23, 240 and 215 (7080-7538, 9440-9500). Milton St name at 7040-7242, 9515-9558; Milton St stop (7140,9630).",
+          "problem": "'Milton St' sits 15 px below the Ashmont pills. Measured edge to edge, it is about 23 px from the Ashmont ring and about 35 px from its own stop, so it reads as part of the Ashmont group. Round 1 flagged the Milton St name on this route too.",
+          "severity": "medium",
+          "fix": "Move 'Milton St' about 50 px right and 10 px down (about 7090-7292, 9525-9568), so it sits over its own stop and at least 60 px from the Ashmont ring. Keep at least 25 px between it and the pills; if needed, move the four pills up above 'Ashmont'."
+        },
+        {
+          "image": "tram_map_v15.png",
+          "where": "Pierce St stop (7898,1705), on the bottom edge of the unlabeled gray capsule at 7768-8030, 1640-1700 (Oak Grove). George St stop (9062,3193), whose lower arm runs into the top of the white capsule at 9025-9080, from y 3242 down.",
+          "problem": "Two tram stops touch NERTA station capsules. Neither is a transfer stop, but a stranger would read Pierce St and George St as connections to those stations.",
+          "severity": "medium",
+          "fix": "1. Move the Pierce St stop and its name about 50 px down (center y about 1755). Move Richardson St about 35 px down (about 1857) to keep the spacing; both stay above 'Malden Center'.\n2. Move the George St stop at least 60 px right (x about 9125), clear of the capsule, and nudge Clarence St right to about 9270. Center 'George St' over its stop."
+        },
+        {
+          "image": "tram_map_v15.png",
+          "where": "Route 455, Lynn. Stops: Smith St (12197,1372), Chatham St (12277,1292), Empire St (12358,1210). Names: Smith St at 11945-12138, 1265-1308; Chatham St at 11948-12220, 1185-1228.",
+          "problem": "Smith St sits at the Chatham St stop's height, and Chatham St at the Empire St stop's height. The real Smith St stop has no name at its height. Reading across, a stranger reads the Chatham St stop as Smith St.",
+          "severity": "medium",
+          "fix": "Put each name left of its own stop at the stop's height: Smith St (about 11935-12144, 1350-1394), crossing the Blue Line with a halo; Chatham St (about 11945-12224, 1270-1314). Empire St stays on the right."
+        },
+        {
+          "image": "tram_map_v15.png",
+          "where": "Two pairs of names that nearly touch. 'Fellsway West' (7228-7425, 1805-1890) is 12 px from 'Prospect St' (7437-7702, 1813-1857). 'Edwards Ct' (11253-11515, 1430-1472) is 18 px from 'Commercial St' (11533-11870, 1415-1455).",
+          "problem": "Each pair sits on almost the same row with about one space between, so on a phone they read as 'Fellsway Prospect St / West' and 'Edwards Ct Commercial St'.",
+          "severity": "medium",
+          "fix": "1. Move 'Prospect St' about 40 px right (about 7477-7742), or stack it as 'Prospect / St' centered over its stop.\n2. Lower 'Edwards Ct' about 30 px (about 1460-1502) and raise 'Commercial St' about 15 px, so the two sit on clearly different rows."
+        },
+        {
+          "image": "tram_map_v15.png",
+          "where": "'Woodlawn' (9680-9917, 3370-3418) is stacked 14 px above 'Stockton St' (9650-9915, 3432-3478). Woodlawn stop (9625,3320), the end of route 111; Stockton St stop (9585,3457).",
+          "problem": "The two names read as one two-line name, 'Woodlawn Stockton St', beside the Stockton St stop. The Woodlawn stop, where route 111 ends, looks unnamed. Woodlawn also sits on the far side of the 116 line from its own stop.",
+          "severity": "medium",
+          "fix": "Raise 'Woodlawn' about 70 px so it sits right of its own stop at the stop's height (about 9680-9918, 3298-3342), crossing the 116 line with a halo."
+        },
+        {
+          "image": "tram_map_v15.png",
+          "where": "Chelsea, route 111. Carmel St name at 9202-9428, 3850-3890; Jones Ave name at 9283-9518, 3770-3810. Stops: Carmel St (9147,3797), Jones Ave (9228,3715); Bellingham Sq ring (9050,3898), with its gray name at 9095-9420, 3940-3990.",
+          "problem": "Both names sit on the far side of the 116 line from their own stops, and each sits level with the next stop down. Jones Ave is level with the Carmel St stop. Carmel St is level with the Bellingham Sq ring and stacked over the 'Bellingham Sq' name, so it reads as 'Carmel St / Bellingham Sq'.",
+          "severity": "medium",
+          "fix": "1. Put Jones Ave left of its stop at the stop's height (about 8950-9175, 3693-3737), crossing the faded Yellow Line with a halo. That stays 25 px above 'Williams St'.\n2. Put Carmel St right of its stop at the stop's height (about 9200-9425, 3775-3819), crossing the 116 line with a halo."
+        },
+        {
+          "image": "tram_map_v15.png",
+          "where": "Route 101, Medford. Sylvia Rd name at 6363-6578, 2458-2500; Sylvia Rd stop (6633,2402). South Medford name at 6568-6755, 2632-2725; South Medford stop (6810,2580). Albion St name at 6684-6891, 2768-2810; Albion St stop (6945,2713). Route 78 stops Corey Ln (6375,2337) and Ely Rd (6375,2622).",
+          "problem": "'Sylvia Rd' starts on the route 78 line, halfway between the Corey Ln and Ely Rd stops, so it looks like a route 78 stop. 'South Medford' sits level with the Albion St stop, and 'Albion St' sits partway down toward Winter Hill.",
+          "severity": "medium",
+          "fix": "1. Set 'Sylvia / Rd' on two lines left of its own stop at the stop's height (about 6445-6580, 2360-2445), clear of the route 78 line.\n2. Raise 'South Medford' so it is centered at its stop's height (about 6558-6745, 2538-2623).\n3. Raise 'Albion St' to its stop's height (about 6684-6891, 2691-2735)."
+        },
+        {
+          "image": "tram_map_v15.png",
+          "where": "Route 220/222 shared stretch: Chubbuck St (8582-8872, 9608-9650), Dee Rd (8663-8833, 9690-9732) and Evans St (8747-8950, 9772-9815) each sit level with the stop before (Foster St 8438,9632; Chubbuck St 8520,9713; Dee Rd 8600,9795). Route 220 branch: Neck St through Burditt Ave (names 8995-9538, 9970-10532) each sit level with the stop before; the stops (8942-9327, 10065-10490) are about 70 px apart.",
+          "problem": "This is round 1's stepped-names pattern, still present. Each name is nearer its own stop, but reading across pairs every name with the stop one place up.",
+          "severity": "medium",
+          "fix": "1. Shared stretch: put Foster St, Chubbuck St, Dee Rd and Evans St each right of its own stop at the stop's height (Foster St about 8493-8698, 9610-9654, and the others likewise at 9691-9735, 9773-9817 and 9858-9902). Each stays about 20 px clear of the next stop.\n2. Route 220 branch: the stops are too close for names at their own height. Spread the branch over the open land southeast of Hingham so the stops are at least 100 px apart vertically, then set each name at its own stop's height."
+        },
+        {
+          "image": "tram_map_v15.png",
+          "where": "Wellington pills 110, 100 and 106 (7355-7722, 2458-2518); Wellington ring (7800,2487). 'Fulbright' (7122-7322, 2480-2525). 'Mystic Valley Pkwy' (7178-7610, 2388-2432).",
+          "problem": "'Fulbright' ends 33 px left of the 110 pill on the same row, and 'Mystic Valley Pkwy' sits 23 px above the pills. The routes can read as belonging to Fulbright St or Mystic Valley Pkwy rather than Wellington.",
+          "severity": "low",
+          "fix": "Nudge the three pills about 25 px right, toward the Wellington ring, so the gap to 'Fulbright' is at least 55 px."
+        },
+        {
+          "image": "tram_map_v15.png",
+          "where": "'Ten Hills Rd' (7415-7688, 2718-2760) sits under 'Moreland St' (7275-7552, 2655-2698). 'Pratt Ave' (8672-8878, 10115-10158) sits 27 px above 'Weymouth Heights' (8657-8890, 10185-10270).",
+          "problem": "Each name is nearest its own stop, but each pair reads like a two-line list.",
+          "severity": "low",
+          "fix": "1. Lower 'Ten Hills Rd' toward its stop's height (center y about 2800), keeping 15 px clear of 'Middlesex Ave'.\n2. Move 'Pratt Ave' up and right of its stop, at least 45 px above 'Weymouth'."
+        },
+        {
+          "image": "tram_map_v15.png",
+          "where": "Key: the row 'Pay with Charlie Points. Monthly passes available.' ends at about x 13665; the Key's border is at about x 13690. The stop symbol in the Key appears only upright, as a +.",
+          "problem": "That row has about 25 px of right margin against about 100 px on the left, so it looks squeezed. Most stops on the map use the cross turned 45 degrees (an X), which the Key doesn't show. A stranger could read a circled X as 'closed'.",
+          "severity": "low",
+          "fix": "Widen the Key about 60 px. Add the turned version beside the + in the 'Tram stop' row, for example 'Tram stop (cross turns with the line)'."
+        },
+        {
+          "image": "tram_map_v15.png",
+          "where": "Key note 'Some outer stops are left off this map; every stop is on the tram posters.' (DROP_NOTE, src/make_tram_map.py line 90).",
+          "problem": "Several stops left off are inner-city stops, not outer ones: Woodbine St on the 23, Magazine St and West Cottage St on the 15, Edward Everett Sq on the 16, Pond St and Sumner St on the 220 and 222, and Bates Ave and Guild St on the 215. The note understates what is missing.",
+          "severity": "low",
+          "fix": "Change the note to 'Some stops are left off this map; every stop is on the tram posters.'"
+        },
+        {
+          "image": "tram_map_v15.png",
+          "where": "'Melnea Cass' (6600-6900, 7840-7885) and 'Boston Medical' (6925-7100, 7810-7895). 'Figurehead Ln' (8790-9120, 9545-9590). 'Fairmount Ave' (8295-8625, 10415-10455).",
+          "problem": "'Melnea Cass' and 'Boston' are 26 px apart on one row. A pink piece of the 216 line shows between 'Figurehead' and 'Ln' (about 9045,9565). 'Fairmount Ave' is squeezed 15 px below a capsule and 22 px above the Weymouth Landing stop.",
+          "severity": "low",
+          "fix": "1. Widen the Melnea Cass to Boston Medical gap to at least 45 px.\n2. Move 'Figurehead Ln' about 20 px down so the line's lowest point isn't inside the name.\n3. Leave Fairmount Ave unless the 225 is respaced."
+        }
+      ]
+    },
+    {
+      "key": "display",
+      "checked": "Image: D:\\REPOS\\NERTA\\boston-map\\output\\copies\\tram_display_v3.png (14758 x 18270). All coordinates are full-size pixels. Crops are in C:\\Users\\mhowe\\AppData\\Local\\Temp\\claude\\8c6edb261a248c64\\78f945b2-284d-46fa-8b1f-22d30e849230\\scratchpad\\audit_tram_r2\\display\\\n\nWhat I covered\n1. Full-sheet overview, then 35 overlapping 2800 px tiles at half size (t_r0c0 to t_r6c4). I read every tile that had content.\n2. About 25 full-resolution zooms (z_*.png) on every crowded or doubtful spot.\n3. The five Connections panel crops (p1 to p5), checked row by row against the panel text pulled from tram_display_v3.pdf.\n4. A geometry pass on tram_display_v3.pdf: 374 stop circles and 393 label boxes, measuring each name's distance to its nearest and second-nearest stop, with two-line names also checked as one block. Every name it flagged, I checked by eye.\n\nPasses\n- Header: the multicolor NERTA mark is there. The T has three layers (black, a 12-color stripe rising to the right, white) and the NERTA pill has a matching ring. Next to it are the pink tram pill and \"Tram Network\". Note: research/tram-design-notes.md says the tram maps use the single-color pink mark. This sheet uses the multicolor mark, which is what this audit's brief asks for.\n- Release block, top right: the disclaimer with MOST in bold italic, \"Map: Maxwell Howe\", \"#30DayMapChallenge\" and \"Day 8 • Utopia\". It is readable at about 43% of the title's height.\n- Key: the tram stop symbol is a circle with a cross whose arms run about a third past the circle. The Charlie Points row and the \"FREE\" row are both present. Plain, transfer and end stops use the same pink symbol, which matches the map.\n- FREE tag: on route 23 just below Four Corners, at about (9288-9590, 12222-12318). It touches nothing.\n- Waltham: shows RL and CR pills (4676-5144, 8556-8650). The Connections row reads \"Waltham RL CR 70\".\n- Round 1 items that apply to this layout are fixed:\n  - The Malden Center OL pill now follows the name; nothing orange sits over Prospect St.\n  - The 15 Dudley St caption is at the Fields Corner end, off the 23.\n  - Brookline Village and Mission Park are well apart.\n  - The 100 Fellsway caption is off the 101.\n  - These now sit beside their own stops: Salem/Essex/Cedar; Foster, Chubbuck, Dee and Evans; Dartmouth and Arnold; Veterans Rd and Winthrop Beach; Sagamore; Charles; Palmer; Achorn and East Hoyle; Oak Sq/Vineland/Riverview; Whiting, Woodbine and West Cottage; Angell; Birchwood and De Soto.\n  - Bradley Woods Dr and Bulow Rd no longer overlap.\n  - The 38, 215, 34E and 240 runs are all level with their stops.\n- Connections panel: alphabetical, nothing clipped, and the lines and trams agree with the map.\n- No text touches another label, stop symbol or pill anywhere.\n\nThe 4 borderline names the tram session flagged\nThe checker allows about 36 px (1 drawing unit). Measured from the PDF, the four smallest margins are:\n- Irving St: about 3 px\n- Hancock St: about 6 px\n- Sylvia Rd: about 16 px\n- Cambridge St: about 25 px\nMoulton St and Waumbeck St are next, at about 32 px each. My verdict on each is in the findings.\n\nNot checked: tram_display_web_v3 and the other tram sheets.",
+      "findings": [
+        {
+          "image": "tram_display_v3.png",
+          "where": "'RUGGLES' at (7332-7710, 10058-10117). Its OL YL CR pills are at (7762-8478, 10040-10131). Ruggles stop (7908,10210), Beth Israel stop (7212,9946), Brookline Village stop (7034,10123).",
+          "problem": "The hub name is about 160 px from the Beth Israel stop but about 215 px from its own stop; only its OL pill is near the Ruggles stop. It sits left-aligned under 'Beth Israel' and level with Brookline Village, so it reads as the next name in that list.",
+          "severity": "high",
+          "fix": "Move 'RUGGLES' onto its own line directly above its pills (about x 7800-8180, y 9945-10025), so the name, pills and stop stack in one column over the stop. It is then about 185 px from its stop and over 500 px from Beth Israel. Leave the 22 badge where it is."
+        },
+        {
+          "image": "tram_display_v3.png",
+          "where": "'Hynes' at (7859-8058, 8941-9009) with its GL pill at (8107-8331, 8921-9014). Hynes stop (8396,8856), University Park stop (7689,8850). The 70 badge at (7786-7933, 8800-8900) sits right above 'Hynes'.",
+          "problem": "The name 'Hynes' is about 190 px from the University Park stop and about 350 px from its own stop. It hangs below-right of University Park, under that stop's 70 badge, so '70 / Hynes' reads like route 70 ending at a stop named Hynes.",
+          "severity": "high",
+          "fix": "Put 'Hynes GL' left of its own stop at the stop's level (about x 7830-8310, y 8815-8895). Move the 70 badge directly under the University Park stop (about x 7615-7760, y 8920-9010)."
+        },
+        {
+          "image": "tram_display_v3.png",
+          "where": "'Blue Hill Ave' at (7142-7550, 13204-13276) with OL IL pills at (7597-8069, 13190-13283). Its own stop is on the 31 line at (8157,13236). The Beech St stop is at (6926,13216).",
+          "problem": "The name sits right of the Beech St stop at exactly its level, about 215 px away, and about 600 px from its own stop. Beech St's own label is on the stop's left, so a stranger can read the Beech St stop as 'Blue Hill Ave' with OL and IL transfers.",
+          "severity": "high",
+          "fix": "Put 'Blue Hill Ave OL IL' right of its own stop at the stop's level (about x 8215-9010, y 13200-13280). Move the '31 Morton St' caption, now at (8356-8880, 13300-13396), to the left of the 31 line (about x 7560-8090, y 13300-13396)."
+        },
+        {
+          "image": "tram_display_v3.png",
+          "where": "'Wellington Hill' at (8208-8667, 12542-12600) with its OL pill at (8213-8435, 12640-12732). The Courtland Rd stop is at (8062,12557), with 'Courtland Rd' at (8120-8546, 12435-12490). Wellington Hill stop (8157,12787).",
+          "problem": "'Wellington Hill' sits level with the Courtland Rd stop, about 145 px from it, and about 195 px from its own stop. Stacked under 'Courtland Rd', it reads as that stop's name, or as a second line of it.",
+          "severity": "high",
+          "fix": "Put 'Wellington Hill OL' right of its own stop at the stop's level (name about x 8220-8680, pill about x 8705-8925, y 12755-12820), clear of 'Talbot Ave' below (top about y 12856)."
+        },
+        {
+          "image": "tram_display_v3.png",
+          "where": "Route 71: 'Irving / St' at (5455-5622, 8770-8912) and 'Walnut St' at (5455-5768, 8603-8657). Walnut St stop (5405,8716), Irving St stop (5405,8970). This is the closest of the four borderline names.",
+          "problem": "'Irving St' is centered exactly between two stops, about 73 px from each. 'Walnut St' also sits above its own stop. A stranger can't tell which stop is Irving St.",
+          "severity": "high",
+          "fix": "Set 'Walnut St' at its own stop's level (about x 5455-5770, y 8688-8745). Center 'Irving / St' on its own stop's level (about x 5455-5625, y 8900-9040), clear of 'Patten St' (top about y 9096) and 'Louise St' (left edge about x 5789)."
+        },
+        {
+          "image": "tram_display_v3.png",
+          "where": "'16 Columbia Rd' caption: badge at (10062-10207, 11684-11783), text at (10255-10705, 11705-11764). Uphams Corner junction (9902,11659). The Kane Sq stop (10107,11866) and its label at (10207-10484, 11834-11904) are directly below.",
+          "problem": "The caption sits right of Uphams Corner, about 55 px from route 15's line toward Kane Sq and about 165 px from route 16. It sits right on top of the 15's 'Kane Sq', so the 15's branch reads as route 16. The 16 actually leaves Uphams the other way, toward Quincy St and Four Corners.",
+          "severity": "high",
+          "fix": "Move '16 Columbia Rd' onto the 16 only. For example, place it under the 16's Seaver St to Four Corners stretch (about x 8560-9200, y 12160-12260), clear of 'Wales St' (top about y 12310) and the FREE tag (left edge about x 9288)."
+        },
+        {
+          "image": "tram_display_v3.png",
+          "where": "'22 Talbot Ave and Columbus Ave' caption at (6546-7785, 11638-11736). It sits one row above the Forest Hills terminal badges '16 31 34 34E 38' at (6483-7376, 11783-11880). The nearest piece of route 22 is the Egleston Sq to Harold St diagonal, about 240 px to the right (Egleston stop at about 7985,11652).",
+          "problem": "The caption's 22 badge looks exactly like the terminal badges stacked under it, so it reads as a sixth route ending at Forest Hills. The 22 doesn't serve Forest Hills.",
+          "severity": "high",
+          "fix": "Move the caption beside the 22 itself. For example, set it on two lines ('22 Talbot Ave and' / 'Columbus Ave') left of the 22 between Jackson Sq and Bray St (about x 6800-7450, y 11170-11340). That space is open and about 60 px from the line."
+        },
+        {
+          "image": "tram_display_v3.png",
+          "where": "Route 225 below Dewey Rd. Labels: 'Audubon Ave' (11605-12035, 16590-16645), 'Allen St' (11893-12143, 16700-16755), 'Brookside Rd' (11820-12255, 16805-16865), 'Kingman St' (11987-12362, 16915-16975). Stops: Dewey Rd (11983,16410), Audubon (12093,16520), Allen (12203,16630), Brookside (12313,16738), Kingman (12421,16847).",
+          "problem": "This is the stair-step pattern from round 1. Each of the four names sits about 95 px below its own stop and level with the next stop down. Reading across, each name pairs with the wrong stop, and the Audubon Ave stop has no name at its level. Each name is still nearer its own stop, about 90 px against about 170 px.",
+          "severity": "medium",
+          "fix": "Move 'Dewey Rd' to the right of its stop (about x 12045-12380, y 16380-16440), clear of 'West Howard St' above. Then set each of the four names on the left at its own stop's level (centers about y 16520, 16630, 16738 and 16847), right ends just clear of each circle. That matches how Blanchard Rd to West Howard St already sit on the right."
+        },
+        {
+          "image": "tram_display_v3.png",
+          "where": "'Hancock / St' at (7588-7867, 5787-5928). Hancock St stop (7519,5857). The route 100 Fourth St stop is at (7942,5797), with its own label on its right. Borderline name, about 6 px margin.",
+          "problem": "The 'Hancock' line sits level with the Fourth St stop, ending about 23 px from Fourth St's lower-left cross arm. The whole label is about 69 px from its own stop and about 75 px from Fourth St.",
+          "severity": "medium",
+          "fix": "Lower the label about 45 px so 'Hancock' centers on its own stop's level (about y 5830-5885, with 'St' at about 5915-5970), clear of 'Fulbright St' (top about y 6005). If that is still too close, move the Fourth St stop about 60 px down-right along the 100 to open the gap."
+        },
+        {
+          "image": "tram_display_v3.png",
+          "where": "'Cambridge St' at (11037-11481, 5589-5657). Cambridge St stop (11205,5736), Cushman Ave stop (11452,5485), Dale St stop (10958,5489). Borderline name, about 25 px margin.",
+          "problem": "The label crosses both the 110 diagonal and the 116 Cushman Ave line. It is about 78 px above its own stop and about 103 px below the Cushman Ave stop, wedged among three stops.",
+          "severity": "medium",
+          "fix": "Put 'Cambridge / St' on two lines right of its own stop, starting at the stop's level (about x 11270-11540, y 5680-5810). It would cross only the Cushman line, with a halo, and stay about 110 px from the Harris St stop (11618,5817)."
+        },
+        {
+          "image": "tram_display_v3.png",
+          "where": "'Sylvia Rd' at (6945-7246, 5796-5865), centered on route 101's vertical line. Sylvia Rd stop (7095,5703), South Medford stop (7095,5972). Borderline name, about 16 px margin.",
+          "problem": "The name floats midway on the line between its stop and South Medford's, about 93 px against about 107 px. It doesn't clearly belong to either stop.",
+          "severity": "medium",
+          "fix": "Raise the label about 30 px so its top sits just under its stop's circle (about y 5766-5835). It is then about 97 px from its own stop and about 170 px from South Medford."
+        },
+        {
+          "image": "tram_display_v3.png",
+          "where": "'Strawberry Hill' at (4885-5358, 6260-6318), right of its stop (4817,6313). 'Moulton St' at (5089-5434, 6394-6449). Moulton St stop (5483,6336), Birch St stop (5483,6546). Moulton St is next in line after the four borderline names, at about 32 px margin.",
+          "problem": "Reading left from the Moulton St stop, the first name at its level is 'Strawberry Hill', about 125 px away. 'Moulton St' hangs below-left of its stop, about 76 px from it and about 108 px from Birch St.",
+          "severity": "medium",
+          "fix": "Move 'Strawberry Hill' to the left of its own stop (right end about x 4760, y 6285-6345); that space is empty. Then set 'Moulton St' left of its own stop at its level (right end about x 5420, y 6306-6366)."
+        },
+        {
+          "image": "tram_display_v3.png",
+          "where": "Route 64 between Central and Kendall. 'Technology Sq' at (7426-7900, 7741-7810), its stop at (7959,7878). 'Tremont St' at (7407-7765, 7891-7945), its stop at (7824,8013). Kendall stop (8095,7742). The Sullivan Sq '95 101' badges are at (7494-7846, 7590-7688), right above 'Technology Sq'.",
+          "problem": "Both names are stair-stepped. 'Technology Sq' is level with Kendall's stop and 'Tremont St' is level with Technology Sq's. The 95/101 badges stacked on 'Technology Sq' look like the end-of-route style ('95 101 / Technology Sq').",
+          "severity": "medium",
+          "fix": "Set 'Technology Sq' left of its own stop at its level (right end about x 7895, y 7847-7907). Put 'Tremont St' right of its own stop at its level (about x 7885-8245, y 7985-8040). The 95/101 badges then clearly belong to Sullivan Sq."
+        },
+        {
+          "image": "tram_display_v3.png",
+          "where": "Route 95. 'Moreland St' at (7632-8023, 6157-6216), right of its stop (7564,6211). 'Ten Hills Rd' at (7719-8104, 6243-6296), up-right of its stop (7670,6355). 'Middlesex Ave' at (7742-8205, 6622-6675), about 110 px below its stop (7670,6541), with 'Autumn St' at (7583-7921, 6739-6798) under it.",
+          "problem": "'Ten Hills Rd' sits directly under 'Moreland St' and reads as a second line of one name, leaving the Ten Hills stop unnamed at its level. 'Middlesex Ave' and 'Autumn St' read as a list hanging off the Grand Union Blvd stretch.",
+          "severity": "medium",
+          "fix": "Put 'Ten Hills Rd' left of its own stop at its level (about x 7220-7600, y 6325-6385); that space is empty. Put 'Middlesex / Ave' on two lines left of its own stop at its level (about x 7285-7605, y 6480-6605), just clear of the 101 line."
+        },
+        {
+          "image": "tram_display_v3.png",
+          "where": "'1 Mass Ave' caption at (8006-8511, 8086-8185), right of the Central junction (7689,8149).",
+          "problem": "The caption sits in the wedge between the Central to Kendall line (route 64) and the Central to MIT line (route 1), about 190-205 px from each. A stranger can read the Kendall line as Mass Ave.",
+          "severity": "medium",
+          "fix": "Move the caption to hug the right side of the Central to MIT stretch (about x 7920-8420, y 8290-8380). That is about 45 px from the 1 and far from the Kendall line, and clear of 'MIT' (top about y 8446) and the new 'Tremont St' spot."
+        },
+        {
+          "image": "tram_display_v3.png",
+          "where": "'Brigham Circle' at (7420-7898, 10385-10450) with its GL pill at (7947-8168, 10370-10462). Brigham Circle stop (7353,10442). The Roxbury Crossing to Ruggles diagonal passes through the name at about x 7700. Ruggles stop (7908,10210).",
+          "problem": "The line splits the name into 'Brigham' and 'Circle GL'. The GL pill sits about 165 px under the Ruggles stop, next to Ruggles' 22 badge, and about 600 px from its own stop. Readable, but busy.",
+          "severity": "low",
+          "fix": "Lower the row about 25 px so it sits level with its own stop. If the Brigham Circle stop can move about 40 px down-left along its line, set 'Brigham / Circle' on two lines that clear the Ruggles diagonal, with GL after 'Circle'."
+        },
+        {
+          "image": "tram_display_v3.png",
+          "where": "'Roxbury Crossing' at (7088-7661, 10712-10780) with its OL pill at (7712-7933, 10692-10785). Own stop (7513,10600), Jackson Sq stop (7513,10930).",
+          "problem": "The label hangs about 110 px below its stop on the 22 line, about 150 px above Jackson Sq. It stays nearer its own stop, but only just clearly.",
+          "severity": "low",
+          "fix": "Raise the row about 40 px so it sits right under its stop (top about y 10667)."
+        },
+        {
+          "image": "tram_display_v3.png",
+          "where": "Loose labels:\n- 'Waumbeck St' at (8381-8832, 11734-11796): about 155 px from its stop (8938,11621) and about 189 px from the Harold St stop (8218,11891), stacked above 'Grove Hall OL' and 'Seaver St OL'.\n- 'Walden St' at (5533-5867, 6813-6867): below its stop (5483,6755).\n- 'Pierce / St' at about (9373-9580, 4930-5073): the 'St' line is level with the Richardson St stop (9256,5021).\n- 'Hamilton St' at (10444-10824, 12036-12106): starts about 130 px right of its stop (10310,12070), where about 70 px is normal.",
+          "problem": "Each name is nearer its own stop but sits off its stop's level or far from it. That is less clear than the rest of the sheet.",
+          "severity": "low",
+          "fix": "- Slide 'Hamilton St' about 60 px left, to sit like 'Kane Sq'.\n- Raise 'Walden St' and 'Waumbeck St' about 30-40 px toward their stops where 'CENTER' and 'Egleston Sq' leave room.\n- Drop 'Pierce / St' about 30 px so 'Pierce' sits level with its stop."
+        },
+        {
+          "image": "tram_display_v3.png",
+          "where": "Rows that run name, then pills, then stop:\n- 'Mass Ave' (8061-8369, 9184-9237): about 330 px from the Hynes stop (8396,8856) and about 380 px from its own (8750,9210).\n- 'Brookline Village' (6149-6686, 10097-10165): about 215 px from the Pill Hill stop (6828,10330) and about 350 px from its own (7034,10123).\n- 'Uphams / Corner' (9257-9522, 11589-11731): about 180 px from the Grove Hall stop (9189,11872) and about 380 px from its own (9902,11659).",
+          "problem": "By the letter of Max's rule, each name is nearer another stop; only its pills reach its own stop. Each row is level with its stop and leads straight into it, so it reads correctly. They are listed only for completeness.",
+          "severity": "low",
+          "fix": "No change needed unless Max wants the letter of the rule. If so, tighten the gap between each name and its first pill to the Key's spacing."
+        },
+        {
+          "image": "tram_display_v3.png",
+          "where": "Connections panel rows North Station (y about 11290), Ruggles (about 13175), Sullivan Sq (about 13930) and West Station (about 16017).",
+          "problem": "Rows with three or four line pills push their tram badges right, to about x 2060-2220, out of the badge column at about x 1560. Cosmetic only.",
+          "severity": "low",
+          "fix": "Start the tram badge column at the widest pill row's end for all rows, or wrap the third and fourth line pills under the first two."
+        }
+      ]
+    }
+  ],
+  "workflowProgress": [
+    {
+      "type": "workflow_phase",
+      "index": 1,
+      "title": "Audit"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 1,
+      "label": "audit:network",
+      "phaseIndex": 1,
+      "phaseTitle": "Audit",
+      "agentId": "a2640117f7c8fc347",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1794144742681,
+      "queuedAt": 1794144742653,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "File: D:\\REPOS\\NERTA\\boston-map\\output\\copies\\tram_network_…",
+      "promptPreview": "Project: NERTA, Max Howe's fantasy Boston transit map set (repo D:\\REPOS\\NERTA), going public. READ-ONLY: edit nothing; write crops only under C:\\Users\\mhowe\\AppData\\Local\\Temp\\claude\\8c6edb261a248c64\\78f945b2-284d-46fa-8b1f-22d30e849230\\scratchpad\\audit_tram_r2\\<key>\\. Python: C:\\Users\\mhowe\\AppData\\Local\\Python\\bin\\python.exe; Pillow (Image.MAX_IMAGE_PIXELS=None) and PyMuPDF installed. Look at e…",
+      "promptFramed": true,
+      "lastProgressAt": 1794146236626,
+      "tokens": 384227,
+      "toolCalls": 95,
+      "durationMs": 1493944,
+      "resultPreview": "{\"checked\":\"File: D:\\\\REPOS\\\\NERTA\\\\boston-map\\\\output\\\\copies\\\\tram_network_v4.png (29824x28264, 600 dpi). All coordinates below are full-size pixels in this PNG. The PDF next to it uses the same layout at 600/72 scale.\\n\\nHow I checked it:\\n1. Visual pass. I cut the whole sheet into 36 tiles of 6300 px, each overlapping the next by 900 px, and shrank each to 1400 px. I read every tile that has c…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 2,
+      "label": "audit:map_west",
+      "phaseIndex": 1,
+      "phaseTitle": "Audit",
+      "agentId": "a7ac05e58a6c8f183",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1794144742681,
+      "queuedAt": 1794144742653,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "File: D:\\REPOS\\NERTA\\boston-map\\output\\copies\\tram_map_v15.…",
+      "promptPreview": "Project: NERTA, Max Howe's fantasy Boston transit map set (repo D:\\REPOS\\NERTA), going public. READ-ONLY: edit nothing; write crops only under C:\\Users\\mhowe\\AppData\\Local\\Temp\\claude\\8c6edb261a248c64\\78f945b2-284d-46fa-8b1f-22d30e849230\\scratchpad\\audit_tram_r2\\<key>\\. Python: C:\\Users\\mhowe\\AppData\\Local\\Python\\bin\\python.exe; Pillow (Image.MAX_IMAGE_PIXELS=None) and PyMuPDF installed. Look at e…",
+      "promptFramed": true,
+      "lastProgressAt": 1794146260904,
+      "tokens": 380344,
+      "toolCalls": 90,
+      "durationMs": 1514923,
+      "resultPreview": "{\"checked\":\"File: D:\\\\REPOS\\\\NERTA\\\\boston-map\\\\output\\\\copies\\\\tram_map_v15.png (13770x12270). My area was x 0-7574, plus the header and the Key. All coordinates below are in full-size pixels.\\n\\nHow I checked:\\n- Tiled the left half into 35 overlapping crops (1700 px tiles, 150 px overlap, shown at 82%). Tiles with no trams were checked at low resolution.\\n- Made about 25 full-size zooms and thr…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 3,
+      "label": "audit:map_east",
+      "phaseIndex": 1,
+      "phaseTitle": "Audit",
+      "agentId": "a368d391d1bb82acd",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1794144742681,
+      "queuedAt": 1794144742653,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "File checked: D:\\REPOS\\NERTA\\boston-map\\output\\copies\\tram_…",
+      "promptPreview": "Project: NERTA, Max Howe's fantasy Boston transit map set (repo D:\\REPOS\\NERTA), going public. READ-ONLY: edit nothing; write crops only under C:\\Users\\mhowe\\AppData\\Local\\Temp\\claude\\8c6edb261a248c64\\78f945b2-284d-46fa-8b1f-22d30e849230\\scratchpad\\audit_tram_r2\\<key>\\. Python: C:\\Users\\mhowe\\AppData\\Local\\Python\\bin\\python.exe; Pillow (Image.MAX_IMAGE_PIXELS=None) and PyMuPDF installed. Look at e…",
+      "promptFramed": true,
+      "lastProgressAt": 1794146377174,
+      "tokens": 354015,
+      "toolCalls": 110,
+      "durationMs": 1631192,
+      "resultPreview": "{\"checked\":\"File checked: D:\\\\REPOS\\\\NERTA\\\\boston-map\\\\output\\\\copies\\\\tram_map_v15.png (13770 x 12270, 600 dpi). My part runs from x 6196 to the right edge. All coordinates are full-size pixels in that file.\\n\\nHow I checked it:\\n- Cut the area into 31 overlapping tiles of 1800 px, each shrunk to 1400 px wide, and looked at every one.\\n- Nine tiles were open water. A pixel count confirmed they h…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 4,
+      "label": "audit:display",
+      "phaseIndex": 1,
+      "phaseTitle": "Audit",
+      "agentId": "a9f4d3d3de43ad92f",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1794144742681,
+      "queuedAt": 1794144742653,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "Image: D:\\REPOS\\NERTA\\boston-map\\output\\copies\\tram_display…",
+      "promptPreview": "Project: NERTA, Max Howe's fantasy Boston transit map set (repo D:\\REPOS\\NERTA), going public. READ-ONLY: edit nothing; write crops only under C:\\Users\\mhowe\\AppData\\Local\\Temp\\claude\\8c6edb261a248c64\\78f945b2-284d-46fa-8b1f-22d30e849230\\scratchpad\\audit_tram_r2\\<key>\\. Python: C:\\Users\\mhowe\\AppData\\Local\\Python\\bin\\python.exe; Pillow (Image.MAX_IMAGE_PIXELS=None) and PyMuPDF installed. Look at e…",
+      "promptFramed": true,
+      "lastProgressAt": 1794146464692,
+      "tokens": 418651,
+      "toolCalls": 102,
+      "durationMs": 1718710,
+      "resultPreview": "{\"checked\":\"Image: D:\\\\REPOS\\\\NERTA\\\\boston-map\\\\output\\\\copies\\\\tram_display_v3.png (14758 x 18270). All coordinates are full-size pixels. Crops are in C:\\\\Users\\\\mhowe\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\8c6edb261a248c64\\\\78f945b2-284d-46fa-8b1f-22d30e849230\\\\scratchpad\\\\audit_tram_r2\\\\display\\\\\\n\\nWhat I covered\\n1. Full-sheet overview, then 35 overlapping 2800 px tiles at half size (t_r0c0 to t_r6c…"
+    }
+  ],
+  "totalTokens": 1537237,
+  "totalToolCalls": 397
+}

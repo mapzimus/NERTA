@@ -43,6 +43,29 @@ DRAFT = [
     ("116", "Inland Revere", "Wonderland to Maverick via Revere and Chelsea"),
     ("110", "Revere and Everett", "Wonderland to Wellington via Everett Sq"),
 ]
+# Max added these 19 (November 7) from the ranked candidates: busy routes meeting the subway or commuter rail, mostly new ground.
+# Names are drafts; the stop-naming pass polishes them.
+EXTRA = [
+    ("216", "Houghs Neck", "Quincy Center to Houghs Neck via Germantown"),
+    ("101", "Medford Sq", "Malden Center to Sullivan Sq via Medford Sq"),
+    ("34", "Dedham", "Forest Hills to Dedham Mall via Washington St"),
+    ("34E", "Walpole", "Forest Hills to Walpole Center via Washington St, Dedham and Norwood"),
+    ("225", "Weymouth Landing", "Quincy Center to Weymouth Landing"),
+    ("100", "Fellsway", "Wellington to Elm St, Medford, via the Fellsway"),
+    ("222", "East Weymouth", "Quincy Center to East Weymouth"),
+    ("64", "Oak Sq", "Oak Sq to Kendall via Allston and Central Sq"),
+    ("240", "Randolph", "Ashmont to Avon Sq via Randolph"),
+    ("220", "Hingham", "Quincy Center to Hingham Depot"),
+    ("455", "Lynn and Salem", "Wonderland to Salem via Lynn and Swampscott"),
+    ("215", "West Quincy", "Ashmont to Quincy Center via West Quincy"),
+    ("95", "Mystic Ave", "Sullivan Sq to West Medford via Mystic Ave"),
+    ("75", "Huron Ave", "Harvard to Belmont Center via Huron Ave"),
+    ("712", "Winthrop", "Orient Heights to Point Shirley via Winthrop"),
+    ("78", "Arlmont", "Harvard to Arlmont Village via Park Circle"),
+    ("106", "Lebanon St", "Wellington to Lebanon St via Malden Center"),
+    ("60", "Route 9", "Kenmore to Chestnut Hill via Brookline Village"),
+    ("38", "Centre St, West Roxbury", "Forest Hills to Wren St via Centre St"),
+]
 SPACING = 650   # meters between tram stops, roughly
 XFER_M = 250    # a NERTA station this close to the line becomes a tram stop
 
@@ -73,9 +96,9 @@ def tidy(name):
     return re.sub(r"\s+", " ", name.replace(" Station", "")).strip()
 
 
-def build_draft(stations, buses, bstops):
+def build_draft(stations, buses, bstops, spec=None):
     routes = []
-    for rid, title, via in DRAFT:
+    for rid, title, via in (spec or DRAFT):
         shapes = [f for f in buses if f["properties"]["route"] == rid]
         if not shapes:
             print("no bus shape for", rid)
@@ -112,6 +135,66 @@ def build_draft(stations, buses, bstops):
     return routes
 
 
+def rank_candidates(stations, trams):
+    """More trams (Max, November 7): major routes that meet the subway, and ones that meet commuter rail.
+    Every bus route not already a tram, ranked by weekday trips, with how much of it NERTA rail or a tram already covers."""
+    from shapely.ops import unary_union
+    import geopandas as gpd
+    path = TD / "bus_all.geojson"
+    if not path.exists():
+        return []
+    taken = {r["bus_route"] for r in trams} | {"73"}   # the 73 overlaps the rejected Trapelo Rd stop
+    pos = {s["properties"]["name"]: s for s in stations}
+    rapid = [(n, to_m(shape(s["geometry"]))) for n, s in pos.items() if any(c != M.CR_TEXT_COLOR for c in s["properties"]["colors"])]
+    mb = gpd.read_file(DAY / "data/mbta_stops.gpkg")
+    cr = {r["name"]: Point(xy(r.geometry.x, r.geometry.y)) for _, r in mb.iterrows() if "CR-" in r["routes"]}
+    for n, s in pos.items():
+        if M.CR_TEXT_COLOR in s["properties"]["colors"]:
+            cr.setdefault(n, to_m(shape(s["geometry"])))
+    links = []
+    for color, _style, _path, stops in M.lines():
+        pts = [to_m(shape(pos[n.rstrip("+")]["geometry"])).coords[0] for n in stops if n.rstrip("+") in pos]
+        if len(pts) > 1:
+            links.append(LineString(pts))
+    rail = unary_union(links).buffer(350)
+    tramzone = unary_union([LineString([xy(*c) for c in r["path"]]) for r in trams]).buffer(150)
+    out = []
+    for f in json.loads(path.read_text(encoding="utf-8"))["features"]:
+        p = f["properties"]
+        if p["route"] in taken or p["route"].startswith("SL") or p["description"] == "Supplemental Bus":
+            continue
+        line = to_m(shape(f["geometry"]))
+        if line.length < 1500:
+            continue
+        subway = [n for n, q in rapid if line.distance(q) <= XFER_M]
+        # commuter rail stops with no subway there (Salem, Walpole, Hingham...), so combined stations don't count twice
+        crs = sorted({n for n, q in cr.items() if line.distance(q) <= XFER_M and all(q.distance(r) > 150 for _, r in rapid)})
+        if not subway and not crs:
+            continue
+        group = "both" if subway and crs else "subway" if subway else "cr"
+        under_rail = line.intersection(rail).length / line.length
+        under_tram = line.intersection(tramzone).length / line.length
+        new_km = line.length * max(0.0, 1 - under_rail - under_tram) / 1000
+        out.append(dict(route=p["route"], name=p["long_name"], kind=p["description"], trips=p["weekday_trips"],
+                        group=group, subway=subway, cr=crs, under_rail=round(under_rail, 2),
+                        under_tram=round(under_tram, 2), new_km=round(new_km, 1), km=round(line.length / 1000, 1),
+                        path=[lonlat(*c) for c in line.simplify(6).coords]))
+    out.sort(key=lambda c: -c["trips"])
+    # Picks: busy, mostly new ground, and not on top of a pick already made.
+    picked = []
+    for c in out:
+        line = LineString([xy(*q) for q in c["path"]])
+        if c["trips"] < 60 or c["new_km"] < 2.0 or c["under_rail"] > 0.5 or c["under_tram"] > 0.5 or c["kind"] == "Commuter Bus":
+            continue
+        if any(line.intersection(o.buffer(150)).length / line.length > 0.5 for o in picked):
+            continue
+        c["pick"] = True
+        picked.append(line)
+    print(len(out), "candidates;", sum(1 for c in out if c.get("pick")), "picks:",
+          ", ".join(f"{c['route']} ({c['trips']})" for c in out if c.get("pick")))
+    return out
+
+
 def nerta_links(stations):
     """Each NERTA line as straight links between its stations at their real spots."""
     pos = {s["properties"]["name"]: s["geometry"]["coordinates"] for s in stations}
@@ -125,7 +208,7 @@ def nerta_links(stations):
 
 PAGE = """<!doctype html>
 <html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>NERTA Trams, Real Map</title>
+<title>NERTA Real Map</title>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
       integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
@@ -152,7 +235,7 @@ html,body { margin:0; height:100%%; background:var(--paper); font-family: Arial,
 </style></head><body>
 <div id="map"></div>
 <div class="panel" id="side">
-  <h1>NERTA Trams, Real Map</h1>
+  <h1>NERTA Real Map</h1>
   <p class="sub">Draft v%(V)s, %(DATE)s. Working map, not for posting. Click a route to zoom to it; click any spot on the map to get its coordinates.</p>
   <div class="legend">
     <div><span class="sw"></span>Draft tram route (hot pink)</div>
@@ -202,8 +285,108 @@ DATA.trams.forEach(r => {
   el.onclick = () => map.fitBounds(line.getBounds(), {paddingTopLeft:[200,40], paddingBottomRight:[350,40]});
   document.getElementById('routes').appendChild(el);
 });
-L.control.layers(null, {'Draft trams': gTram, 'Frequent buses today': gBus, 'NERTA lines': gNerta, 'NERTA stations': gSta},
-  {position:'topleft', collapsed:false}).addTo(map);
+// Commuter rail and high-speed rail, written by the rail poster session (data/rail_regional/), when present.
+const gCR = L.layerGroup(), gHSR = L.layerGroup();
+const rp = (f, k, d) => (f.properties && f.properties[k] !== undefined) ? f.properties[k] : d;
+DATA.rail.lines.forEach(f => {
+  const hsr = String(rp(f, 'kind', '')).toLowerCase().includes('hsr') || String(rp(f, 'kind', '')).toLowerCase().includes('high');
+  const g = f.geometry.type === 'MultiLineString' ? f.geometry.coordinates : [f.geometry.coordinates];
+  g.forEach(part => {
+    const ll = part.map(c => [c[1], c[0]]);
+    if (hsr) {
+      L.polyline(ll, {color:'#80276c', weight:7, opacity:0.9}).addTo(gHSR);
+      L.polyline(ll, {color:'#ffd23f', weight:3, opacity:1}).bindTooltip(`<b>${rp(f, 'name', 'High-speed rail')}</b>`, {sticky:true}).addTo(gHSR);
+    } else {
+      L.polyline(ll, {color: rp(f, 'edge', '#80276c'), weight:6, opacity:0.55}).addTo(gCR);
+      L.polyline(ll, {color: rp(f, 'color', '#80276c'), weight:3, opacity:0.95}).bindTooltip(`<b>${rp(f, 'name', 'Commuter rail')}</b>`, {sticky:true}).addTo(gCR);
+    }
+  });
+});
+DATA.rail.stations.forEach(f => {
+  const c = f.geometry.coordinates;
+  L.circleMarker([c[1], c[0]], {radius:4, color:'#80276c', weight:2, fillColor: rp(f, 'hsr', false) ? '#ffd23f' : '#fff', fillOpacity:1})
+    .bindTooltip(`<b>${rp(f, 'name', '')}</b><br>${[].concat(rp(f, 'lines', [])).join(', ')}`).addTo(gCR);
+});
+if (DATA.rail.lines.length) { gCR.addTo(map); gHSR.addTo(map); }
+// Lore layers (data/lore/): ferries, the BIGGER Dig, the London boat, landmarks.
+const gFerry = L.layerGroup(), gDig = L.layerGroup(), gLore = L.layerGroup();
+const lines_ = (f, fn) => (f.geometry.type === 'MultiLineString' ? f.geometry.coordinates : [f.geometry.coordinates]).forEach(p => fn(p.map(c => [c[1], c[0]])));
+(DATA.lore.ferry_routes || []).forEach(f => lines_(f, ll => {
+  L.polyline(ll, {color:'#fff', weight:7, opacity:0.8}).addTo(gFerry);
+  L.polyline(ll, {color: rp(f, 'color', '#00796d'), weight:4, dashArray: rp(f, 'fast', false) ? '10 6' : '1 7', lineCap:'round'})
+    .bindTooltip(`<b>Ferry: ${rp(f, 'name', '')}</b>${rp(f, 'fast', false) ? '<br>high-speed' : ''}`, {sticky:true}).addTo(gFerry);
+}));
+(DATA.lore.ferry_docks || []).forEach(f => { const c = f.geometry.coordinates;
+  L.circleMarker([c[1], c[0]], {radius: rp(f, 'major', false) ? 5 : 3.5, color:'#00796d', weight:2, fillColor:'#fff', fillOpacity:1,
+    dashArray: rp(f, 'invented', false) ? '2 2' : null})
+   .bindTooltip(`<b>${rp(f, 'name', '')}</b> (ferry dock)${rp(f, 'invented', false) ? '<br>invented' : ''}`).addTo(gFerry); });
+(DATA.lore.dig || []).forEach(f => {
+  if (f.geometry.type === 'Point') { const c = f.geometry.coordinates;
+    L.circleMarker([c[1], c[0]], {radius:7, color:'#16161a', weight:3, fillColor:'#fff', fillOpacity:1}).bindTooltip(`<b>${rp(f, 'name', '')}</b>`).addTo(gDig);
+  } else lines_(f, ll => {
+    L.polyline(ll, {color:'#16161a', weight:9, opacity:0.9}).addTo(gDig);
+    L.polyline(ll, {color:'#ffd23f', weight:2, dashArray:'6 5'}).bindTooltip(`<b>${rp(f, 'name', 'The BIGGER Dig')}</b>`, {sticky:true}).addTo(gDig);
+  });
+});
+(DATA.lore.london_ferry || []).forEach(f => {
+  if (f.geometry.type === 'Point') { const c = f.geometry.coordinates;
+    L.circleMarker([c[1], c[0]], {radius:6, color:'#0b2a5b', weight:3, fillColor:'#fff', fillOpacity:1}).bindTooltip(`<b>${rp(f, 'name', '')}</b>`).addTo(gLore);
+  } else lines_(f, ll => L.polyline(ll, {color:'#0b2a5b', weight:4, dashArray:'12 8'}).bindTooltip(`<b>${rp(f, 'name', 'Atlantic Clipper')}</b><br>to London`, {sticky:true}).addTo(gLore));
+});
+(DATA.lore.landmarks || []).forEach(f => { const c = f.geometry.coordinates;
+  L.marker([c[1], c[0]], {icon: L.divIcon({className:'', html:'<div style="font-size:18px;color:#0b2a5b;line-height:18px">&#9733;</div>', iconSize:[18,18], iconAnchor:[9,9]})})
+   .bindTooltip(`<b>${rp(f, 'name', '')}</b>${rp(f, 'note', '') ? '<br>' + rp(f, 'note', '') : ''}`).addTo(gLore); });
+const hasLore = Object.values(DATA.lore).some(a => a.length);
+if (hasLore) { gFerry.addTo(map); gDig.addTo(map); gLore.addTo(map); }
+const gCand = L.layerGroup().addTo(map);
+if (DATA.cands.length) {
+  const side = document.getElementById('side');
+  const head = document.createElement('div');
+  const shown = DATA.cands.filter(c => c.pick || (c.trips >= 40 && c.new_km >= 1.0));
+  head.innerHTML = `<h1 style="margin-top:12px">More trams to choose from</h1><p class="sub">Today's busier bus routes that meet the subway or
+    commuter rail, busiest first (weekday trips, both ways). Dashed pink on the map. Starred: my picks (60+ trips, 2+ km of new ground,
+    under half its length on NERTA rail or another tram). Tick any route to show it. ${DATA.cands.length - shown.length} more are left
+    off the list: under 40 trips, or almost all on NERTA rail or a tram already.</p>`;
+  side.appendChild(head);
+  const btn = document.createElement('div');
+  btn.innerHTML = `<button id="copyticks" style="font:bold 13px Arial;background:%(TRAM)s;color:#fff;border:0;border-radius:14px;padding:6px 12px;cursor:pointer">
+    Copy my ticks</button> <span id="ticked" style="font-size:12px;color:var(--mute)"></span>`;
+  side.appendChild(btn);
+  btn.querySelector('button').onclick = () => {
+    const ids = [...side.querySelectorAll('label.route input:checked')].map(i => i.dataset.route);
+    const t = `Add these trams: ${ids.join(', ')}`;
+    document.getElementById('ticked').textContent = t + '  (copied, paste it in chat)';
+    try { navigator.clipboard.writeText(t); } catch (e) {}
+  };
+  [['both', 'Meets the subway and commuter rail'], ['subway', 'Meets the subway'], ['cr', 'Meets commuter rail only']].forEach(([g, title]) => {
+    const rows = shown.filter(c => c.group === g);
+    if (!rows.length) return;
+    const h = document.createElement('div');
+    h.innerHTML = `<b style="display:block;margin:10px 0 2px">${title} (${rows.length})</b>`;
+    side.appendChild(h);
+    rows.forEach(c => {
+      const ll = c.path.map(q => [q[1], q[0]]);
+      const ln = L.polyline(ll, {color:'%(TRAM)s', weight:4, opacity:0.85, dashArray:'7 6'})
+        .bindTooltip(`<b>${c.route}</b> ${c.name}<br>${c.trips} weekday trips`, {sticky:true});
+      if (c.pick) ln.addTo(gCand);
+      const meets = [...new Set(c.subway.concat(c.cr))].slice(0, 6).join(', ');
+      const row = document.createElement('label');
+      row.className = 'route';
+      row.innerHTML = `<input type="checkbox" data-route="${c.route}" ${c.pick ? 'checked' : ''} style="margin-top:4px">
+        <span class="badge" style="background:#fff;color:%(TRAM)s;border:2px solid %(TRAM)s">${c.route}</span>
+        <div><b>${c.pick ? '&#9733; ' : ''}${c.name}</b><small>${c.trips} trips a weekday. Meets ${meets}.
+        ${Math.round(c.under_rail*100)}%% under NERTA rail, ${Math.round(c.under_tram*100)}%% under a tram, ${c.new_km} km new.</small></div>`;
+      row.querySelector('input').onchange = e => e.target.checked ? ln.addTo(gCand) : gCand.removeLayer(ln);
+      row.querySelector('div').onclick = ev => { ev.preventDefault(); if (!gCand.hasLayer(ln)) { ln.addTo(gCand); row.querySelector('input').checked = true; }
+        map.fitBounds(ln.getBounds(), {paddingTopLeft:[200,40], paddingBottomRight:[350,40]}); };
+      side.appendChild(row);
+    });
+  });
+}
+const over = {'Draft trams': gTram, 'More trams to choose from': gCand, 'Frequent buses today': gBus, 'NERTA lines': gNerta, 'NERTA stations': gSta};
+if (DATA.rail.lines.length) { over['Commuter rail'] = gCR; over['High-speed rail'] = gHSR; }
+if (hasLore) { over['Ferries'] = gFerry; over['The BIGGER Dig'] = gDig; over['London boat and landmarks'] = gLore; }
+L.control.layers(null, over, {position:'topleft', collapsed:false}).addTo(map);
 map.on('click', e => {
   const t = `${e.latlng.lat.toFixed(5)}, ${e.latlng.lng.toFixed(5)}`;
   document.getElementById('spot').innerHTML = `Spot: <code>${t}</code> (copy this into chat to point at a place)`;
@@ -223,10 +406,36 @@ def main():
         trams = build_draft(stations, buses, bstops)
         dpath.write_text(json.dumps({"color": TRAM, "routes": trams}, indent=1), encoding="utf-8")
         print("wrote", dpath)
+    # The 19 Max added. Built once into tram_extra.json; the stop-naming pass merges them into tram_draft.json.
+    epath = TD / "tram_extra.json"
+    if not epath.exists() and (TD / "bus_all.geojson").exists() and (TD / "bus_stops_extra.geojson").exists():
+        allb = json.loads((TD / "bus_all.geojson").read_text(encoding="utf-8"))["features"]
+        estops = json.loads((TD / "bus_stops_extra.geojson").read_text(encoding="utf-8"))["features"]
+        extra = build_draft(stations, allb, estops, EXTRA)
+        for r in extra:
+            r["added"] = "Max, November 7, from the ranked candidates"
+        epath.write_text(json.dumps({"color": TRAM, "routes": extra}, indent=1), encoding="utf-8")
+        print("wrote", epath)
+    if epath.exists():
+        have = {r["id"] for r in trams}
+        trams = trams + [r for r in json.loads(epath.read_text(encoding="utf-8"))["routes"] if r["id"] not in have]
     v = 1
     while (OUT / f"tram_realmap_v{v}.html").exists():
         v += 1
-    data = {"stations": stations, "buses": buses, "trams": trams, "nerta": nerta_links(stations), "code": CODE}
+    cands = rank_candidates(stations, trams)
+    (TD / "tram_candidates.json").write_text(json.dumps(cands, indent=1), encoding="utf-8")
+    rail = {"lines": [], "stations": []}   # the rail poster session's layer, read only
+    for k, fn in (("lines", "cr_lines.geojson"), ("stations", "cr_stations.geojson")):
+        p = DAY / "data" / "rail_regional" / fn
+        if p.exists():
+            rail[k] = json.loads(p.read_text(encoding="utf-8"))["features"]
+    print("rail layer:", len(rail["lines"]), "lines,", len(rail["stations"]), "stations")
+    lore = {}
+    for k in ("ferry_routes", "ferry_docks", "dig", "london_ferry", "landmarks"):
+        p = DAY / "data" / "lore" / f"{k}.geojson"
+        lore[k] = json.loads(p.read_text(encoding="utf-8"))["features"] if p.exists() else []
+    print("lore:", {k: len(v) for k, v in lore.items()})
+    data = {"stations": stations, "buses": buses, "trams": trams, "nerta": nerta_links(stations), "code": CODE, "cands": cands, "rail": rail, "lore": lore}
     pill = {"RL": M.RED, "OL": M.ORANGE, "BL": M.BLUE, "GL": M.GREEN, "YL": M.YELLOW, "CL": M.CYAN, "IL": M.INDIGO, "SL": M.SILVER, "CR": M.CR_TEXT_COLOR}
     html = PAGE % {"TRAM": TRAM, "V": v, "DATE": "November 7, 2026", "DATA": json.dumps(data), "PILL": json.dumps(pill)}
     out = OUT / f"tram_realmap_v{v}.html"

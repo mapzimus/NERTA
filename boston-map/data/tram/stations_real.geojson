@@ -773,6 +773,31 @@
 "geometry": {
 "type": "Point",
 "coordinates": [
+-71.2230264,
+42.3690782
+]
+},
+"properties": {
+"name": "Bleachery",
+"colors": [
+"#00843d",
+"#da291c"
+],
+"status": [
+"stripe"
+],
+"sources": [
+"Nominatim (OSM)"
+],
+"verified": false,
+"note": "Bleachery Dam, Waltham, Middlesex County, Massachusetts, 02454, United States"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
 -71.095782,
 42.271466
 ]
@@ -1523,6 +1548,30 @@
 "geometry": {
 "type": "Point",
 "coordinates": [
+-70.8800479,
+42.4834295
+]
+},
+"properties": {
+"name": "Clifton",
+"colors": [
+"#80276c"
+],
+"status": [
+"dash"
+],
+"sources": [
+"Nominatim (OSM)"
+],
+"verified": false,
+"note": "Clifton, Marblehead, Essex County, Massachusetts, 01945, United States"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
 -71.0174,
 42.4505
 ]
@@ -1721,8 +1770,8 @@
 "geometry": {
 "type": "Point",
 "coordinates": [
--70.9362957,
-42.5664984
+-70.941247,
+42.565787
 ]
 },
 "properties": {
@@ -1734,10 +1783,11 @@
 "dash"
 ],
 "sources": [
-"Nominatim (OSM)"
+"Commons photos 2015",
+"OSM Danvers Junction node"
 ],
-"verified": false,
-"note": "Danvers, Essex County, Massachusetts, United States"
+"verified": true,
+"note": "station spot from the rail poster session"
 }
 },
 {
@@ -1745,8 +1795,8 @@
 "geometry": {
 "type": "Point",
 "coordinates": [
--70.9236882,
-42.5512656
+-70.930204,
+42.557019
 ]
 },
 "properties": {
@@ -1758,10 +1808,10 @@
 "dash"
 ],
 "sources": [
-"Nominatim (OSM)"
+"Sanborn 1927 Danvers sheet 13"
 ],
 "verified": false,
-"note": "Danversport, Danvers, Essex County, Massachusetts, 01923, United States"
+"note": "station spot from the rail poster session"
 }
 },
 {
@@ -2449,6 +2499,7 @@
 "#ed8b00"
 ],
 "status": [
+"dash",
 "stripe"
 ],
 "sources": [
@@ -2716,8 +2767,8 @@
 "geometry": {
 "type": "Point",
 "coordinates": [
--70.8897676,
-42.2417669
+-70.902708,
+42.235838
 ]
 },
 "properties": {
@@ -2729,10 +2780,11 @@
 "solid"
 ],
 "sources": [
-"Nominatim (OSM)"
+"MBTA V3 API place-GRB-0162",
+"OSM node/7005274156"
 ],
-"verified": false,
-"note": "Hingham, Plymouth County, Massachusetts, 02043, United States"
+"verified": true,
+"note": "station spot from the rail poster session"
 }
 },
 {
@@ -3064,6 +3116,30 @@
 "geometry": {
 "type": "Point",
 "coordinates": [
+-71.0547,
+42.3685
+]
+},
+"properties": {
+"name": "Langone Ferryport",
+"colors": [
+"#00a9c9"
+],
+"status": [
+"dash"
+],
+"sources": [
+"placed by hand"
+],
+"verified": false,
+"note": "Langone Park, Commercial St, North End (NERTA station, was North End)"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
 -71.076584,
 42.371572
 ]
@@ -3314,8 +3390,8 @@
 "geometry": {
 "type": "Point",
 "coordinates": [
--70.8578253,
-42.500096
+-70.856398,
+42.50238
 ]
 },
 "properties": {
@@ -3327,10 +3403,35 @@
 "dash"
 ],
 "sources": [
-"Nominatim (OSM)"
+"Marblehead Weekly News",
+"Sanborn 1915 Marblehead sheet 10"
+],
+"verified": true,
+"note": "station spot from the rail poster session"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.0275,
+42.532
+]
+},
+"properties": {
+"name": "Market St",
+"colors": [
+"#ed8b00"
+],
+"status": [
+"dash"
+],
+"sources": [
+"placed by hand"
 ],
 "verified": false,
-"note": "Marblehead, Essex County, Massachusetts, 01945, United States"
+"note": "MarketStreet, Lynnfield (NERTA Orange loop stop)"
 }
 },
 {
@@ -4007,30 +4108,6 @@
 "geometry": {
 "type": "Point",
 "coordinates": [
--71.0544954,
-42.3650974
-]
-},
-"properties": {
-"name": "North End",
-"colors": [
-"#00a9c9"
-],
-"status": [
-"dash"
-],
-"sources": [
-"Nominatim (OSM)"
-],
-"verified": false,
-"note": "North End, Boston, Suffolk County, Massachusetts, United States"
-}
-},
-{
-"type": "Feature",
-"geometry": {
-"type": "Point",
-"coordinates": [
 -71.029583,
 42.275275
 ]
@@ -4049,6 +4126,30 @@
 ],
 "verified": true,
 "note": "MBTA and OSM 85 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.0786653,
+42.5750939
+]
+},
+"properties": {
+"name": "North Reading",
+"colors": [
+"#ed8b00"
+],
+"status": [
+"dash"
+],
+"sources": [
+"Nominatim (OSM)"
+],
+"verified": false,
+"note": "North Reading, Middlesex County, Massachusetts, 01864, United States"
 }
 },
 {
@@ -4464,6 +4565,7 @@
 "#ed8b00"
 ],
 "status": [
+"dash",
 "stripe"
 ],
 "sources": [
@@ -4623,6 +4725,30 @@
 ],
 "verified": true,
 "note": "MBTA and OSM 6 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.147134,
+42.210308
+]
+},
+"properties": {
+"name": "Route 128",
+"colors": [
+"#80276c"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API"
+],
+"verified": false,
+"note": ""
 }
 },
 {
@@ -4874,8 +5000,8 @@
 "geometry": {
 "type": "Point",
 "coordinates": [
--70.8925486,
-42.5112068
+-70.898114,
+42.50778
 ]
 },
 "properties": {
@@ -4887,10 +5013,11 @@
 "stripe"
 ],
 "sources": [
-"Nominatim (OSM)"
+"City of Salem slides 2025",
+"Wikipedia: South Salem station"
 ],
-"verified": false,
-"note": "South Salem, Salem, Essex County, Massachusetts, 01970, United States"
+"verified": true,
+"note": "station spot from the rail poster session"
 }
 },
 {
@@ -4930,10 +5057,12 @@
 "properties": {
 "name": "South Station",
 "colors": [
+"#00a9c9",
 "#3f3fb5",
 "#da291c"
 ],
 "status": [
+"dash",
 "solid",
 "stripe"
 ],
@@ -6018,8 +6147,8 @@
 "geometry": {
 "type": "Point",
 "coordinates": [
--71.1369982,
-42.4523178
+-71.13783,
+42.451088
 ]
 },
 "properties": {
@@ -6031,10 +6160,11 @@
 "solid"
 ],
 "sources": [
-"Nominatim (OSM)"
+"MBTA V3 API place-NHRML-0078",
+"OSM node/1666023173"
 ],
-"verified": false,
-"note": "Winchester, Middlesex County, Massachusetts, 01890, United States"
+"verified": true,
+"note": "station spot from the rail poster session"
 }
 },
 {

@@ -1,0 +1,225 @@
+[
+ {
+  "key": "tram",
+  "checked": "Files used (all in D:\\REPOS\\NERTA\\boston-map\\output\\copies). Coordinates are in each file's own full-size pixels.\n1. tram_map_v5.png (6885x6135, 300 dpi). This is the one I was assigned. Checked as 16 overlapping 2000 px tiles plus about 10 full-resolution zooms.\n2. tram_map_v7.png (13770x12270, 600 dpi). This is the newest tram map (5:44 AM) and replaces v5 and v6. Checked as 16 overlapping tiles plus about 30 full-resolution zooms.\n3. tram_network_v2.png (29702x28255, 600 dpi). This is the newest tram poster. Checked as 36 tiles at 1/3 scale plus 6 full-resolution zooms.\nI read every label in all three. I did not audit tram_map_v6 (v7 replaces it), tram_map_v7_web or tram_network_web_v2. v7_web differs from v7 across the whole sheet, not only in the release block, so it needs its own pass before nerta.fun.\n\nPasses:\n- Release block. Present in v5, v7 and the network poster: the disclaimer with MOST in bold, \"Map: Maxwell Howe\", \"#30DayMapChallenge\" and \"Day 8 \u2022 Utopia\". On the network poster it is very small; see the low finding.\n- Tram stop symbol. A circle with a cross whose arms run slightly past the circle, in all three maps and their Keys.\n- Bleachery. Shown as an unlabeled white dot where Red ends and Green A begins, between Waltham and Watertown (v7 at about 1800,4249).\n- South Station. Its transfer capsule joins the Cyan line (v7 at about 7985-8230, 6745-6935).\n- Waltham. Shown as a Red through stop, but its commuter rail transfer is missing on both maps (finding below).\n- New Bedford boat and Atlantic Clipper. Neither tram map shows ferries, so these don't apply.\n\nBiggest pattern on v7: on 45-degree lines many names sit level with the NEXT stop instead of their own. Each is still slightly closer to its own stop, but a stranger reading across will pair them wrong.",
+  "findings": [
+   {
+    "image": "tram_map_v7.png",
+    "where": "455 at Salem: 'Sumner Rd' label at (12497-12734, 455-495); 'Essex St' label at (12769-12957, 460-497); 'Salem' at (12758-12890, 400-437); 'Cedar St' at (12763-12953, 646-687). Stops: Sumner Rd (12454,599), Essex St (12695,571), Salem ring (12823,562), Cedar St (12674,666).",
+    "problem": "'Sumner Rd' sits beside the Essex St stop, about 120 px from its own stop. 'Essex St' sits right on top of the Salem ring and is closer to it than to the Essex St stop, which pushes 'Salem' up above it. 'Cedar St' is the same distance from Cedar St as from Salem. Essex St's lower cross arm also touches Cedar St's circle at about (12674-12695, 609-632). A stranger would read the Salem station as 'Essex St' and the Essex St stop as 'Sumner Rd'.",
+    "severity": "high",
+    "fix": "Move the Salem ring and the Cedar St and Essex St stops about 120 px north, into the open space above them, so they clear the space beside Sumner Rd. Then: put 'Sumner Rd' right of its own stop at its level (about x 12510-12750, y 577-620); 'Essex St' left of its stop at its level; 'Salem' right of the ring, beside the 455 pill; 'Cedar St' right of its stop at its level."
+   },
+   {
+    "image": "tram_map_v7.png",
+    "where": "Route 222 west of Moreland Rd. Stops on y=10218 at x 7732 (Lorraine), 7857 (Shawmut), 7983 (Fairmount), 8108 (Maple), 8232 (James Rd), 8357 (Weymouth Heights). Labels: 'Shawmut St' (7630-7820, 10305-10385); 'Maple St' (7903-8080, 10280-10322); 'Weymouth Heights' (8125-8315, 10045-10115); 'Lorraine St' (7623-7843, 10075-10118); 'James Rd' (8143-8322, 10305-10340).",
+    "problem": "Most names are shifted one stop west. 'Shawmut St' is under the Lorraine stop. 'Maple St' is under the Fairmount stop, stacked on 'Fairmount Ave'. 'Weymouth Heights' is over the James Rd stop. 'Lorraine St' sits in the dip of the 215 line, closer to the Quarry St (7662,10005) and Bates Ave stops than to its own. 'James Rd' touches the gray capsule (top edge at y 10343). Nearly every stop on this stretch would be misread.",
+    "severity": "high",
+    "fix": "Center each name on its own stop and alternate sides: Lorraine St below (x 7732), Shawmut St above (7857), Fairmount Ave below (7983), Maple St above (8108), James Rd below (8232, raised at least 15 px clear of the capsule), Weymouth Heights above (8357, two lines centered about x 8340, clear of Arnold St's circle). Move 'Bates Ave' up beside its own stop (7812,9998) so the above-row labels fit."
+   },
+   {
+    "image": "tram_map_v7.png",
+    "where": "Quincy Center: 'Foster St' label at (8143-8305, 9540-9575). Quincy Center ring at (8200,9488); Foster St stop at (8353,9490).",
+    "problem": "'Foster St' is in a small font right under the Quincy Center ring, touching its lower cross arm. It is closer to Quincy Center than to the Foster St stop, so it reads as a second name for the hub.",
+    "severity": "high",
+    "fix": "Put 'Foster St' directly above its own stop (centered x 8353, bottom about y 9425), clear of the route pills, at normal size."
+   },
+   {
+    "image": "tram_map_v7.png",
+    "where": "'Chubbuck St' label at (8370-8600, 9672-9710). General Dunford Dr stop at (8300,9668); Blanchard Rd stop at (8410,9782); Chubbuck St stop at (8673,9643).",
+    "problem": "The small 'Chubbuck St' label sits between the General Dunford Dr and Blanchard Rd stops, about 23 px from General Dunford Dr and about 31 px from its own stop. A stranger pairs it with the wrong stop.",
+    "severity": "high",
+    "fix": "Put 'Chubbuck St' right of its own stop at its level (about x 8730-8960, y 9622-9665), at normal size."
+   },
+   {
+    "image": "tram_map_v7.png",
+    "where": "'Dartmouth St' label at (8103-8405, 9955-10005), directly under the white Red Line dot at (8200,9928). Dartmouth St stop at (8475,9930). 'Arnold St' label at (8545-8758, 9980-10022); Arnold St stop at (8475,10055).",
+    "problem": "'Dartmouth St' sits right under an unlabeled Red Line station dot, so it reads as that station's name, and its own stop is about 220 px to the right. 'Arnold St' sits halfway between the Dartmouth and Arnold stops.",
+    "severity": "high",
+    "fix": "Put 'Dartmouth St' right of its own stop at its level (about x 8530-8830, y 9908-9952). Drop 'Arnold St' to its own stop's level (about y 10033-10077), keeping it clear of 'Pratt Ave'."
+   },
+   {
+    "image": "tram_map_v7.png",
+    "where": "'Moreland Rd' label at (8663-8955, 10265-10310). Curtis St stop at (8735,10200); Moreland Rd stop at (8613,10220).",
+    "problem": "'Moreland Rd' hangs directly under the Curtis St stop and is slightly closer to it (17 px) than to its own stop (19 px).",
+    "severity": "high",
+    "fix": "Put 'Moreland Rd' as two lines ('Moreland / Rd') centered under its own stop, with its left edge at least x 8655 so it clears West Howard St's cross arm. Move the 'West Howard St' label to the left of its stop to make room."
+   },
+   {
+    "image": "tram_map_v7.png",
+    "where": "Route 215: 'Milton St' (small font) at (7150-7308, 9712-9752); 'Emerson Rd' at (7050-7333, 9805-9848). Stops: Milton St (7120,9645), Guilford Rd (7307,9652), Emerson Rd (7397,9740). Cedar Grove ring at (7010,9730).",
+    "problem": "'Milton St' is closer to the Guilford Rd stop than to its own. 'Emerson Rd' is closer to the Cedar Grove station ring than to the Emerson Rd stop.",
+    "severity": "high",
+    "fix": "Put 'Milton St' at normal size below-left of its own stop (right edge about x 7100, y 9690-9730). Put 'Emerson Rd' right of its own stop at its level (about x 7455-7740, y 9718-9762), and shift Franklin St, Stedman St and Quarry St the same way (see the stair-step finding)."
+   },
+   {
+    "image": "tram_map_v7.png",
+    "where": "Nubian area. 'Whiting St' at (6255-6490, 7720-7765); Mass Ave ring at (6225,7645); Whiting St stop at (6370,7868). 'Woodbine St' at (5950-6240, 7855-7900); Ruggles ring at (5875,7940); Woodbine St stop at (6300,7963). 'West Cottage St' (small font) at (6970-7262, 8128-8165); Uphams Corner ring at (7200,8070); West Cottage St stop at (6940,8070).",
+    "problem": "Three names sit by the wrong symbol. 'Whiting St' is closer to the Mass Ave station. 'Woodbine St' is closer to the Ruggles station. 'West Cottage St' touches Uphams Corner's cross arm and is closer to Uphams than to its own stop.",
+    "severity": "high",
+    "fix": "'Whiting St': right of its own stop at its level (about x 6425-6660, y 7845-7890). 'Woodbine St': left of its own stop at its level, on the Yellow Line with a halo (right edge about x 6245, y 7940-7985). 'West Cottage St': normal size, centered under its own stop (x 6940, y 8125-8165), clear of the Uphams Corner symbol."
+   },
+   {
+    "image": "tram_map_v7.png",
+    "where": "'Angell St' label at (5950-6155, 8900-8945), immediately right of the Wellington Hill ring (5862,8933). Angell St stop at (6185,8828).",
+    "problem": "'Angell St' sits beside the Wellington Hill station with the gray 'Wellington Hill' name tucked under it. A stranger reads Wellington Hill as Angell St.",
+    "severity": "high",
+    "fix": "Put 'Angell St' right of its own stop at its level (about x 6245-6450, y 8805-8850), under 'Wales St', crossing the Indigo Line with a halo."
+   },
+   {
+    "image": "tram_map_v7.png",
+    "where": "Route 34 below Roslindale. 'Birchwood St' at (3957-4260, 10263-10311). De Soto Rd stop at (4013,10170); Carol Circle stop at (4136,10170); Birchwood St stop at (3893,10202). 'De Soto Rd' at (3920-4104, 9979-10070), under the white Orange Line dot at (3933,9934).",
+    "problem": "'Birchwood St' hangs under the De Soto Rd and Carol Circle stops, not its own. 'De Soto Rd' is about as close to the unlabeled Orange Line dot as to its own stop, so the dot can read as 'De Soto Rd'.",
+    "severity": "high",
+    "fix": "Shift 'Birchwood St' about 160 px left so it starts under its own stop (about x 3790-4090, y 10265-10310), sitting on the 38 line with a halo and clear of East St's circle. Put 'De Soto Rd' on one line just above its own stop (about x 3900-4125, y 10085-10125), below the Orange Line."
+   },
+   {
+    "image": "tram_map_v7.png",
+    "where": "'Sagamore St' label at (10585-10885, 2430-2475). American Legion Hwy stop at (10700,2340); Sagamore St stop at (10910,2363).",
+    "problem": "'Sagamore St' is centered directly under the American Legion Hwy stop. Its own stop is up and to the right. A stranger reads the American Legion Hwy stop as Sagamore St.",
+    "severity": "high",
+    "fix": "Put 'Sagamore St' directly above its own stop (centered x 10910, about y 2250-2295), crossing the Orange Line with a halo."
+   },
+   {
+    "image": "tram_network_v2.png",
+    "where": "Malden Center row. The OL pill at (14495-14780, 5482-5602) sits directly above the Prospect St stop (14562,5750). 'MALDEN CENTER' at (14825-15646, 5500-5590); its stop at (15786,5750) has the 101 pill above it.",
+    "problem": "The Orange Line pill sits over Prospect St, so a stranger reads Prospect St as the Orange Line transfer. The Key says transfer pills come after the name; here the pill comes before it.",
+    "severity": "high",
+    "fix": "Move the OL pill to the right end of 'MALDEN CENTER' (as the Key says) and slide the name right so the name and pill end just before the Malden Center stop. Lift the 101 pill above the stop if needed. Nothing orange should sit over Prospect St."
+   },
+   {
+    "image": "tram_network_v2.png",
+    "where": "'15 Dudley St' route caption at (15666-16266, 15394-15518). The text sits across the vertical route 23 line at x about 15890. The 15 runs down-right from Nubian to Adams St.",
+    "problem": "The route 15 caption sits on the route 23 line (Whiting St, Woodbine St), about 200 px from the 15. A stranger reads the 23 line as route 15.",
+    "severity": "high",
+    "fix": "Move '15 Dudley St' to the right of the 15 diagonal, between 'NUBIAN OL' and 'Adams St' (about x 16350-16740, y 15270-15340)."
+   },
+   {
+    "image": "tram_network_v2.png",
+    "where": "Below the route 66 line: the GL pill after 'Brookline Village' ends at x 12246, and 'Mission Park' starts at x 12260 (y about 15293-15411).",
+    "problem": "The two labels nearly touch, about 14 px apart at 600 dpi. On a phone they read as one row: 'Brookline Village GL Mission Park GL'.",
+    "severity": "high",
+    "fix": "Move 'Mission Park GL' above the line over its own stop. Nudge 'Brigham Circle GL' about 85 px right so the two labels above the line stay apart."
+   },
+   {
+    "image": "tram_map_v5.png",
+    "where": "Whole sheet. Examples: Ashmont's 215 pill is covered by Quincy's 216 pill at (3720-3790, 4725-4755). Stop symbols overlap with no names around Nubian, Whiting St and Waumbeck St (3100-3800, 3900-4200): Uphams Corner, Adams St, Magazine St, West Cottage St and Woodbine St have no labels. 'Jackson Ave' sits under the Woodlawn stop at (4545-4687, 1498-1520). 'Hastings Ln' runs into 'Winthrop St' at about (2889-2893, 926). Doubled stop symbols on the 455 loop at about (6375,545). The Granfield Ave and Emerald St stops have no labels.",
+    "problem": "v5 is an older draft (5:19 AM). v7 (5:44 AM) fixes these. As it stands, v5 has overlapping pills, overlapping stops, missing names and names on the wrong stop.",
+    "severity": "high",
+    "fix": "Do not post v5. Post tram_map_v7.png once the v7 findings here are fixed."
+   },
+   {
+    "image": "tram_map_v7.png",
+    "where": "Route 22: 'Bray St' at (5222-5390, 8708-8750); 'Egleston Sq' just below it; 'Courtland Rd' at (5290-5592, 8840-8882). Stops: Bray St (5450,8645), Egleston Sq (5540,8735), Courtland Rd (5662,8957).",
+    "problem": "The three names stack as a list. 'Courtland Rd' is the same distance from the Egleston Sq stop as from its own, and another tram line runs between it and its own stop. 'Bray St' sits level with the Egleston stop.",
+    "severity": "medium",
+    "fix": "Put 'Courtland Rd' centered under its own stop (about x 5512-5812, y 9010-9055), on the Orange Line with a halo. Raise 'Bray St' and 'Egleston Sq' about 60 px so each sits level with its own stop."
+   },
+   {
+    "image": "tram_map_v7.png",
+    "where": "Gray 'Seaver St' label at (6270-6470, 8630-8675). Seaver St ring at (6205,8568); Wales St stop at (6200,8720).",
+    "problem": "The 'Seaver St' station name is closer to the Wales St stop than to the Seaver St ring.",
+    "severity": "medium",
+    "fix": "Raise 'Seaver St' about 90 px so it sits right of the ring at its level (about y 8545-8590)."
+   },
+   {
+    "image": "tram_map_v7.png",
+    "where": "Route 712: 'Veterans Rd' at (10035-10315, 4457-4500); 'Winthrop Beach' at (10043-10407, 4543-4585). Stops: Veterans Rd (10378,4395), Winthrop Beach (10470,4480). White Blue Line end dot at (10498,4570).",
+    "problem": "Each name sits one step low. 'Veterans Rd' is level with the Winthrop Beach stop, and 'Winthrop Beach' is level with the unlabeled Blue Line terminal dot.",
+    "severity": "medium",
+    "fix": "Raise each label so it sits level with its own stop: Veterans Rd centered at y 4395, Winthrop Beach at y 4480. Keep the right ends about 15 px left of each circle, on the Blue Line with a halo."
+   },
+   {
+    "image": "tram_map_v7.png",
+    "where": "Stair-step names on diagonal lines. Route 38: Sedgwick St, Goldsmith St, Louder's Ln and Whitcomb Ave labels at (3397-3990, 9389-9702), each level with the next stop up. Route 215: Emerson Rd, Franklin St and Stedman St at (7050-7512, 9805-10022). Route 34E south: Diamond St, Kendall St, Alexandra Way and Pilgrim Way at (3804-4337, 11611-11927). Route 240: Vesey Rd through Woodland Pkwy at about (5990-6210, 11620-12000).",
+    "problem": "Each label is about 85 px down (or up) the line from its own stop and level with the neighboring stop. Each is still slightly closer to its own stop, but reading across pairs nearly every name on these lines with the wrong stop.",
+    "severity": "medium",
+    "fix": "Set each label's vertical center to its own stop's height and keep it about 15 px clear of the circle. Example, route 38: Sedgwick St at y 9509, Goldsmith St 9598, Louder's Ln 9687, Whitcomb Ave 9775. Apply the same rule to 215, 34E and 240."
+   },
+   {
+    "image": "tram_map_v7.png",
+    "where": "'Chestnut Hill Mall' at (2418-2818, 7113-7158). White Green Line dot at (2872,7093); Chestnut Hill Mall stop at (2872,7220).",
+    "problem": "The label sits level with an unlabeled Green Line station dot, so that dot can read as Chestnut Hill Mall.",
+    "severity": "medium",
+    "fix": "Lower the label about 70 px so it sits level with its own stop (y 7198-7243), right edge about x 2800, crossing the Green Line with a halo."
+   },
+   {
+    "image": "tram_map_v7.png",
+    "where": "'Reservoir St' (small font) at (5055-5303, 4195-4232), just under the gray station dot at (5197,4165). Reservoir St stop at (4997,4293); Bond St stop at (5400,4245).",
+    "problem": "The label sits under an unlabeled NERTA station dot and halfway between two stops, so it reads as the name of the gray station.",
+    "severity": "medium",
+    "fix": "Put 'Reservoir / St' on two lines at normal size, directly above its own stop (centered x 4997, between the commuter rail line and the stop), clear of the gray dot."
+   },
+   {
+    "image": "tram_map_v7.png",
+    "where": "'Charles St' at (7947-8171, 2060-2101), touching the Malden Center transfer capsule's lower-right corner. Charles St stop at (7881,2172). 'Malden Center' at (7823-8137, 1969-2011) sits about 7 px above the capsule.",
+    "problem": "Text touches a transfer capsule, and the station name almost touches it too.",
+    "severity": "medium",
+    "fix": "Put 'Charles St' right of its own stop at its level (about x 7935-8160, y 2150-2195). Raise 'Malden Center' about 15 px."
+   },
+   {
+    "image": "tram_map_v7.png and tram_network_v2.png",
+    "where": "v7: the Waltham ring is at (1800,3779), but the commuter rail line and its square stop sit apart at (1550,3920), between Palmer St and Waltham. Network poster: Waltham shows only 'RL' (pill at about 2254,11541; label at 2448,11541).",
+    "problem": "Tonight's decision is that Waltham is a Red Line through stop with a commuter rail transfer. Neither map shows the commuter rail transfer.",
+    "severity": "medium",
+    "fix": "v7: link the Waltham ring to the commuter rail stop with a transfer capsule, or move the CR square onto the ring. Network poster: add a CR pill after 'Waltham'."
+   },
+   {
+    "image": "tram_map_v7.png",
+    "where": "'Palmer St' at (1252-1479, 3894-3940). Edge Hill Rd stop at (1328,3798); Palmer St stop at (1515,3804).",
+    "problem": "The label sits in the dip between the Edge Hill Rd and Palmer St stops, the same distance from both.",
+    "severity": "medium",
+    "fix": "Put 'Palmer St' directly above its own stop (about x 1402-1628, y 3680-3725) and raise 'Fiske St' about 30 px so the two don't touch."
+   },
+   {
+    "image": "tram_map_v7.png",
+    "where": "Route 220: Bradley Woods Dr stop (9437,9958) and Bulow Rd stop (9523,9980). 'Blackstone Rd' at (8843-9133, 9950-9992); Evans St stop at (8825,9880); Blackstone Rd stop at (8987,10095).",
+    "problem": "The Bradley Woods Dr and Bulow Rd circles overlap. 'Blackstone Rd' is closer to the Evans St stop than to its own.",
+    "severity": "medium",
+    "fix": "Move Bulow Rd and the stops below it about 40 px down (or Bradley Woods Dr up-left) until the circles have a gap. Lower 'Blackstone Rd' to just above its own stop (bottom about y 10035) and shift it about 25 px right."
+   },
+   {
+    "image": "tram_map_v7.png",
+    "where": "'Achorn St' at (3655-3880, 11162-11208), stacked under 'Brookfield Rd'; Achorn St stop at (3962,11082). 'East Hoyle St' at (4242-4555, 11300-11345), stacked under the gray 'Norwood'; East Hoyle St stop at (4182,11405); Norwood ring at (4162,11257).",
+    "problem": "Both read as second lines of the name above them ('Brookfield Rd / Achorn St', 'Norwood / East Hoyle St'). 'East Hoyle St' is only 6 px closer to its own stop than to Norwood.",
+    "severity": "medium",
+    "fix": "Put 'Achorn St' above its own stop (about x 3810-4035, y 10945-10990). Lower 'East Hoyle St' to its own stop's level (about y 11383-11428), right of the stop."
+   },
+   {
+    "image": "tram_map_v7.png",
+    "where": "Oak Sq: 'Vineland St' at (2923-3162, 4806-4846) and 'Riverview Rd' at (2854-3130, 4859-4899) are about 14 px apart. 'Oak Square Ave' at (2303-2641, 4806-4846) sits level with the Riverview Rd stop (2785,4831), not its own (2707,4914). The Mackin St stop's circle touches the gray capsule at about (3189,5248).",
+    "problem": "The stacked names read as a list, 'Oak Square Ave' lines up with the wrong stop, and a stop symbol touches a transfer capsule.",
+    "severity": "medium",
+    "fix": "Move 'Vineland St' to the left of its stop (about x 2580-2820, y 4728-4770). Lower 'Oak Square Ave' to y about 4893-4937, right end about x 2645. Shift the Mackin St stop about 20 px left, off the capsule."
+   },
+   {
+    "image": "tram_map_v7.png",
+    "where": "'Nubian' (shrunk, about 60% size) at (6465-6585, 8050-8082), with 'Adams St' at (6395-6618, 8098-8140) stacked under it. Route pills 66/1/15/23 at (6545-6735, 7630-7775), about 250 px above the Nubian ring (6525,7983) on the Mass Ave line. 'Grove Hall' at (6160-6400, 8328-8375), the same distance from the Roxbury St stop (6140,8245) as from the Grove Hall ring (6462,8268).",
+    "problem": "The hub's name is tiny and reads as 'Nubian / Adams St'. The end-of-route pills look like they belong to the Mass Ave line. 'Grove Hall' is ambiguous.",
+    "severity": "medium",
+    "fix": "Give 'Nubian' full station-label size, left of the ring (on the Yellow Line with a halo). Move 'Adams St' right of its own stop (7015,7987). Put the 66/1/15/23 pills directly beside the Nubian ring. Move 'Grove Hall' right of its ring at its level."
+   },
+   {
+    "image": "tram_network_v2.png",
+    "where": "'100 Fellsway' caption at about (14520-14980, 5640-5720). It sits just under the horizontal 101 line, beside the 100 diagonal running from Fellsway West to Emerald St.",
+    "problem": "The caption hugs the 101 line, so it can read as naming that line.",
+    "severity": "medium",
+    "fix": "Move '100 Fellsway' down along the 100 diagonal, between the 'Emerald St' and 'Fourth St' labels on its right side (about x 15150-15600, y 6100-6180)."
+   },
+   {
+    "image": "tram_map_v7.png",
+    "where": "Shrunk labels: Forest Ave (12484-12588, 743-805), Richards St, Milton St, West Cottage St, Nubian, Boston Medical, Quincy St, Foster St, Chubbuck St, Sumner St, Curtis St, Oakwood Rd, Hingham Shipyard, Weymouth Heights, James Rd, West Howard St, Lorraine St, Reservoir St, Weld Ave, Short St, Rockhill St.",
+    "problem": "About 20 names are drawn at roughly 60-75% of normal size to squeeze them in. They are readable when zoomed but noticeably smaller on a phone. Several of them are also among the misplaced labels above.",
+    "severity": "low",
+    "fix": "Once the moves above free up space, put these back at normal size, starting with Nubian and Forest Ave."
+   },
+   {
+    "image": "tram_network_v2.png and tram_map_v7.png",
+    "where": "Network poster: release block at about (29000-31600, 750-1600) in 1/3-scale tile terms, which is the top-right corner of the sheet at very small size. v7: 'Park Ave' at (9822-10025, 2895-2935), between the Cambridge St stop (9750,2845) and the Park Ave stop (10075,2845). Network poster: '16 31 34' pills end about 46 px before 'Arborway' (around 14507,17400).",
+    "problem": "On the network poster the release block text is about 1/6 the height of the title, so it is unreadable in a carousel unless zoomed. The other two are minor ambiguities.",
+    "severity": "low",
+    "fix": "Enlarge the network poster's release block about 2.5 times, matching the tram map's proportion. Shift 'Park Ave' about 50 px right so it centers under its stop. Leave a full pill-width gap between the Forest Hills pills and 'Arborway'."
+   }
+  ]
+ }
+]

@@ -16,6 +16,8 @@ from shapely.geometry import LineString, Point
 
 sys.path.insert(0, str(Path(__file__).parent))
 from nerta_mark import draw_nerta, draw_t  # noqa: E402
+from release_tag import draw_release  # noqa: E402
+from charlie_points import FREE_TEXT, KEY_TEXT as CP_TEXT, draw_cp, draw_free_tag  # noqa: E402  (the shared Charlie Points coin, FREE tag and Key lines, November 8)
 import make_tmap as M  # noqa: E402
 from station_kit import INK, WHITE, rounded, stroke  # noqa: E402
 
@@ -27,10 +29,11 @@ LWP = 12.0     # line width in points
 LWU = LWP / PPU
 CR_COLOR = M.CR_TEXT_COLOR
 CODES = {M.ORANGE: "OL", M.BLUE: "BL", M.GREEN: "GL", M.YELLOW: "YL", M.CYAN: "CL", M.INDIGO: "IL", M.RED: "RL"}
-PILL = {"HSR": CR_COLOR, "F": M.FERRY, "SL": M.SILVER, "OL": M.ORANGE, "BL": M.BLUE, "GL": M.GREEN, "YL": M.YELLOW, "CL": M.CYAN, "IL": M.INDIGO, "RL": M.RED, "CR": CR_COLOR}
+PILL = {"HSR": CR_COLOR, "F": M.FERRY, "SL": M.SILVER, "OL": M.ORANGE, "BL": M.BLUE, "GL": M.GREEN, "YL": M.YELLOW, "CL": M.CYAN, "IL": M.INDIGO, "RL": M.RED, "CR": CR_COLOR, "AC": M.CLIPPER["color"]}
 NAMES = {"OL": "Orange Line", "BL": "Blue Line", "GL": "Green Line", "YL": "Yellow Line", "CL": "Cyan Line", "IL": "Indigo Line", "RL": "Red Line",
-         "CR": "Commuter Rail", "HSR": "High-Speed Rail", "F": "Ferry", "SL": "Silver Line"}
-ORDER = ["RL", "OL", "BL", "GL", "YL", "CL", "IL", "SL", "CR", "HSR", "F"]  # one order for the Key and for the pills at every station
+         "CR": "Commuter Rail", "HSR": "High-Speed Rail", "F": "Ferry", "SL": "Silver Line",
+         "AC": f"{M.CLIPPER['name']} to {M.CLIPPER['dest']}"}
+ORDER = ["RL", "OL", "BL", "GL", "YL", "CL", "IL", "SL", "CR", "HSR", "F", "AC"]  # one order for the Key and for the pills at every station
 TRANSFER_R = (LWP * 1.02 / 2 + 2.6 / 2) / PPU  # outer radius of a transfer ring, which hides the inner end of its first pill
 END_R = (LWP * 1.35 / 2 + 3.4 / 2) / PPU       # outer radius of a terminal ring
 RIM = 0.6 / PPU                                 # the paper edge round each pill, outside its fill
@@ -47,19 +50,20 @@ def red_layout():
     trunk = ["Alewife", "North Cambridge", "Davis", "Porter", "Harvard", "Central", "Kendall/MIT", "Charles/MGH", "Park Street", "Downtown Crossing",
              "South Station", "Broadway", "Andrew", "JFK/UMass"]
     ash = j + 4.1
-    d = 0.8
+    d = 1.0                      # one full row per Mattapan stop, like the trunk, so each diagonal name sits nearer its own dot than the next
     return [
         dict(stops=["Arlington Heights", "Lexington Ctr", "Lexington Route 128"], path=[g(4, 2), g(4, 0)], at=[g(4, 2), g(4, 1), g(4, 0)], side="r"),
         dict(stops=["Arlington Heights", "Arlington Ctr", "East Arlington", "Alewife"], path=[g(4, 2), g(4, 4.6), g(0, 8.6), g(0, a)],
              at=[g(4, 2), g(4, 3), g(4, 4), g(0, a)], side="r"),
         dict(stops=["Alewife", "Belmont Ctr", "Waverley Sq", "Waltham"], path=[g(0, a), g(0, 8.6), g(-4, 4.6), g(-4, 2)],
-             at=[g(0, a), g(-4, 4), g(-4, 3), g(-4, 2)], side=["r", "l", "l", "l"]),
+             at=[g(0, a), g(-4, 4), g(-4, 3), g(-4, 2)], side=["r", "l", "l", "l"]),  # ends at Waltham (Max, November 8, personal audit)
         dict(stops=trunk, path=[g(0, a), g(0, j)], at=[g(0, a + i) for i in range(14)], side="r"),
         # one path from JFK/UMass round the Ashmont bend to Mattapan, so the bend curves like every other corner (the Mattapan leg is not drawn again)
-        dict(stops=["JFK/UMass", "Savin Hill", "Fields Corner", "Shawmut", "Ashmont"], path=[g(0, j), g(0, ash), g(-7 * d, ash + 7 * d)],
+        # Mattapan takes a longer last step (1.5 rows below Weymouth), so its ring and OL pill sit well clear of the Capen St name
+        dict(stops=["JFK/UMass", "Savin Hill", "Fields Corner", "Shawmut", "Ashmont"], path=[g(0, j), g(0, ash), g(-7.5 * d, ash + 7.5 * d)],
              at=[g(0, j)] + [g(0, j + 1.1 + i) for i in range(4)], side=["r", "l", "l", "l", "l"]),
-        dict(stops=["Ashmont", "Cedar Grove", "Butler", "Milton", "Central Ave", "Valley Rd", "Capen St", "Mattapan"], path=[g(0, ash), g(-7 * d, ash + 7 * d)], draw=False,
-             at=[g(-i * d, ash + i * d) for i in range(8)], side=["l"] * 7 + ["r"]),  # MATTAPAN reads right, so its OL pill sits clear of the incoming diagonal
+        dict(stops=["Ashmont", "Cedar Grove", "Butler", "Milton", "Central Ave", "Valley Rd", "Capen St", "Mattapan"], path=[g(0, ash), g(-7.5 * d, ash + 7.5 * d)], draw=False,
+             at=[g(-i * d, ash + i * d) for i in range(7)] + [g(-7.5 * d, ash + 7.5 * d)], side=["l"] * 7 + ["r"]),  # MATTAPAN reads right, so its OL pill sits clear of the incoming diagonal
         dict(stops=["JFK/UMass", "North Quincy", "Wollaston", "Quincy Center", "Quincy Adams", "Braintree"], path=[g(0, j), g(0, j + 0.4), g(4, j + 4.4), g(4, j + 9.1)],
              at=[g(0, j)] + [g(4, j + 5.1 + i) for i in range(5)], side="r"),
         dict(stops=["Braintree", "Weymouth"], path=[g(4, j + 9.1), g(4, j + 10.1)], at=[g(4, j + 9.1), g(4, j + 10.1)], side="r"),
@@ -81,34 +85,44 @@ def stops_of(first, last):
 
 def orange_layout():
     r, t_ = stops_of("Reading", "Oak Grove"), stops_of("Oak Grove", "Forest Hills")
+    nr = stops_of("North Reading", "Reading")
+    lp = next(s for _, _, _, s in M.lines() if "Market St" in s)  # Greenwood, Market St, Reading: the Lynnfield loop
     sau, mat = stops_of("Malden Center", "Wonderland"), stops_of("Tufts Medical Ctr", "Mattapan")
     rd, vf = stops_of("Forest Hills", "Readville"), stops_of("Forest Hills", "VFW Parkway")
-    k = len(r) - 1  # Oak Grove's row: the Reading section grew when Melrose/Cedar Park was added
-    return [dict(stops=r, path=[g(0, 0), g(0, k)], at=col(r, 0, 0), side="l"),
+    k = len(r)  # Oak Grove's row: North Reading takes row 0, so Reading's section starts on row 1
+    gw = 1 + r.index("Greenwood")
+    return [dict(stops=nr, path=[g(0, 0), g(0, 1)], at=col(nr, 0, 0), side="l"),
+            dict(stops=r, path=[g(0, 1), g(0, k)], at=col(r, 0, 1), side="l"),
+            # The Lynnfield loop: out at Greenwood, Market St level with Wakefield, back in at Reading (Max, November 8)
+            dict(stops=lp, path=[g(0, gw), g(5, gw), g(5, 1), g(0, 1)], at=[g(0, gw), g(5, gw - 1), g(0, 1)], side=["l", "r", "l"]),
             dict(stops=t_, path=[g(0, k), g(0, k + 19)], at=col(t_, 0, k), side="l"),
-            # Branches drop straight down half a row before turning, so they run clear of the pills at Malden Center and Forest Hills
-            dict(stops=sau, path=[g(0, k + 1), g(0, k + 1.5), g(0.5, k + 2), g(8, k + 2), g(8, k + 5)], at=[g(0, k + 1)] + col(sau[1:], 8, k + 2.6, 0.8), side="r"),
+            # The Saugus branch leaves on Malden Center's own row, as the Mattapan branch leaves Tufts, so Wellington never reads as the fork.
+            # Malden Center's CR pill moves before its name (BEFORE_NAME), off the branch.
+            dict(stops=sau, path=[g(0, k + 1), g(8, k + 1), g(8, k + 4.5)], at=[g(0, k + 1)] + col(sau[1:], 8, k + 1.8, 0.9), side="r"),
             dict(stops=mat, path=[g(0, k + 11), g(8, k + 11), g(8, k + 19)], at=[g(0, k + 11)] + col(mat[1:], 8, k + 12), side="r"),
             dict(stops=rd, path=[g(0, k + 19), g(0, k + 19.5), g(2, k + 21.5), g(2, k + 23.2)], at=[g(0, k + 19), g(2, k + 22.2), g(2, k + 23.2)], side="r"),  # Hyde Park on the straight
-            dict(stops=vf, path=[g(0, k + 19), g(-6, k + 25)], at=[g(-1.2 * i, k + 19 + 1.2 * i) for i in range(6)], side=["l"] * 5 + ["r"])]  # VFW PARKWAY reads right, pill left
+            dict(stops=vf, path=[g(0, k + 19), g(-1.2 * (len(vf) - 1), k + 19 + 1.2 * (len(vf) - 1))], at=[g(-1.2 * i, k + 19 + 1.2 * i) for i in range(len(vf))],
+                 side=["l"] * (len(vf) - 1) + ["r"])]  # VFW PARKWAY reads right, pill left; as many spots as stops
 
 
 def blue_layout():
-    w, c_, m_ = stops_of("West Station", "Charles/MGH"), stops_of("Charles/MGH", "Gov't Center"), stops_of("Gov't Center", "Wonderland")
-    wi, ly, wy = stops_of("Orient Heights", "Winthrop Center"), stops_of("Wonderland", "Central Sq"), stops_of("Central Sq", "Wyoma Sq")
-    return [dict(stops=w, path=[g(0, 0), g(0, 2)], at=col(w, 0, 0), side="l"),
-            dict(stops=c_, path=[g(0, 2), g(0, 3)], at=col(c_, 0, 2), side="l"),
+    """North at the top, as the line runs in real life (Max, November 7): Wyoma Sq down to West Station, Winthrop off to the southeast."""
+    wy, ly, m_ = stops_of("Wyoma Sq", "Central Sq"), stops_of("Central Sq", "Wonderland"), stops_of("Wonderland", "Gov't Center")
+    c_, w, wi = stops_of("Gov't Center", "Charles/MGH"), stops_of("Charles/MGH", "West Station"), stops_of("Orient Heights", "Winthrop Center")
+    oh = 3 + m_.index("Orient Heights")  # Orient Heights' row
+    return [dict(stops=wy, path=[g(0, 0), g(0, 1)], at=col(wy, 0, 0), side="l"),
+            dict(stops=ly, path=[g(0, 1), g(0, 3)], at=col(ly, 0, 1), side="l"),
             dict(stops=m_, path=[g(0, 3), g(0, 13)], at=col(m_, 0, 3), side="l"),
-            dict(stops=wi, path=[g(0, 9), g(8, 9), g(8, 10)], at=[g(0, 9), g(8, 10)], side="r"),
-            dict(stops=ly, path=[g(0, 13), g(0, 15)], at=col(ly, 0, 13), side="l"),
-            dict(stops=wy, path=[g(0, 15), g(0, 16)], at=col(wy, 0, 15), side="l")]
+            dict(stops=wi, path=[g(0, oh), g(8, oh), g(8, oh + 1)], at=[g(0, oh), g(8, oh + 1)], side="r"),
+            dict(stops=c_, path=[g(0, 13), g(0, 14)], at=col(c_, 0, 13), side="l"),
+            dict(stops=w, path=[g(0, 14), g(0, 16)], at=col(w, 0, 14), side="l")]
 
 
 def green_layout():
     a_, b_ = stops_of("West Medford", "Medford/Tufts"), stops_of("Medford/Tufts", "Lechmere")
     tr_ = stops_of("Lechmere", "Kenmore")
     un, ha = stops_of("Lechmere", "Union Sq"), stops_of("Union Sq", "Harvard")
-    hy, wa = stops_of("Hynes", "West Station"), stops_of("West Station", "Watertown")
+    hy, wa = stops_of("Hynes", "West Station"), stops_of("West Station", "Waltham")
     bl, cl = stops_of("Kenmore", "Boston College"), stops_of("St. Mary's St", "Cleveland Circle")
     dl, el = stops_of("Kenmore", "Riverside"), stops_of("Prudential", "Heath St")
     h1, h2, ne = stops_of("Heath St", "Hyde Sq"), stops_of("Hyde Sq", "Forest Hills"), stops_of("Eliot", "VFW Parkway")
@@ -119,7 +133,8 @@ def green_layout():
             dict(stops=un, path=[g(0, 7), g(-6, 7)], at=[g(0, 7), g(-6, 7)], side="t"),
             dict(stops=ha, path=[g(-6, 7), g(-18, 7)], at=[g(-6, 7), g(-12, 7), g(-18, 7)], side="t"),
             dict(stops=hy, path=[g(0, 16), g(-9, 16)], at=[g(0, 16), g(-9, 16)], side="t"),
-            dict(stops=wa, path=[g(-9, 16), g(-27, 16), g(-27, 20)], at=[g(-9, 16), g(-15, 16), g(-21, 16), g(-27, 18), g(-27, 19), g(-27, 20)], side=["t", "t", "t", "r", "r", "r"]),
+            dict(stops=wa, path=[g(-9, 16), g(-27, 16), g(-27, 22)], at=[g(-9, 16), g(-15, 16), g(-21, 16), g(-27, 18), g(-27, 19), g(-27, 20), g(-27, 21), g(-27, 22)],
+                 side=["t", "t", "t", "r", "r", "r", "r", "r"]),  # on through Bleachery to Waltham (Max, November 8)  # the A runs on past Watertown to Bleachery (Max, November 8)
             dict(stops=bl, path=[g(0, 17), g(-18, 17), g(-18, 33)], at=[g(0, 17)] + col(bl[1:], -18, 18), side="r"),
             dict(stops=cl, path=[g(-10, 17), g(-10, 30)], at=col(cl, -10, 18), side="r"),  # a column west of West Station, so CLEVELAND CIRCLE clears the Needham bend
             dict(stops=dl, path=[g(0, 17), g(0, 30)], at=col(dl, 0, 17), side="r"),
@@ -146,16 +161,19 @@ def yellow_layout():
     ups = [12.6 - 1.75 * k for k in range(7)]  # Seaport up to Everett Sq, clear of the base corner
     return [dict(stops=a_, path=[left(0), left(5)], at=[left(r) for r in range(6)], side=["t", "l", "l", "l", "l", "l"]),
             dict(stops=b_, path=[left(5), left(13)], at=[left(5 + k * 8 / 9) for k in range(10)], side="l"),
-            dict(stops=c_, path=[left(13), left(14), right(14), right(ups[0])], at=[left(13), g(3, 14), g(8, 14), right(ups[0])], side=["l", "b", "b", "r"]),
+            # Moakley Park sits well right of JFK/UMass's CR pill, so that pill can't read as Moakley's
+            dict(stops=c_, path=[left(13), left(14), right(14), right(ups[0])], at=[left(13), g(5.3, 14), g(9.3, 14), right(ups[0])], side=["l", "b", "b", "r"]),
             dict(stops=d_, path=[right(ups[0]), right(ups[1])], at=[right(ups[0]), right(ups[1])], side="r"),
             dict(stops=e_, path=[right(ups[1]), right(ups[4])], at=[right(ups[k]) for k in (1, 2, 3, 4)], side="r"),
-            dict(stops=f_, path=[right(ups[4]), right(0), left(0)], at=[right(ups[k]) for k in (4, 5, 6)] + [g(23.6, 0), g(20.6, 0), g(16.7, 0), left(0)], side=["r", "r", "r", "up", "up", "up", "r"])]  # both acute corners now take one dash each, the same size (see tight_corners)
+            # Stadium's pills sit over its name; Sullivan Sq's hang centered under its dot (both acute corners take one dash each, see tight_corners)
+            dict(stops=f_, path=[right(ups[4]), right(0), left(0)], at=[right(ups[k]) for k in (4, 5, 6)] + [g(23.6, 0), g(20.6, 0), g(16.7, 0), left(0)], side=["r", "r", "r", "t", "up", "up", "r"])]
 
 
 def cyan_layout():
     a_, b_ = stops_of("Assembly", "Seaport"), stops_of("Seaport", "Broadway")
-    return [dict(stops=a_, path=[g(0, 0), g(0, 12)], at=col(a_, 0, 0), side="r"),
-            dict(stops=b_, path=[g(0, 12), g(0, 17)], at=col(b_, 0, 12), side="r")]
+    k = len(a_) - 1  # Seaport's row: grew by one when South Station joined Cyan (Max, November 8)
+    return [dict(stops=a_, path=[g(0, 0), g(0, k)], at=col(a_, 0, 0), side="r"),
+            dict(stops=b_, path=[g(0, k), g(0, k + len(b_) - 1)], at=col(b_, 0, k), side="r")]
 
 
 def indigo_layout():
@@ -174,19 +192,19 @@ def silver_layout():
 # Wellesley Hills and Auburndale are Worcester Line stations (MBTA stop data), as on the main map.
 EXTRA_TRANSFERS = {"West Medford": ["CR"], "Wellesley Hills": ["CR"], "Auburndale": ["CR"], "Porter": ["CR"], "South Station": ["CR", "HSR", "F"], "North Station": ["CR", "HSR", "F"], "Back Bay": ["CR", "HSR"], "West Station": ["CR", "HSR"],
                    "Ruggles": ["CR"], "Hyde Park": ["CR"], "Readville": ["CR"], "Sullivan Sq": ["CR"], "Chelsea": ["CR"], "Central Sq": ["CR"], "Reading": ["CR"], "Malden Center": ["CR"], "Oak Grove": ["CR"],
-                   "JFK/UMass": ["CR"], "Quincy Center": ["CR"], "Braintree": ["CR"], "Waltham": ["CR"], "Aquarium": ["F"], "Maverick": ["F"], "Langone Ferryport": ["F"], "Wonderland": ["F"], "Courthouse": ["F"], "Kendall/MIT": ["F"],
+                   "JFK/UMass": ["CR"], "Quincy Center": ["CR", "F"], "Braintree": ["CR"], "Waltham": ["CR"], "Aquarium": ["F", "AC"], "Langone Ferryport": ["F"], "Wonderland": ["F"], "Courthouse": ["F"], "Kendall/MIT": ["F"],
                    "Lynn Harbor": ["F"], "Encore": ["F"], "Navy Yard": ["F"], "Harvard": ["F"], "BU Bridge": ["F"], "Stadium": ["F"],
-                   "Suffolk Downs": ["F"], "Revere Beach": ["F"], "Beachmont": ["F"], "Airport": ["SL"], "Terminals": ["SL"], "Logan Dock": ["F"], "L Street": ["F"], "State": ["CL", "CR", "HSR"],
-                   "Boston Central": ["BL", "OL", "CR", "HSR"]}
+                   "Suffolk Downs": ["F"], "Revere Beach": ["F"], "Beachmont": ["F"], "Airport": ["SL"], "Terminals": ["SL"], "Logan Dock": ["F"], "L Street": ["F"], "State": ["CL", "CR", "HSR", "F"],
+                   "Boston Central": ["BL", "OL", "CR", "HSR", "F"]}
 SILVER_LINKS = {"Airport": ["BL", "YL"], "Terminals": ["YL"], "Logan Dock": ["F"]}
 SHOW = {"State": "Boston Central"}
-FERRY_VIA = {"North Station": "Lovejoy Wharf", "Aquarium": "Long Wharf", "Maverick": "Piers Park", "Courthouse": "Fan Pier",
-             "L Street": "Carson Beach", "Harvard": "Weld", "Kendall/MIT": "Ames St", "South Station": "Dorchester Ave"}  # dock has its own name
+FERRY_VIA = {"North Station": "Lovejoy Wharf", "Boston Central": "Rowes Wharf", "Quincy Center": "Quincy", "Aquarium": "Long Wharf", "Courthouse": "Fan Pier",
+             "L Street": "Carson Beach", "Harvard": "Weld", "Kendall/MIT": "Ames St", "South Station": "Dorchester Ave", "State": "Rowes Wharf"}  # dock has its own name
 # Each ferry pill takes the color of the route that serves that station's dock on the main map (the main one where several call).
-FERRY_COLOR = {"North Station": M.ROUTE_COLOR["hw"], "Aquarium": M.ROUTE_COLOR["hw"], "Langone Ferryport": M.ROUTE_COLOR["hw"], "Wonderland": M.ROUTE_COLOR["nse"], "South Station": M.ROUTE_COLOR["hw"],
+FERRY_COLOR = {"North Station": M.ROUTE_COLOR["charles"], "Boston Central": M.ROUTE_COLOR["hw"], "State": M.ROUTE_COLOR["hw"], "Quincy Center": M.ROUTE_COLOR["sse"], "Aquarium": M.ROUTE_COLOR["hw"], "Langone Ferryport": M.ROUTE_COLOR["hw"], "Wonderland": M.ROUTE_COLOR["nse"], "South Station": M.ROUTE_COLOR["hw"],
                "Navy Yard": M.ROUTE_COLOR["charles"], "Harvard": M.ROUTE_COLOR["charles"], "BU Bridge": M.ROUTE_COLOR["charles"],
                "Kendall/MIT": M.ROUTE_COLOR["charles"], "Encore": M.ROUTE_COLOR["mystic"], "Stadium": M.ROUTE_COLOR["mystic"],
-               "Suffolk Downs": M.ROUTE_COLOR["chelsea"], "Maverick": M.ROUTE_COLOR["eb"], "Logan Dock": M.ROUTE_COLOR["eb"],
+               "Suffolk Downs": M.ROUTE_COLOR["chelsea"], "Logan Dock": M.ROUTE_COLOR["eb"],
                "Courthouse": M.ROUTE_COLOR["seaport"], "L Street": M.ROUTE_COLOR["sse"], "Revere Beach": M.ROUTE_COLOR["nse"],
                "Beachmont": M.ROUTE_COLOR["nse"], "Lynn Harbor": M.ROUTE_COLOR["nse"]}
 for _dock, (_xy, _station, *_rest) in M.DOCKS.items():
@@ -196,20 +214,63 @@ for _dock, (_xy, _station, *_rest) in M.DOCKS.items():
             break
 STRETCH = {"silver": 1.8, "indigo": 2.2, "cyan": 1.35, "blue": 1.35}  # short lines get taller rows so every poster stands upright
 AFTER_NAME = {"Kenmore", "Lechmere"}  # a Green branch runs where the pill would sit, so it follows the station name
+BEFORE_NAME = {"orange": {"Malden Center", "Reading"}}  # Reading: the Lynnfield loop comes in on its right (November 8). Malden Center: the Saugus branch leaves where the pill would sit, so it goes before the name, on the same row
 # Green branch letters at each terminal, as on the main map: A Watertown, B Weston, C Cleveland Circle, D Wellesley Hills and Harvard (via Union Sq), E Medford and Forest Hills, N Needham
-BRANCH = {"Watertown": "A", "Weston": "B", "Cleveland Circle": "C", "Wellesley Hills": "D", "Harvard": "D", "West Medford": "E", "Forest Hills": "E", "VFW Parkway": "N"}
+BRANCH = {"Waltham": "A", "Weston": "B", "Cleveland Circle": "C", "Wellesley Hills": "D", "Harvard": "D", "West Medford": "E", "Forest Hills": "E", "VFW Parkway": "N"}
 BRANCH_BELOW = {"Cleveland Circle"}  # the Needham line runs just past the name, so the letter sits under it
+BR_PAD = 9.0 - 6.6  # a branch pill is this much wider than a code pill, so its Key text starts this much further right
 # Rider service notes in the Key's last column (Max, November 7). Every poster: the first two. An event line only where the line serves a venue.
-SERVICE = [("icon", "Every station is accessible"), ("text", "Driverless maglev, 24 hours a day"), ("text", "Pods on demand at every station")]
+# The posters point riders to nerta.fun, as a real station poster points to its website (Max, November 8)
+CP_TEXT = "Pay with Charlie Points. Monthly passes and refills at nerta.fun"
+SERVICE = [("icon", "Every station is accessible"), ("text", "Driverless maglev, 24 hours a day"), ("cp", CP_TEXT), ("text", "Pods on demand at every station"),
+           ("text", "Live times, service alerts and delays at nerta.fun")]
+# Free rides carry the white FREE tag on the line (research/fares-changes-for-all-maps.md). Of the T lines only Silver, the Logan shuttle, is free:
+# one tag at mid-length, and its Key row right under the Charlie Points row.
+FREE_LINES = {"silver"}
+CP_R = 1.0                    # the Key's Charlie Points coin, the size the rail line posters use
+FREE_H = max(11.0 / PPU, 1.4 * LWU)  # the FREE tag's height: 11 points, or 1.4 times the line width when that is bigger (it is here)
+
+
+def free_w(h):
+    """Width of a FREE tag h tall, as charlie_points.draw_free_tag draws it: the round left end holding the CP coin (h), a 0.16h gap,
+    the word FREE (cap height 45% of h), then half a height of margin. So the Key's tag starts on the icon edge and its note keeps the 1.5 gap."""
+    from charlie_points import BOLD
+    ref = TextPath((0, 0), "FREE", size=1, prop=BOLD).get_extents()
+    return (ref.x1 - ref.x0) * h * 0.45 / TextPath((0, 0), "F", size=1, prop=BOLD).get_extents().y1 + 1.66 * h
 EVENTS = {"orange": "Extra trains for TD Garden events", "green": "Extra trains for Fenway and TD Garden events",
-          "yellow": "Extra trains for Stadium and Fenway events", "cyan": "Extra trains and boats for Stadium, Encore and TD Garden events"}
+          "yellow": "Extra trains for Stadium and Fenway events", "cyan": "Extra trains and ferries for Stadium, Encore and TD Garden events"}
 EXPRESS = "Fast ferries stop at major ports only"  # on any poster with an express ferry pill
+PARKING_NOTE = "Public parking garage or lot"  # Key row on any poster with a P (Max, November 8)
 CAP = LWP * 0.62 / 2 / PPU  # the round cap a Key line sample grows at each end
+KEY_FS = 10.2  # one Key text size, near the station names (Max, November 8: legends like the real maps)
 NOTE_X = -3.3 + 0.85        # the notes column starts where the next pill column would: the icon's left edge on a pill's left edge
+MAP_PPU = 18 * 72 / 268     # the main map's points per unit (make_tmap.main: the 18-inch Day 8 sheet over 268 units)
+PARK_A = 0.85               # half the side of a P sign: the accessibility square's size
+PARK_GAP = 0.85             # from the end of a name to its P sign's edge
+PARK_ROOM = PARK_GAP + 2 * PARK_A  # how much further out a name's P pushes whatever follows the name
+# A name centered over its stop takes its P on the right, unless the next name along sits close there. Yellow's Sullivan Sq: Stadium's
+# name is 3 units past a right-hand P, Inner Belt's 7 past a left-hand one, so the P goes left and reads "P Sullivan Sq".
+PARK_LEFT = {"yellow": {"Sullivan Sq"}}
+# A name beside a 45-degree stretch takes its P between the dot and the name ("● P Logan Terminals", "Highland P ●"): after the name,
+# the P sat nearer the next stop up or down the diagonal than its own (round 2 audit). The name moves out by the P's room, so it still ends
+# where it did. Orange's Forest Hills heads that diagonal, so it reads "Forest Hills P ●" like the three below it.
+PARK_INSIDE = {"yellow": {"Terminals"}, "orange": {"Forest Hills", "Highland", "Roslindale Village"}}
+
+
+def park(ax, x, y, a=PARK_A, z=11):
+    """make_tmap.parking_icon at poster scale: the same rounded parking-blue square with a bold white P, every part scaled together."""
+    s = PPU / MAP_PPU
+    ax.add_patch(FancyBboxPatch((x - a, y - a), 2 * a, 2 * a, boxstyle=f"round,pad=0,rounding_size={a * 0.3}", fc=M.PARK_BLUE, ec=WHITE, lw=0.6 * s, zorder=z))
+    ax.text(x, y - a * 0.06, "P", fontsize=a * 9.0 * s, fontweight="bold", color=WHITE, ha="center", va="center", zorder=z + 0.1)
+
+
+def cap_mid(fs):
+    """Height of a capital's middle above the bottom of a va="bottom" name (Arial: the "lp" descent, then half the cap height), in units."""
+    return (0.212 + 0.716 / 2) * fs / PPU
 LAYOUTS = {"red": (M.RED, "RL", "Red" + chr(10) + "Line", red_layout, {"Mattapan", "Weymouth", "Waltham", "Lexington Route 128"}),
-           "orange": (M.ORANGE, "OL", "Orange" + chr(10) + "Line", orange_layout, {"Reading", "Wonderland", "Mattapan", "Readville", "VFW Parkway"}),
+           "orange": (M.ORANGE, "OL", "Orange" + chr(10) + "Line", orange_layout, {"North Reading", "Wonderland", "Mattapan", "Readville", "VFW Parkway"}),
            "blue": (M.BLUE, "BL", "Blue" + chr(10) + "Line", blue_layout, {"West Station", "Winthrop Center", "Wyoma Sq"}),
-           "green": (M.GREEN, "GL", "Green" + chr(10) + "Line", green_layout, {"West Medford", "Harvard", "Watertown", "Weston", "Cleveland Circle", "Wellesley Hills", "Forest Hills", "VFW Parkway"}),
+           "green": (M.GREEN, "GL", "Green" + chr(10) + "Line", green_layout, {"West Medford", "Harvard", "Waltham", "Weston", "Cleveland Circle", "Wellesley Hills", "Forest Hills", "VFW Parkway"}),
            "yellow": (M.YELLOW, "YL", "Yellow" + chr(10) + "Line", yellow_layout, set()),
            "cyan": (M.CYAN, "CL", "Cyan" + chr(10) + "Line", cyan_layout, {"Assembly", "Broadway"}),
            "indigo": (M.INDIGO, "IL", "Indigo" + chr(10) + "Line", indigo_layout, {"South Station", "Readville"}),
@@ -233,6 +294,13 @@ def transfers(color, key):
     if key == "silver":
         return {n: out[n] for n in SILVER_LINKS}
     return out
+
+
+def pale(hexcolor):
+    """A ferry pill fill pale enough that dark text reads better than white (lime, lilac): relative luminance over 0.3."""
+    from matplotlib.colors import to_rgb
+    lin = [c / 12.92 if c <= 0.04045 else ((c + 0.055) / 1.055) ** 2.4 for c in to_rgb(hexcolor)]
+    return 0.2126 * lin[0] + 0.7152 * lin[1] + 0.0722 * lin[2] > 0.3
 
 
 def light(hexcolor):
@@ -295,7 +363,7 @@ def pills(ax, x, y, codes, sign, station="", free=False, ring=TRANSFER_R, z=4):
         end = far - sign * RIM
         if code == "HSR":
             seen, end = sign * max(sign * seen, sign * (tuck + sign * 0.55)), far - sign * 0.55
-        ax.text((seen + end) / 2, y - 0.08, text, fontsize=8.6 if text == code else 8.2, fontweight="bold", color=CR_COLOR if code == "HSR" else INK if code == "YL" or (code == "F" and light(FERRY_COLOR.get(station, M.FERRY))) else WHITE, ha="center", va="center", zorder=z + 0.5)
+        ax.text((seen + end) / 2, y - 0.08, text, fontsize=8.6 if text == code else 8.2, fontweight="bold", color=CR_COLOR if code == "HSR" else INK if code == "YL" or (code == "F" and pale(FERRY_COLOR.get(station, M.FERRY))) else WHITE, ha="center", va="center", zorder=z + 0.5)
         near = far + sign * gap
 
 
@@ -422,44 +490,57 @@ def dashed(ax, xy, color, lw, marks=(), z=5, period=5.0, rings=(0.0, 0.0), corne
                 ax.add_patch(Polygon(np.asarray(part.exterior.coords), closed=True, fc=color, ec="none", zorder=z))
 
 
-def name(ax, xy, text, side, bold, accessible, extra=0.0):
-    """extra: more room between dot and name, for names beside a diagonal."""
+def name(ax, xy, text, side, bold, accessible, extra=0.0, parking=False, park_left=False, park_in=False):
+    """extra: more (or, if negative, less) room between dot and name, for names beside a diagonal.
+    parking: a P sign follows the name on its own side, a small gap after its last letter (Max, November 8).
+    park_left: a centered name ("up", "t", "b") takes its P before its first letter instead (see PARK_LEFT).
+    park_in: a name beside its stop ("l", "r") takes its P between the dot and the name instead (see PARK_INSIDE)."""
     fs, weight = (12.6, "bold") if bold else (11.6, "normal")
     text = text.upper() if bold else text
     x, y = xy
     gap = (3.3 if not bold else 4.2) + extra
     up = 2.6 + (0.9 if bold else 0)  # names above or below a stop: bold ones sit 0.9 further out, as beside a stop
     w = width(text, fs, weight)
+    px = x + (-1 if park_left else 1) * (w / 2 + PARK_GAP + PARK_A)  # a centered name's P
     if side == "up":  # level above the stop, pills run left underneath (no tilted labels)
         ax.text(x, y + up, text, fontsize=fs, fontweight=weight, color=INK, ha="center", va="bottom", zorder=11)
+        if parking:
+            park(ax, px, y + up + cap_mid(fs))
         return
     if side == "b":
         ax.text(x, y - up, text, fontsize=fs, fontweight=weight, color=INK, ha="center", va="top", zorder=11)
+        if parking:  # va="top" hangs from the top of the tallest letter, so a capital's middle is half a cap height down
+            park(ax, px, y - up - 0.716 / 2 * fs / PPU)
         return
     if side == "t":
         ax.text(x, y + up, text, fontsize=fs, fontweight=weight, color=INK, ha="center", va="bottom", zorder=11)
         if accessible:
             M.icon(ax, x - w / 2 - 1.5, y + 3.75)
+        if parking:
+            park(ax, px, y + up + cap_mid(fs))
         return
     s = 1 if side == "r" else -1
-    ax.text(x + s * gap, y - 0.05, text, fontsize=fs, fontweight=weight, color=INK, ha="left" if s > 0 else "right", va="center", zorder=11)
+    inside = parking and park_in
+    tx = gap + (PARK_ROOM if inside else 0.0)  # where the name starts, out from the dot
+    ax.text(x + s * tx, y - 0.05, text, fontsize=fs, fontweight=weight, color=INK, ha="left" if s > 0 else "right", va="center", zorder=11)
     if accessible:
-        M.icon(ax, x + s * (gap + w + 1.7), y)
+        M.icon(ax, x + s * (tx + w + 1.7), y)
+    if inside:  # the P takes the name's old starting place, its near edge as far from the dot as the name's first letter was
+        park(ax, x + s * (gap + PARK_A), y)
+    elif parking:
+        park(ax, x + s * (gap + w + PARK_GAP + PARK_A), y)
 
 
 def roundel(ax, x, y, r, color=None):
+    """NERTA's three-layer T in its black-ringed white roundel, striped in every NERTA color on every map (Max, November 8:
+    "the logo is perfect send it throughout"). color is kept so the scripts that call this keep working; it no longer changes the T."""
     ax.add_patch(Circle((x, y), r, fc=WHITE, ec=INK, lw=3.2, zorder=12))
-    if color:  # NERTA's three-layer T in this line's color (Max, November 7)
-        draw_t(ax, x, y, r, (color,), z=13)
-        return
-    a, b, c = r * 0.56, r * 0.2, r * 0.6
-    ax.add_patch(Polygon([(x - a, y + c), (x + a, y + c), (x + a, y + c - 2 * b), (x + b, y + c - 2 * b), (x + b, y - c), (x - b, y - c), (x - b, y + c - 2 * b), (x - a, y + c - 2 * b)],
-                         fc=INK, ec="none", zorder=13))
+    draw_t(ax, x, y, r, M.NERTA_COLORS, z=13)
 
 
 def leans_toward(legs, xy, side):
     """True when a 45-degree stretch of line leaves this stop on the side its name is on: the line then runs close under or over
-    the name. main() moves such names 0.4 further out on Yellow's right side."""
+    the name. main() moves such names 0.4 further out on Yellow's right side (its left-side names sit 0.5 closer instead)."""
     if side not in ("l", "r"):
         return False
     want = -1 if side == "l" else 1
@@ -477,19 +558,22 @@ def leans_toward(legs, xy, side):
     return False
 
 
-def ferry_name(fill):
-    """Key name for a ferry color, from the route list on the main map: "Inner Harbor ferry", "North Shore express ferry"."""
+def ferry_name(fill, code=True, cap=False):
+    """Key name for a ferry color, from the route list on the main map: "Inner Harbor ferry", "North Shore Fast Ferry (FF)".
+    code=False drops the "(FF)": the line posters show every ferry pill as F, so their Key names no code a reader can't find."""
     for rt in M.FERRY_ROUTES:
         if rt["color"] == fill:
             head, _, tail = rt["title"].partition(", ")
-            return (f"{head} Fast Ferry (FF)" if rt.get("fast") else f"{head} ferry") + (f", {tail}" if tail else "")
+            return (f"{head} Fast Ferry" + (" (FF)" if code else "") if rt.get("fast") else f"{head} {'Ferry' if cap else 'ferry'}") + (f", {tail}" if tail else "")
     return "Ferry"
 
 
 def note_lead(st):
     """Key notes: text 2.4 after the icon's center, the same 1.5 gap a pill row leaves; plain notes line up with it.
     Line samples (only when not drawn as built) run 8 units from the icon's left edge."""
-    return 2.4 if st in ("icon", "text") else -0.85 + 2 * CAP + 8 + 1.5
+    if st == "free":  # the FREE tag is wider than the icon: its left end on the icon's left edge, the note the same 1.5 after its right end
+        return -0.85 + free_w(FREE_H) + 1.5
+    return 2.4 if st in ("icon", "park", "text", "cp") else -0.85 + 2 * CAP + 8 + 1.5
 
 
 def key_layout(legs, tr, key):
@@ -504,16 +588,26 @@ def key_layout(legs, tr, key):
             if "F" in codes and fill not in fills:
                 fills.append(fill)
     fills.sort(key=lambda c: [rt["color"] for rt in M.FERRY_ROUTES].index(c) if c in [rt["color"] for rt in M.FERRY_ROUTES] else 99)
+    if key == "green":  # the lettered GL pills at the branch ends get a Key row, in Green's own place in the house order
+        used.add("GL")
     entries = []
     for c in sorted(used, key=ORDER.index):
-        entries += [(f, "F", ferry_name(f)) for f in fills] if c == "F" else [(PILL[c], c, NAMES[c])]
+        if key == "green" and c == "GL":
+            entries.append((M.GREEN, "BR", "Green Line branch letter, at branch ends"))
+            continue
+        entries += [(f, "F", ferry_name(f, code=False, cap=True)) for f in fills] if c == "F" else [(PILL[c], c, NAMES[c])]
     ncol = -(-len(entries) // 4)
     cols, i = [], 0
     for k in range(ncol):  # as even as can be: 10 rows go 4, 3, 3
         rows = entries[i:i + len(entries) // ncol + (k < len(entries) % ncol)]
         i += len(rows)
-        cols.append((max(27, 3.3 + 4.8 + max(width(t, 8.8) for _, _, t in rows) + 5), rows))
-    notes = ([] if M.BUILT else [("solid", "Service today"), ("stripe", "Planned: based on a real proposal"), ("dash", "Imagined")]) + SERVICE
+        cols.append((max(27, 3.3 + 4.8 + max(width(t, KEY_FS) + (BR_PAD if c == "BR" else 0) for _, c, t in rows) + 5), rows))
+    service = list(SERVICE)
+    if any(n.rstrip("+") in M.PARKING for leg in legs for n in leg["stops"]):  # the P row sits under the accessibility row, two signs together
+        service.insert(1, ("park", PARKING_NOTE))
+    if key in FREE_LINES:  # the FREE row right under the Charlie Points row
+        service.insert(service.index(("cp", CP_TEXT)) + 1, ("free", FREE_TEXT))
+    notes =([] if M.BUILT else [("solid", "Service today"), ("stripe", "Planned: based on a real proposal"), ("dash", "Imagined")]) + service
     if key in EVENTS:
         notes.append(("text", EVENTS[key]))
     if any(c == "F" and any(rt["color"] == f and rt.get("fast") for rt in M.FERRY_ROUTES) for f, c, _ in entries):
@@ -545,7 +639,7 @@ def main(key):
     x0, x1 = left, right
     entries, cols, notes = key_layout(legs, tr, key)
     # Wide enough for the header row and the Key, centered on the drawing
-    need = max(122, 8 + sum(w for w, _ in cols) + NOTE_X + max(note_lead(st) + width(t, 8.8) for st, t in notes) + 5)
+    need = max(122, 8 + sum(w for w, _ in cols) + NOTE_X + max(note_lead(st) + width(t, KEY_FS) for st, t in notes) + 5)
     if x1 - x0 < need:
         x0, x1 = (x0 + x1) / 2 - need / 2, (x0 + x1) / 2 + need / 2
     y1 = max(ys) + 30  # the header, with the disclaimer under the NERTA mark, clears the top stop
@@ -576,6 +670,9 @@ def main(key):
                    corners=tight_corners(leg["path"], leg.get("r", 2.5)))
         else:
             stroke(ax, xy_, color, LWP, style, z=5)
+        if key in FREE_LINES and leg is legs[0]:  # one FREE tag, level, on the line at mid-length (on Silver: between Terminal C and Terminal B)
+            mid = LineString(xy_).interpolate(0.5, normalized=True)
+            draw_free_tag(ax, mid.x, mid.y, FREE_H, z=8)
     done = set()
     for leg in legs:
         sides = leg["side"] if isinstance(leg["side"], list) else [leg["side"]] * len(leg["stops"])
@@ -592,38 +689,48 @@ def main(key):
             else:
                 ax.scatter(*dot, s=(LWP * 0.56) ** 2, color=WHITE, edgecolor=INK, lw=0.7, zorder=9)
             label = SHOW.get(n, M.TEXT.get(n, n)).replace("/" + chr(10), "/").replace(chr(10), " ").rstrip("+")  # "Charles/MGH" stays whole
-            # Yellow's right side only: on its left side and on the Red and Orange branches the stops sit closer together, and the
-            # extra room would carry a name toward the next stop's dot
-            name(ax, xy, label, side, n in ends, False, 0.4 if key == "yellow" and side == "r" and leans_toward(legs, xy, side) else 0.0)
+            # Yellow's right side keeps the house gap: text may sit on the colored line (Max, November 8), so the old +0.4 push is gone
+            # (round 4). Its left side sits 0.5 closer: the stops there are 8/9 of a row apart, and at the house gap Fenway's "y" sat as
+            # near Longwood Medical Area's dot as its own (round 3)
+            extra = 0.0
+            if key == "yellow" and side == "l":
+                extra = -0.5
+            parking = n.rstrip("+") in M.PARKING
+            name(ax, xy, label, side, n in ends, False, extra, parking, n in PARK_LEFT.get(key, ()), n.rstrip("+") in PARK_INSIDE.get(key, ()))
             bold = n in ends
+            # a P follows the name directly; a branch pill or a pill row after the name moves out past it
+            room = PARK_ROOM if parking and n not in PARK_LEFT.get(key, ()) else 0.0
             if key == "green" and n in BRANCH:
                 tw = width(label.upper() if bold else label, 12.6 if bold else 11.6, "bold" if bold else "normal")
                 if n in BRANCH_BELOW:
                     branch_pill(ax, xy[0] + 4.2, xy[1] - 3.6, BRANCH[n])
                 elif side == "t":
-                    branch_pill(ax, xy[0] + tw / 2 + 1.4, xy[1] + 2.6 + 0.9 + 0.85, BRANCH[n])
+                    branch_pill(ax, xy[0] + tw / 2 + room + 1.4, xy[1] + 2.6 + 0.9 + 0.85, BRANCH[n])
                 else:
                     sg = 1 if side == "r" else -1
-                    branch_pill(ax, xy[0] + sg * (4.2 + tw + 1.4), xy[1], BRANCH[n], sg)
+                    branch_pill(ax, xy[0] + sg * (4.2 + tw + room + 1.4), xy[1], BRANCH[n], sg)
             if not codes:
                 continue
             if key == "green" and n in AFTER_NAME:
-                pills(ax, xy[0] + 3.3 + width(label, 11.6) + 1.4, xy[1], codes, 1, n, free=True)
+                pills(ax, xy[0] + 3.3 + width(label, 11.6) + room + 1.4, xy[1], codes, 1, n, free=True)
+            elif n in BEFORE_NAME.get(key, ()):
+                pills(ax, xy[0] - 3.3 - width(label, 11.6) - room - 1.4, xy[1], codes, -1, n, free=True)
             elif side in ("l", "r"):
                 # Yellow's sides lean at 45 degrees and cross the pills: there the pills sit on top of the line
                 pills(ax, xy[0], xy[1], codes, 1 if side == "l" else -1, n, ring=END_R if bold else TRANSFER_R, z=6 if key == "yellow" else 4)
-            elif key == "yellow" and side in ("t", "up"):
-                # Yellow's top row: the pills hang under the line, away from the corner (left at the top row, right at Lechmere)
-                pills(ax, xy[0], xy[1] - 3.9, codes, -1 if side == "up" else 1, n, free=True)
+            elif key == "yellow" and side == "up":
+                # Yellow's top row (Sullivan Sq): the pills hang under the line, centered on their own stop.
+                # Lechmere and Stadium are "t": their pills sit over their names, so no row of pills falls between two stops.
+                pills(ax, xy[0] - pills_w(codes, n) / 2, xy[1] - 3.9, codes, 1, n, free=True)
             else:
                 # above a name on top ("t") or above the stop when the name hangs below ("b"): centered on the stop
                 py = xy[1] + 7.8 + (0.9 if bold else 0) if side == "t" else xy[1] + 3.6
                 pills(ax, xy[0] - pills_w(codes, n) / 2, py, codes, 1, n, free=True)
 
-    # Header: the T, the NERTA mark under it, and the disclaimer under that on every poster (Max, November 7)
+    # Header: the T, the NERTA mark under it, the line pill and name, and the release block at the right (Max, November 7)
     hy = y1 - 11
     roundel(ax, x0 + 10, hy, 6.4, color)
-    nb = draw_nerta(ax, x0 + 10, hy - (6.4 + 3.2 / 5.4 / 2) - 0.8, 2 * (6.4 + 3.2 / 5.4 / 2), "B", colors=(color,))  # NERTA mark under the T; returns its bottom
+    nb = draw_nerta(ax, x0 + 10, hy - (6.4 + 3.2 / 5.4 / 2) - 0.8, 2 * (6.4 + 3.2 / 5.4 / 2), "B", colors=M.NERTA_COLORS)  # NERTA mark under the T, in every NERTA color (Max, November 8); returns its bottom
     if False:  # Max, November 7: the new T and NERTA style make it clear; the red tag is retired (CLAUDE.md rule pending update)
         ax.text(x0 + 10, nb - 1.0, "NOT A REAL" + chr(10) + "MBTA MAP", fontsize=9.6, fontweight="bold", color=M.RED, ha="center", va="top", linespacing=1.15, zorder=13)
     ax.add_patch(FancyBboxPatch((x0 + 20, hy - 6), 28, 12, boxstyle="round,pad=0,rounding_size=6", fc=color, ec="none", zorder=12))
@@ -636,12 +743,16 @@ def main(key):
     for pitch, rows in cols:
         for r, (fill, c, t) in enumerate(rows):
             cy = ky - 1.6 - r * 4.4
+            if c == "BR":  # a branch pill, as drawn at the Green ends: wider than a code pill, so its text starts further right
+                branch_pill(ax, cx - 3.3, cy, "A")
+                ax.text(cx + 4.8 + BR_PAD, cy - 0.05, t, fontsize=KEY_FS, color=INK, ha="left", va="center", zorder=13)
+                continue
             ax.add_patch(FancyBboxPatch((cx - 3.3, cy - 1.45), 6.6, 2.9, boxstyle="round,pad=0,rounding_size=1.45", fc=fill, ec="none", zorder=12))
             if c == "HSR":
                 gold_core(ax, cx - 3.3, cx + 3.3, cy, 2.9, 12.5)
             ax.text(cx, cy - 0.08, c, fontsize=8.6, fontweight="bold", zorder=13, ha="center", va="center",
-                    color=CR_COLOR if c == "HSR" else INK if c == "YL" or (c == "F" and light(fill)) else WHITE)
-            ax.text(cx + 4.8, cy - 0.05, t, fontsize=8.8, color=INK, ha="left", va="center", zorder=13)
+                    color=CR_COLOR if c == "HSR" else INK if c == "YL" or (c == "F" and pale(fill)) else WHITE)
+            ax.text(cx + 4.8, cy - 0.05, t, fontsize=KEY_FS, color=INK, ha="left", va="center", zorder=13)
         cx += pitch
     kx = cx + NOTE_X  # the icon's center
     s0 = kx - 0.85 + CAP  # a line sample's round cap starts at the icon's left edge
@@ -654,15 +765,26 @@ def main(key):
                 ax.plot([a, a + seg], [cy, cy], color=color, lw=LWP * 0.62, solid_capstyle="butt", zorder=12)
         elif st == "icon":
             M.icon(ax, kx, cy)
+        elif st == "park":
+            park(ax, kx, cy, z=12)
+        elif st == "cp":  # the Charlie Points coin where the icon sits
+            draw_cp(ax, kx, cy, CP_R, z=12)
+        elif st == "free":  # the FREE tag as drawn on the line, its left end on the icon's left edge
+            draw_free_tag(ax, kx - 0.85 + free_w(FREE_H) / 2, cy, FREE_H, z=12)
         elif st != "text":
             stroke(ax, np.array([(s0, cy), (s0 + 8, cy)]), color, LWP * 0.62, st, z=12)
-        ax.text(kx + note_lead(st), cy - 0.05, t, fontsize=8.8, color=INK, ha="left", va="center", zorder=13)
+        ax.text(kx + note_lead(st), cy - 0.05, t, fontsize=KEY_FS, color=INK, ha="left", va="center", zorder=13)
     if M.WEB:  # nerta.fun: name under NERTA, @mapzimus faint top right (no water on a line poster)
         ax.text(x0 + 10, nb - 1.0, "Maxwell Howe", fontsize=8.4, color=INK, ha="center", va="top", zorder=13)
         ax.text(x1 - 5, hy, "@mapzimus", fontsize=9.6, fontweight="bold", color="#b9b9b4", ha="right", va="center", zorder=13)
+    elif M.NODISC:  # the _no-disclaimer finals: only Max's note, under the NERTA mark, from its left edge (Max, November 8)
+        ax.text(x0 + 10 - (6.4 + 3.2 / 5.4 / 2), nb - 1.0, M.CONCEPT_NOTE, fontsize=7.6, color=INK, ha="left", va="top", zorder=13)
     else:
-        ax.text(x1 - 5, hy + 2.2, "Map: Maxwell Howe", fontsize=9.6, color=INK, ha="right", va="center", zorder=13)
-        ax.text(x1 - 5, hy - 2.2, "#30DayMapChallenge Day 8 \u2022 Utopia", fontsize=9.6, color=INK, ha="right", va="center", zorder=13)  # kept for the release (Max)
+        # Release block on every map posted November 8 (Max): disclaimer, credit, hashtag, Day 8
+        left, _, _ = draw_release(ax, x1 - 5, hy, size=9.6, ppu=PPU, ink=INK)
+        room = left - (x0 + 52 + max(width(t, 27, "bold") for t in title.split(chr(10))))
+        if room < 4:
+            print(f"  release block crowds the title on {key}: {room:.1f} units")
 
     plt.rcParams["pdf.fonttype"] = 42
     fig.savefig(OUT / f"line_{key}.png", dpi=600, facecolor=M.PAPER)

@@ -1,0 +1,131 @@
+[
+ {
+  "key": "rail_combined",
+  "checked": "D:\\REPOS\\NERTA\\boston-map\\output\\copies\\rail_poster_v10.png (17962x10812). I cut it into 56 overlapping tiles, each 2800x1900 with about 350 px overlap, and read all 49 tiles that have content at 1400 px wide. The 7 blank tiles were confirmed empty by a content check. Then I made full-size zoom crops of: Forge Park, Weymouth Landing, Mansfield, Concord/West Medford, Montserrat/Beverly Farms, Salem/Beverly, South Salem, the Sullivan Sq, North Station, South Station, JFK, Quincy and Braintree capsules, the left edge of the trunk, Back Bay, and the whole key. I also made a contact sheet of all 14 line ends. Every stop label, pill, line pill, high-speed caption and arrow caption was checked for which stop it sits nearest, whether it touches anything, and whether it is cut off. Result: no text touches text, dots or pills, and nothing is cut off at the edges. Release block (top right, about x 15400-17450, y 220-760): all present. The disclaimer paragraph has bold italic MOST, then \"Map: Maxwell Howe\", \"#30DayMapChallenge\" and \"Day 8 \u2022 Utopia\". The footer \"Layout schematic, not to scale. Not affiliated with the MBTA.\" is also there. Tonight's decisions where this poster shows them: Waltham is a Red through stop with a CR transfer (interchange ring plus RL pill, about 6970,3780). South Station carries a CL pill (about 9900,5600). New Bedford has the ringed South Shore ferry pill, which matches make_ferry_network, where the New Bedford boat runs via Cuttyhunk to Vineyard Haven. Bleachery and Atlantic Clipper are not on this poster, which is correct, since this poster shows neither. The tram-symbol check does not apply. Source read for the fixes: make_rail_poster.py lines 236-303 and 421, and the matching lines in make_line_poster.py and make_tmap.py.",
+  "findings": [
+   {
+    "image": "D:\\REPOS\\NERTA\\boston-map\\output\\copies\\rail_poster_v10.png",
+    "where": "West Medford's GL pill at x 6455-6741, y 3027-3148. Concord's dot on the Fitchburg diagonal is at (6323, 3133), 110 px left of the pill and level with it. The West Medford label is at x 6805-7298, y ~3088, and its ring is at (7403, 3088).",
+    "problem": "Two different rows sit at almost the same height, so 'Concord \u25cf [GL]' reads as one unit. A stranger could think Concord has a Green Line transfer. The pill is only 66 px from its own label and 110 px from Concord's dot, and the Fitchburg line runs right next to it.",
+    "severity": "medium",
+    "fix": "Move the GL pill under the 'West Medford' label, right-aligned to it (about x 7010-7296, y 3170-3230). That puts it 650+ px from Concord and Lincoln. Or put the pill between the label and the ring, so it sits on the Lowell line side and away from the Fitchburg diagonal."
+   },
+   {
+    "image": "D:\\REPOS\\NERTA\\boston-map\\output\\copies\\rail_poster_v10.png",
+    "where": "Right end of the South Station capsule at about (8535, 5605). The olive-edged Greenbush line bends right at x 8470-8560, y 5560-5650.",
+    "problem": "The Greenbush line starts its curve right at the capsule. It sticks out from behind the capsule's rounded right end instead of passing straight through like the other lines. The capsule only grazes it, so it isn't crisp whether Greenbush stops here. The Bigger Dig note says every line but Peabody does.",
+    "severity": "low",
+    "fix": "Start the Greenbush bend below the capsule (about y 5680 or lower) so it runs straight through the capsule. Or extend the capsule's right end about 60 px (to about x 8595) and keep about 50 px of clear space before 'SOUTH STATION' (which starts at about x 8650)."
+   },
+   {
+    "image": "D:\\REPOS\\NERTA\\boston-map\\output\\copies\\rail_poster_v10.png",
+    "where": "Forge Park/495 end ring at (4483, 9205). A stub of the line sticks out at about x 4425-4465, y 9220-9265.",
+    "problem": "The Franklin line runs about 50 px past its end-of-line ring toward the lower left, so the line looks like it keeps going. None of the other 13 line ends do this; the contact sheet confirms each one stops at its ring.",
+    "severity": "low",
+    "fix": "In make_rail_poster.py (diag_stops 'fra', line 249), end the 'fra' path exactly at the Forge Park/495 point, or draw that last segment with a butt cap, the way Worcester is drawn."
+   },
+   {
+    "image": "D:\\REPOS\\NERTA\\boston-map\\output\\copies\\rail_poster_v10.png",
+    "where": "Key, ferry rows: 'North Shore Fast Ferry (FF)' at about x 15130-16045, y 6777, and 'South Shore Fast Ferry (FF)' at about y 6976.",
+    "problem": "The key gives a code '(FF)', but every ferry pill on this poster reads 'F'. A reader can't find FF anywhere, and FF is also the code of the separate Fast Ferry shuttle on the ferry poster. The line posters already dropped this code for the same reason (make_line_poster.py line 542).",
+    "severity": "low",
+    "fix": "At make_rail_poster.py line 421, call LP.ferry_name(fill, code=False). The rows then read 'North Shore Fast Ferry' and 'South Shore Fast Ferry'."
+   },
+   {
+    "image": "D:\\REPOS\\NERTA\\boston-map\\output\\copies\\rail_poster_v10.png",
+    "where": "Key, left column: 'Near Boston, high-speed trains stop only at North Station,' at x ~12377, y ~6829, and 'Boston Central, South Station, Back Bay, West Station, Route 128' at y ~7028.",
+    "problem": "One sentence wraps onto a second line set at full row spacing. It looks like two separate key entries, and the second one starts in the middle of the sentence.",
+    "severity": "low",
+    "fix": "Set the wrapped line at normal line spacing (about 1.2x the text height, so about y 6900 instead of 7028) and move the rows below it up. Or shorten it to one line, for example 'High-speed trains stop only at North Sta, Boston Central, South Sta, Back Bay, West Sta, Route 128'."
+   },
+   {
+    "image": "D:\\REPOS\\NERTA\\boston-map\\output\\copies\\rail_poster_v10.png",
+    "where": "Sullivan Sq capsule at x 7370-7700, y ~3585. The two high-speed lines cross it at x 7468-7514 and 7558-7604.",
+    "problem": "The capsule spans the Lowell line, both high-speed lines and the Haverhill line. The high-speed lines are drawn over it, which marks a pass-through, but at phone size it still reads as one station on four lines. The key says high-speed trains don't stop here.",
+    "severity": "low",
+    "fix": "Make the pass-through obvious. Either split it into two small capsules (Lowell and Haverhill) joined by a thin black connector drawn under the high-speed lines, or give the high-speed lines a white casing where they cross the capsule."
+   }
+  ]
+ },
+ {
+  "key": "rail_regional",
+  "checked": "I checked every label on D:\\REPOS\\NERTA\\boston-map\\output\\copies\\rail_regional_v6.png (19412x19829). The whole sheet was cut into 8x9 overlapping 2800 px tiles, each viewed at 1400 px. Row 7 was skipped because rows 6 and 8 already overlap to cover it. Tiles that were almost empty were viewed as 700 px strips. Then I zoomed in at full size on 32 spots where something looked close: Lawrence, Montserrat, Winchester/Wedgemere, West Natick, Southborough, West Newton/Newtonville/Auburndale, Boston Landing, Hyde Park/Readville/Route 128, Weymouth Landing, Quincy Center, Haverhill/Bradford, Canton, Peabody/Salem, North Shore ferry pills, Rockport, Greenbush, Kingston/Plymouth, Worcester, Forge Park/495, Wickford Junction, New Bedford, Fall River, the Cape Cod arrow, the NYC arrow at the bottom edge, and in the inset Sullivan Sq, North Station, Back Bay, Ruggles and JFK/UMass. I also checked the key, title, credits, every edge for cut-off text, and the disclaimer.\n\nWhat passed:\n- No text touches other text, a stop symbol or a pill anywhere I looked. Where names sit on a colored line (Lawrence, West Newton, Southborough, West Natick, Weymouth Landing/East Braintree, Ruggles), they have a paper halo, which Max's rule allows.\n- All four \"HIGH-SPEED RAIL TO...\" captions and the Fitchburg and Cape Cod arrow captions sit next to their own arrows. Nothing is cut off at any edge.\n- Release block (top right, about x 16770-19150, y 230-890): the disclaimer paragraph is there with MOST in bold italic, plus \"Map: Maxwell Howe\", \"#30DayMapChallenge\" and \"Day 8 \u2022 Utopia\".\n- Tonight's decisions, where this map shows them:\n  - South Station carries a CL (Cyan) pill: SOUTH STATION RL CL IL \"F via Dorchester Ave\".\n  - Waltham is a transfer stop on the Fitchburg line with an RL pill.\n  - North Station shows \"F via Langone Ferryport\" with the major-port ring, and the key uses the new names North Shore / South Shore Fast Ferry (FF).\n  - The Montreal, Bangor, NYC and Chicago captions match the rail decisions.\n- This map does not show Bleachery, the New Bedford\u2013Cuttyhunk\u2013Vineyard Haven boat, or the Atlantic Clipper, so those decisions don't apply here. It is not a tram map, so the tram stop symbol doesn't apply either.\n- Newburyport and Lynn have no F pill. That matches the ferry network map, where those docks list no commuter rail transfer, so it is consistent rather than missing.\n- One small note, not a problem: the Albany caption reads \"TO ALBANY, CHICAGO / VIA WORCESTER, SPRINGFIELD\". That is the same wording as the rail poster, but the main map now reads \"TO CHICAGO / VIA WORCESTER, SPRINGFIELD, ALBANY\". The facts are identical; only the wording differs.\n\nCrops are saved in C:\\Users\\mhowe\\AppData\\Local\\Temp\\claude\\8c6edb261a248c64\\78f945b2-284d-46fa-8b1f-22d30e849230\\scratchpad\\audit_rt\\rail_regional\\ (tiles\\ and zoom\\).",
+  "findings": [
+   {
+    "image": "rail_regional_v6.png",
+    "where": "WORCESTER: name at x 597-1014, y 9136-9193; its stop symbol at (1969, 9256). FORGE PARK/495: name at x 4576-5128, y 11607-11664; stop at (5643, 11638). WICKFORD JUNCTION: name at x 3783-4487, y 18656-18714; stop at (5075, 18689). Same pattern, but short, at West Medford (name ends about x 8555, dot at about 8760).",
+    "problem": "When a name is placed on the left of its stop, the line pill gets drawn between the name and the stop. That pushes the name far away: WORCESTER ends about 955 px from its stop, with the 870 px FRAMINGHAM / WORCESTER LINE pill in between. WICKFORD JUNCTION ends about 590 px away and FORGE PARK/495 about 515 px. Most names on this map sit about 30 px from their dot. These three read as floating labels, which is the 'text confusingly far away' Max said to avoid. The cause is in place_label() in boston-map/src/make_rail_regional.py, lines 805-811. It always draws name, then transfer pills, then line pill, left to right. The score also never charges for the name's own distance from the stop, so the farther left-side spot isn't penalized.",
+    "severity": "medium",
+    "fix": "In place_label(), when the chosen side is W, NW or SW, draw the line pill and transfer pills first and the name last. The name then ends one gap from the dot: \"[FRAMINGHAM / WORCESTER LINE] WORCESTER o\". Another option is to stack the line pill under the name, with both right-aligned to the stop. Also add the name's own distance from its stop to score() (e.g. + own/mpp * a small weight), so a far spot costs more. That would put WORCESTER about 30 px from (1969, 9256), and the same for Forge Park/495 and Wickford Junction."
+   },
+   {
+    "image": "rail_regional_v6.png",
+    "where": "KINGSTON name at x 13120-13450, y 13210-13260, with its KINGSTON LINE pill at x 13470-13905. Kingston's stop is at (13072, 13155); Plymouth's stop is at (13395, 13108).",
+    "problem": "The KINGSTON name sits right under PLYMOUTH's stop: its 'ON' is about 100 px below that circle. Measured from the label's center, Plymouth's stop is nearer (about 168 px) than Kingston's own stop (about 227 px). The script's check passed only because it measures to the label's nearest edge (about 73 px vs 102 px). A stranger could pair KINGSTON with the right-hand circle, or read the left-hand circle as unnamed.",
+    "severity": "medium",
+    "fix": "Move the Kingston label so its name centers on or left of its own stop. For example, add \"Kingston\": (\"SW\", \"S\", \"W\") to SIDE in make_rail_regional.py, or shift the name and pill about 200 px left so the name starts near x 12920, centered under (13072, 13155). Keep the PLYMOUTH label as it is."
+   },
+   {
+    "image": "rail_regional_v6.png",
+    "where": "Peabody label at x 10940-11172, y 5480-5535. Peabody's dot is at (10900, 5553); Salem's stop is at (11243, 5570).",
+    "problem": "The 'Peabody' label sits above and right of its dot, so it runs most of the way toward Salem's stop: it ends about 70 px from Salem's circle. Edge distance is still nearer its own dot (about 32 px vs 57 px). By center it is close (162 vs 194). Salem has its own label, so a misread is unlikely, but the label leans toward the wrong stop.",
+    "severity": "low",
+    "fix": "Center 'Peabody' above its own dot: SIDE[\"Peabody\"] = (\"N\", \"NW\", \"W\"), giving x about 10785-11015, y about 5470-5525. It may sit on the teal Peabody line with its halo, which Max allows. That moves it about 230 px farther from Salem."
+   },
+   {
+    "image": "rail_regional_v6.png",
+    "where": "Inset, Sullivan Sq: name at x 15832-16130, y 7570-7630. The station capsule runs from (15700, 7940) to (15794, 7664).",
+    "problem": "The capsule's top ends on the Haverhill line. The pink Newburyport/Rockport line runs between the capsule and the name, and the name's halo sits on that pink line. A reader could think Newburyport/Rockport trains stop at Sullivan Sq. Nothing touches, so this is a minor clarity issue.",
+    "severity": "low",
+    "fix": "Nudge the Sullivan Sq name and its OL YL pills up about 60 px, so they start just above the capsule's top end (about y 7510-7570). Or move them to the north side of the capsule, so the name reads as attached to the capsule rather than to the pink line."
+   }
+  ]
+ },
+ {
+  "key": "rail_lines_a",
+  "checked": "Files used: the newest version of each stem, all _v4, in D:\\REPOS\\NERTA\\boston-map\\output\\copies: rail_line_fit_v4.png (5913x7216), rail_line_fr_v4.png (6793x7812), rail_line_fra_v4.png (5750x7727), rail_line_grb_v4.png (6068x6979), rail_line_hav_v4.png (5825x6699), rail_line_kin_v4.png (5849x6727), rail_line_low_v4.png (5574x6410), rail_line_nbp_v4.png (6394x7371). I checked the PNGs. Each has a matching _v4.pdf with the same timestamp, which I did not open.\n\nHow I looked:\n1. A full overview of each poster at about 0.2 scale (header, map, Key).\n2. The map area of every poster, from the header down to the Key rule, cut into 2x2 overlapping tiles (300 px overlap) at 0.5 scale. That is 32 tiles. Five were blank paper (grb r1c0, hav r0c0, kin r1c0, low r0c0) and I confirmed that by pixel count. I read the other 27.\n3. Full-resolution zooms of the Walpole/Norfolk junction (fra), the South Acton/Littleton junction (fit), and Middleborough/East Taunton (fr).\n4. The Key at 0.4 scale for the two densest posters (fr, nbp), and the release block at 0.55 scale on fit.\n\nCrops are in C:\\Users\\mhowe\\AppData\\Local\\Temp\\claude\\8c6edb261a248c64\\78f945b2-284d-46fa-8b1f-22d30e849230\\scratchpad\\audit_rt\\rail\\.\n\nPlacement on all 8 is clean:\n- Every station name sits right beside its own dot, about 150 px away, against a row pitch of 220 to 440 px. Terminus names in bold caps sit beside their end rings.\n- No text touches other text, a dot or a pill. Pill rows butt against the line, and the three hub rows never reach a neighboring row.\n- The two arrow captions point clearly at their line: \"TO GREENFIELD, NORTH ADAMS\" (fit) and \"TO CAPE COD\" (fr).\n- Nothing is cut off. The widest row, \"F via Langone Ferryport\", keeps a margin of more than 1,100 px.\n- At a phone width of about 1080 px, station names come out about 10 px tall and readable. The ringed CR pill letters are smaller but can be zoomed.\n\n(a) Release block: all 8 have the full disclaimer with MOST in bold italic, plus \"Map: Maxwell Howe\", \"#30DayMapChallenge\" and \"Day 8 \u2022 Utopia\". It sits well clear of the title.\n\n(b) Decisions these posters show:\n- South Station carries CL on all 8.\n- Waltham (fit) is a through stop with an RL pill and no GL, which matches the Bleachery note in make_tmap.py. Bleachery itself is not a commuter stop, so it doesn't appear.\n- New Bedford (fr) has a ringed South Shore Fast Ferry pill. That is the route make_ferry_network.py runs New Bedford to Cuttyhunk to Vineyard Haven. The Islands boat also leaves New Bedford, but these posters show one F pill per dock, as Langone does, so I did not count that as a problem.\n- The London boat (Atlantic Clipper) has no stop on any of these 8 lines.\n- High-speed (HSR) pills appear only at Lowell, Haverhill, Back Bay and the three Dig hubs, which matches the high-speed decisions.\n- Lawrence (hav) has the Peabody-ringed CR pill. Shared-stop pills agree between the Fall River, Kingston and Greenbush posters at JFK, Quincy Center and Braintree.\n- No Patriots or Brady names. The Foxboro note says \"stadium events\".\n\n(c) Not applicable: none of these are tram maps.\n\nTwo junctions look fine. At Walpole (fra) and South Acton (fit), the inner corner where the branch splits off sits closer to the next stop (Norfolk, Littleton/Route 495) than to the junction stop. The outer curve starts at the junction stop, and both dots are plainly on the straight trunk, so I did not count it.",
+  "findings": [
+   {
+    "image": "rail_line_fr_v4.png, rail_line_grb_v4.png, rail_line_kin_v4.png, rail_line_nbp_v4.png",
+    "where": "Key, ferry rows. fr: \"South Shore Fast Ferry (FF)\" at x 1790-2712, y ~7243. grb: same text at x ~1790-2712, y ~6406. kin: x ~1788-2710, y ~6155. nbp: \"North Shore Fast Ferry (FF)\" at x 3007-3915, y ~6797.",
+    "problem": "The Key names the code \"(FF)\", but every ferry pill on these posters reads just \"F\", so a reader looks for an FF pill that doesn't exist. The T line posters dropped this code on purpose. make_line_poster.py builds those Keys with ferry_name(f, code=False), whose comment says the line posters show every ferry pill as F, so the Key names no code a reader can't find. The rail line posters take the name from make_rail_poster.ferry_look(), which calls LP.ferry_name(fill) with the default code=True. This makes the rail posters inconsistent with the T posters going out the same day.",
+    "severity": "medium",
+    "fix": "In make_rail_line_posters.py, in the Key builder (around line 557, the loop `fill, fg, name, f_ = RP.ferry_look(n)`), build the name as LP.ferry_name(fill, code=False) instead of using `name`. The rows then read \"South Shore Fast Ferry\" and \"North Shore Fast Ferry\". This leaves make_rail_poster.py and the combined poster unchanged. Then re-render fr, grb, kin and nbp as _v5 in copies/."
+   },
+   {
+    "image": "rail_line_kin_v4.png",
+    "where": "Whole poster. The line edges at x ~4790-4830 from y ~1290 to 4900, the header T mark at x ~180-560, y ~180-640, and the header CR pill ring at x ~900-2150, y ~230-760. It also affects the Kingston-ringed CR pills on fr (JFK/UMass x ~3880-4250, y ~2140) and grb (JFK/UMass x ~2240-2560, y ~3290).",
+    "problem": "Kingston's second color, #38e6f8, is a bright cyan close to the Cyan Line's CL pill. The Kingston poster is cyan throughout: line edges, T mark, CR ring. At phone size a stranger could briefly take it for a Cyan Line poster, or read a Kingston-ringed CR pill as CL. The title, the big CR pill and the Key all settle it, so this is low.",
+    "severity": "low",
+    "fix": "Optional, and only if Max wants it. Change the Kingston hue in make_rail_poster.py LINES[\"kin\"] to a shade clearly away from the Cyan Line, for example a deep turquoise or a non-blue hue not used by another line. Re-render every rail poster that draws Kingston. Otherwise leave it as decided: the second color only tells the lines apart."
+   }
+  ]
+ },
+ {
+  "key": "rail_lines_b",
+  "checked": "Files used (newest version of each remaining rail_line_* stem in D:\\REPOS\\NERTA\\boston-map\\output\\copies, skipping fit, fr, fra, grb, hav, kin, low and nbp): rail_line_halb_v4.png, rail_line_hmai_v4.png, rail_line_hmon_v4.png, rail_line_hnyc_v4.png, rail_line_pea_v3.png (pea only goes up to v3; v3 was rendered with the same 2:07 batch as the other v4s), rail_line_pro_v4.png and rail_line_wor_v4.png. That is all 7 remaining stems.\n\nHow I checked: I looked at a full-poster overview of each file. Then I cut each poster into overlapping 2400 px tiles (300 px overlap), shrank each to 1400 px wide, and looked at every tile that had anything on it. That came to 11 to 16 tiles per poster, about 85 in all. Five tiles were blank paper. I also made full-size zooms of the hub ferry pills (Providence), the South Station end (Bangor), North Station's end pill (New York and Providence) and the Clifton/Marblehead ferry pills (Peabody). I measured how much blank paper is left around the content on every poster: 148 to 176 px on the sides and at least 193 px top and bottom, so nothing is cut off. The tiles and zooms are in C:\\Users\\mhowe\\AppData\\Local\\Temp\\claude\\8c6edb261a248c64\\78f945b2-284d-46fa-8b1f-22d30e849230\\scratchpad\\audit_rt\\rail_lines\\.\n\nEvery label: every station name sits level with its own dot and right beside it, with nothing nearer. That includes the Providence fork: Sharon through Wickford Junction outside the left leg, and Canton Center through Taunton outside the right leg. No name touches other text, a dot or a pill. Hub pill rows are butted against the line in the house style. The Mansfield CR pill and the Providence HSR pill sit well clear of the Stoughton leg. Titles clear the disclaimer by about 260 px or more. The Key columns never collide. None of these posters has captions or arrows.\n\n(a) Release block: present on all 7. The disclaimer paragraph is there with MOST in bold, along with \"Map: Maxwell Howe\", \"#30DayMapChallenge\" and \"Day 8 \u2022 Utopia\".\n\n(b) Tonight's decisions: South Station carries a CL pill on all six posters that reach it (pro, wor, halb, hmai, hmon, hnyc). Bleachery, Waltham, New Bedford/Cuttyhunk and the Atlantic Clipper do not appear in this set. Other checks that hold:\n- Route 128 is a Providence commuter stop with an HSR pill, and HSR to New York shows it with a Providence CR pill.\n- Montreal runs via Lowell, Nashua, Manchester, Concord NH and Burlington VT.\n- Bangor runs via Haverhill, Portland and Augusta.\n- New York runs on to Philadelphia and Washington, and Albany runs on to Chicago.\n- Wellesley Hills and Auburndale carry GL pills, and David Ortiz carries a GL pill.\n- Each poster's direction is right: Bangor, Montreal and Peabody have their far end at the top.\n- All three hub ferry pills are Harbor West teal, matching the Key; only Langone Ferryport has the fast-ferry ring.\n\n(c) Tram stop symbol: does not apply to these posters.\n\nResult: no high or medium problems. Three low items follow.",
+  "findings": [
+   {
+    "image": "rail_line_hmon_v4.png",
+    "where": "Label \"Manchester\" at about x 4350-4850, y 2980 (its dot is at about x 4200, y 2980). \"Concord NH\" is directly above it at y 2438.",
+    "problem": "\"Manchester\" has no state, but the next stop up says \"Concord NH\". The NERTA commuter network also has a stop named \"Manchester\" (Manchester-by-the-Sea, Rockport branch, on the Newburyport/Rockport poster in the same set). A non-local could read the Montreal train as stopping at the North Shore town. The nearby stops make it unlikely, and nothing touches.",
+    "severity": "low",
+    "fix": "In make_rail_line_posters.py, change BEYOND[\"hmon\"] from \"Manchester\" to \"Manchester NH\" so it matches \"Concord NH\". Re-render only hmon to the next free version number. The label is short enough to fit."
+   },
+   {
+    "image": "rail_line_pea_v3.png",
+    "where": "Key row \"North Shore Fast Ferry (FF)\" at about x 578-1483, y 6129. The olive F pills sit at Clifton (dot at about x 2618, y 4658) and Marblehead (dot at about x 2618, y 5212).",
+    "problem": "The pills read \"F\", but the Key names the route \"North Shore Fast Ferry (FF)\". Clifton and Marblehead are not fast-ferry ports: fast trips stop only at Langone Ferryport, Lynn Harbor, Salem, Gloucester, Rockport, Newburyport and Salisbury. With \"Fast Ferry\" next to them and no \"major port only\" note on this poster, a reader could assume fast boats call at both stops. The data is correct and nothing touches; this is wording only.",
+    "severity": "low",
+    "fix": "Either add the note the other posters use, \"Fast ferries stop at major ports only\", to the Peabody Key's notes column (there is room under \"Crosstown line: Marblehead to Lawrence\"), or leave it as is if Max wants the route name kept exactly. The route name itself is Max's call, so do not rename it."
+   },
+   {
+    "image": "rail_line_hnyc_v4.png, rail_line_pro_v4.png, rail_line_wor_v4.png, rail_line_halb_v4.png, rail_line_hmai_v4.png, rail_line_hmon_v4.png",
+    "where": "The station where the line's drawing ends:\n- North Station at about (4625,1350) on hnyc, (3475,1350) on pro, (4103,1350) on wor and (4355,1350) on halb\n- South Station at about (4200,5400) on hmai and (4201,5709) on hmon",
+    "problem": "At the station where the line ends, the last pill (OL at North Station, RL at South Station) keeps its rounded corner. That corner shows behind the station ring above or below the line. At every other station the pill is cut square against the line. You only see it at full zoom; it causes no misreading.",
+    "severity": "low",
+    "fix": "Optional cleanup. For the station at the line's end, cut the innermost pill square at the line's edge, as the through stations already do, so no rounded corner shows past the ring. Skip it if time is short; it cannot be seen on a phone."
+   }
+  ]
+ }
+]

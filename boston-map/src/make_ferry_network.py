@@ -32,9 +32,9 @@ from shapely.geometry.polygon import orient  # noqa: E402
 from shapely.strtree import STRtree  # noqa: E402
 
 sys.path.insert(0, str(Path(__file__).parent))
-from nerta_mark import draw_nerta  # noqa: E402
-import make_tmap as M  # noqa: E402  (drawing helper only: M.icon)
-import make_line_poster as LP  # noqa: E402  (drawing helper only: LP.roundel)
+from nerta_mark import draw_nerta, draw_t  # noqa: E402
+import make_tmap as M  # noqa: E402  (drawing helpers and the logo colors: M.icon, M.NERTA_COLORS)
+from charlie_points import FREE_TEXT, KEY_TEXT, draw_cp, draw_free_tag  # noqa: E402  (the shared Charlie Points coin, FREE tag and Key wording, November 8)
 from station_kit import INK, WHITE, rounded  # noqa: E402
 
 OUT = Path(__file__).resolve().parents[1] / "output" / "copies"
@@ -54,10 +54,10 @@ D2 = 0.62          # half the gap between a river loop's two tracks, units
 PAPER, WATER, COAST, RED = "#fcfcfa", "#bfe3e2", "#86bcbb", "#da291c"
 F_TEAL = "#00796d"
 PILL = {"RL": "#da291c", "OL": "#ed8b00", "BL": "#003da5", "GL": "#00843d", "YL": "#f5c400", "CL": "#00a9c9", "IL": "#3f3fb5",
-        "SL": "#7c878e", "CR": "#80276c"}
+        "SL": "#7c878e", "CR": "#80276c", "AC": M.CLIPPER["color"]}
 NAMES = {"RL": "Red Line", "OL": "Orange Line", "BL": "Blue Line", "GL": "Green Line", "YL": "Yellow Line", "CL": "Cyan Line",
-         "IL": "Indigo Line", "SL": "Silver Line", "CR": "Commuter rail"}
-ORDER = ["RL", "OL", "BL", "GL", "YL", "CL", "IL", "SL", "CR"]
+         "IL": "Indigo Line", "SL": "Silver Line", "CR": "Commuter Rail", "AC": f"{M.CLIPPER['name']} to {M.CLIPPER['dest']}"}
+ORDER = ["RL", "OL", "BL", "GL", "YL", "CL", "IL", "SL", "CR", "AC"]
 
 # Six color families a rider can tell apart; shades inside a family tell the routes apart.
 # Checked with CIEDE2000 (scratchpad ferry_build/fam.py): every color is 15.7 or more from the T lines, commuter purple,
@@ -105,14 +105,15 @@ EVENT = ["Hatch Shell", "Agganis", "Lovejoy Wharf", "Stadium", "Encore", "Pavili
 
 
 def stop(name, x, r, side, pills=(), kind="stop", text=None, span=None, route=None, fs=None, pm="a"):
-    """pm: where the pills go. a = after the name; o = across the line from the name (under the dot for a name on top)."""
+    """pm: where the pills go. a = after the name; o = across the line from the name (under the dot for a name on top);
+    u = stacked under (or over) the name, centered on the dot's column, for a name set above or below the line."""
     S[name] = dict(at=(x, r), side=side, pills=list(pills), kind=kind, text=text or name, major=name in MAJOR, span=span,
                    route=route, fs=fs, pm=pm)
 
 
 # --- Charles River: Boston bank on the left column (upstream, read upward), Cambridge bank on the right (inbound, read down)
 CB = ["Belmont Hill", "Winsor", "Eliot", "Weld", "Riverside", "Magazine Beach", "DeWolfe", "Resch", "Ames St", "Broad Canal",
-      "Poormans", "Charlesgate", "Museum of Science", "North Point", "Duck Tours", "Paul Revere Park"]
+      "Poormans", "Charlesgate", "Museum of Science", "North Point", "Paul Revere Park"]  # Lovejoy Wharf took Duck Tours' dock (Max, November 7)
 BB = ["Nashua St", "Gronk", "Hatch Shell", "Esplanade", "Gloucester St", "BU Docks", "BU Bridge", "Agganis", "Western Ave",
       "John W. Weeks", "Newell", "Cumnock", "Herter", "Northeastern", "Arsenal St"]  # Boston bank stops 2 to 16
 CHP = {"Weld": ["RL", "GL"], "DeWolfe": ["YL"], "Ames St": ["RL", "YL"], "Broad Canal": ["RL", "YL"], "Museum of Science": ["GL"],
@@ -121,7 +122,7 @@ for i, n in enumerate(CB):
     stop(n, 3, i, "r", CHP.get(n, ()), route="charles")
 for i, n in enumerate(BB):
     stop(n, 0, 14.5 - i, "l", CHP.get(n, ()), route="charles", text=None)
-stop("Lovejoy Wharf", 0, 17, "l", ["GL", "OL", "CL", "CR"], "xfer")
+stop("Lovejoy Wharf", 0, 17, "l", ["GL", "OL", "CL", "CR"], "xfer")  # North Station's ferry link, on the Boston bank (Max, November 8)
 stop("Navy Yard", 3, 17, "tr", ["CL"], "xfer")
 S["Navy Yard"]["nudge"] = (0, 0.7)
 
@@ -146,13 +147,13 @@ for n, x in CC_B:
 stop("Suffolk Downs", 41.4, 18.3, "r", ["BL"], route="chelsea")   # the loop's east end; its bar runs on across the North Shore line
 
 # --- Langone Ferryport, the hub (Max, November 7): one long terminal bar. Every major route leaves from its own berth on the bar
-# and returns there; spurs excepted. Walkway to North Station.
+# and returns there; spurs excepted. Not linked to North Station: Lovejoy Wharf is (Max, November 8).
 LFY = 20
-stop("Langone Ferryport", 1.8, LFY, "l", ["OL", "GL", "CL", "CR"], "hub", text="Langone\nFerryport", span=((0, LFY), (3.6, LFY)))
+stop("Langone Ferryport", 1.8, LFY, "l", ["CL"], "hub", text="Langone\nFerryport", span=((0, LFY), (3.6, LFY)))
 # --- Harbor West, down the downtown waterfront from Langone Ferryport
 for n, r, pl in (("Battery Wharf", 20.95, []), ("Sargent's Wharf", 21.6, [])):
     stop(n, 0, r, "l", pl, route="hw")
-stop("Long Wharf", 0, 22.3, "l", ["BL", "CL"], "xfer", route="hw")
+stop("Long Wharf", 0, 22.3, "l", ["BL", "CL", "AC"], "xfer", route="hw")  # AC: the boat to London
 stop("Central Wharf", 0, 22.95, "l", ["BL", "CL"], route="hw")
 stop("Rowes Wharf", 0, 23.6, "l", ["CL", "CR"], route="hw")
 stop("Dorchester Ave", 0, 24.25, "l", ["RL", "IL", "CR"], "end", route="hw")
@@ -161,7 +162,7 @@ stop("Dorchester Ave", 0, 24.25, "l", ["RL", "IL", "CR"], "end", route="hw")
 for n, x, pl, k in (("Martins Park", 12.6, [], "stop"), ("Fan Pier", 16.2, ["CL"], "stop"), ("Seaport", 19.8, ["CL", "YL"], "stop"),
                     ("Pavilion", 23.4, [], "end")):
     stop(n, x, 23.6, "t", pl, k, route="seaport", pm="o")
-for n, x, pl, k in (("White St", 27.4, [], "stop"), ("Bennington St", 31.0, [], "stop"), ("Piers Park", 34.6, ["BL"], "stop"),
+for n, x, pl, k in (("White St", 27.4, [], "stop"), ("Bennington St", 31.0, [], "stop"), ("Piers Park", 34.6, [], "stop"),
                     ("Porzio", 38.2, [], "stop"), ("Logan Dock", 41.6, ["SL"], "end")):
     stop(n, x, 23.6, "t", pl, k, route="eb", pm="o")
 
@@ -214,7 +215,7 @@ SOUTH_N = ["Harwich Point", "Dennis Port", "Shad Hole Rd", "Old Wharf", "West De
 SOUTH = [(n, round(OX - (i + 1) * (OX - 4) / 14, 2)) for i, n in enumerate(SOUTH_N)]
 for i, (n, x) in enumerate(SOUTH):
     stop(n, x, 54, "t" if i % 2 == 0 else "b", ["CR"] if n == "Hyannis" else [], "xfer" if n == "Yarmouth" else "stop")
-S["Hyannis"]["pm"] = "o"
+S["Hyannis"]["pm"] = "u"   # pill under its own name, not up on the Hyannisport / West Yarmouth row (text audit, November 8)
 stop("Woods Hole", 4, 54, "tl", kind="xfer")
 # Bass River: a stem up from Yarmouth to a one-way loop
 YX = dict(SOUTH)["Yarmouth"]
@@ -265,7 +266,7 @@ for n, r, pl in NS_LOW:
 NS = [("Lynn Harbor", ["BL"]), ("Nahant Harbor", []), ("Swampscott", ["CR"]), ("Clifton", ["CR"]), ("Marblehead", ["CR"]),
       ("Salem Wharf", ["CR"]), ("Beverly", ["CR"]), ("Prides Crossing", []), ("Beverly Farms", ["CR"]), ("Manchester-by-the-Sea", ["CR"]),
       ("Magnolia", []), ("Gloucester", ["CR"]), ("Brier Neck", []), ("Rockport", ["CR"]), ("Annisquam", []), ("Crane Beach", []),
-      ("Ipswich", []), ("Plum Island South", []), ("Plum Island Central", []), ("Plum Island North", []), ("Newburyport", []), ("Salisbury", [])]
+      ("Ipswich", ["CR"]), ("Plum Island South", []), ("Plum Island Central", []), ("Plum Island North", []), ("Newburyport", ["CR"]), ("Salisbury", [])]  # Ipswich and Newburyport: Newburyport Line stations (Max, November 8)
 for i, (n, pl) in enumerate(NS):
     stop(n, NSX, 13.9 - i * 0.8, "r", pl, "end" if n == "Salisbury" else "stop", route="nse")
 NSE_STOPS = ["Winthrop Landing", "Winthrop Beach", "Highlands Beach", "Suffolk Downs", "Beachmont", "Revere Beach", "Wonderland"] + [n for n, _ in NS]
@@ -315,9 +316,12 @@ def berth(x, row):
     return [(x, LFY), (x, row)]
 
 
-track("charles", ["Lovejoy Wharf", (0, LFY)], RLW)                      # the Charles loop meets it at its downstream end
+track("charles", ["Lovejoy Wharf", (0, LFY)], RLW)                             # the Charles loop meets it at its downstream end (no stop there now)
 track("mystic", ["Navy Yard", (3.0, LFY)], RLW, 0)                       # the Mystic loop reaches it from Navy Yard
-track("express", ["Navy Yard", (2.4, 17.9), (2.4, LFY)], XLW)            # the Express: Navy Yard, Langone Ferryport, Long Wharf
+# The Express: Navy Yard, Langone Ferryport, Long Wharf. Down at 45 degrees from Navy Yard to x = FFX, clear of the Mystic link
+# at x = 3, so the FREE tag fits on it; the waypoint at FF_TAG is the tag's center, so the dots stop either side of the tag.
+FFX, FF_TAG = 2.14, 19.04
+track("express", ["Navy Yard", (FFX, 17 + (3 - FFX)), (FFX, FF_TAG), (FFX, LFY)], XLW)
 track("express", [(0.5, LFY), (0.5, 21.85), "Long Wharf"], XLW)
 track("hw", [(0, LFY), "Battery Wharf", "Sargent's Wharf", "Long Wharf", "Central Wharf", "Rowes Wharf", "Dorchester Ave"])
 track("chelsea", berth(3.5, 21.0) + [(26.0, 21.0), (26.0, 18.3), (27.0, 18.3)], RLW)   # into Chelsea Creek past East Boston
@@ -349,11 +353,12 @@ BASS = [(YX, 52.6), (YX - 1.5, 52.6), "South Yarmouth", "Wilbur", (YX - 1.5, 50.
         (YX + 1.5, 52.6), (YX, 52.6)]
 track("sse", ["Yarmouth", (YX, 52.6)], r=0)
 track("sse", BASS, r=1.2)
-# New Bedford to Cuttyhunk, shared by two routes side by side, then on to Oak Bluffs and to Aquinnah
+# New Bedford to Cuttyhunk, shared by two routes side by side, then on to Vineyard Haven and to Aquinnah. Woods Hole boats call at Cuttyhunk too
 # Side by side from New Bedford, then both run into Cuttyhunk's dot
 track("sse", offset_path([(-2, 54), (1.2, 57.2)], 0.95) + ["Cuttyhunk"])
 track("isl", offset_path([(-2, 54), (1.2, 57.2)], -0.95) + ["Cuttyhunk"])
-track("sse", ["Cuttyhunk", (21, 58), "Oak Bluffs"])
+track("sse", ["Cuttyhunk", (4, 60), "Vineyard Haven"])  # New Bedford boats land at Vineyard Haven, not Oak Bluffs (Max, November 7)
+track("isl", ["Woods Hole", (4, 56), "Cuttyhunk"])        # Woods Hole to Cuttyhunk (Max, November 7; invented)
 track("isl", ["Cuttyhunk", (2, 61), (7, 66), "Aquinnah"])
 track("isl", ["Aquinnah", "Noman's Land"], r=0)
 track("isl", ["Chatham", (NX, 58), "Wauwinet", "Siasconset", "Nobadeer", (NX, 63.5), "South Shore", "Cisco", "Smith Point"])
@@ -536,10 +541,37 @@ def draw_loop(ax, L):
             bar_sym(ax, n, (x - nrm[0] * hl, y - nrm[1] * hl), (x + nrm[0] * hl, y + nrm[1] * hl), 1.25, lw)
         attach[n] = (x + nrm[0] * (hl - 0.35), y + nrm[1] * (hl - 0.35))
     zz = np.array([attach[n] for n in L["zig"]])
+    ZIG[key] = (L["zig"], zz)
     ax.plot(*zz.T, color=WHITE, lw=ZLW + 2.2, solid_capstyle="round", solid_joinstyle="round", zorder=5)
     ax.plot(*zz.T, color=c, lw=ZLW, ls=(0, (0.01, 1.7)), dash_capstyle="round", zorder=5.1)
     REG["line"].append((key + " zigzag", LineString(zz).buffer((ZLW + 2.2) / PPU / 2)))
     return poly
+
+
+ZIG = {}   # river key -> (zigzag stop order, zigzag points), filled by draw_loop
+FREE_H = 11.0 / PPU   # FREE tag height: about 11 pt, so FREE reads at normal size (research/fares-changes-for-all-maps.md)
+# The free rides on this map (Max, November 8): the Fast Ferry shuttle and the river zigzag boats. One tag each, at mid-length:
+# the middle crossing of each zigzag, named by the two docks it joins.
+FREE_ZIG = {"charles": ("Resch", "Agganis"), "mystic": ("Medford St", "Admirals Hill"), "chelsea": ("Condor St", "Chelsea St")}
+FREE_TAGS = []   # (the line it sits on, tag shape with its edge, other parts of that line it must stay clear of)
+
+
+def free_tags(ax):
+    """Level white FREE pills sitting on the free lines. Drawn before the tracks, so the Fast Ferry dots stop either side."""
+    import inspect
+    ep = inspect.signature(draw_free_tag).parameters.get("edge_pt")
+    edge = (ep.default if ep else max(0.8, FREE_H * 0.9)) / PPU / 2   # the ink edge's outer half, as charlie_points draws it
+    spots = [("express", G(FFX, FF_TAG), None)]
+    for key, (a, b) in FREE_ZIG.items():
+        names, zz = ZIG[key]
+        i = names.index(a)
+        assert names[i + 1] == b, (key, a, b)
+        rest = [LineString(p) for p in (zz[:i + 1], zz[i + 1:]) if len(p) > 1]   # the zigzag's other crossings
+        spots.append((key + " zigzag", tuple((zz[i] + zz[i + 1]) / 2), rest))
+    for own, (x, y), rest in spots:
+        shp = SPoly(draw_free_tag(ax, x, y, FREE_H, z=7.5)).buffer(edge)
+        FREE_TAGS.append((own, shp, rest))
+        REG["dot"].append(("FREE tag on " + own, shp))
 
 
 def dot_run(ax, xy, cuts, color, lw, docks, z=4.1):
@@ -653,6 +685,11 @@ def draw_labels(ax):
                 tot = n_p * 6.6 + (n_p - 1) * 0.35
                 py = by0 - 0.7 - 1.45 if side == "t" else by1 + 0.7 + 1.45
                 pills_row(ax, cx - tot / 2, py, s["pills"], 1)
+            elif s["pm"] == "u" and side in ("t", "b"):  # stacked on the far side of the name, in the dot's own column
+                n_p = len(s["pills"])
+                tot = n_p * 6.6 + (n_p - 1) * 0.35
+                th = nl * fs / PPU * 1.02 + 0.5 + 1.45   # name height with descenders, a gap, half a pill
+                pills_row(ax, cx - tot / 2, y - th if side == "b" else y + th, s["pills"], 1)
             elif s["pm"] == "o" and side in ("l", "r"):  # beside the dot, on the side away from the name, set from the dot's center
                 pills_row(ax, cx + 2.5, cy, s["pills"], 1) if side == "l" else pills_row(ax, cx - 2.5, cy, s["pills"], -1)  # so a column lines up
             elif side in ("l", "tl", "bl"):
@@ -827,7 +864,9 @@ def key_symbols(ax, x0, y1):
              ("cw", "River loop, outer track: boats run clockwise"),
              ("ccw", "River loop, inner track: boats run counterclockwise"),
              ("zig", "River zigzag: crosses bank to bank at every dock"),
-             ("oneway", "Arrow on a loop: boats run one way round")]
+             ("oneway", "Arrow on a loop: boats run one way round"),
+             ("cp", KEY_TEXT),        # Charlie Points (Max, November 8), level with "All docks accessible"
+             ("free", FREE_TEXT)]     # the FREE tag, as on the Fast Ferry shuttle and the zigzag boats
     for i, (k, t) in enumerate(boats):
         yy = y - i * row
         xa, xb = x0 + 0.5, x0 + 9.5
@@ -843,6 +882,13 @@ def key_symbols(ax, x0, y1):
             zz = np.array([(xa, yy + 1.2), (xa + 2.25, yy - 1.2), (xa + 4.5, yy + 1.2), (xa + 6.75, yy - 1.2), (xb, yy + 1.2)])
             ax.plot(*zz.T, color=WHITE, lw=ZLW + 2.2, solid_capstyle="round", solid_joinstyle="round", zorder=12)
             ax.plot(*zz.T, color=c, lw=ZLW, ls=(0, (0.01, 1.7)), dash_capstyle="round", zorder=12.1)
+        elif k == "cp":
+            draw_cp(ax, (xa + xb) / 2, yy, 1.7, z=12)
+        elif k == "free":   # a boat line with the tag on it; one dot each side, none half under the tag
+            lw = FLW * 0.85
+            ax.plot([xa - 0.8, xb + 0.8], [yy, yy], color=WHITE, lw=lw + 2.6, solid_capstyle="round", zorder=12)
+            ax.scatter([xa - 0.35, xb + 0.35], [yy, yy], s=lw ** 2, color=INK, lw=0, zorder=12.1)
+            draw_free_tag(ax, (xa + xb) / 2, yy, FREE_H, z=12.3)
         else:
             ferry_track(ax, [(xa, yy), (xb, yy)], INK, lw=FLW * 0.85, z=12, casing=True, fast=True)
             arrow(ax, (xa + xb) / 2, yy, 0, INK, 1.4, 12.5)
@@ -933,6 +979,17 @@ def check(fig, ax):
         for b, db in dots[i + 1:]:
             if da.intersects(db):
                 bad.append(f"dot/dot: {a} | {b}")
+    # FREE tags: on their own line only, with air to every other line, the rest of their own zigzag, docks, pills and text
+    for own, shp, rest in FREE_TAGS:
+        near = [(key, shp.distance(ln)) for key, ln in REG["line"] if key != own]
+        near += [(own + " (other crossings)", shp.distance(r.buffer((ZLW + 2.2) / PPU / 2))) for r in (rest or [])]
+        near += [(n, shp.distance(d)) for n, d in dots if d is not shp]
+        near += [(f"pill {[round(v) for v in pb.bounds]}", shp.distance(pb)) for pb in REG["pill"]]
+        near += [(f"text {a}", shp.distance(sa)) for a, sa in shapes]
+        what, gap = min(near, key=lambda t: t[1])
+        print(f"  FREE tag on {own}: nearest is {what}, {gap:.2f} units ({gap * PPU:.1f} pt)")
+        if gap < 0.3:
+            bad.append(f"FREE tag: {own} | {what} ({gap:.2f})")
     return bad
 
 
@@ -963,13 +1020,14 @@ ROUTE_STOPS = {
                          "Buzzards Bay leg": ["Woods Hole", "West Falmouth", "New Silver Beach", "Pocasset", "Buzzards Bay", "Onset", "Wareham", "Marion",
                                               "Mattapoisett", "West Island", "Fairhaven", "New Bedford"],
                          "Bass River loop (one way)": ["Yarmouth", "South Yarmouth", "Wilbur", "Bass River / Rte 28", "Wrinkle Point", "Yarmouth"],
-                         "New Bedford to Oak Bluffs": ["New Bedford", "Cuttyhunk", "Oak Bluffs"]}},
+                         "New Bedford to Vineyard Haven": ["New Bedford", "Cuttyhunk", "Vineyard Haven"]}},
     "isl": {"stops": ["Chatham", "Wauwinet", "Siasconset", "Nobadeer", "South Shore", "Cisco", "Smith Point", "Tuckernuck Is.", "Brant Point",
                       "Nantucket Downtown", "Coskata", "Oak Bluffs"],
             "branches": {"Martha's Vineyard ring (clockwise)": ["Oak Bluffs", "Edgartown", "Chappaquiddick", "Katama Beach", "MVY Connection", "Chilmark",
                                                                 "Aquinnah", "Vineyard Haven", "Lagoon Pond", "Oak Bluffs"],
                          "Woods Hole link": ["Vineyard Haven", "Woods Hole"],
                          "Cuttyhunk link": ["New Bedford", "Cuttyhunk", "Aquinnah"],
+                         "Woods Hole to Cuttyhunk": ["Woods Hole", "Cuttyhunk"],
                          "Noman's Land spur": ["Aquinnah", "Noman's Land"]}},
 }
 
@@ -992,7 +1050,7 @@ def write_routes(path):
         out.append(e)
     doc = {"source": "boston-map/src/make_ferry_network.py",
            "families": [{"key": k, "name": n, "routes": [r for r, d in R.items() if d["fam"] == k]} for k, n in FAMILIES],
-           "hub": "Langone Ferryport", "hub_walkway": "North Station", "major_ports": ORDER_PORTS, "event_docks": EVENT,
+           "hub": "Langone Ferryport", "north_station_dock": "Lovejoy Wharf", "major_ports": ORDER_PORTS, "event_docks": EVENT,
            "service": "Boats run 24/7 and are automated. Every major route starts and ends at Langone Ferryport (spurs excepted). Fast "
                       "Ferry trips on the North Shore Fast Ferry, South Shore Fast Ferry and Islands boats stop only at major ports. The Fast Ferry (FF) shuttle "
                       "runs Navy Yard, Langone Ferryport, Long Wharf, nonstop between them, at all times.",
@@ -1032,6 +1090,7 @@ def main():
     for L in LOOPS:
         draw_loop(ax, L)
     draw_stops(ax)    # docks first: the dotted tracks leave out any dot that would sit under one
+    free_tags(ax)     # FREE tags too, so no Fast Ferry dot sits half under its tag
     draw_tracks(ax)
     draw_labels(ax)
 
@@ -1044,54 +1103,65 @@ def main():
     def cap(x, r, s, key, ha="left", fs=10.0, va="center", wt="bold"):
         txt(ax, *G(x, r), s, fs, wt, ha, va, color=tcol(key))
 
-    def sub(x, r, s, ha="center", fs=7.8):
-        txt(ax, *G(x, r), s, fs, "normal", ha, "center", color="#4a4f57")
+    def sub(x, r, s, ha="center", fs=10.0):
+        # orientation notes: near station-name size and dark gray, so they read on a phone (text audit, November 8)
+        txt(ax, *G(x, r), s, fs, "normal", ha, "center", color="#333333")
 
     cap(1.5, -3.2, "CHARLES RIVER", "charles", "center", 11.0)
-    sub(-0.3, -2.1, "Boston bank", "right", 8.4)
-    sub(3.3, -2.1, "Cambridge bank", "left", 8.4)
-    cap(14.0, 14.85, "MYSTIC RIVER", "mystic", "center")
-    sub(14.0, 15.5, "Charlestown and Somerville bank on top, Everett and Chelsea bank below")
+    sub(-0.3, -2.1, "Boston bank", "right", 10.6)
+    sub(3.3, -2.1, "Cambridge bank", "left", 10.6)
+    cap(14.8, 14.85, "MYSTIC RIVER", "mystic", "center")   # a little right, so the larger subtitle clears Paul Revere Park's pill
+    sub(14.8, 15.5, "Charlestown and Somerville bank on top, Everett and Chelsea bank below")
     cap(34.2, 14.85, "CHELSEA CREEK", "chelsea", "center")
     sub(34.2, 15.5, "Chelsea bank on top, East Boston bank below")
-    cap(1.15, 18.3, "FAST FERRY", "express", "center", 8.6)
-    sub(1.15, 18.85, "at all times", "center", 7.6)
-    sub(-0.6, 19.05, "Walkway to North Station", "right", 7.8)
+    # stacked and set flush against the Fast Ferry dots, well clear of the Charles loop on the left (text audit, November 8);
+    # raised so the FREE tag sits on the dots below them (November 8)
+    cap(FFX - 0.28, 17.78, "FAST" + chr(10) + "FERRY", "express", "right", 8.6)
+    sub(FFX - 0.28, 18.45, "at all times", "right", 9.4)
     cap(NSX, -4.7, "NORTH SHORE FAST FERRY", "nse", "center")
-    sub(NSX, -3.85, "to Salisbury via Gloucester, Newburyport", "center", 8.4)
+    sub(NSX, -3.85, "to Salisbury via Gloucester, Newburyport", "center", 10.6)
     cap(-0.6, 24.95, "HARBOR WEST", "hw", "right", 9.4)
     cap(18.0, 25.4, "SEAPORT", "seaport", "center")
     cap(38.6, 25.0, "EAST BOSTON", "eb", "center")
-    cap(HX - 0.6, 26.4, "HARBOR ISLANDS", "hi", "right", 9.4)
+    # under its own end, flush with the LONG ISLAND name, the way HARBOR WEST sits under DORCHESTER AVE. Nothing goes under
+    # the East Boston docks: there it read as naming White St and Bennington St (text audit round 3, November 8)
+    lb = SYM["Long Island"][1]
+    txt(ax, lb[2] + 1.3, -29.4 * P - 0.65 * P, "HARBOR ISLANDS", 9.4, "bold", "left", "center", color=tcol("hi"))
     cap(LX - 0.6, 25.35, "SOUTH SHORE", "ssi", "right", 9.4)
     cap(16.5, 33.3, "QUINCY BAY", "qb", "left", 9.4)
-    cap(LX - 0.4, 41.45, "FORE RIVER", "fore", "right", 9.4)
-    cap(FX + 0.5, 26.6, "SOUTH SHORE\nFAST FERRY", "sse", "left", 9.4)
-    cap(20.8, 46.4, "Cape Cod Bay run", "sse", "center", 9.4, wt="normal")
-    cap(7.0, 46.0, "Canal Pass", "sse", "center", 9.4, wt="normal")
-    sub(7.0, 46.6, "shortcut through the canal", "center", 8.0)
+    # Fore River is the rightmost of the three lines running down from Langone, so its name goes on that side;
+    # the South Shore Fast Ferry name goes where only the maroon line runs, right of it between Hingham and Hull
+    cap(FX + 0.5, 26.6, "FORE RIVER", "fore", "left", 9.4)
+    cap(TX + 0.5, 39.5, "SOUTH SHORE\nFAST FERRY", "sse", "left", 9.4)
+    cap(22.6, 47.2, "Cape Cod Bay run", "sse", "center", 9.4, wt="normal")
+    txt(ax, G(7.0, 0)[0], cy - 2.2 - 0.5, "CANAL PASS", 9.4, "bold", "center", "top", color=INK)  # under the canal, black caps (Max, November 7)
     cap(YX, 49.6, "Bass River loop", "sse", "center", 8.8, wt="normal")
-    cap(-2.5, 47.0, "Buzzards Bay leg", "sse", "center", 8.8, wt="normal")
-    cap(12.3, 57.3, "New Bedford to Oak Bluffs via Cuttyhunk", "sse", "center", 8.8, wt="normal")
+    cap(-0.5, 47.7, "Buzzards Bay leg", "sse", "center", 8.8, wt="normal")   # just over the Wareham corner to Onset stretch
+    # three short lines tucked in the corner of its own maroon line (diagonal and the run to Vineyard Haven), far from the
+    # blue Woods Hole diagonal, which also passes Cuttyhunk (text audit, November 8)
+    cap(5.05, 59.1, "New Bedford to" + chr(10) + "Vineyard Haven" + chr(10) + "via Cuttyhunk", "sse", "center", 8.8, wt="normal")
     cap(16.5, 64.2, "MARTHA'S VINEYARD", "isl", "center", 8.8)
-    sub(16.5, 64.9, "Ring runs clockwise", "center", 8.0)
+    sub(16.5, 64.9, "Ring runs clockwise", "center", 10.0)
     cap(NX - 3.5, 65.3, "NANTUCKET", "isl", "center", 8.8)
 
     # Header, as on the line posters
     hy = y1 - 11
-    # Three-layer T and NERTA pill in the Inner Harbor teal (Max, November 7). The red "NOT A REAL MBTA MAP" tag is retired:
-    # Max says the NERTA style now makes that plain.
-    LP.roundel(ax, x0 + 10, hy, 6.4, F_TEAL)
-    draw_nerta(ax, x0 + 10, hy - (6.4 + 3.2 / 5.4 / 2) - 0.8, 2 * (6.4 + 3.2 / 5.4 / 2), "B", colors=(F_TEAL,))
+    # The multicolor NERTA logo, as on every map (Max, November 8: "the logo is perfect send it throughout"): the three-layer T in
+    # the 12 NERTA colors inside the black-ringed white roundel, and the NERTA pill in the same colors. Never the 37-color
+    # alternate, which is for the website only. The F pill stays teal. The red "NOT A REAL MBTA MAP" tag is retired (Max).
+    ax.add_patch(Circle((x0 + 10, hy), 6.4, fc=WHITE, ec=INK, lw=3.2, zorder=12))   # the ring, as make_line_poster.roundel draws it
+    draw_t(ax, x0 + 10, hy, 6.4, M.NERTA_COLORS, z=13)
+    draw_nerta(ax, x0 + 10, hy - (6.4 + 3.2 / 5.4 / 2) - 0.8, 2 * (6.4 + 3.2 / 5.4 / 2), "B", colors=M.NERTA_COLORS)
     ax.add_patch(FancyBboxPatch((x0 + 20, hy - 6), 28, 12, boxstyle="round,pad=0,rounding_size=6", fc=F_TEAL, ec="none", zorder=12))
     ax.text(x0 + 34, hy - 0.4, "F", fontsize=38, fontweight="bold", color=WHITE, ha="center", va="center", zorder=13)
     ax.text(x0 + 52, hy, "Ferry" + chr(10) + "Network", fontsize=27, fontweight="bold", color=INK, ha="left", va="center", linespacing=0.9, zorder=13)
-    ax.text(x1 - 5, hy + 2, "Map: Maxwell Howe", fontsize=9.6, color=INK, ha="right", va="center", zorder=13)
-    ax.text(x1 - 5, hy - 2, "#30DayMapChallenge Day 8 \u2022 Utopia", fontsize=9.6, color=INK, ha="right", va="center", zorder=13)
+    from release_tag import draw_release
+    if not M.WEB:  # nerta.fun renders leave it out
+        draw_release(ax, x1 - 5, hy, size=11.5, ppu=PPU, ink=INK)  # 20% up from 9.6 for phones (text audit, November 8); disclaimer, credit, hashtag, Day 8 on every map posted November 8 (Max)
 
     # How the river boats run, express boats and the passenger notice
     px0, py1 = G(10.2, -1.6)
-    px1, py0 = G(46.0, 13.8)
+    px1, py0 = G(46.0, 13.45)   # bottom edge raised clear of Lovejoy Wharf's last pill (CR)
     panel(ax, px0, py0, px1, py1)
     river_explainer(ax, px0 + 3.5, py1 - 3.2)
     ax.plot([px0 + 118, px0 + 118], [py0 + 4, py1 - 4], color=PANEL_EC, lw=1.0, zorder=1.1)
@@ -1102,8 +1172,8 @@ def main():
     kx1, ky0 = G(4.3, 46.2)
     panel(ax, kx0, ky0, kx1, ky1)
     key_routes(ax, kx0 + 3.5, ky1 - 3.2)
-    sx0, sy1 = G(21.5, 30.4)
-    sx1, sy0 = G(53.0, 40.6)
+    sx0, sy1 = G(21.5, 30.55)   # top lowered a little so HARBOR ISLANDS, under LONG ISLAND, has air above the panel
+    sx1, sy0 = G(53.0, 41.55)   # one row deeper for the Charlie Points and FREE rows
     panel(ax, sx0, sy0, sx1, sy1)
     key_symbols(ax, sx0 + 3.5, sy1 - 3.2)
     tx0, ty1 = G(44.2, 43.0)
@@ -1114,7 +1184,7 @@ def main():
     nx0, ny1 = G(-10.2, 60.4)
     nx1, ny0 = G(1.2, 70.95)
     notice(ax, nx0, ny0, nx1, ny1)
-    ax.text(x1 - 5, y0 + 4, "Not to scale. Not affiliated with the MBTA.", fontsize=7.6, color=INK, ha="right", va="bottom", zorder=13)
+    ax.text(x1 - 5, y0 + 4, "Not to scale. Not affiliated with the MBTA.", fontsize=9.2, color=INK, ha="right", va="bottom", zorder=13)
 
     bad = check(fig, ax)
     for b in bad:

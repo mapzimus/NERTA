@@ -1,0 +1,2956 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.06129,
+     42.365577
+    ]
+   },
+   "properties": {
+    "name": "North Station",
+    "mbta_name": "North Station",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-north",
+     "OSM node/13818948407"
+    ],
+    "agree_m": 95,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.052,
+     42.3594
+    ]
+   },
+   "properties": {
+    "name": "Boston Central",
+    "mbta_name": null,
+    "status": "new",
+    "sources": [
+     "placed by hand on this map (tram/stations_real.geojson)"
+    ],
+    "agree_m": null,
+    "approx": false,
+    "note": "placed by hand, Atlantic Ave at State St"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.055242,
+     42.352271
+    ]
+   },
+   "properties": {
+    "name": "South Station",
+    "mbta_name": "South Station",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-sstat",
+     "Wikipedia: South Station",
+     "OSM way/29742438"
+    ],
+    "agree_m": 36,
+    "approx": false,
+    "note": "OSM point 171 m off"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.119149,
+     42.3884
+    ]
+   },
+   "properties": {
+    "name": "Porter",
+    "mbta_name": "Porter",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-portr",
+     "OSM node/13895032893"
+    ],
+    "agree_m": 40,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.235615,
+     42.374296
+    ]
+   },
+   "properties": {
+    "name": "Waltham",
+    "mbta_name": "Waltham",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-FR-0098",
+     "OSM node/7005445690"
+    ],
+    "agree_m": 48,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.260065,
+     42.361898
+    ]
+   },
+   "properties": {
+    "name": "Brandeis/Roberts",
+    "mbta_name": "Brandeis/Roberts",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-FR-0115",
+     "OSM node/7005435284"
+    ],
+    "agree_m": 8,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.282411,
+     42.37897
+    ]
+   },
+   "properties": {
+    "name": "Kendal Green",
+    "mbta_name": "Kendal Green",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-FR-0132",
+     "OSM node/7120019882"
+    ],
+    "agree_m": 21,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.325512,
+     42.413641
+    ]
+   },
+   "properties": {
+    "name": "Lincoln",
+    "mbta_name": "Lincoln",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-FR-0167",
+     "OSM node/7005435280"
+    ],
+    "agree_m": 15,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.357677,
+     42.456565
+    ]
+   },
+   "properties": {
+    "name": "Concord",
+    "mbta_name": "Concord",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-FR-0201",
+     "OSM node/7005435281"
+    ],
+    "agree_m": 12,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.392892,
+     42.457043
+    ]
+   },
+   "properties": {
+    "name": "West Concord",
+    "mbta_name": "West Concord",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-FR-0219",
+     "OSM node/7005445685"
+    ],
+    "agree_m": 16,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.457744,
+     42.460375
+    ]
+   },
+   "properties": {
+    "name": "South Acton",
+    "mbta_name": "South Acton",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-FR-0253",
+     "OSM node/5104369817"
+    ],
+    "agree_m": 1,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.5034511,
+     42.5214455
+    ]
+   },
+   "properties": {
+    "name": "Littleton/Route 495",
+    "mbta_name": "Littleton/Route 495",
+    "status": "exists",
+    "sources": [
+     "OSM node/7005445688",
+     "Wikipedia: Littleton/Route 495 station",
+     "MBTA V3 API place-FR-0301"
+    ],
+    "agree_m": 4,
+    "approx": false,
+    "note": "MBTA point 254 m off; OSM used"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.588476,
+     42.559074
+    ]
+   },
+   "properties": {
+    "name": "Ayer",
+    "mbta_name": "Ayer",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-FR-0361",
+     "OSM node/7005435279"
+    ],
+    "agree_m": 56,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.648004,
+     42.545089
+    ]
+   },
+   "properties": {
+    "name": "Shirley",
+    "mbta_name": "Shirley",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-FR-0394",
+     "OSM node/7005435283"
+    ],
+    "agree_m": 11,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.739186,
+     42.539017
+    ]
+   },
+   "properties": {
+    "name": "North Leominster",
+    "mbta_name": "North Leominster",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-FR-0451",
+     "OSM node/7005445686"
+    ],
+    "agree_m": 109,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.792611,
+     42.58072
+    ]
+   },
+   "properties": {
+    "name": "Fitchburg",
+    "mbta_name": "Fitchburg",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-FR-0494",
+     "OSM node/5104369805"
+    ],
+    "agree_m": 12,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.848488,
+     42.553477
+    ]
+   },
+   "properties": {
+    "name": "Wachusett",
+    "mbta_name": "Wachusett",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-FR-3338",
+     "OSM node/7120019863"
+    ],
+    "agree_m": 52,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.562699,
+     42.391583
+    ]
+   },
+   "properties": {
+    "name": "Hudson",
+    "mbta_name": null,
+    "status": "revived",
+    "sources": [
+     "Sanborn 1916, Hudson sheet 3, placed with OSM"
+    ],
+    "agree_m": null,
+    "approx": false,
+    "note": "Marlborough Branch depot, Main St at High St"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.554856,
+     42.3482
+    ]
+   },
+   "properties": {
+    "name": "Marlborough",
+    "mbta_name": null,
+    "status": "revived",
+    "sources": [
+     "Wikidata Q133501665 (MACRIS MRB.103)",
+     "Sanborn 1920, Marlborough sheet 4, placed with OSM"
+    ],
+    "agree_m": 62,
+    "approx": false,
+    "note": "Marlborough Branch terminal, Lincoln St"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.076994,
+     42.383975
+    ]
+   },
+   "properties": {
+    "name": "Sullivan Sq",
+    "mbta_name": "Sullivan Square",
+    "status": "new",
+    "sources": [
+     "MBTA V3 API place-sull",
+     "OSM way/548028011"
+    ],
+    "agree_m": 38,
+    "approx": false,
+    "note": "Orange Line station; commuter stop new on this map"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.133342,
+     42.421776
+    ]
+   },
+   "properties": {
+    "name": "West Medford",
+    "mbta_name": "West Medford",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-NHRML-0055",
+     "OSM node/7005457611"
+    ],
+    "agree_m": 12,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.140169,
+     42.444948
+    ]
+   },
+   "properties": {
+    "name": "Wedgemere",
+    "mbta_name": "Wedgemere",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-NHRML-0073",
+     "OSM node/7005457615"
+    ],
+    "agree_m": 44,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.13783,
+     42.451088
+    ]
+   },
+   "properties": {
+    "name": "Winchester",
+    "mbta_name": "Winchester Center",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-NHRML-0078",
+     "OSM node/1666023173"
+    ],
+    "agree_m": 58,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.144475,
+     42.516987
+    ]
+   },
+   "properties": {
+    "name": "Anderson/Woburn",
+    "mbta_name": "Anderson/Woburn",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-NHRML-0127",
+     "OSM node/6997716178"
+    ],
+    "agree_m": 31,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.174334,
+     42.546624
+    ]
+   },
+   "properties": {
+    "name": "Wilmington",
+    "mbta_name": "Wilmington",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-NHRML-0152",
+     "OSM node/7005457619"
+    ],
+    "agree_m": 25,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.280995,
+     42.593248
+    ]
+   },
+   "properties": {
+    "name": "North Billerica",
+    "mbta_name": "North Billerica",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-NHRML-0218",
+     "OSM node/7005457614"
+    ],
+    "agree_m": 17,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.314543,
+     42.63535
+    ]
+   },
+   "properties": {
+    "name": "Lowell",
+    "mbta_name": "Lowell",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-NHRML-0254",
+     "OSM way/734316118"
+    ],
+    "agree_m": 139,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.07411,
+     42.426632
+    ]
+   },
+   "properties": {
+    "name": "Malden Center",
+    "mbta_name": "Malden Center",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-mlmnl",
+     "OSM way/196049432"
+    ],
+    "agree_m": 5,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.071097,
+     42.43668
+    ]
+   },
+   "properties": {
+    "name": "Oak Grove",
+    "mbta_name": "Oak Grove",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-ogmnl",
+     "OSM way/29804423"
+    ],
+    "agree_m": 69,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.108294,
+     42.52221
+    ]
+   },
+   "properties": {
+    "name": "Reading",
+    "mbta_name": "Reading",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-WR-0120",
+     "OSM node/7005457610"
+    ],
+    "agree_m": 99,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.160939,
+     42.571073
+    ]
+   },
+   "properties": {
+    "name": "North Wilmington",
+    "mbta_name": "North Wilmington",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-WR-0163",
+     "Wikipedia: North Wilmington station",
+     "OSM node/7005457616"
+    ],
+    "agree_m": 3,
+    "approx": false,
+    "note": "OSM point 188 m off"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.159962,
+     42.627356
+    ]
+   },
+   "properties": {
+    "name": "Ballardvale",
+    "mbta_name": "Ballardvale",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-WR-0205",
+     "OSM node/7005457618"
+    ],
+    "agree_m": 40,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.144502,
+     42.658336
+    ]
+   },
+   "properties": {
+    "name": "Andover",
+    "mbta_name": "Andover",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-WR-0228",
+     "OSM node/7005457617"
+    ],
+    "agree_m": 49,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.15198,
+     42.701806
+    ]
+   },
+   "properties": {
+    "name": "Lawrence",
+    "mbta_name": "Lawrence",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-WR-0264",
+     "OSM node/947681622"
+    ],
+    "agree_m": 48,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.088411,
+     42.766912
+    ]
+   },
+   "properties": {
+    "name": "Bradford",
+    "mbta_name": "Bradford",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-WR-0325",
+     "OSM node/6997716179"
+    ],
+    "agree_m": 8,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.086237,
+     42.773474
+    ]
+   },
+   "properties": {
+    "name": "Haverhill",
+    "mbta_name": "Haverhill",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-WR-0329",
+     "OSM node/7030623590"
+    ],
+    "agree_m": 10,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.041314,
+     42.397024
+    ]
+   },
+   "properties": {
+    "name": "Chelsea",
+    "mbta_name": "Chelsea",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-chels",
+     "OSM node/9251765279"
+    ],
+    "agree_m": 99,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.9404344,
+     42.4652901
+    ]
+   },
+   "properties": {
+    "name": "Central Sq",
+    "mbta_name": "Lynn Interim",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-ER-0117",
+     "OSM node/11374373621"
+    ],
+    "agree_m": 24,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.922537,
+     42.473743
+    ]
+   },
+   "properties": {
+    "name": "Swampscott",
+    "mbta_name": "Swampscott",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-ER-0128",
+     "OSM node/7005410953"
+    ],
+    "agree_m": 10,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.898114,
+     42.50778
+    ]
+   },
+   "properties": {
+    "name": "South Salem",
+    "mbta_name": null,
+    "status": "proposed",
+    "sources": [
+     "City of Salem slides 2025, placed with OSM",
+     "Wikipedia: South Salem station"
+    ],
+    "agree_m": 18,
+    "approx": false,
+    "note": "City of Salem design at Ocean Ave West"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.927169,
+     42.526599
+    ]
+   },
+   "properties": {
+    "name": "Peabody",
+    "mbta_name": null,
+    "status": "revived",
+    "sources": [
+     "Sanborn 1920, Peabody sheet 11, placed with OSM",
+     "Peabody Historical Society, placed with OSM"
+    ],
+    "agree_m": 78,
+    "approx": false,
+    "note": "Peabody Square depot, trains to 1958"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.930204,
+     42.557019
+    ]
+   },
+   "properties": {
+    "name": "Danversport",
+    "mbta_name": null,
+    "status": "revived",
+    "sources": [
+     "Sanborn 1927, Danvers sheet 13, placed with OSM"
+    ],
+    "agree_m": null,
+    "approx": false,
+    "note": "Essex Railroad, by the Creese & Cook tannery"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.941247,
+     42.565787
+    ]
+   },
+   "properties": {
+    "name": "Danvers",
+    "mbta_name": null,
+    "status": "revived",
+    "sources": [
+     "Commons photos 2015",
+     "OSM Danvers Junction node"
+    ],
+    "agree_m": 121,
+    "approx": false,
+    "note": "Danvers Plains depot, at Danvers Junction from 1923"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.014412,
+     42.597492
+    ]
+   },
+   "properties": {
+    "name": "Middleton",
+    "mbta_name": null,
+    "status": "revived",
+    "sources": [
+     "OSM town point, on the old line"
+    ],
+    "agree_m": null,
+    "approx": true,
+    "note": "town point placed on the old Essex line"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.877943,
+     42.482646
+    ]
+   },
+   "properties": {
+    "name": "Clifton",
+    "mbta_name": null,
+    "status": "revived",
+    "sources": [
+     "Commons photo 2017",
+     "Wikipedia: Clifton, Massachusetts, placed with OSM"
+    ],
+    "agree_m": 1,
+    "approx": false,
+    "note": "Swampscott Branch stop at Clifton Ave"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.856398,
+     42.50238
+    ]
+   },
+   "properties": {
+    "name": "Marblehead",
+    "mbta_name": null,
+    "status": "revived",
+    "sources": [
+     "Marblehead Weekly News, placed with OSM",
+     "Sanborn 1915, Marblehead sheet 10, placed with OSM"
+    ],
+    "agree_m": 55,
+    "approx": false,
+    "note": "depot site, now 91 Pleasant St"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.895876,
+     42.524792
+    ]
+   },
+   "properties": {
+    "name": "Salem",
+    "mbta_name": "Salem",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-ER-0168",
+     "OSM node/7005410959"
+    ],
+    "agree_m": 50,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.885432,
+     42.547276
+    ]
+   },
+   "properties": {
+    "name": "Beverly",
+    "mbta_name": "Beverly",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-ER-0183",
+     "OSM node/7120019855"
+    ],
+    "agree_m": 1,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.883851,
+     42.583779
+    ]
+   },
+   "properties": {
+    "name": "North Beverly",
+    "mbta_name": "North Beverly",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-ER-0208",
+     "OSM node/2926907619"
+    ],
+    "agree_m": 21,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.874801,
+     42.609212
+    ]
+   },
+   "properties": {
+    "name": "Hamilton/Wenham",
+    "mbta_name": "Hamilton/Wenham",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-ER-0227",
+     "OSM node/2926907717"
+    ],
+    "agree_m": 39,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.840589,
+     42.676921
+    ]
+   },
+   "properties": {
+    "name": "Ipswich",
+    "mbta_name": "Ipswich",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-ER-0276",
+     "OSM node/2926907749"
+    ],
+    "agree_m": 95,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.859034,
+     42.726845
+    ]
+   },
+   "properties": {
+    "name": "Rowley",
+    "mbta_name": "Rowley",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-ER-0312",
+     "OSM node/2926936617"
+    ],
+    "agree_m": 36,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.87797,
+     42.797837
+    ]
+   },
+   "properties": {
+    "name": "Newburyport",
+    "mbta_name": "Newburyport",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-ER-0362",
+     "OSM node/3404799752"
+    ],
+    "agree_m": 95,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.869254,
+     42.562171
+    ]
+   },
+   "properties": {
+    "name": "Montserrat",
+    "mbta_name": "Montserrat",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-GB-0198",
+     "OSM node/660400880"
+    ],
+    "agree_m": 13,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.811405,
+     42.561651
+    ]
+   },
+   "properties": {
+    "name": "Beverly Farms",
+    "mbta_name": "Beverly Farms",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-GB-0229",
+     "OSM node/7005410955"
+    ],
+    "agree_m": 12,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.77009,
+     42.573687
+    ]
+   },
+   "properties": {
+    "name": "Manchester",
+    "mbta_name": "Manchester",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-GB-0254",
+     "Wikipedia: Manchester station (MBTA)",
+     "OSM node/7005410957"
+    ],
+    "agree_m": 88,
+    "approx": false,
+    "note": "OSM point 164 m off"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.705417,
+     42.611933
+    ]
+   },
+   "properties": {
+    "name": "West Gloucester",
+    "mbta_name": "West Gloucester",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-GB-0296",
+     "OSM node/7005410958"
+    ],
+    "agree_m": 5,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.668345,
+     42.616799
+    ]
+   },
+   "properties": {
+    "name": "Gloucester",
+    "mbta_name": "Gloucester",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-GB-0316",
+     "OSM node/7005410956"
+    ],
+    "agree_m": 101,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.627055,
+     42.655491
+    ]
+   },
+   "properties": {
+    "name": "Rockport",
+    "mbta_name": "Rockport",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-GB-0353",
+     "OSM node/7005410952"
+    ],
+    "agree_m": 67,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.075727,
+     42.34735
+    ]
+   },
+   "properties": {
+    "name": "Back Bay",
+    "mbta_name": "Back Bay",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-bbsta",
+     "OSM relation/20313627"
+    ],
+    "agree_m": 35,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.099974,
+     42.347581
+    ]
+   },
+   "properties": {
+    "name": "David Ortiz",
+    "mbta_name": "Lansdowne",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-WML-0025",
+     "OSM way/327673958"
+    ],
+    "agree_m": 24,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.126,
+     42.356
+    ]
+   },
+   "properties": {
+    "name": "West Station",
+    "mbta_name": null,
+    "status": "proposed",
+    "sources": [
+     "placed by hand on this map (tram/stations_real.geojson)",
+     "Wikipedia: West Station (MBTA)"
+    ],
+    "agree_m": 390,
+    "approx": false,
+    "note": "placed by hand in Beacon Park Yard"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.139883,
+     42.357293
+    ]
+   },
+   "properties": {
+    "name": "Boston Landing",
+    "mbta_name": "Boston Landing",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-WML-0035",
+     "OSM node/13646944723"
+    ],
+    "agree_m": 60,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.205408,
+     42.351702
+    ]
+   },
+   "properties": {
+    "name": "Newtonville",
+    "mbta_name": "Newtonville",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-WML-0081",
+     "OSM node/7005437478"
+    ],
+    "agree_m": 26,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.230528,
+     42.347878
+    ]
+   },
+   "properties": {
+    "name": "West Newton",
+    "mbta_name": "West Newton",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-WML-0091",
+     "OSM node/7005437474"
+    ],
+    "agree_m": 5,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.250373,
+     42.345833
+    ]
+   },
+   "properties": {
+    "name": "Auburndale",
+    "mbta_name": "Auburndale",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-WML-0102",
+     "OSM node/7005437481"
+    ],
+    "agree_m": 5,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.272288,
+     42.323608
+    ]
+   },
+   "properties": {
+    "name": "Wellesley Farms",
+    "mbta_name": "Wellesley Farms",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-WML-0125",
+     "Wikipedia: Wellesley Farms station",
+     "OSM node/7005437472"
+    ],
+    "agree_m": 54,
+    "approx": false,
+    "note": "OSM point 173 m off"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.277044,
+     42.31037
+    ]
+   },
+   "properties": {
+    "name": "Wellesley Hills",
+    "mbta_name": "Wellesley Hills",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-WML-0135",
+     "OSM node/7005437476"
+    ],
+    "agree_m": 20,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.294173,
+     42.297526
+    ]
+   },
+   "properties": {
+    "name": "Wellesley Square",
+    "mbta_name": "Wellesley Square",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-WML-0147",
+     "OSM node/7005437477"
+    ],
+    "agree_m": 61,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.347133,
+     42.285719
+    ]
+   },
+   "properties": {
+    "name": "Natick Center",
+    "mbta_name": "Natick Center",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-WML-0177",
+     "OSM node/7005437480"
+    ],
+    "agree_m": 10,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.391797,
+     42.283064
+    ]
+   },
+   "properties": {
+    "name": "West Natick",
+    "mbta_name": "West Natick",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-WML-0199",
+     "OSM node/7005437479"
+    ],
+    "agree_m": 4,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.420055,
+     42.276108
+    ]
+   },
+   "properties": {
+    "name": "Framingham",
+    "mbta_name": "Framingham",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-WML-0214",
+     "OSM node/7005044396"
+    ],
+    "agree_m": 1,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.482161,
+     42.26149
+    ]
+   },
+   "properties": {
+    "name": "Ashland",
+    "mbta_name": "Ashland",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-WML-0252",
+     "OSM node/7005437471"
+    ],
+    "agree_m": 33,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.524371,
+     42.267024
+    ]
+   },
+   "properties": {
+    "name": "Southborough",
+    "mbta_name": "Southborough",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-WML-0274",
+     "OSM node/7005437482"
+    ],
+    "agree_m": 47,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.647076,
+     42.269644
+    ]
+   },
+   "properties": {
+    "name": "Westborough",
+    "mbta_name": "Westborough",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-WML-0340",
+     "OSM node/7005437475"
+    ],
+    "agree_m": 37,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.685325,
+     42.2466
+    ]
+   },
+   "properties": {
+    "name": "Grafton",
+    "mbta_name": "Grafton",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-WML-0364",
+     "OSM node/7005437473"
+    ],
+    "agree_m": 93,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.794927,
+     42.261291
+    ]
+   },
+   "properties": {
+    "name": "Worcester",
+    "mbta_name": "Worcester",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-WML-0442",
+     "OSM relation/20317311"
+    ],
+    "agree_m": 85,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.088961,
+     42.336377
+    ]
+   },
+   "properties": {
+    "name": "Ruggles",
+    "mbta_name": "Ruggles",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-rugg",
+     "OSM way/29803203"
+    ],
+    "agree_m": 44,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.125526,
+     42.25503
+    ]
+   },
+   "properties": {
+    "name": "Hyde Park",
+    "mbta_name": "Hyde Park",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-NEC-2203",
+     "OSM node/3279972794"
+    ],
+    "agree_m": 47,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.133246,
+     42.238405
+    ]
+   },
+   "properties": {
+    "name": "Readville",
+    "mbta_name": "Readville",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-DB-0095",
+     "OSM node/7005044395"
+    ],
+    "agree_m": 60,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.158647,
+     42.233249
+    ]
+   },
+   "properties": {
+    "name": "Endicott",
+    "mbta_name": "Endicott",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-FB-0109",
+     "OSM node/7005413204"
+    ],
+    "agree_m": 15,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.174254,
+     42.227079
+    ]
+   },
+   "properties": {
+    "name": "Dedham Corporate Center",
+    "mbta_name": "Dedham Corporate Center",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-FB-0118",
+     "OSM node/7005413213"
+    ],
+    "agree_m": 13,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.183961,
+     42.22105
+    ]
+   },
+   "properties": {
+    "name": "Islington",
+    "mbta_name": "Islington",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-FB-0125",
+     "OSM node/7005413210"
+    ],
+    "agree_m": 1,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.196688,
+     42.196857
+    ]
+   },
+   "properties": {
+    "name": "Norwood Depot",
+    "mbta_name": "Norwood Depot",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-FB-0143",
+     "OSM node/7005413207"
+    ],
+    "agree_m": 12,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.199665,
+     42.188775
+    ]
+   },
+   "properties": {
+    "name": "Norwood Central",
+    "mbta_name": "Norwood Central",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-FB-0148",
+     "OSM node/7005413215"
+    ],
+    "agree_m": 20,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.219366,
+     42.172127
+    ]
+   },
+   "properties": {
+    "name": "Windsor Gardens",
+    "mbta_name": "Windsor Gardens",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-FB-0166",
+     "OSM node/7005413208"
+    ],
+    "agree_m": 50,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.25779,
+     42.145477
+    ]
+   },
+   "properties": {
+    "name": "Walpole",
+    "mbta_name": "Walpole",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-FB-0191",
+     "OSM way/121299913"
+    ],
+    "agree_m": 22,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.325217,
+     42.120694
+    ]
+   },
+   "properties": {
+    "name": "Norfolk",
+    "mbta_name": "Norfolk",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-FB-0230",
+     "OSM node/7005413203"
+    ],
+    "agree_m": 40,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.396102,
+     42.083238
+    ]
+   },
+   "properties": {
+    "name": "Franklin",
+    "mbta_name": "Franklin",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-FB-0275",
+     "OSM node/7005413214"
+    ],
+    "agree_m": 13,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.43902,
+     42.089941
+    ]
+   },
+   "properties": {
+    "name": "Forge Park/495",
+    "mbta_name": "Forge Park/495",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-FB-0303",
+     "OSM node/7005413206"
+    ],
+    "agree_m": 7,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.147134,
+     42.210308
+    ]
+   },
+   "properties": {
+    "name": "Route 128",
+    "mbta_name": "Route 128",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-NEC-2173",
+     "OSM way/212904812"
+    ],
+    "agree_m": 40,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.15376,
+     42.163204
+    ]
+   },
+   "properties": {
+    "name": "Canton Junction",
+    "mbta_name": "Canton Junction",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-NEC-2139",
+     "OSM node/5901183548"
+    ],
+    "agree_m": 8,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.184468,
+     42.124553
+    ]
+   },
+   "properties": {
+    "name": "Sharon",
+    "mbta_name": "Sharon",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-NEC-2108",
+     "OSM node/5901156227"
+    ],
+    "agree_m": 8,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.26151,
+     42.0951
+    ]
+   },
+   "properties": {
+    "name": "Foxboro",
+    "mbta_name": "Foxboro",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-FS-0049",
+     "OSM node/7105788934"
+    ],
+    "agree_m": 30,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.219917,
+     42.032787
+    ]
+   },
+   "properties": {
+    "name": "Mansfield",
+    "mbta_name": "Mansfield",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-NEC-2040",
+     "OSM node/7105788958"
+    ],
+    "agree_m": 34,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.285094,
+     41.940739
+    ]
+   },
+   "properties": {
+    "name": "Attleboro",
+    "mbta_name": "Attleboro",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-NEC-1969",
+     "OSM node/5889951383"
+    ],
+    "agree_m": 137,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.392,
+     41.878762
+    ]
+   },
+   "properties": {
+    "name": "Pawtucket/Central Falls",
+    "mbta_name": "Pawtucket/Central Falls",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-NEC-1891",
+     "OSM node/14007521649"
+    ],
+    "agree_m": 1,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.413301,
+     41.829293
+    ]
+   },
+   "properties": {
+    "name": "Providence",
+    "mbta_name": "Providence",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-NEC-1851",
+     "OSM node/3280065972"
+    ],
+    "agree_m": 8,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.442453,
+     41.726599
+    ]
+   },
+   "properties": {
+    "name": "TF Green Airport",
+    "mbta_name": "TF Green Airport",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-NEC-1768",
+     "OSM node/5889932762"
+    ],
+    "agree_m": 110,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.491147,
+     41.581289
+    ]
+   },
+   "properties": {
+    "name": "Wickford Junction",
+    "mbta_name": "Wickford Junction",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-NEC-1659",
+     "OSM node/7105481560"
+    ],
+    "agree_m": 36,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.14628,
+     42.157095
+    ]
+   },
+   "properties": {
+    "name": "Canton Center",
+    "mbta_name": "Canton Center",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-SB-0156",
+     "OSM node/7005413212"
+    ],
+    "agree_m": 4,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.103627,
+     42.124084
+    ]
+   },
+   "properties": {
+    "name": "Stoughton",
+    "mbta_name": "Stoughton",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-SB-0189",
+     "OSM node/7005413211"
+    ],
+    "agree_m": 102,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.097722,
+     42.08915
+    ]
+   },
+   "properties": {
+    "name": "North Easton",
+    "mbta_name": null,
+    "status": "proposed",
+    "sources": [
+     "Wikipedia: North Easton station (MBTA), rev. 1279156129",
+     "2013 Final EIS figure 3.2-22, placed with OSM"
+    ],
+    "agree_m": 61,
+    "approx": false,
+    "note": "South Coast Rail Phase 2, Roche Brothers Way"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.10331944,
+     42.06926944
+    ]
+   },
+   "properties": {
+    "name": "Easton Village",
+    "mbta_name": null,
+    "status": "proposed",
+    "sources": [
+     "Wikipedia: North Easton station",
+     "OSM way/212962983",
+     "Commons photo 2017"
+    ],
+    "agree_m": 0,
+    "approx": false,
+    "note": "South Coast Rail Phase 2, at the 1881 depot"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.075425,
+     41.980011
+    ]
+   },
+   "properties": {
+    "name": "Raynham Place",
+    "mbta_name": null,
+    "status": "proposed",
+    "sources": [
+     "Wikipedia: Raynham Place station",
+     "Commons photo 2017"
+    ],
+    "agree_m": 65,
+    "approx": false,
+    "note": "South Coast Rail Phase 2, behind Raynham Park"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.082222,
+     41.904444
+    ]
+   },
+   "properties": {
+    "name": "Taunton",
+    "mbta_name": null,
+    "status": "proposed",
+    "sources": [
+     "Wikipedia: Dean Street station",
+     "Commons photo 2017"
+    ],
+    "agree_m": 56,
+    "approx": false,
+    "note": "South Coast Rail Phase 2, Dean St depot"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.052391,
+     42.320685
+    ]
+   },
+   "properties": {
+    "name": "JFK/UMass",
+    "mbta_name": "JFK/UMass",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-jfk",
+     "OSM relation/20325815"
+    ],
+    "agree_m": 28,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.005409,
+     42.251809
+    ]
+   },
+   "properties": {
+    "name": "Quincy Center",
+    "mbta_name": "Quincy Center",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-qnctr",
+     "OSM node/69504996"
+    ],
+    "agree_m": 18,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.0011385,
+     42.2078543
+    ]
+   },
+   "properties": {
+    "name": "Braintree",
+    "mbta_name": "Braintree",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-brntn",
+     "OSM node/5331827938"
+    ],
+    "agree_m": 51,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.968152,
+     42.221503
+    ]
+   },
+   "properties": {
+    "name": "Weymouth Landing/East Braintree",
+    "mbta_name": "Weymouth Landing/East Braintree",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-GRB-0118",
+     "OSM node/7005274153"
+    ],
+    "agree_m": 6,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.9214,
+     42.2191
+    ]
+   },
+   "properties": {
+    "name": "East Weymouth",
+    "mbta_name": "East Weymouth",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-GRB-0146",
+     "OSM node/7005274152"
+    ],
+    "agree_m": 82,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.902708,
+     42.235838
+    ]
+   },
+   "properties": {
+    "name": "Hingham",
+    "mbta_name": "West Hingham",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-GRB-0162",
+     "OSM node/7005274156"
+    ],
+    "agree_m": 25,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.869205,
+     42.244959
+    ]
+   },
+   "properties": {
+    "name": "Nantasket Junction",
+    "mbta_name": "Nantasket Junction",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-GRB-0183",
+     "OSM node/7005274155"
+    ],
+    "agree_m": 74,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.837529,
+     42.24421
+    ]
+   },
+   "properties": {
+    "name": "Cohasset",
+    "mbta_name": "Cohasset",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-GRB-0199",
+     "OSM node/7005274151"
+    ],
+    "agree_m": 5,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.788602,
+     42.219528
+    ]
+   },
+   "properties": {
+    "name": "North Scituate",
+    "mbta_name": "North Scituate",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-GRB-0233",
+     "OSM node/7005274154"
+    ],
+    "agree_m": 46,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.746641,
+     42.178776
+    ]
+   },
+   "properties": {
+    "name": "Greenbush",
+    "mbta_name": "Greenbush",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-GRB-0276",
+     "OSM node/7005274157"
+    ],
+    "agree_m": 20,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.953302,
+     42.155025
+    ]
+   },
+   "properties": {
+    "name": "South Weymouth",
+    "mbta_name": "South Weymouth",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-PB-0158",
+     "OSM node/7005236180"
+    ],
+    "agree_m": 32,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.934405,
+     42.107156
+    ]
+   },
+   "properties": {
+    "name": "Abington",
+    "mbta_name": "Abington",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-PB-0194",
+     "OSM node/7005396585"
+    ],
+    "agree_m": 12,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.923411,
+     42.082749
+    ]
+   },
+   "properties": {
+    "name": "Whitman",
+    "mbta_name": "Whitman",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-PB-0212",
+     "OSM node/7005236181"
+    ],
+    "agree_m": 27,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.882438,
+     42.043967
+    ]
+   },
+   "properties": {
+    "name": "Hanson",
+    "mbta_name": "Hanson",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-PB-0245",
+     "OSM node/7005236183"
+    ],
+    "agree_m": 39,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.824263,
+     42.014739
+    ]
+   },
+   "properties": {
+    "name": "Halifax",
+    "mbta_name": "Halifax",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-PB-0281",
+     "OSM node/7005236178"
+    ],
+    "agree_m": 28,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.721709,
+     41.97762
+    ]
+   },
+   "properties": {
+    "name": "Kingston",
+    "mbta_name": "Kingston",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-KB-0351",
+     "OSM node/7005236182"
+    ],
+    "agree_m": 7,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.690421,
+     41.981278
+    ]
+   },
+   "properties": {
+    "name": "Plymouth",
+    "mbta_name": "Plymouth",
+    "status": "reopened",
+    "sources": [
+     "MBTA V3 API place-PB-0356",
+     "OSM node/7005396587",
+     "Wikipedia: Plymouth station (MBTA)"
+    ],
+    "agree_m": 6,
+    "approx": false,
+    "note": "closed 2021, at Cordage Park"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.027371,
+     42.156343
+    ]
+   },
+   "properties": {
+    "name": "Holbrook/Randolph",
+    "mbta_name": "Holbrook/Randolph",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-MM-0150",
+     "OSM node/7005236179"
+    ],
+    "agree_m": 20,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.022001,
+     42.106555
+    ]
+   },
+   "properties": {
+    "name": "Montello",
+    "mbta_name": "Montello",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-MM-0186",
+     "OSM node/7005396586"
+    ],
+    "agree_m": 26,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.016534,
+     42.084659
+    ]
+   },
+   "properties": {
+    "name": "Brockton",
+    "mbta_name": "Brockton",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-MM-0200",
+     "OSM node/7108366269"
+    ],
+    "agree_m": 5,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.011004,
+     42.060951
+    ]
+   },
+   "properties": {
+    "name": "Campello",
+    "mbta_name": "Campello",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-MM-0219",
+     "OSM node/7005236184"
+    ],
+    "agree_m": 10,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.96537,
+     41.984916
+    ]
+   },
+   "properties": {
+    "name": "Bridgewater",
+    "mbta_name": "Bridgewater",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-MM-0277",
+     "OSM node/7005044393"
+    ],
+    "agree_m": 4,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.923209,
+     41.887
+    ]
+   },
+   "properties": {
+    "name": "Middleborough",
+    "mbta_name": "Middleborough",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-MBS-0350",
+     "OSM node/9411535001"
+    ],
+    "agree_m": 13,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.061694,
+     41.868197
+    ]
+   },
+   "properties": {
+    "name": "East Taunton",
+    "mbta_name": "East Taunton",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-NBM-0374",
+     "OSM node/7232095577"
+    ],
+    "agree_m": 2,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.939322,
+     41.674308
+    ]
+   },
+   "properties": {
+    "name": "Church St",
+    "mbta_name": "Church Street",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-NBM-0523",
+     "OSM node/7232095580"
+    ],
+    "agree_m": 64,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.9252,
+     41.643703
+    ]
+   },
+   "properties": {
+    "name": "New Bedford",
+    "mbta_name": "New Bedford",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-NBM-0546",
+     "OSM node/7232095581"
+    ],
+    "agree_m": 36,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.090733,
+     41.773672
+    ]
+   },
+   "properties": {
+    "name": "Freetown",
+    "mbta_name": "Freetown",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-FRS-0054",
+     "OSM node/10782527215"
+    ],
+    "agree_m": 24,
+    "approx": false,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.154182,
+     41.713982
+    ]
+   },
+   "properties": {
+    "name": "Fall River Depot",
+    "mbta_name": "Fall River Depot",
+    "status": "exists",
+    "sources": [
+     "MBTA V3 API place-FRS-0109",
+     "OSM node/10782527216"
+    ],
+    "agree_m": 2,
+    "approx": false,
+    "note": ""
+   }
+  }
+ ]
+}

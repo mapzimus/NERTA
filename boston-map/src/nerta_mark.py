@@ -69,7 +69,7 @@ def _stadium(x0, y0, w, h):
     return Path(verts, codes)
 
 
-def _ring(ax, cx, cy, w, h, colors, z, k_out, k_col):
+def _ring(ax, cx, cy, w, h, colors, z, k_out, k_col, grid=1):
     """A stadium-shaped ring of color inside the pill's black edge: one color solid, several as 45-degree stripes."""
     from shapely.affinity import rotate
     from shapely.geometry import LineString, box
@@ -81,12 +81,12 @@ def _ring(ax, cx, cy, w, h, colors, z, k_out, k_col):
         _fill(ax, ring, colors[0], z)
         return
     gap = h * (1 - 2 * k_out) - h * k_col  # between the centerlines of the top and bottom straights
-    pitch = gap / max(1, round(gap / ((w + h) / 22)))
-    x0, y0, _, _ = ring.bounds
-    _stripes(ax, ring, pitch, x0 + y0, colors, z)
+    pitch = gap / max(1, round(gap / ((w + h) / (22 * grid))))
+    _, y0, x1, _ = ring.bounds
+    _stripes(ax, ring, pitch, x1 - y0, colors, z)  # stripes run right to left (Max, November 8): phase at the bottom-right corner
 
 
-def draw_nerta(ax, cx, top, width, variant="A", z=12, colors=None):
+def draw_nerta(ax, cx, top, width, variant="A", z=12, colors=None, grid=1):
     """Draw the NERTA mark with its top edge at `top`, centered on cx.
 
     `width` is the full outer width of the mark in data units (match the
@@ -109,7 +109,7 @@ def draw_nerta(ax, cx, top, width, variant="A", z=12, colors=None):
     elif v == "B":
         ax.add_patch(PathPatch(_stadium(x0, bottom, width, h), fc=INK, ec="none", lw=0, zorder=z))
         if colors:  # like the T: black edge, a ring of line color, then the black pill (Max, November 7)
-            _ring(ax, cx, bottom + h / 2, width, h, colors, z + 0.01, k_out=0.075, k_col=0.10)
+            _ring(ax, cx, bottom + h / 2, width, h, colors, z + 0.01, k_out=0.075, k_col=0.10, grid=grid)
         cap = h * 0.50
         _word(ax, cx, bottom + (h - cap) / 2, cap, 0.34, WHITE, z)
 
@@ -137,33 +137,34 @@ RAINBOW = ("#da291c", "#ed8b00", "#f5c400", "#00843d", "#00a9c9", "#003da5", "#3
 T_OUT, T_COL, T_PITCH = 0.08, 0.072, 0.09   # black edge, color band, stripe pitch (in x + y), all as shares of the roundel radius
 
 
-def _t_dims(r):
+def _t_dims(r, grid=1):
     """Band corners on a diagonal grid of pitch w: half stem 1.5w, half bar 6.5w, bar height 3w, stem below the bar 11w.
     22 stripes in all, so each of 11 colors shows exactly twice. Returns the T outline numbers and the vertical shift that centers it."""
-    o, w = T_OUT * r, T_PITCH * r
-    S, A, TB, BD, B = 1.5 * w, 6.5 * w, 3 * w, 11 * w, 0.28 * r
+    o, w = T_OUT * r, T_PITCH * r / grid  # grid 2: the same shape on a grid twice as fine (44 stripes), for the 37-color alternate
+    S, A, TB, BD, B = 1.5 * grid * w, 6.5 * grid * w, 3 * grid * w, 11 * grid * w, 0.28 * r
     a, s, bar, top, bot = A + o, S + o, B - o, B + TB + o, BD - B + o
     return a, s, bar, top, bot, (bot - top) / 2
 
 
-def _t_shape(cx, cy, r):
+def _t_shape(cx, cy, r, grid=1):
     from shapely.geometry import Polygon as SP
-    a, s, bar, top, bot, lift = _t_dims(r)
+    a, s, bar, top, bot, lift = _t_dims(r, grid)
     cy = cy + lift  # centered in the roundel
     return SP([(cx - a, cy + top), (cx + a, cy + top), (cx + a, cy + bar), (cx + s, cy + bar), (cx + s, cy - bot), (cx - s, cy - bot),
                (cx - s, cy + bar), (cx - a, cy + bar)])
 
 
 def _stripes(ax, shape, w, phase, colors, z):
-    """45-degree stripes over a shapely shape: edges on the lines x + y = phase + k w, colors in order, repeating."""
+    """45-degree stripes over a shapely shape, running right to left (Max, November 8; until then they ran the other way, edges on
+    x + y = c, which tells older renders apart): edges on the lines x - y = phase + k w, colors in order, repeating."""
     import math
     from shapely.geometry import Polygon as SP
     x0, y0, x1, y1 = shape.bounds
     big = 10 * (x1 - x0 + y1 - y0 + 1)
-    for k in range(math.floor((x0 + y0 - phase) / w) - 1, math.ceil((x1 + y1 - phase) / w) + 1):
+    cy_ = (y0 + y1) / 2
+    for k in range(math.floor((x0 - y1 - phase) / w) - 1, math.ceil((x1 - y0 - phase) / w) + 1):
         ua, ub = phase + k * w, phase + (k + 1) * w
-        cx_, cy_ = (x0 + x1) / 2, (y0 + y1) / 2
-        band = SP([(ua - cy_ + big, cy_ - big), (ub - cy_ + big, cy_ - big), (ub - cy_ - big, cy_ + big), (ua - cy_ - big, cy_ + big)])
+        band = SP([(ua + cy_ - big, cy_ - big), (ub + cy_ - big, cy_ - big), (ub + cy_ + big, cy_ + big), (ua + cy_ + big, cy_ + big)])
         _fill(ax, shape.intersection(band), colors[k % len(colors)], z)
 
 
@@ -184,18 +185,18 @@ def _fill(ax, geom, fc, z):
         ax.add_patch(PathPatch(Path(verts, codes), fc=fc, ec="none", lw=0, zorder=z))
 
 
-def draw_t(ax, cx, cy, r, colors=RAINBOW, z=12.1, k_out=0.08, k_col=0.072, core=WHITE):
+def draw_t(ax, cx, cy, r, colors=RAINBOW, z=12.1, k_out=0.08, k_col=0.072, core=WHITE, grid=1):
     """Draw the T inside a roundel of radius r centered at (cx, cy). One color: a solid band. Several: diagonal stripes at 45 degrees,
     like the map's lines."""
     r = r * 0.9  # the T fills 90% of the roundel, clear of the ring; every proportion scales with it, so the stripes stay aligned
-    t = _t_shape(cx, cy, r)
+    t = _t_shape(cx, cy, r, grid)
     band = t.buffer(-r * k_out, join_style=2)
     inner = t.buffer(-r * (k_out + k_col), join_style=2)
     _fill(ax, t, INK, z)
     if len(colors) == 1:
         _fill(ax, band, colors[0], z + 0.01)
     else:
-        _, s, _, _, bot, lift = _t_dims(r)
-        phase = (cx - (s - r * k_out)) + (cy + lift - (bot - r * k_out))  # the band's bottom-left corner: red starts there
-        _stripes(ax, band, T_PITCH * r, phase, colors, z + 0.01)
+        _, s, _, _, bot, lift = _t_dims(r, grid)
+        phase = (cx + (s - r * k_out)) - (cy + lift - (bot - r * k_out))  # the band's bottom-right corner: red starts there
+        _stripes(ax, band, T_PITCH * r / grid, phase, colors, z + 0.01)
     _fill(ax, inner, core, z + 0.02)

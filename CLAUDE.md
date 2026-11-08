@@ -7,6 +7,8 @@ Read `HANDOVER.md` first. It says where the work stands and what's next.
 - Plain English, American spelling (color, gray, center) on maps and in replies.
 - Answer first, short numbered steps, lists of 5 or fewer, one question at a time.
 - Copy nothing to `Desktop\30daymap\` until Max says the work is completely finished.
+- Finished maps go to `Desktop\NERTA-FINAL-Disclaimer\`, exported at social media posting sizes, only when Max says that map is final. Maps tie together, so most stay open a long time.
+- Every map posted for Day 8 carries the release block: the disclaimer, "Map: Maxwell Howe", "#30DayMapChallenge" and "Day 8 • Utopia" (`boston-map/src/release_tag.py`). nerta.fun versions leave it out.
 - Commit or push only when Max asks. This repo is public, so MBTA reference images stay private in `reference/private/`, listed in `reference/README.md`.
 - Max sends many short messages while you work. A stopped tool call usually means Max is adding something, not that Max is upset. Read the next message and adjust.
 - When Max rejects something, it stays rejected. Check `docs/DECISIONS.md` before suggesting it again.

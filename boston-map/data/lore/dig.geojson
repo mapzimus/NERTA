@@ -1,0 +1,198 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -71.055242,
+      42.352271
+     ],
+     [
+      -71.055484,
+      42.352532
+     ],
+     [
+      -71.055205,
+      42.352828
+     ],
+     [
+      -71.054782,
+      42.353109
+     ],
+     [
+      -71.054121,
+      42.353435
+     ],
+     [
+      -71.053627,
+      42.353676
+     ],
+     [
+      -71.05296,
+      42.354002
+     ],
+     [
+      -71.052038,
+      42.354453
+     ],
+     [
+      -71.05154,
+      42.354696
+     ],
+     [
+      -71.051187,
+      42.354965
+     ],
+     [
+      -71.050996,
+      42.35532
+     ],
+     [
+      -71.050885,
+      42.355752
+     ],
+     [
+      -71.050812,
+      42.356215
+     ],
+     [
+      -71.050771,
+      42.356624
+     ],
+     [
+      -71.050791,
+      42.357029
+     ],
+     [
+      -71.050927,
+      42.357385
+     ],
+     [
+      -71.051226,
+      42.357694
+     ],
+     [
+      -71.051446,
+      42.358284
+     ],
+     [
+      -71.051549,
+      42.358668
+     ],
+     [
+      -71.051656,
+      42.359056
+     ],
+     [
+      -71.051783,
+      42.35952
+     ],
+     [
+      -71.051924,
+      42.359901
+     ],
+     [
+      -71.052131,
+      42.360257
+     ],
+     [
+      -71.05239,
+      42.360581
+     ],
+     [
+      -71.052722,
+      42.360873
+     ],
+     [
+      -71.056053,
+      42.362257
+     ],
+     [
+      -71.058646,
+      42.364862
+     ],
+     [
+      -71.06129,
+      42.365577
+     ]
+    ]
+   },
+   "properties": {
+    "name": "The BIGGER Dig",
+    "tracks": 4,
+    "invented": false,
+    "basis": "North-South Rail Link studies (line_audit.md: Two). The NERTA name and four-track Atlantic Ave alignment follow the map",
+    "sources": [
+     "OpenStreetMap (Atlantic Avenue, Rose Kennedy Greenway)",
+     "MBTA V3 API (end stations)"
+    ],
+    "note": "Alignment traced along Atlantic Ave and the Greenway parcels from OSM; schematic depth, not an engineering route. Underground walkways reach Downtown Crossing and Park St (not drawn)"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.06129,
+     42.365577
+    ]
+   },
+   "properties": {
+    "name": "North Station",
+    "tier": 1,
+    "invented": false,
+    "sources": [
+     "MBTA API",
+     "OpenStreetMap"
+    ],
+    "verified": true,
+    "note": "MBTA and OSM 95 m apart"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.051783,
+     42.35952
+    ]
+   },
+   "properties": {
+    "name": "Boston Central",
+    "tier": 1,
+    "invented": true,
+    "sources": [
+     "OpenStreetMap (Atlantic Avenue)",
+     "placed by hand"
+    ],
+    "verified": false,
+    "note": "New NERTA station under Atlantic Ave at State St, by Aquarium. The site follows the North-South Rail Link's Central Station near Aquarium (line_audit.md: Two for the site); the name and tier are ours"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.055242,
+     42.352271
+    ]
+   },
+   "properties": {
+    "name": "South Station",
+    "tier": 1,
+    "invented": false,
+    "sources": [
+     "MBTA API"
+    ],
+    "verified": false,
+    "note": "MBTA only in stations_real.geojson"
+   }
+  }
+ ]
+}

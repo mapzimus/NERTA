@@ -5,7 +5,7 @@ Key. Every commuter line is drawn in commuter purple with its own second color o
 NERTA pill. The second color only tells the lines apart; nobody calls a line by it (Max, November 7). High-speed rail is gold
 inside purple, as on the main map, and stops only where a station's capsule takes in the gold line.
 
-Every line runs North Station, Boston Central, South Station. North-side lines end under South Station's capsule and
+Every line but the Peabody line runs North Station, Boston Central, South Station. North-side lines end under South Station's capsule and
 south-side lines under North Station's, so no line visibly ends downtown.
 
 Stops and names follow the main map (make_tmap.py: CR_STOPS, CR_PATHS, CR_TEXT, lines()), filled out with every real station
@@ -18,6 +18,7 @@ research/rail-poster-changes-for-all-maps.md. New or invented stops are logged i
 Writes only to output/copies/rail_poster_vN.png and .pdf and never overwrites.
 Run: python make_rail_poster.py [version] [--draft DIR]
 """
+import os
 import sys
 from pathlib import Path
 
@@ -33,10 +34,12 @@ from shapely.geometry import Polygon as SPoly  # noqa: E402
 from shapely.ops import substring  # noqa: E402
 
 sys.path.insert(0, str(Path(__file__).parent))
-from nerta_mark import draw_nerta  # noqa: E402
+from nerta_mark import draw_nerta, draw_t  # noqa: E402
+from release_tag import draw_release  # noqa: E402  (the shared November 8 release block, read only)
 import make_tmap as M  # noqa: E402  (read only: colors, lines(), icon)
 import make_line_poster as LP  # noqa: E402  (read only: roundel, transfer and ferry tables, so pills match the line posters)
 from station_kit import INK, WHITE, rounded  # noqa: E402
+from charlie_points import KEY_TEXT as CP_TEXT, draw_cp  # noqa: E402  (the shared Charlie Points coin and Key line, November 8)
 
 OUT = Path(__file__).resolve().parents[1] / "output" / "copies"
 K = 0.075          # inches per drawing unit, as on the line posters
@@ -76,7 +79,7 @@ DIRS = {"N": (0, 1), "S": (0, -1), "E": (1, 0), "W": (-1, 0), "NE": (1, 1), "NW"
 
 # Trunk: North Station, Boston Central, South Station
 YN, YC, YS = 0.0, -15.0, -30.0
-TRUNK_X0, TRUNK_X1 = -15.0, 13.0
+TRUNK_X0, TRUNK_X1 = -13.0, 13.0
 
 
 # ---------------------------------------------------------------------------------------------------------------
@@ -130,13 +133,13 @@ def on_line(key, at):
 # ---------------------------------------------------------------------------------------------------------------
 # Network. North-side spines run north from South Station; south-side spines run south from North Station. A line's
 # offset is its distance to the left of travel.
-N_SPINE = [(-9, YS), (-9, 80)]
-NE_SPINE = [(-9, YS), (-9, 11), (300, 11)]
+N_SPINE = [(-7, YS), (-7, 80)]
+NE_SPINE = [(-7, YS), (-7, 9), (300, 9)]
 A_W = [(3, YN), (3, -34), (-9, -46), (-9, -58), (-64, -58), (-164, -158)]   # Worcester pair: south, southwest, west, southwest
 A_S = [(3, YN), (3, -34), (-9, -46), (-9, -300)]                         # Franklin, Providence and NYC high-speed: south
-B_S = [(11, YN), (11, -31), (44, -64), (44, -300)]                       # Old Colony lines: south, southeast, south
+B_S = [(11, YN), (11, -33), (44, -66), (44, -300)]                       # Old Colony lines: south, southeast, south (the turn clear of South Station)
 
-SS_X = 86                  # South Salem, where the Peabody line and the Marblehead branch leave
+SS_X = 86                  # South Salem, where the Peabody line crosses the Newburyport/Rockport line
 HAVERHILL = ["Malden Center", "Oak Grove", "Reading", "North Wilmington", "Ballardvale", "Andover", "Lawrence", "Bradford", "Haverhill"]
 
 PATHS, BRANCHES = {}, []   # line -> drawn polyline; (line, polyline) for branches
@@ -147,17 +150,19 @@ ARROWS = []                # (line, polyline, rows, placement): lines that run o
 def build():
     P = PATHS
     # North side
-    P["fit"] = join(par(cut(N_SPINE, (-9, 3)), 6), walk((-15, 3), ("NW", 55)))
-    P["low"] = par(cut(N_SPINE, (-9, 52.4)), 4)
-    P["hmon"] = par(cut(N_SPINE, (-9, 62)), 2)
-    P["hmai"] = par(cut(N_SPINE, (-9, 62)), 0)
-    P["hav"] = par(cut(N_SPINE, (-9, 20 + STEP * (len(HAVERHILL) - 1))), -2)
-    P["pea"] = join(par(cut(NE_SPINE, (SS_X + 8, 11)), -4), walk((SS_X + 8, 7), ("N", 25)))
-    P["nbp"] = join(par(cut(NE_SPINE, (SS_X + 58, 11)), -6), walk((SS_X + 58, 5), ("NE", 21)))
+    P["fit"] = join(par(cut(N_SPINE, (-7, 3)), 6), walk((-13, 3), ("NW", 55)))
+    P["low"] = par(cut(N_SPINE, (-7, 52.4)), 4)
+    P["hmon"] = par(cut(N_SPINE, (-7, 62)), 2)
+    P["hmai"] = par(cut(N_SPINE, (-7, 62)), 0)
+    P["hav"] = par(cut(N_SPINE, (-7, 20 + STEP * (len(HAVERHILL) - 1))), -2)
+    P["nbp"] = join(par(cut(NE_SPINE, (SS_X + 58, 9)), -4), walk((SS_X + 58, 5), ("NE", 21)))
+    # Peabody line (Max, November 7): Marblehead to Lawrence, not through the Dig. Up from Marblehead and Clifton, across the
+    # Newburyport/Rockport line at South Salem, north through Peabody and Danvers, then on to Lawrence off the sheet.
+    P["pea"] = walk((SS_X + 7, -8), ("NW", 7), ("N", 33))
     # South side
     P["wor"] = cut(par(A_W, -4), (-125.1, -113.4))
     P["halb"] = cut(par(A_W, -2), (-133.8, -125.0))
-    P["fra"] = join(par(cut(A_S, (-9, -74)), 0), walk((-9, -74), ("W", 31), ("SW", 37)))
+    P["fra"] = join(par(cut(A_S, (-9, -74)), 0), walk((-9, -74), ("W", 31), ("SW", 3.5 + DSTEP * 9)))   # ends at Forge Park/495
     P["pro"] = par(cut(A_S, (-9, -121.1)), 2)
     P["hnyc"] = par(cut(A_S, (-9, -128)), 4)
     P["fr"] = par(cut(B_S, (44, -125.2)), -2)
@@ -169,6 +174,14 @@ def st(name, lines, at, side, kind="stop", text=None, dx=0.0, dy=0.0, lp=None):
     dots = [(ln, on_line(ln, at)) for ln in lines]
     STATIONS.append(dict(name=name, dots=dots, side=side, kind=kind, text=text, dx=dx, dy=dy, lp=lp))
     return dots
+
+
+def peabody_meets_at_lawrence():
+    """The Peabody line ends at Lawrence, off this sheet's Peabody arrow: Lawrence on the Haverhill line is a transfer, with the
+    PEABODY LINE pill after its name, so a rider can plan Lawrence to Marblehead (station display review, November 8)."""
+    for s in STATIONS:
+        if s["name"] == "Lawrence":
+            s["lp"] = "pea"
 
 
 def diag_stops(line, names, start, d, a0, side, ends=(), lp=None):
@@ -191,14 +204,14 @@ def col_stops(line, names, x, y0, side, step=STEP, ends=(), sign=1, lp=None):
 def stations():
     """Every station, its lines, and where its name sits."""
     # The BIGGER Dig
-    every = ["fit", "low", "hmon", "hmai", "hav", "pea", "nbp", "wor", "halb", "fra", "pro", "hnyc", "fr", "kin", "grb"]
+    every = ["fit", "low", "hmon", "hmai", "hav", "nbp", "wor", "halb", "fra", "pro", "hnyc", "fr", "kin", "grb"]
     st("North Station", every, (0, YN), "r", "hub")
     st("Boston Central", every, (0, YC), "r", "hub")
     st("South Station", every, (0, YS), "r", "hub")
 
     # Fitchburg Line, northwest, names to the left
     fit = diag_stops("fit", ["Porter", "Waltham", "Brandeis/Roberts", "Kendal Green", "Lincoln", "Concord", "West Concord", "South Acton",
-                             "Littleton/Route 495", "Ayer", "Shirley", "North Leominster", "Fitchburg", "Wachusett"], (-15, 3), "NW", 4.0, "l")
+                             "Littleton/Route 495", "Ayer", "Shirley", "North Leominster", "Fitchburg", "Wachusett"], (-13, 3), "NW", 4.0, "l")
     sa = fit["South Acton"]
     BRANCHES.append(("fit", walk(sa, ("W", 34))))
     st("Hudson", ["fit"], (sa[0] - 20, sa[1]), "b")
@@ -206,25 +219,26 @@ def stations():
     ARROWS.append(("fit", PATHS["fit"], ["TO GREENFIELD, NORTH ADAMS"], "nw"))
 
     # Lowell and Haverhill, side by side with the two northern high-speed lines between them
-    st("Sullivan Sq", ["low", "hmon", "hmai", "hav"], (-10, 15), "r", "pass")
-    col_stops("low", ["West Medford", "Wedgemere", "Winchester", "Anderson/Woburn", "Wilmington", "North Billerica", "Lowell"], -13, 26, "l",
-              ends=("Lowell",), lp="low")
+    st("Sullivan Sq", ["low", "hmon", "hmai", "hav"], (-8, 15), "r", "pass")
+    col_stops("low", ["West Medford", "Wedgemere", "Winchester", "Anderson/Woburn", "Wilmington", "North Billerica"], -11, 26, "l")
+    # High-speed trains stop at Lowell and Haverhill (November 8, as on the line posters): their capsules take in the gold lines
+    st("Lowell", ["low", "hmon"], (-11, 26 + STEP * 6), "l", "end", lp="low")
     # Haverhill trains stop at Oak Grove as at Malden Center, and run express past the Melrose and Wakefield stops Orange took over
-    col_stops("hav", HAVERHILL, -7, 20, "r", ends=("Haverhill",), lp="hav")
-    ARROWS.append(("hmon", PATHS["hmon"], ["HIGH-SPEED RAIL TO CONCORD NH, MONTREAL", "VIA LOWELL, NASHUA, MANCHESTER, BURLINGTON VT"], "n-left"))
+    col_stops("hav", HAVERHILL[:-1], -5, 20, "r")
+    st("Haverhill", ["hav", "hmai"], (-5, 20 + STEP * (len(HAVERHILL) - 1)), "r", "end", lp="hav")
+    peabody_meets_at_lawrence()
+    ARROWS.append(("hmon", PATHS["hmon"], ["HIGH-SPEED RAIL TO CONCORD NH, MONTREAL", "VIA LOWELL, NASHUA, MANCHESTER NH, BURLINGTON VT"], "n-left"))
     ARROWS.append(("hmai", PATHS["hmai"], ["HIGH-SPEED RAIL TO BANGOR", "VIA HAVERHILL, PORTLAND, AUGUSTA"], "n-right"))
 
-    # Peabody and Newburyport/Rockport: east together, then apart at South Salem
+    # Newburyport/Rockport east along the shore. The Peabody line crosses it at South Salem: Marblehead and Clifton (Max's stop, a
+    # Marblehead neighborhood) below, Peabody and Danvers above, Lawrence beyond
     for n, x in (("Chelsea", 20), ("Central Sq", 40), ("Swampscott", 61)):
-        st(n, ["pea", "nbp"], (x, 6), "t")
-    ss = st("South Salem", ["pea", "nbp"], (SS_X, 6), "t")
-    col_stops("pea", ["Peabody", "Danversport", "Danvers", "Middleton"], SS_X + 8, 14, "l")
-    ARROWS.append(("pea", PATHS["pea"], ["PEABODY LINE", "TO LAWRENCE"], "n-left-pill"))
-    # Marblehead branch from South Salem, through Clifton (Max's stop, a Marblehead neighborhood)
-    nb = dict(ss)["nbp"]
-    BRANCHES.append(("nbp", walk(nb, ("SE", 10))))
-    st("Clifton", ["nbp"], (nb[0] + 5, nb[1] - 5), "r")
-    st("Marblehead", ["nbp"], (nb[0] + 10, nb[1] - 10), "r", "end")
+        st(n, ["nbp"], (x, 5), "t")
+    st("South Salem", ["nbp", "pea"], (SS_X, 5), "ne")
+    col_stops("pea", ["Peabody", "Danversport", "Danvers", "Middleton"], SS_X, 14, "l")
+    ARROWS.append(("pea", PATHS["pea"], ["PEABODY LINE", "TO LAWRENCE (HAVERHILL LINE)"], "n-left-pill"))
+    st("Clifton", ["pea"], (SS_X + 3.5, -4.5), "r")
+    st("Marblehead", ["pea"], (SS_X + 7, -8), "r", "end", lp="pea")
     st("Salem", ["nbp"], (SS_X + 28, 5), "b")
     bev = st("Beverly", ["nbp"], (SS_X + 44, 5), "b")[0][1]
     BRANCHES.append(("nbp", walk(bev, ("NE", 4), ("N", 20.6))))
@@ -236,9 +250,11 @@ def stations():
     st("Back Bay", ["wor", "halb", "fra", "pro", "hnyc"], (-9, -50), "r", "tier2")
     st("David Ortiz", ["wor"], (-30, -54), "t")
     st("West Station", ["wor", "halb"], (-69.7, -58), "l", "tier2")
-    diag_stops("wor", ["Boston Landing", "Newtonville", "West Newton", "Auburndale", "Wellesley Farms", "Wellesley Hills", "Wellesley Square",
-                       "Natick Center", "West Natick", "Framingham", "Ashland", "Southborough", "Westborough", "Grafton", "Worcester"],
-               (-69.7, -58), "SW", 5.0, "l", ends=("Worcester",), lp="wor")
+    wor = ["Boston Landing", "Newtonville", "West Newton", "Auburndale", "Wellesley Farms", "Wellesley Hills", "Wellesley Square",
+           "Natick Center", "West Natick", "Framingham", "Ashland", "Southborough", "Westborough", "Grafton"]
+    diag_stops("wor", wor, (-69.7, -58), "SW", 5.0, "l")
+    a = 5.0 + DSTEP * len(wor)   # Worcester: high-speed trains to Albany stop here too (November 8)
+    st("Worcester", ["wor", "halb"], (-69.7 - a, -58 - a), "l", "end", lp="wor")
     ARROWS.append(("halb", PATHS["halb"], ["HIGH-SPEED RAIL TO ALBANY, CHICAGO", "VIA WORCESTER, SPRINGFIELD"], "sw"))
 
     # Franklin and Providence together to Readville
@@ -254,8 +270,12 @@ def stations():
     BRANCHES.append(("fra", [wal, man]))
     st("Foxboro", ["fra"], ((wal[0] + man[0]) / 2, wal[1]), "b")
     st("Mansfield", ["pro", "fra"], man, "tl")
-    col_stops("pro", ["Attleboro", "Pawtucket/Central Falls", "Providence", "TF Green Airport", "Wickford Junction"], -7, man[1] - STEP, "l",
-              ends=("Wickford Junction",), sign=-1, lp="pro")
+    for i, n in enumerate(["Attleboro", "Pawtucket/Central Falls", "Providence", "TF Green Airport", "Wickford Junction"]):
+        y = man[1] - STEP * (i + 1)
+        if n == "Providence":   # high-speed trains stop at Providence (November 8)
+            st(n, ["pro", "hnyc"], (-6, y), "l")
+        else:
+            st(n, ["pro"], (-7, y), "l", "end" if n == "Wickford Junction" else "stop", lp="pro" if n == "Wickford Junction" else None)
     ARROWS.append(("hnyc", PATHS["hnyc"], ["HIGH-SPEED RAIL TO NYC, PHILADELPHIA, WASHINGTON", "VIA PROVIDENCE, NEW HAVEN"], "s"))
     # Stoughton branch, east across the NYC high-speed line, then south to Taunton
     BRANCHES.append(("pro", walk(cj, ("E", 12), ("S", 26.6))))
@@ -284,17 +304,22 @@ def stations():
 # Names that differ from the station list, and per-station label tweaks
 TEXT = {"Weymouth Landing/East Braintree": "Weymouth Landing/\nEast Braintree"}
 SIDE_FIX = {"Middleborough": "l", "South Acton": "r"}
+PILLS_BELOW = {"West Medford"}   # beside its name, its GL pill sat level with Concord's dot on the Fitchburg diagonal (audit, November 8)
 
 
 # ---------------------------------------------------------------------------------------------------------------
 # Ferry docks at commuter stations, and where the high-speed boats stop. Docks inside the main map match the main map and the
 # line posters. The coastal docks past its edge come from the ferry network poster, which gives them commuter rail pills.
-# High-speed stops are the ferry poster's major ports plus Max's Langone Ferryport spec (November 7): Langone Ferryport, Salem,
-# Gloucester, Rockport, Quincy and New Bedford. A white ring inside the pill marks them, after the ferry poster's bullseye docks.
-FERRY_ROUTES = {"hw": ("Harbor West ferry", "#00796d", WHITE), "ns": ("North Shore ferry", "#9eb000", INK),
+# High-speed stops are the ferry poster's major ports at commuter stations: Salem, Gloucester, Rockport, Quincy and New Bedford.
+# A white ring inside the pill marks them, after the ferry poster's bullseye docks. North Station's dock is Lovejoy Wharf on the
+# Charles River boat (Max, November 8); Langone Ferryport is near North Station but not linked to it.
+FERRY_ROUTES = {"hw": ("Harbor West ferry", "#00796d", WHITE), "charles": ("Charles River ferry", M.ROUTE_COLOR["charles"], WHITE),
+                "ns": ("North Shore ferry", "#9eb000", INK),
                 "sse": ("South Shore Express ferry", "#611824", WHITE)}
 FERRY = {  # station: (dock, route, high-speed boats stop)
-    "North Station": ("Langone Ferryport", "hw", True), "Boston Central": ("Rowes Wharf", "hw", False),
+    # North Station's ferry is Lovejoy Wharf on the Charles River boat, a short walk; Langone Ferryport is near but not linked
+    # (Max, November 8: "lovejoy is the stop that should be connected to north station")
+    "North Station": ("Lovejoy Wharf", "charles", False), "Boston Central": ("Rowes Wharf", "hw", False),
     "South Station": ("Dorchester Ave", "hw", False), "Swampscott": ("Swampscott", "ns", False), "Clifton": ("Clifton", "ns", False),
     "Marblehead": ("Marblehead", "ns", False), "Salem": ("Salem Wharf", "ns", True), "Beverly": ("Beverly", "ns", False),
     "Beverly Farms": ("Beverly Farms", "ns", False), "Manchester": ("Manchester-by-the-Sea", "ns", False),
@@ -416,10 +441,10 @@ def ferry_look(station):
     """Fill, text color, Key name and high-speed flag of a station's ferry pill."""
     if station in FERRY:
         _dock, route, fast = FERRY[station]
-        name, fill, fg = FERRY_ROUTES[route]
-        return fill, fg, name, fast
+        _name, fill, fg = FERRY_ROUTES[route]
+        return fill, fg, LP.ferry_name(fill, code=False), fast  # the line posters' Key name, e.g. "North Shore Fast Ferry"
     fill = LP.FERRY_COLOR.get(station, M.FERRY)
-    return fill, INK if fill == M.ROUTE_COLOR.get("north-shore") else WHITE, LP.ferry_name(fill), False
+    return fill, INK if fill == M.ROUTE_COLOR.get("north-shore") else WHITE, LP.ferry_name(fill, code=False), False
 
 
 def t_pill(ax, x0, y, code, station):
@@ -467,16 +492,23 @@ def draw_station(ax, s, codes):
         a, b = dots[0], dots[-1]
         big = kind == "hub"
         lw = LW * (1.85 if big else 1.32)
-        z = 4.2 if kind == "pass" else 5.0  # a capsule the gold line passes over: high-speed trains run through without stopping
-        ax.plot([a[0], b[0]], [a[1], b[1]], color=INK, lw=lw, solid_capstyle="round", zorder=z)
-        ax.plot([a[0], b[0]], [a[1], b[1]], color=WHITE, lw=lw * 0.62, solid_capstyle="round", zorder=z + 0.01)
-        REG["dot"].append((owner, LineString([a, b]).buffer(lw / PPU / 2)))
+        if kind == "pass":
+            # High-speed trains pass without stopping (Sullivan Sq): a platform dot on each line that stops, joined by a thin
+            # black link under the high-speed lines, which plainly cross over it (audit, November 8)
+            ax.plot([a[0], b[0]], [a[1], b[1]], color=INK, lw=1.7, solid_capstyle="round", zorder=4.2)
+            for q in (a, b):
+                ax.scatter(*q, s=(LW * 1.2) ** 2, color=WHITE, edgecolor=INK, lw=1.7, zorder=6)
+            REG["dot"].append((owner, LineString([a, b]).buffer((LW * 1.2 / 2 + 0.85) / PPU)))
+        else:
+            ax.plot([a[0], b[0]], [a[1], b[1]], color=INK, lw=lw, solid_capstyle="round", zorder=5.0)
+            ax.plot([a[0], b[0]], [a[1], b[1]], color=WHITE, lw=lw * 0.62, solid_capstyle="round", zorder=5.01)
+            REG["dot"].append((owner, LineString([a, b]).buffer(lw / PPU / 2)))
     else:
         q = dots[0]
         if kind == "end":
             ax.scatter(*q, s=(LW * 1.5) ** 2, color=WHITE, edgecolor=PURPLE, lw=2.2, zorder=6)
             r = (LW * 1.5 / 2 + 1.1) / PPU
-        elif codes or junction:
+        elif codes or junction or s["lp"]:   # a through stop with a line pill (Lawrence, for the Peabody line) is a transfer
             ax.scatter(*q, s=(LW * 1.2) ** 2, color=WHITE, edgecolor=INK, lw=1.7, zorder=6)
             r = (LW * 1.2 / 2 + 0.85) / PPU
         else:
@@ -500,9 +532,13 @@ def draw_station(ax, s, codes):
     x, y = x + s["dx"], y + s["dy"]
     pw = pills_w(codes, s["name"]) if codes else 0
     lw_ = lp_w(s["lp"]) + 1.4 if s["lp"] else 0
+    pk = s["name"] in M.PARKING   # a parking sign follows the name, as on the T line posters (Max, November 8)
+    room = LP.PARK_ROOM if pk else 0.0
     if side == "r":
         txt(ax, x + gap, y - 0.05, text, fs, weight, "left", "center", owner=owner)
         far = x + gap + w
+        if pk:
+            far = park_sign(ax, far, y, 1)
         if codes:
             far = pill_row(ax, far + 1.4, y, codes, 1, s["name"])
         if s["lp"]:
@@ -511,22 +547,48 @@ def draw_station(ax, s, codes):
         yy = y + (1.5 if side == "tl" else 0)
         txt(ax, x - gap, yy - 0.05, text, fs, weight, "right", "center", owner=owner)
         far = x - gap - w
+        if pk:
+            far = park_sign(ax, far, yy, -1)
+        if codes and s["name"] in PILLS_BELOW:   # under the name, right-aligned to it
+            pill_row(ax, x - gap, yy - 3.4, codes, -1, s["name"])
+            codes = []
         if codes:
             far = pill_row(ax, far - 1.4, yy, codes, -1, s["name"])
         if s["lp"]:
             line_pill(ax, far - 1.4, yy, s["lp"], -1)
+    elif side == "ne":  # above and to the right of a crossing, clear of the line that runs up from it
+        top = max(ys) + 2.4
+        txt(ax, x + 1.6, top, text, fs, weight, "left", "bottom", owner=owner)
+        far = x + 1.6 + w
+        if pk:
+            far = park_sign(ax, far, top + LP.cap_mid(fs), 1)
+        if codes:
+            far = pill_row(ax, far + 1.4, top + 1.1, codes, 1, s["name"])
+        if s["lp"]:
+            line_pill(ax, far + 1.4, top + 1.1, s["lp"], 1)
     elif side in ("t", "b"):
         top = max(ys) + 2.5 if side == "t" else min(ys) - 2.5
         va = "bottom" if side == "t" else "top"
-        x0 = x - (w + (1.4 + pw if codes else 0) + lw_) / 2
+        x0 = x - (w + room + (1.4 + pw if codes else 0) + lw_) / 2
         txt(ax, x0, top, text, fs, weight, "left", va, owner=owner)
         h = 2.2 if "\n" not in text else 4.2
         cy = top + (h / 2 if side == "t" else -h / 2)
         far = x0 + w
+        if pk:
+            far = park_sign(ax, far, top + LP.cap_mid(fs) if side == "t" else top - 0.716 / 2 * fs / PPU, 1)
         if codes:
             far = pill_row(ax, far + 1.4, cy, codes, 1, s["name"])
         if s["lp"]:
             line_pill(ax, far + 1.4, cy, s["lp"], 1)
+
+
+def park_sign(ax, far, y, sign):
+    """The T line posters' parking sign, PARK_GAP past the end of a name, on the name's own side. Returns where what follows
+    the name now starts (PARK_ROOM further out)."""
+    px = far + sign * (LP.PARK_GAP + LP.PARK_A)
+    LP.park(ax, px, y)
+    REG["pill"].append(box(px - LP.PARK_A, y - LP.PARK_A, px + LP.PARK_A, y + LP.PARK_A))
+    return far + sign * LP.PARK_ROOM
 
 
 def draw_arrow(ax, key, pts, rows, where):
@@ -574,10 +636,18 @@ def panel(ax, x0, y0, x1, y1, z=1.0):
     REG["pill"].append(box(x0, y0, x1, y1).exterior.buffer(0.01))  # only its edge counts for the checks
 
 
+def nerta_roundel(ax, x, y, r):
+    """The header T: make_line_poster.roundel's white disk and ink ring, with the three-layer T striped in every NERTA color,
+    make_tmap.NERTA_COLORS (12; never NERTA_COLORS_ALL on a map). Max, November 8: "the logo is perfect send it throughout",
+    "all maps too everything". Every rail map draws its T here."""
+    ax.add_patch(Circle((x, y), r, fc=WHITE, ec=INK, lw=3.2, zorder=12))
+    draw_t(ax, x, y, r, M.NERTA_COLORS, z=13)
+
+
 def header(ax, x0, y1, x1):
     hy = y1 - 11
-    LP.roundel(ax, x0 + 10, hy, 6.4, PURPLE)
-    draw_nerta(ax, x0 + 10, hy - (6.4 + 3.2 / 5.4 / 2) - 0.8, 2 * (6.4 + 3.2 / 5.4 / 2), "B", colors=(PURPLE,))
+    nerta_roundel(ax, x0 + 10, hy, 6.4)     # the multicolor T and NERTA pill, as on every map (November 8)
+    draw_nerta(ax, x0 + 10, hy - (6.4 + 3.2 / 5.4 / 2) - 0.8, 2 * (6.4 + 3.2 / 5.4 / 2), "B", colors=M.NERTA_COLORS)
     ax.add_patch(FancyBboxPatch((x0 + 20, hy - 6), 28, 12, boxstyle="round,pad=0,rounding_size=6", fc=PURPLE, ec="none", zorder=12))
     k = 0.9
     ax.add_patch(FancyBboxPatch((x0 + 20 + k, hy - 6 + k), 28 - 2 * k, 12 - 2 * k, boxstyle=f"round,pad=0,rounding_size={6 - k}", fc=GOLD, ec="none", zorder=12.1))
@@ -585,8 +655,40 @@ def header(ax, x0, y1, x1):
     ax.add_patch(FancyBboxPatch((x0 + 20 + k2, hy - 6 + k2), 28 - 2 * k2, 12 - 2 * k2, boxstyle=f"round,pad=0,rounding_size={6 - k2}", fc=PURPLE, ec="none", zorder=12.2))
     ax.text(x0 + 34, hy - 0.4, "CR", fontsize=34, fontweight="bold", color=WHITE, ha="center", va="center", zorder=13)
     ax.text(x0 + 52, hy, "Commuter and" + chr(10) + "High-Speed Rail", fontsize=27, fontweight="bold", color=INK, ha="left", va="center", linespacing=1.1, zorder=13)
-    ax.text(x1 - 5, hy + 2.2, "Map: Maxwell Howe", fontsize=9.6, color=INK, ha="right", va="center", zorder=13)
-    ax.text(x1 - 5, hy - 2.2, "#30DayMapChallenge Day 8 • Utopia", fontsize=9.6, color=INK, ha="right", va="center", zorder=13)
+    return web_or_release(ax, x0, x1, hy, x0 + 52 + width("High-Speed Rail", 27, "bold"))
+
+
+NO_DISCLAIMER = os.environ.get("NERTA_NO_DISCLAIMER") == "1"   # the "_no-disclaimer" finals (Max, November 8)
+CONCEPT_NOTE = "Concept map by Maxwell Howe \u2013 @mapzimus \u2013 2026"  # Max's words; the one note they keep, under the logo
+NOTE_FS = 7.6        # points: the size of the footers' small type
+NERTA_HALF = 6.4 + 3.2 / 5.4 / 2   # half the NERTA mark's width (the roundel's outer radius), in poster units
+
+
+class NoDraw:
+    """An axes stand-in for release_tag.draw_release: it measures the block without drawing it, so a map without the
+    disclaimer keeps the block's room and every name where it is on the version with it."""
+    def text(self, *a, **k):
+        return None
+
+
+def web_or_release(ax, x0, x1, hy, title_right):
+    """The release block on every map posted November 8 (Max): the disclaimer, "Map: Maxwell Howe", "#30DayMapChallenge",
+    "Day 8 • Utopia". The nerta.fun render (NERTA_WEB=1) leaves it out and puts the name under NERTA and @mapzimus faint top
+    right, as the T line posters do."""
+    if NO_DISCLAIMER:   # Max: "Everything except for one small note underneath the NERTA logo"
+        nb = hy - NERTA_HALF - 0.8 - 2.6   # under the NERTA wordmark, as the web version's name
+        txt(ax, x0 + 10 - NERTA_HALF, nb - 1.0, CONCEPT_NOTE, NOTE_FS, va="top", z=13)   # left edge on the logo's
+        _left, bottom, _top = draw_release(NoDraw(), x1 - 5, hy, size=9.6, ppu=PPU, ink=INK)
+        return bottom
+    if M.WEB:
+        nb = hy - (6.4 + 3.2 / 5.4 / 2) - 0.8 - 2.6   # under the NERTA wordmark
+        ax.text(x0 + 10, nb - 1.0, "Maxwell Howe", fontsize=8.4, color=INK, ha="center", va="top", zorder=13)
+        ax.text(x1 - 5, hy, "@mapzimus", fontsize=9.6, fontweight="bold", color="#b9b9b4", ha="right", va="center", zorder=13)
+        return hy - 6
+    left, bottom, _top = draw_release(ax, x1 - 5, hy, size=9.6, ppu=PPU, ink=INK)
+    if left < title_right + 6:
+        print(f"  release block is {title_right + 6 - left:.1f} units too close to the title")
+    return bottom
 
 
 def dig_note(ax):
@@ -594,8 +696,9 @@ def dig_note(ax):
     x = TRUNK_X0 - 4.5
     txt(ax, x, YC + 4.6, "THE BIGGER DIG", 10.4, "bold", "right", "center")
     txt(ax, x, YC + 1.0, "Four tracks under Atlantic Ave.", 8.8, "normal", "right", "center")
-    txt(ax, x, YC - 2.4, "Every train calls at North Station,", 8.8, "normal", "right", "center")
-    txt(ax, x, YC - 5.8, "Boston Central and South Station.", 8.8, "normal", "right", "center")
+    txt(ax, x, YC - 2.4, "Every line but the Peabody line runs", 8.8, "normal", "right", "center")
+    txt(ax, x, YC - 5.8, "through North Station, Boston Central", 8.8, "normal", "right", "center")
+    txt(ax, x, YC - 9.2, "and South Station.", 8.8, "normal", "right", "center")
 
 
 def key(ax, kx0, ky1, used):
@@ -617,6 +720,13 @@ def key(ax, kx0, ky1, used):
     ax.plot([sx0 + 2.5, sx1 - 2.5], [y, y], color=WHITE, lw=LW * 1.32 * 0.62, solid_capstyle="round", zorder=12.01)
     txt(ax, lx, y, "Station on more than one line", 8.8)
     y -= 4.4
+    cx = (sx0 + sx1) / 2   # Sullivan Sq's drawing: two platform dots and a thin link, a gold line running over it
+    ax.plot([sx0 + 1.5, sx1 - 1.5], [y, y], color=INK, lw=1.7, solid_capstyle="round", zorder=12)
+    stroke_line(ax, np.array([(cx, y - 2.0), (cx, y + 2.0)]), "hmon", z=12)
+    for q in ((sx0 + 1.5, y), (sx1 - 1.5, y)):
+        ax.scatter(*q, s=(LW * 1.2) ** 2, color=WHITE, edgecolor=INK, lw=1.7, zorder=13)
+    txt(ax, lx, y, "High-speed trains pass without stopping", 8.8)
+    y -= 4.4
     ax.scatter((sx0 + sx1) / 2, y, s=(LW * 1.5) ** 2, color=WHITE, edgecolor=PURPLE, lw=2.2, zorder=12)
     txt(ax, lx, y, "End of the line", 8.8)
     y -= 4.4
@@ -625,24 +735,31 @@ def key(ax, kx0, ky1, used):
     ax.add_patch(Polygon(tri, closed=True, fc=PURPLE, ec="none", zorder=12))
     txt(ax, lx, y, "Line runs on beyond this map", 8.8)
     # Rider notes, under the samples, lined up with them
-    notes = [("icon", "Every station is accessible"), ("text", "Driverless maglev, 24 hours a day"),
-             ("text", "High-speed trains stop only at North Station,"), ("text", "Boston Central, South Station, Back Bay,"),
-             ("text", "West Station and Route 128"), ("text", "Extra trains for TD Garden and Foxboro stadium events")]
+    notes = [("icon", "Every station is accessible")] + ([("park", LP.PARKING_NOTE)] if any(st_["name"] in M.PARKING for st_ in STATIONS) else []) + \
+        [("text", "Driverless maglev, 24 hours a day"), ("cp", CP_TEXT), ("text", "Pods on demand at every station"),
+             ("text", "Near Boston, high-speed trains stop only at North Station,"), ("cont", "Boston Central, South Station, Back Bay, West Station, Route 128;"),
+             ("cont", "farther out at Lowell, Haverhill, Worcester and Providence"),
+             ("text", "Extra trains for TD Garden and Foxboro stadium events")]
     y -= 1.2
     for kind, t in notes:
-        y -= 4.4
+        y -= 2.9 if kind == "cont" else 4.4   # a sentence's later lines follow at line spacing
         if kind == "icon":
             M.icon(ax, (sx0 + sx1) / 2, y)
+        elif kind == "park":
+            LP.park(ax, (sx0 + sx1) / 2, y, z=12)
+        elif kind == "cp":
+            draw_cp(ax, (sx0 + sx1) / 2, y, 1.0, z=12)
         txt(ax, lx, y, t, 8.8)
     y_left_end = y
     # Transfer pills, in house order, one ferry row per ferry color on this poster
     cx = kx0 + 72
     y = ky1 - 9.4
-    boats, fast_any = [], False   # one row per ferry route on this poster, then the high-speed ring
+    boats, fast_boat = [], None   # one row per ferry route on this poster, then the high-speed ring in a fast route's colors
     for code, station in used:
         if code == "F":
             fill, fg, name, fast = ferry_look(station)
-            fast_any |= fast
+            if fast and fast_boat is None:
+                fast_boat = (fill, fg)
             if (fill, fg, name) not in boats:
                 boats.append((fill, fg, name))
     order = [v[1] for v in FERRY_ROUTES.values()]
@@ -650,7 +767,7 @@ def key(ax, kx0, ky1, used):
     codes = sorted({c for c, _ in used}, key=LP.ORDER.index)
     names = []
     for c in codes:
-        entries = [(f, fg, n, None) for f, fg, n in boats] + ([(boats[0][0], boats[0][1], "High-speed boats stop here", WHITE)] if fast_any else []) \
+        entries = [(f, fg, n, None) for f, fg, n in boats] + ([(fast_boat[0], fast_boat[1], "Fast ferries stop here (major port)", WHITE)] if fast_boat else []) \
             if c == "F" else [(LP.PILL[c], INK if c == "YL" else WHITE, LP.NAMES[c], None)]
         for fill, fg, name, ring in entries:
             pill(ax, cx - 3.3 - (EXPRESS_PAD / 2 if ring else 0), y, c, fill, fg, fs=8.6, z=12, express=bool(ring))
@@ -713,18 +830,24 @@ def check(fig, ax):
     return bad
 
 
-def next_version():
+def out_dir():
+    """--out DIR: write there (the nerta.fun web renders go to output/copies/web_vN/); otherwise output/copies."""
+    return Path(sys.argv[sys.argv.index("--out") + 1]) if "--out" in sys.argv else OUT
+
+
+def next_version(stem="rail_poster"):
     if len(sys.argv) > 1 and sys.argv[1].isdigit():
         return int(sys.argv[1])
+    d = out_dir()
     v = 1
-    while (OUT / f"rail_poster_v{v}.png").exists() or (OUT / f"rail_poster_v{v}.pdf").exists():
+    while (d / f"{stem}_v{v}.png").exists() or (d / f"{stem}_v{v}.pdf").exists():
         v += 1
     return v
 
 
 def main():
     v = next_version()
-    png, pdf = OUT / f"rail_poster_v{v}.png", OUT / f"rail_poster_v{v}.pdf"
+    png, pdf = out_dir() / f"rail_poster_v{v}.png", out_dir() / f"rail_poster_v{v}.pdf"
     draft = "--draft" in sys.argv
     if draft:  # trial renders go to a scratch folder, never into output/
         d = Path(sys.argv[sys.argv.index("--draft") + 1])
@@ -779,7 +902,8 @@ def main():
     ax.set_xlim(X0, X1)
     ax.set_ylim(Y0, Y1)
     header(ax, X0, Y1, X1)
-    ax.text(X1 - 5, Y0 + 4, "Layout schematic, not to scale. Not affiliated with the MBTA.", fontsize=7.6, color=INK, ha="right", va="bottom", zorder=13)
+    ax.text(X1 - 5, Y0 + 4, "Layout schematic, not to scale." if (M.WEB or NO_DISCLAIMER) else "Layout schematic, not to scale. Not affiliated with the MBTA.",
+            fontsize=7.6, color=INK, ha="right", va="bottom", zorder=13)   # nerta.fun never says MBTA
     print(f"sheet {(X1 - X0) * K:.1f} x {(Y1 - Y0) * K:.1f} in")
 
     bad = check(fig, ax)
@@ -794,7 +918,7 @@ def main():
 
 
 FRAME = (-220, 260, -200, 140)  # working sheet; main() trims it to the drawing
-KEY_AT = (84, -10)              # left, top
+KEY_AT = (125, -11.5)           # left, top: east of the Greenbush branch and its first names, which the taller Key reached (November 8)
 
 
 if __name__ == "__main__":

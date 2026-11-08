@@ -1,0 +1,86 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.049964,
+     42.360796
+    ]
+   },
+   "properties": {
+    "name": "Long Wharf international port",
+    "invented": true,
+    "port_of": "Atlantic Clipper (working name)",
+    "sources": [
+     "OpenStreetMap (ferry terminal)",
+     "MBTA V3 API"
+    ],
+    "verified": true,
+    "note": "Real ferry dock (MBTA and OSM agree); its role as an international port is invented"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -71.049964,
+      42.360796
+     ],
+     [
+      -71.049994,
+      42.360736
+     ],
+     [
+      -71.049457,
+      42.361015
+     ],
+     [
+      -71.042513,
+      42.360329
+     ],
+     [
+      -70.99436,
+      42.340914
+     ],
+     [
+      -70.865085,
+      42.334986
+     ],
+     [
+      -70.5,
+      42.33
+     ],
+     [
+      -70.0,
+      42.27
+     ],
+     [
+      -69.0,
+      42.12
+     ],
+     [
+      -67.5,
+      41.95
+     ],
+     [
+      -66.0,
+      41.85
+     ]
+    ]
+   },
+   "properties": {
+    "name": "Atlantic Clipper (working name)",
+    "code": "AC",
+    "color": "#1b2f5b",
+    "destination": "London",
+    "invented": true,
+    "note": "Transatlantic boat, Long Wharf to London. Out the harbor's main channel past Boston Light, then east-southeast to clear Cape Cod and Nova Scotia. The line stops in open ocean; the course is ours"
+   }
+  }
+ ]
+}

@@ -1,0 +1,5472 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.57376,
+     41.546687
+    ]
+   },
+   "properties": {
+    "name": "Acapesket",
+    "routes": [
+     "South Shore Fast Ferry"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 419,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.01931,
+     42.386541
+    ]
+   },
+   "properties": {
+    "name": "Addison St",
+    "routes": [
+     "Chelsea Creek"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 233,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.049534,
+     42.391408
+    ]
+   },
+   "properties": {
+    "name": "Admirals Hill",
+    "routes": [
+     "Mystic River"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 219,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.116054,
+     42.353591
+    ]
+   },
+   "properties": {
+    "name": "Agganis",
+    "routes": [
+     "Charles River"
+    ],
+    "major": false,
+    "event": true,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "Wikipedia",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": true,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "Nominatim (OpenStreetMap) and Wikipedia 5 m apart",
+    "snapped_m": 205,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.072762,
+     42.388423
+    ]
+   },
+   "properties": {
+    "name": "Alford St",
+    "routes": [
+     "Mystic River"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 102,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.086729,
+     42.358992
+    ]
+   },
+   "properties": {
+    "name": "Ames St",
+    "routes": [
+     "Charles River"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 280,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.674855,
+     42.657204
+    ]
+   },
+   "properties": {
+    "name": "Annisquam",
+    "routes": [
+     "North Shore Fast Ferry"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "Wikipedia",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": true,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "Nominatim (OpenStreetMap) and Wikipedia 11 m apart",
+    "snapped_m": 240,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.836168,
+     41.350046
+    ]
+   },
+   "properties": {
+    "name": "Aquinnah",
+    "routes": [
+     "Nantucket and Martha's Vineyard"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "Wikipedia",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "Nominatim (OpenStreetMap) and Wikipedia 3753 m apart",
+    "snapped_m": 35,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.159989,
+     42.360201
+    ]
+   },
+   "properties": {
+    "name": "Arsenal St",
+    "routes": [
+     "Charles River"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 84,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.07995,
+     42.396398
+    ]
+   },
+   "properties": {
+    "name": "Assembly",
+    "routes": [
+     "Mystic River"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "Wikipedia",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": true,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "Nominatim (OpenStreetMap) and Wikipedia 125 m apart",
+    "snapped_m": 251,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.110726,
+     42.352204
+    ]
+   },
+   "properties": {
+    "name": "BU Bridge",
+    "routes": [
+     "Charles River"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "Wikipedia",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": true,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "Nominatim (OpenStreetMap) and Wikipedia 1 m apart",
+    "snapped_m": 22,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.110357,
+     42.352075
+    ]
+   },
+   "properties": {
+    "name": "BU Docks",
+    "routes": [
+     "Charles River"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 6,
+    "note": "BU's sailing docks on the Boston bank (our reading of Max's name)"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.174934,
+     41.669446
+    ]
+   },
+   "properties": {
+    "name": "Bass River / Rte 28",
+    "routes": [
+     "South Shore Fast Ferry"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "placed by hand",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "no source",
+    "snapped_m": 653,
+    "note": "Bass River at the Route 28 bridge (placed by hand)"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.051087,
+     42.367202
+    ]
+   },
+   "properties": {
+    "name": "Battery Wharf",
+    "routes": [
+     "Harbor West"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "OpenStreetMap (ferry terminal)",
+     "Nominatim (OpenStreetMap)"
+    ],
+    "verified": false,
+    "invented": false,
+    "status": "boats call here today",
+    "agreement": "one source only",
+    "snapped_m": 0,
+    "note": "water taxi landing"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.974581,
+     42.249939
+    ]
+   },
+   "properties": {
+    "name": "Bay Pointe",
+    "routes": [
+     "Fore River"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 56,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.980854,
+     42.392075
+    ]
+   },
+   "properties": {
+    "name": "Beachmont",
+    "routes": [
+     "North Shore Fast Ferry"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 21,
+    "note": "Short Beach at Beachmont"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.1569,
+     42.360395
+    ]
+   },
+   "properties": {
+    "name": "Belmont Hill",
+    "routes": [
+     "Charles River"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 24,
+    "note": "Belmont Hill and Winsor shared boathouse"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.041827,
+     42.372904
+    ]
+   },
+   "properties": {
+    "name": "Bennington St",
+    "routes": [
+     "East Boston"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "placed by hand",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "no source",
+    "snapped_m": 454,
+    "note": "Waterfront end of Bennington St by Central Sq, East Boston (placed by hand)"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.875424,
+     42.54315
+    ]
+   },
+   "properties": {
+    "name": "Beverly",
+    "routes": [
+     "North Shore Fast Ferry"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "placed by hand",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "no source",
+    "snapped_m": 308,
+    "note": "Glover Wharf, Beverly: the coordinates make_tmap.py bends from"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.810543,
+     42.556801
+    ]
+   },
+   "properties": {
+    "name": "Beverly Farms",
+    "routes": [
+     "North Shore Fast Ferry"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 60,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.036003,
+     42.384355
+    ]
+   },
+   "properties": {
+    "name": "Boston Bay",
+    "routes": [
+     "Chelsea Creek"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "placed by hand",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "no source",
+    "snapped_m": 16,
+    "note": "Place not found. Placed by hand on the East Boston bank near the mouth of Chelsea Creek"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.090461,
+     41.289271
+    ]
+   },
+   "properties": {
+    "name": "Brant Point",
+    "routes": [
+     "Nantucket and Martha's Vineyard"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 74,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.642793,
+     42.091967
+    ]
+   },
+   "properties": {
+    "name": "Brant Rock / Green Harbor",
+    "routes": [
+     "South Shore Fast Ferry"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "Wikipedia",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "Nominatim (OpenStreetMap) and Wikipedia 1922 m apart",
+    "snapped_m": 152,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.623202,
+     42.622647
+    ]
+   },
+   "properties": {
+    "name": "Brier Neck",
+    "routes": [
+     "North Shore Fast Ferry"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 292,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.079923,
+     42.362493
+    ]
+   },
+   "properties": {
+    "name": "Broad Canal",
+    "routes": [
+     "Charles River"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 6,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.615813,
+     41.742451
+    ]
+   },
+   "properties": {
+    "name": "Buzzards Bay",
+    "routes": [
+     "South Shore Fast Ferry"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "Wikipedia",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "Nominatim (OpenStreetMap) and Wikipedia 699 m apart",
+    "snapped_m": 313,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.047429,
+     42.326605
+    ]
+   },
+   "properties": {
+    "name": "Carson Beach",
+    "routes": [
+     "South Shore",
+     "South Shore Fast Ferry"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 29,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.012442,
+     42.336951
+    ]
+   },
+   "properties": {
+    "name": "Castle Island",
+    "routes": [
+     "South Shore"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "Wikipedia",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": true,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "Nominatim (OpenStreetMap) and Wikipedia 65 m apart",
+    "snapped_m": 103,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.048569,
+     42.358866
+    ]
+   },
+   "properties": {
+    "name": "Central Wharf",
+    "routes": [
+     "Harbor West"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "OpenStreetMap (ferry terminal)",
+     "MBTA V3 API"
+    ],
+    "verified": true,
+    "invented": false,
+    "status": "boats call here today",
+    "agreement": "OpenStreetMap (ferry terminal) and MBTA V3 API 3 m apart",
+    "snapped_m": 0,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.5078,
+     41.3885
+    ]
+   },
+   "properties": {
+    "name": "Chappaquiddick",
+    "routes": [
+     "Nantucket and Martha's Vineyard"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "placed by hand"
+    ],
+    "verified": false,
+    "invented": false,
+    "status": "boats call here today",
+    "agreement": "no source",
+    "snapped_m": 0,
+    "note": "Chappaquiddick side of the Chappy ferry (placed by hand)"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.092676,
+     42.351589
+    ]
+   },
+   "properties": {
+    "name": "Charlesgate",
+    "routes": [
+     "Charles River"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Wikipedia",
+     "placed by hand",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 69,
+    "note": "Charles River where Charlesgate meets it (placed by hand)"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -69.950583,
+     41.688634
+    ]
+   },
+   "properties": {
+    "name": "Chatham",
+    "routes": [
+     "South Shore Fast Ferry",
+     "Nantucket and Martha's Vineyard"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 72,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.023139,
+     42.386609
+    ]
+   },
+   "properties": {
+    "name": "Chelsea St",
+    "routes": [
+     "Chelsea Creek"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 49,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.722925,
+     41.339187
+    ]
+   },
+   "properties": {
+    "name": "Chilmark",
+    "routes": [
+     "Nantucket and Martha's Vineyard"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 96,
+    "note": "Chilmark's south shore (our reading)"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.152491,
+     41.251285
+    ]
+   },
+   "properties": {
+    "name": "Cisco",
+    "routes": [
+     "Nantucket and Martha's Vineyard"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 58,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.876935,
+     42.479727
+    ]
+   },
+   "properties": {
+    "name": "Clifton",
+    "routes": [
+     "North Shore Fast Ferry"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 484,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -69.946877,
+     41.845385
+    ]
+   },
+   "properties": {
+    "name": "Coast Guard Beach",
+    "routes": [
+     "South Shore Fast Ferry"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 43,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.02995,
+     42.383111
+    ]
+   },
+   "properties": {
+    "name": "Condor St",
+    "routes": [
+     "Chelsea Creek"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "placed by hand",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "no source",
+    "snapped_m": 11,
+    "note": "Condor Street Urban Wild on Chelsea Creek (placed by hand)"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -69.999108,
+     41.328833
+    ]
+   },
+   "properties": {
+    "name": "Coskata",
+    "routes": [
+     "Nantucket and Martha's Vineyard"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 244,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.740847,
+     42.678553
+    ]
+   },
+   "properties": {
+    "name": "Crane Beach",
+    "routes": [
+     "North Shore Fast Ferry"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "Wikipedia",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "Nominatim (OpenStreetMap) and Wikipedia 2509 m apart",
+    "snapped_m": 51,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.127626,
+     42.372694
+    ]
+   },
+   "properties": {
+    "name": "Cumnock",
+    "routes": [
+     "Charles River"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 172,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.923683,
+     41.424462
+    ]
+   },
+   "properties": {
+    "name": "Cuttyhunk",
+    "routes": [
+     "South Shore Fast Ferry",
+     "Nantucket and Martha's Vineyard"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "OpenStreetMap (ferry terminal)"
+    ],
+    "verified": false,
+    "invented": false,
+    "status": "boats call here today",
+    "agreement": "one source only",
+    "snapped_m": 0,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.107845,
+     42.353202
+    ]
+   },
+   "properties": {
+    "name": "DeWolfe",
+    "routes": [
+     "Charles River"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 8,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.967864,
+     42.355421
+    ]
+   },
+   "properties": {
+    "name": "Deer Island",
+    "routes": [
+     "Harbor Islands"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "Wikipedia",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "Nominatim (OpenStreetMap) and Wikipedia 867 m apart",
+    "snapped_m": 32,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.123616,
+     41.654197
+    ]
+   },
+   "properties": {
+    "name": "Dennis Port",
+    "routes": [
+     "South Shore Fast Ferry"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "Wikipedia",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "Nominatim (OpenStreetMap) and Wikipedia 1388 m apart",
+    "snapped_m": 157,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.052092,
+     42.352458
+    ]
+   },
+   "properties": {
+    "name": "Dorchester Ave",
+    "routes": [
+     "Harbor West"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "placed by hand",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "no source",
+    "snapped_m": 109,
+    "note": "Fort Point Channel at Dorchester Ave, beside South Station (placed by hand)"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.047703,
+     42.307013
+    ]
+   },
+   "properties": {
+    "name": "Dorchester Shores",
+    "routes": [
+     "South Shore"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 49,
+    "note": "Dorchester Shores Reservation (Malibu Beach)"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.64471,
+     42.04916
+    ]
+   },
+   "properties": {
+    "name": "Duxbury",
+    "routes": [
+     "South Shore Fast Ferry"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "Wikipedia",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "Nominatim (OpenStreetMap) and Wikipedia 1245 m apart",
+    "snapped_m": 280,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.016968,
+     42.39874
+    ]
+   },
+   "properties": {
+    "name": "Eastern Ave",
+    "routes": [
+     "Chelsea Creek"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 260,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.510008,
+     41.389172
+    ]
+   },
+   "properties": {
+    "name": "Edgartown",
+    "routes": [
+     "Nantucket and Martha's Vineyard"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "OpenStreetMap (ferry terminal)"
+    ],
+    "verified": false,
+    "invented": false,
+    "status": "boats call here today",
+    "agreement": "one source only",
+    "snapped_m": 0,
+    "note": "Falmouth to Edgartown boat landing"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.133415,
+     42.371506
+    ]
+   },
+   "properties": {
+    "name": "Eliot",
+    "routes": [
+     "Charles River"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "Wikipedia",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": true,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "Nominatim (OpenStreetMap) and Wikipedia 14 m apart",
+    "snapped_m": 47,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.070703,
+     42.393918
+    ]
+   },
+   "properties": {
+    "name": "Encore",
+    "routes": [
+     "Mystic River"
+    ],
+    "major": false,
+    "event": true,
+    "sources": [
+     "OpenStreetMap (ferry terminal)",
+     "Wikipedia"
+    ],
+    "verified": true,
+    "invented": false,
+    "status": "boats call here today",
+    "agreement": "OpenStreetMap (ferry terminal) and Wikipedia 73 m apart",
+    "snapped_m": 0,
+    "note": "Encore shuttle boat landing"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.073237,
+     42.358562
+    ]
+   },
+   "properties": {
+    "name": "Esplanade",
+    "routes": [
+     "Charles River"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "Wikipedia",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "Nominatim (OpenStreetMap) and Wikipedia 335 m apart",
+    "snapped_m": 43,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.91558,
+     41.632016
+    ]
+   },
+   "properties": {
+    "name": "Fairhaven",
+    "routes": [
+     "South Shore Fast Ferry"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "Wikipedia",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": true,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "Nominatim (OpenStreetMap) and Wikipedia 45 m apart",
+    "snapped_m": 1170,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.162956,
+     41.705982
+    ]
+   },
+   "properties": {
+    "name": "Fall River",
+    "routes": [
+     "South Shore Fast Ferry"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "Wikipedia",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": true,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "Nominatim (OpenStreetMap) and Wikipedia 87 m apart",
+    "snapped_m": 81,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.605288,
+     41.545685
+    ]
+   },
+   "properties": {
+    "name": "Falmouth",
+    "routes": [
+     "South Shore Fast Ferry"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "OpenStreetMap (ferry terminal)"
+    ],
+    "verified": false,
+    "invented": false,
+    "status": "boats call here today",
+    "agreement": "one source only",
+    "snapped_m": 0,
+    "note": "Falmouth to Edgartown boat"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.043181,
+     42.353521
+    ]
+   },
+   "properties": {
+    "name": "Fan Pier",
+    "routes": [
+     "Seaport"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "OpenStreetMap (ferry terminal)",
+     "MBTA V3 API"
+    ],
+    "verified": true,
+    "invented": false,
+    "status": "boats call here today",
+    "agreement": "OpenStreetMap (ferry terminal) and MBTA V3 API 5 m apart",
+    "snapped_m": 0,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.037445,
+     42.288014
+    ]
+   },
+   "properties": {
+    "name": "Finigan",
+    "routes": [
+     "South Shore"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 68,
+    "note": "Max's spelling; Finnegan Park at Port Norfolk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.029894,
+     42.341777
+    ]
+   },
+   "properties": {
+    "name": "First St",
+    "routes": [
+     "South Shore"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "placed by hand",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "no source",
+    "snapped_m": 26,
+    "note": "Reserved Channel at the east end of First St, South Boston (placed by hand)"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.040026,
+     42.311608
+    ]
+   },
+   "properties": {
+    "name": "Fox Point",
+    "routes": [
+     "South Shore"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 30,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.931116,
+     42.319579
+    ]
+   },
+   "properties": {
+    "name": "Georges Island",
+    "routes": [
+     "Harbor Islands"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "OpenStreetMap (ferry terminal)",
+     "Wikipedia"
+    ],
+    "verified": false,
+    "invented": false,
+    "status": "boats call here today",
+    "agreement": "OpenStreetMap (ferry terminal) and Wikipedia 275 m apart",
+    "snapped_m": 0,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.666526,
+     42.601132
+    ]
+   },
+   "properties": {
+    "name": "Gloucester",
+    "routes": [
+     "North Shore Fast Ferry"
+    ],
+    "major": true,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 611,
+    "note": "Named in the MassDOT and MBTA Water Transportation Study"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.086887,
+     42.352775
+    ]
+   },
+   "properties": {
+    "name": "Gloucester St",
+    "routes": [
+     "Charles River"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "placed by hand",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "no source",
+    "snapped_m": 11,
+    "note": "Charles River at the north end of Gloucester St (placed by hand)"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.073237,
+     42.358562
+    ]
+   },
+   "properties": {
+    "name": "Gronk",
+    "routes": [
+     "Charles River"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "placed by hand",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "no source",
+    "snapped_m": 23,
+    "note": "Not a place (a nickname). Placed by hand on the Boston bank between Nashua St and the Hatch Shell"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.058047,
+     41.669242
+    ]
+   },
+   "properties": {
+    "name": "Harwich Point",
+    "routes": [
+     "South Shore Fast Ferry"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "OpenStreetMap (ferry terminal)",
+     "Nominatim (OpenStreetMap)"
+    ],
+    "verified": false,
+    "invented": false,
+    "status": "boats call here today",
+    "agreement": "one source only",
+    "snapped_m": 0,
+    "note": "Saquatucket Harbor ferry terminal, Harwich Port (our reading of Max's name)"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.074107,
+     42.35733
+    ]
+   },
+   "properties": {
+    "name": "Hatch Shell",
+    "routes": [
+     "Charles River"
+    ],
+    "major": false,
+    "event": true,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "Wikipedia",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": true,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "Nominatim (OpenStreetMap) and Wikipedia 2 m apart",
+    "snapped_m": 33,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.132568,
+     42.368009
+    ]
+   },
+   "properties": {
+    "name": "Herter",
+    "routes": [
+     "Charles River"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 44,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.989998,
+     42.387324
+    ]
+   },
+   "properties": {
+    "name": "Highlands Beach",
+    "routes": [
+     "North Shore Fast Ferry"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "placed by hand",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "no source",
+    "snapped_m": 36,
+    "note": "Winthrop Highlands shore of Belle Isle Inlet (placed by hand)"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.919823,
+     42.254171
+    ]
+   },
+   "properties": {
+    "name": "Hingham",
+    "routes": [
+     "Fore River",
+     "South Shore Fast Ferry"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "OpenStreetMap (ferry terminal)",
+     "MBTA V3 API"
+    ],
+    "verified": true,
+    "invented": false,
+    "status": "boats call here today",
+    "agreement": "OpenStreetMap (ferry terminal) and MBTA V3 API 3 m apart",
+    "snapped_m": 0,
+    "note": "Hingham Shipyard, Hewitts Cove"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.959935,
+     42.270183
+    ]
+   },
+   "properties": {
+    "name": "Hough's Neck",
+    "routes": [
+     "Quincy Bay"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "Wikipedia",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": true,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "Nominatim (OpenStreetMap) and Wikipedia 18 m apart",
+    "snapped_m": 423,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.920014,
+     42.302655
+    ]
+   },
+   "properties": {
+    "name": "Hull",
+    "routes": [
+     "Fore River",
+     "South Shore Fast Ferry"
+    ],
+    "major": true,
+    "event": false,
+    "sources": [
+     "OpenStreetMap (ferry terminal)",
+     "MBTA V3 API"
+    ],
+    "verified": true,
+    "invented": false,
+    "status": "boats call here today",
+    "agreement": "OpenStreetMap (ferry terminal) and MBTA V3 API 7 m apart",
+    "snapped_m": 0,
+    "note": "Pemberton Point"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.693596,
+     42.13806
+    ]
+   },
+   "properties": {
+    "name": "Humarock",
+    "routes": [
+     "South Shore Fast Ferry"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "Wikipedia",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "Nominatim (OpenStreetMap) and Wikipedia 230 m apart",
+    "snapped_m": 180,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.276685,
+     41.651392
+    ]
+   },
+   "properties": {
+    "name": "Hyannis",
+    "routes": [
+     "South Shore Fast Ferry"
+    ],
+    "major": true,
+    "event": false,
+    "sources": [
+     "OpenStreetMap (ferry terminal)"
+    ],
+    "verified": false,
+    "invented": false,
+    "status": "boats call here today",
+    "agreement": "one source only",
+    "snapped_m": 0,
+    "note": "Steamship Authority terminal"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.29793,
+     41.632996
+    ]
+   },
+   "properties": {
+    "name": "Hyannisport",
+    "routes": [
+     "South Shore Fast Ferry"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "Wikipedia",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "Nominatim (OpenStreetMap) and Wikipedia 404 m apart",
+    "snapped_m": 61,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.827895,
+     42.683681
+    ]
+   },
+   "properties": {
+    "name": "Ipswich",
+    "routes": [
+     "North Shore Fast Ferry"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 45,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.117845,
+     42.368958
+    ]
+   },
+   "properties": {
+    "name": "John W. Weeks",
+    "routes": [
+     "Charles River"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "Wikipedia",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": true,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "Nominatim (OpenStreetMap) and Wikipedia 8 m apart",
+    "snapped_m": 58,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.518185,
+     41.348826
+    ]
+   },
+   "properties": {
+    "name": "Katama Beach",
+    "routes": [
+     "Nantucket and Martha's Vineyard"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 60,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.966142,
+     42.247518
+    ]
+   },
+   "properties": {
+    "name": "King's Cove",
+    "routes": [
+     "Fore River"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "placed by hand",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "no source",
+    "snapped_m": 94,
+    "note": "King's Cove Park at the Fore River Bridge, North Weymouth (placed by hand)"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.597847,
+     41.453582
+    ]
+   },
+   "properties": {
+    "name": "Lagoon Pond",
+    "routes": [
+     "Nantucket and Martha's Vineyard"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 511,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.054636,
+     42.369028
+    ]
+   },
+   "properties": {
+    "name": "Langone Ferryport",
+    "routes": [
+     "Charles River",
+     "Mystic River",
+     "Chelsea Creek",
+     "Harbor West",
+     "Fast Ferry",
+     "East Boston",
+     "Harbor Islands",
+     "Seaport",
+     "South Shore",
+     "Quincy Bay",
+     "Fore River",
+     "North Shore Fast Ferry",
+     "South Shore Fast Ferry"
+    ],
+    "major": true,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "Wikipedia",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": true,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "Nominatim (OpenStreetMap) and Wikipedia 70 m apart",
+    "snapped_m": 70,
+    "note": "Max's hub at Langone Park; no dock there today"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.056098,
+     42.380349
+    ]
+   },
+   "properties": {
+    "name": "Little Mystic",
+    "routes": [
+     "Mystic River"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "placed by hand",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "no source",
+    "snapped_m": 150,
+    "note": "Little Mystic Channel, Charlestown (placed by hand)"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.027457,
+     42.360142
+    ]
+   },
+   "properties": {
+    "name": "Logan Dock",
+    "routes": [
+     "East Boston"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "OpenStreetMap (ferry terminal)",
+     "MBTA V3 API"
+    ],
+    "verified": true,
+    "invented": false,
+    "status": "boats call here today",
+    "agreement": "OpenStreetMap (ferry terminal) and MBTA V3 API 37 m apart",
+    "snapped_m": 0,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.9633,
+     42.319972
+    ]
+   },
+   "properties": {
+    "name": "Long Island",
+    "routes": [
+     "Harbor Islands"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "Wikipedia",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": true,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "Nominatim (OpenStreetMap) and Wikipedia 60 m apart",
+    "snapped_m": 236,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.049964,
+     42.360796
+    ]
+   },
+   "properties": {
+    "name": "Long Wharf",
+    "routes": [
+     "Harbor West",
+     "Fast Ferry"
+    ],
+    "major": true,
+    "event": false,
+    "sources": [
+     "OpenStreetMap (ferry terminal)",
+     "MBTA V3 API",
+     "Wikipedia"
+    ],
+    "verified": true,
+    "invented": false,
+    "status": "boats call here today",
+    "agreement": "OpenStreetMap (ferry terminal) and MBTA V3 API 4 m apart",
+    "snapped_m": 0,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.060101,
+     42.36744
+    ]
+   },
+   "properties": {
+    "name": "Lovejoy Wharf",
+    "routes": [
+     "Charles River"
+    ],
+    "major": false,
+    "event": true,
+    "sources": [
+     "OpenStreetMap (ferry terminal)",
+     "MBTA V3 API"
+    ],
+    "verified": true,
+    "invented": false,
+    "status": "boats call here today",
+    "agreement": "OpenStreetMap (ferry terminal) and MBTA V3 API 9 m apart",
+    "snapped_m": 0,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.947873,
+     42.454827
+    ]
+   },
+   "properties": {
+    "name": "Lynn Harbor",
+    "routes": [
+     "North Shore Fast Ferry"
+    ],
+    "major": true,
+    "event": false,
+    "sources": [
+     "OpenStreetMap (ferry terminal)",
+     "MBTA V3 API"
+    ],
+    "verified": true,
+    "invented": false,
+    "status": "boats call here today",
+    "agreement": "OpenStreetMap (ferry terminal) and MBTA V3 API 3 m apart",
+    "snapped_m": 0,
+    "note": "Blossom St Pier"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.031336,
+     42.329999
+    ]
+   },
+   "properties": {
+    "name": "M St",
+    "routes": [
+     "South Shore"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 24,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.620382,
+     41.348784
+    ]
+   },
+   "properties": {
+    "name": "MVY Connection",
+    "routes": [
+     "Nantucket and Martha's Vineyard"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 2170,
+    "note": "Max: shuttles to the airport"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.115576,
+     42.355626
+    ]
+   },
+   "properties": {
+    "name": "Magazine Beach",
+    "routes": [
+     "Charles River"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "Wikipedia",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": true,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "Nominatim (OpenStreetMap) and Wikipedia 106 m apart",
+    "snapped_m": 81,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.709176,
+     42.573848
+    ]
+   },
+   "properties": {
+    "name": "Magnolia",
+    "routes": [
+     "North Shore Fast Ferry"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "Wikipedia",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "Nominatim (OpenStreetMap) and Wikipedia 212 m apart",
+    "snapped_m": 118,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.769046,
+     42.571138
+    ]
+   },
+   "properties": {
+    "name": "Manchester-by-the-Sea",
+    "routes": [
+     "North Shore Fast Ferry"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 89,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.840781,
+     42.50805
+    ]
+   },
+   "properties": {
+    "name": "Marblehead",
+    "routes": [
+     "North Shore Fast Ferry"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "Wikipedia",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "Nominatim (OpenStreetMap) and Wikipedia 1072 m apart",
+    "snapped_m": 313,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -69.962025,
+     41.891644
+    ]
+   },
+   "properties": {
+    "name": "Marconi Beach",
+    "routes": [
+     "South Shore Fast Ferry"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 82,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.743862,
+     41.67483
+    ]
+   },
+   "properties": {
+    "name": "Marion",
+    "routes": [
+     "South Shore Fast Ferry"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 918,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.049562,
+     42.353044
+    ]
+   },
+   "properties": {
+    "name": "Martins Park",
+    "routes": [
+     "Seaport"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 48,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.81424,
+     41.657078
+    ]
+   },
+   "properties": {
+    "name": "Mattapoisett",
+    "routes": [
+     "South Shore Fast Ferry"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 73,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.064225,
+     42.383715
+    ]
+   },
+   "properties": {
+    "name": "Medford St",
+    "routes": [
+     "Mystic River"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 194,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.048544,
+     42.377782
+    ]
+   },
+   "properties": {
+    "name": "Menino",
+    "routes": [
+     "Mystic River"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 17,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.722991,
+     42.195711
+    ]
+   },
+   "properties": {
+    "name": "Mill Wharf",
+    "routes": [
+     "South Shore Fast Ferry"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 118,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.761203,
+     42.241511
+    ]
+   },
+   "properties": {
+    "name": "Minot (Scituate)",
+    "routes": [
+     "South Shore Fast Ferry"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 141,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.989567,
+     42.30439
+    ]
+   },
+   "properties": {
+    "name": "Moon Island",
+    "routes": [
+     "Quincy Bay"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "Wikipedia",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": true,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "Nominatim (OpenStreetMap) and Wikipedia 12 m apart",
+    "snapped_m": 166,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.071341,
+     42.367376
+    ]
+   },
+   "properties": {
+    "name": "Museum of Science",
+    "routes": [
+     "Charles River"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "Wikipedia",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": true,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "Nominatim (OpenStreetMap) and Wikipedia 10 m apart",
+    "snapped_m": 19,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.379454,
+     41.740129
+    ]
+   },
+   "properties": {
+    "name": "N. Barnstable / Sandy Neck",
+    "routes": [
+     "South Shore Fast Ferry"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 93,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.918135,
+     42.420969
+    ]
+   },
+   "properties": {
+    "name": "Nahant Harbor",
+    "routes": [
+     "North Shore Fast Ferry"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 367,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.018935,
+     41.79388
+    ]
+   },
+   "properties": {
+    "name": "Namskaket",
+    "routes": [
+     "South Shore Fast Ferry"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 330,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.858083,
+     42.270258
+    ]
+   },
+   "properties": {
+    "name": "Nantasket",
+    "routes": [
+     "Fore River"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 37,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.095895,
+     41.285514
+    ]
+   },
+   "properties": {
+    "name": "Nantucket Downtown",
+    "routes": [
+     "Nantucket and Martha's Vineyard"
+    ],
+    "major": true,
+    "event": false,
+    "sources": [
+     "OpenStreetMap (ferry terminal)"
+    ],
+    "verified": false,
+    "invented": false,
+    "status": "boats call here today",
+    "agreement": "one source only",
+    "snapped_m": 0,
+    "note": "Steamship Authority terminal, Steamboat Wharf"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.06734,
+     42.367584
+    ]
+   },
+   "properties": {
+    "name": "Nashua St",
+    "routes": [
+     "Charles River"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 10,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -69.935185,
+     41.786936
+    ]
+   },
+   "properties": {
+    "name": "Nauset Beach",
+    "routes": [
+     "South Shore Fast Ferry"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "Wikipedia",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "Nominatim (OpenStreetMap) and Wikipedia 6101 m apart",
+    "snapped_m": 57,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.052549,
+     42.372748
+    ]
+   },
+   "properties": {
+    "name": "Navy Yard",
+    "routes": [
+     "Charles River",
+     "Mystic River",
+     "Fast Ferry"
+    ],
+    "major": true,
+    "event": false,
+    "sources": [
+     "OpenStreetMap (ferry terminal)",
+     "MBTA V3 API"
+    ],
+    "verified": true,
+    "invented": false,
+    "status": "boats call here today",
+    "agreement": "OpenStreetMap (ferry terminal) and MBTA V3 API 24 m apart",
+    "snapped_m": 0,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.919145,
+     41.635075
+    ]
+   },
+   "properties": {
+    "name": "New Bedford",
+    "routes": [
+     "South Shore Fast Ferry",
+     "Nantucket and Martha's Vineyard"
+    ],
+    "major": true,
+    "event": false,
+    "sources": [
+     "OpenStreetMap (ferry terminal)"
+    ],
+    "verified": false,
+    "invented": false,
+    "status": "boats call here today",
+    "agreement": "one source only",
+    "snapped_m": 0,
+    "note": "State Pier ferry terminal"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.643817,
+     41.638027
+    ]
+   },
+   "properties": {
+    "name": "New Silver Beach",
+    "routes": [
+     "South Shore Fast Ferry"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 626,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.87034,
+     42.812669
+    ]
+   },
+   "properties": {
+    "name": "Newburyport",
+    "routes": [
+     "North Shore Fast Ferry"
+    ],
+    "major": true,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 33,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.125705,
+     42.369758
+    ]
+   },
+   "properties": {
+    "name": "Newell",
+    "routes": [
+     "Charles River"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "Wikipedia",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": true,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "Nominatim (OpenStreetMap) and Wikipedia 12 m apart",
+    "snapped_m": 14,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.3177,
+     41.489287
+    ]
+   },
+   "properties": {
+    "name": "Newport",
+    "routes": [
+     "South Shore Fast Ferry"
+    ],
+    "major": true,
+    "event": false,
+    "sources": [
+     "OpenStreetMap (ferry terminal)"
+    ],
+    "verified": false,
+    "invented": false,
+    "status": "boats call here today",
+    "agreement": "one source only",
+    "snapped_m": 0,
+    "note": "Perrotti Park ferry terminal"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.01351,
+     42.301945
+    ]
+   },
+   "properties": {
+    "name": "Nickerson",
+    "routes": [
+     "Quincy Bay"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 25,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.07778,
+     41.244352
+    ]
+   },
+   "properties": {
+    "name": "Nobadeer",
+    "routes": [
+     "Nantucket and Martha's Vineyard"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 54,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.819922,
+     41.260232
+    ]
+   },
+   "properties": {
+    "name": "Noman's Land",
+    "routes": [
+     "Nantucket and Martha's Vineyard"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "Wikipedia",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "Nominatim (OpenStreetMap) and Wikipedia 246 m apart",
+    "snapped_m": 434,
+    "note": "closed wildlife refuge, no public access"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.069382,
+     42.368762
+    ]
+   },
+   "properties": {
+    "name": "North Point",
+    "routes": [
+     "Charles River"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 23,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.141547,
+     42.364195
+    ]
+   },
+   "properties": {
+    "name": "Northeastern",
+    "routes": [
+     "Charles River"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 10,
+    "note": "Northeastern's Henderson Boathouse (our reading)"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.953306,
+     42.279347
+    ]
+   },
+   "properties": {
+    "name": "Nut Island",
+    "routes": [
+     "Quincy Bay"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "Wikipedia",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "Nominatim (OpenStreetMap) and Wikipedia 165 m apart",
+    "snapped_m": 53,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.554557,
+     41.458438
+    ]
+   },
+   "properties": {
+    "name": "Oak Bluffs",
+    "routes": [
+     "Nantucket and Martha's Vineyard"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "OpenStreetMap (ferry terminal)"
+    ],
+    "verified": false,
+    "invented": false,
+    "status": "boats call here today",
+    "agreement": "one source only",
+    "snapped_m": 0,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.039946,
+     42.32039
+    ]
+   },
+   "properties": {
+    "name": "Old Harbor",
+    "routes": [
+     "South Shore"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 69,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.139163,
+     41.650442
+    ]
+   },
+   "properties": {
+    "name": "Old Wharf",
+    "routes": [
+     "South Shore Fast Ferry"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 197,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.659066,
+     41.740934
+    ]
+   },
+   "properties": {
+    "name": "Onset",
+    "routes": [
+     "South Shore Fast Ferry"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 102,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.373413,
+     41.625814
+    ]
+   },
+   "properties": {
+    "name": "Osterville",
+    "routes": [
+     "South Shore Fast Ferry"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "Wikipedia",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": true,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "Nominatim (OpenStreetMap) and Wikipedia 47 m apart",
+    "snapped_m": 1167,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.0623,
+     42.36943
+    ]
+   },
+   "properties": {
+    "name": "Paul Revere Park",
+    "routes": [
+     "Charles River"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "Wikipedia",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": true,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "Nominatim (OpenStreetMap) and Wikipedia 19 m apart",
+    "snapped_m": 77,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.035775,
+     42.349102
+    ]
+   },
+   "properties": {
+    "name": "Pavilion",
+    "routes": [
+     "Seaport"
+    ],
+    "major": false,
+    "event": true,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "Wikipedia",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": true,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "Nominatim (OpenStreetMap) and Wikipedia 19 m apart",
+    "snapped_m": 68,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.042625,
+     42.386263
+    ]
+   },
+   "properties": {
+    "name": "Pearl St",
+    "routes": [
+     "Mystic River"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "placed by hand",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "no source",
+    "snapped_m": 41,
+    "note": "Mystic shore of Chelsea near Pearl St (placed by hand)"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.036082,
+     42.364226
+    ]
+   },
+   "properties": {
+    "name": "Piers Park",
+    "routes": [
+     "East Boston"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "Wikipedia",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": true,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "Nominatim (OpenStreetMap) and Wikipedia 64 m apart",
+    "snapped_m": 36,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.807805,
+     42.798905
+    ]
+   },
+   "properties": {
+    "name": "Plum Island Central",
+    "routes": [
+     "North Shore Fast Ferry"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 114,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.819599,
+     42.817449
+    ]
+   },
+   "properties": {
+    "name": "Plum Island North",
+    "routes": [
+     "North Shore Fast Ferry"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 59,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.784562,
+     42.704896
+    ]
+   },
+   "properties": {
+    "name": "Plum Island South",
+    "routes": [
+     "North Shore Fast Ferry"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 321,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.662045,
+     41.959933
+    ]
+   },
+   "properties": {
+    "name": "Plymouth Rock",
+    "routes": [
+     "South Shore Fast Ferry"
+    ],
+    "major": true,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "Wikipedia"
+    ],
+    "verified": false,
+    "invented": false,
+    "status": "boats call here today",
+    "agreement": "Nominatim (OpenStreetMap) and Wikipedia 206 m apart",
+    "snapped_m": 0,
+    "note": "Plymouth to Provincetown boats run in summer"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.618391,
+     41.701435
+    ]
+   },
+   "properties": {
+    "name": "Pocasset",
+    "routes": [
+     "South Shore Fast Ferry"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "Wikipedia",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "Nominatim (OpenStreetMap) and Wikipedia 1106 m apart",
+    "snapped_m": 1106,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.075998,
+     42.364996
+    ]
+   },
+   "properties": {
+    "name": "Poormans",
+    "routes": [
+     "Charles River"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "placed by hand",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "no source",
+    "snapped_m": 70,
+    "note": "Place not found. Placed by hand on the Cambridge bank between Broad Canal and the Museum of Science"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.459852,
+     41.572959
+    ]
+   },
+   "properties": {
+    "name": "Popponesset",
+    "routes": [
+     "South Shore Fast Ferry"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 196,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.028254,
+     42.364365
+    ]
+   },
+   "properties": {
+    "name": "Porzio",
+    "routes": [
+     "East Boston"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 35,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.821132,
+     42.552311
+    ]
+   },
+   "properties": {
+    "name": "Prides Crossing",
+    "routes": [
+     "North Shore Fast Ferry"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "Wikipedia",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": true,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "Nominatim (OpenStreetMap) and Wikipedia 96 m apart",
+    "snapped_m": 879,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.181652,
+     42.049193
+    ]
+   },
+   "properties": {
+    "name": "Provincetown",
+    "routes": [
+     "South Shore Fast Ferry"
+    ],
+    "major": true,
+    "event": false,
+    "sources": [
+     "OpenStreetMap (ferry terminal)",
+     "Wikipedia"
+    ],
+    "verified": false,
+    "invented": false,
+    "status": "boats call here today",
+    "agreement": "OpenStreetMap (ferry terminal) and Wikipedia 1003 m apart",
+    "snapped_m": 0,
+    "note": "MacMillan Pier"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.036993,
+     42.386768
+    ]
+   },
+   "properties": {
+    "name": "Quigley",
+    "routes": [
+     "Chelsea Creek"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 221,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.992573,
+     42.255437
+    ]
+   },
+   "properties": {
+    "name": "Quincy",
+    "routes": [
+     "South Shore Fast Ferry"
+    ],
+    "major": true,
+    "event": false,
+    "sources": [
+     "placed by hand",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "no source",
+    "snapped_m": 1368,
+    "note": "Town River below Quincy Center (placed by hand)"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.975763,
+     42.238076
+    ]
+   },
+   "properties": {
+    "name": "Quincy Point",
+    "routes": [
+     "South Shore Fast Ferry"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)"
+    ],
+    "verified": false,
+    "invented": false,
+    "status": "real past service",
+    "agreement": "one source only",
+    "snapped_m": 0,
+    "note": "Harbor Express terminal 1996 to 2013"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.2445,
+     42.067708
+    ]
+   },
+   "properties": {
+    "name": "Race Point",
+    "routes": [
+     "South Shore Fast Ferry"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 50,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.097174,
+     42.355424
+    ]
+   },
+   "properties": {
+    "name": "Resch",
+    "routes": [
+     "Charles River"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 32,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.986069,
+     42.418731
+    ]
+   },
+   "properties": {
+    "name": "Revere Beach",
+    "routes": [
+     "North Shore Fast Ferry"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "Wikipedia",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "Nominatim (OpenStreetMap) and Wikipedia 752 m apart",
+    "snapped_m": 30,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.116021,
+     42.35805
+    ]
+   },
+   "properties": {
+    "name": "Riverside",
+    "routes": [
+     "Charles River"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 10,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.614391,
+     42.659153
+    ]
+   },
+   "properties": {
+    "name": "Rockport",
+    "routes": [
+     "North Shore Fast Ferry"
+    ],
+    "major": true,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 123,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.04968,
+     42.355652
+    ]
+   },
+   "properties": {
+    "name": "Rowes Wharf",
+    "routes": [
+     "Harbor West"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "OpenStreetMap (ferry terminal)",
+     "MBTA V3 API",
+     "Wikipedia"
+    ],
+    "verified": true,
+    "invented": false,
+    "status": "boats call here today",
+    "agreement": "OpenStreetMap (ferry terminal) and MBTA V3 API 55 m apart",
+    "snapped_m": 0,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.88046,
+     42.521858
+    ]
+   },
+   "properties": {
+    "name": "Salem Wharf",
+    "routes": [
+     "North Shore Fast Ferry"
+    ],
+    "major": true,
+    "event": false,
+    "sources": [
+     "OpenStreetMap (ferry terminal)",
+     "Nominatim (OpenStreetMap)"
+    ],
+    "verified": false,
+    "invented": false,
+    "status": "boats call here today",
+    "agreement": "one source only",
+    "snapped_m": 0,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.821637,
+     42.836867
+    ]
+   },
+   "properties": {
+    "name": "Salisbury",
+    "routes": [
+     "North Shore Fast Ferry"
+    ],
+    "major": true,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 730,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.482906,
+     41.767661
+    ]
+   },
+   "properties": {
+    "name": "Sandwich Boardwalk",
+    "routes": [
+     "South Shore Fast Ferry"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 294,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.05013,
+     42.364921
+    ]
+   },
+   "properties": {
+    "name": "Sargent's Wharf",
+    "routes": [
+     "Harbor West"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 47,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.040459,
+     42.350316
+    ]
+   },
+   "properties": {
+    "name": "Seaport",
+    "routes": [
+     "Seaport"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "OpenStreetMap (ferry terminal)",
+     "MBTA V3 API"
+    ],
+    "verified": true,
+    "invented": false,
+    "status": "boats call here today",
+    "agreement": "OpenStreetMap (ferry terminal) and MBTA V3 API 31 m apart",
+    "snapped_m": 0,
+    "note": "MBTA calls it Seaport (Commonwealth Pier)"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.15548,
+     41.757011
+    ]
+   },
+   "properties": {
+    "name": "Sesuit",
+    "routes": [
+     "South Shore Fast Ferry"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 62,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.146638,
+     41.665679
+    ]
+   },
+   "properties": {
+    "name": "Shad Hole Rd",
+    "routes": [
+     "South Shore Fast Ferry"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 635,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -69.960014,
+     41.270616
+    ]
+   },
+   "properties": {
+    "name": "Siasconset",
+    "routes": [
+     "Nantucket and Martha's Vineyard"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "Wikipedia",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "Nominatim (OpenStreetMap) and Wikipedia 1209 m apart",
+    "snapped_m": 1339,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.213187,
+     41.274081
+    ]
+   },
+   "properties": {
+    "name": "Smith Point",
+    "routes": [
+     "Nantucket and Martha's Vineyard"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 75,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.955562,
+     41.584508
+    ]
+   },
+   "properties": {
+    "name": "South Dartmouth",
+    "routes": [
+     "South Shore Fast Ferry"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 292,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.070016,
+     41.243974
+    ]
+   },
+   "properties": {
+    "name": "South Shore",
+    "routes": [
+     "Nantucket and Martha's Vineyard"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "placed by hand",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "no source",
+    "snapped_m": 336,
+    "note": "Nantucket's south shore at Surfside (placed by hand)"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.182675,
+     41.665764
+    ]
+   },
+   "properties": {
+    "name": "South Yarmouth",
+    "routes": [
+     "South Shore Fast Ferry"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "Wikipedia",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "Nominatim (OpenStreetMap) and Wikipedia 1208 m apart",
+    "snapped_m": 247,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.988635,
+     42.321825
+    ]
+   },
+   "properties": {
+    "name": "Spectacle Island",
+    "routes": [
+     "Harbor Islands"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "OpenStreetMap (ferry terminal)",
+     "Wikipedia"
+    ],
+    "verified": false,
+    "invented": false,
+    "status": "boats call here today",
+    "agreement": "OpenStreetMap (ferry terminal) and Wikipedia 309 m apart",
+    "snapped_m": 0,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.016828,
+     42.297564
+    ]
+   },
+   "properties": {
+    "name": "Squantum",
+    "routes": [
+     "Quincy Bay"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "Wikipedia",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": true,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "Nominatim (OpenStreetMap) and Wikipedia 8 m apart",
+    "snapped_m": 437,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.031826,
+     42.302001
+    ]
+   },
+   "properties": {
+    "name": "Squantum Point",
+    "routes": [
+     "Quincy Bay",
+     "South Shore Fast Ferry"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "OpenStreetMap (ferry terminal)",
+     "MBTA V3 API"
+    ],
+    "verified": true,
+    "invented": false,
+    "status": "boats call here today",
+    "agreement": "OpenStreetMap (ferry terminal) and MBTA V3 API 14 m apart",
+    "snapped_m": 0,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.06605,
+     42.389355
+    ]
+   },
+   "properties": {
+    "name": "Stadium",
+    "routes": [
+     "Mystic River"
+    ],
+    "major": false,
+    "event": true,
+    "sources": [
+     "placed by hand",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "no source",
+    "snapped_m": 17,
+    "note": "Old Mystic power plant site, Everett, the proposed stadium site (same spot as stations_real.geojson)"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.015316,
+     42.39269
+    ]
+   },
+   "properties": {
+    "name": "Suffolk Downs",
+    "routes": [
+     "Chelsea Creek"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "placed by hand",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "no source",
+    "snapped_m": 43,
+    "note": "Chelsea Creek landing at the head of the creek, about 1.5 km west of Suffolk Downs station (placed by hand)"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.993424,
+     42.386184
+    ]
+   },
+   "properties": {
+    "name": "Suffolk Downs (Belle Isle Inlet)",
+    "routes": [
+     "North Shore Fast Ferry"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "placed by hand",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "no source",
+    "snapped_m": 21,
+    "note": "North Shore boats' Suffolk Downs landing at the head of Belle Isle Inlet (placed by hand)"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.90932,
+     42.46691
+    ]
+   },
+   "properties": {
+    "name": "Swampscott",
+    "routes": [
+     "North Shore Fast Ferry"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 67,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.01011,
+     42.31922
+    ]
+   },
+   "properties": {
+    "name": "Thompson Island",
+    "routes": [
+     "Quincy Bay"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "OpenStreetMap (ferry terminal)",
+     "Wikipedia"
+    ],
+    "verified": false,
+    "invented": false,
+    "status": "boats call here today",
+    "agreement": "OpenStreetMap (ferry terminal) and Wikipedia 566 m apart",
+    "snapped_m": 0,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.005871,
+     41.843532
+    ]
+   },
+   "properties": {
+    "name": "Thumpertown",
+    "routes": [
+     "South Shore Fast Ferry"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 187,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.258392,
+     41.296565
+    ]
+   },
+   "properties": {
+    "name": "Tuckernuck Is.",
+    "routes": [
+     "Nantucket and Martha's Vineyard"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "Wikipedia",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "Nominatim (OpenStreetMap) and Wikipedia 332 m apart",
+    "snapped_m": 543,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.032872,
+     42.315517
+    ]
+   },
+   "properties": {
+    "name": "UMass Boston",
+    "routes": [
+     "South Shore",
+     "South Shore Fast Ferry"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 22,
+    "note": "Fallon Pier, the studied Columbia Point terminal"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.600264,
+     41.455595
+    ]
+   },
+   "properties": {
+    "name": "Vineyard Haven",
+    "routes": [
+     "South Shore Fast Ferry",
+     "Nantucket and Martha's Vineyard"
+    ],
+    "major": true,
+    "event": false,
+    "sources": [
+     "OpenStreetMap (ferry terminal)"
+    ],
+    "verified": false,
+    "invented": false,
+    "status": "boats call here today",
+    "agreement": "one source only",
+    "snapped_m": 0,
+    "note": "Steamship Authority terminal"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.706055,
+     41.744299
+    ]
+   },
+   "properties": {
+    "name": "Wareham",
+    "routes": [
+     "South Shore Fast Ferry"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 1299,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -69.994349,
+     41.330225
+    ]
+   },
+   "properties": {
+    "name": "Wauwinet",
+    "routes": [
+     "Nantucket and Martha's Vineyard"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "Wikipedia",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": true,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "Nominatim (OpenStreetMap) and Wikipedia 14 m apart",
+    "snapped_m": 181,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.122046,
+     42.369285
+    ]
+   },
+   "properties": {
+    "name": "Weld",
+    "routes": [
+     "Charles River"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "Wikipedia",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": true,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "Nominatim (OpenStreetMap) and Wikipedia 3 m apart",
+    "snapped_m": 17,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.026516,
+     41.929364
+    ]
+   },
+   "properties": {
+    "name": "Wellfleet Pier",
+    "routes": [
+     "South Shore Fast Ferry"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 80,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.945153,
+     42.250847
+    ]
+   },
+   "properties": {
+    "name": "Wessagusset",
+    "routes": [
+     "Fore River"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 22,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.179385,
+     41.650036
+    ]
+   },
+   "properties": {
+    "name": "West Dennis",
+    "routes": [
+     "South Shore Fast Ferry"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 106,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.65086,
+     41.608203
+    ]
+   },
+   "properties": {
+    "name": "West Falmouth",
+    "routes": [
+     "South Shore Fast Ferry"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 261,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.837799,
+     41.598611
+    ]
+   },
+   "properties": {
+    "name": "West Island",
+    "routes": [
+     "South Shore Fast Ferry"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "Wikipedia",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": true,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "Nominatim (OpenStreetMap) and Wikipedia 67 m apart",
+    "snapped_m": 550,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.245247,
+     41.640334
+    ]
+   },
+   "properties": {
+    "name": "West Yarmouth",
+    "routes": [
+     "South Shore Fast Ferry"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 60,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.117504,
+     42.364236
+    ]
+   },
+   "properties": {
+    "name": "Western Ave",
+    "routes": [
+     "Charles River"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 47,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.04049,
+     42.382248
+    ]
+   },
+   "properties": {
+    "name": "White St",
+    "routes": [
+     "East Boston"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 310,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.160805,
+     41.685352
+    ]
+   },
+   "properties": {
+    "name": "Wilbur",
+    "routes": [
+     "South Shore Fast Ferry"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 59,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.1569,
+     42.360395
+    ]
+   },
+   "properties": {
+    "name": "Winsor",
+    "routes": [
+     "Charles River"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 24,
+    "note": "Belmont Hill and Winsor shared boathouse"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.967459,
+     42.371638
+    ]
+   },
+   "properties": {
+    "name": "Winthrop Beach",
+    "routes": [
+     "North Shore Fast Ferry"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 42,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.973771,
+     42.366678
+    ]
+   },
+   "properties": {
+    "name": "Winthrop Landing",
+    "routes": [
+     "North Shore Fast Ferry"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "OpenStreetMap (ferry terminal)",
+     "MBTA V3 API"
+    ],
+    "verified": true,
+    "invented": false,
+    "status": "boats call here today",
+    "agreement": "OpenStreetMap (ferry terminal) and MBTA V3 API 6 m apart",
+    "snapped_m": 0,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -71.015727,
+     42.280158
+    ]
+   },
+   "properties": {
+    "name": "Wollaston Beach",
+    "routes": [
+     "Quincy Bay"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "Wikipedia",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "Nominatim (OpenStreetMap) and Wikipedia 650 m apart",
+    "snapped_m": 39,
+    "note": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.987623,
+     42.416003
+    ]
+   },
+   "properties": {
+    "name": "Wonderland",
+    "routes": [
+     "North Shore Fast Ferry"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "placed by hand",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "no source",
+    "snapped_m": 183,
+    "note": "Revere Beach shore opposite Wonderland station (placed by hand)"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.671239,
+     41.522658
+    ]
+   },
+   "properties": {
+    "name": "Woods Hole",
+    "routes": [
+     "South Shore Fast Ferry",
+     "Nantucket and Martha's Vineyard"
+    ],
+    "major": true,
+    "event": false,
+    "sources": [
+     "OpenStreetMap (ferry terminal)"
+    ],
+    "verified": false,
+    "invented": false,
+    "status": "boats call here today",
+    "agreement": "one source only",
+    "snapped_m": 0,
+    "note": "Steamship Authority terminal"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.165472,
+     41.677649
+    ]
+   },
+   "properties": {
+    "name": "Wrinkle Point",
+    "routes": [
+     "South Shore Fast Ferry"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "placed by hand",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "no source",
+    "snapped_m": 275,
+    "note": "Bass River east bank, Dennis side (placed by hand)"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.199079,
+     41.643527
+    ]
+   },
+   "properties": {
+    "name": "Yarmouth",
+    "routes": [
+     "South Shore Fast Ferry"
+    ],
+    "major": false,
+    "event": false,
+    "sources": [
+     "Nominatim (OpenStreetMap)",
+     "moved to the nearest shoreline (OSM coastline)"
+    ],
+    "verified": false,
+    "invented": true,
+    "status": "dock is ours",
+    "agreement": "one source only",
+    "snapped_m": 23,
+    "note": ""
+   }
+  }
+ ]
+}

@@ -98,6 +98,18 @@ HAND = {
     "Wu Sq": (42.2861, -71.1385, "Invented NERTA stop, midway Roslindale Village to Bellevue"),
     "Wyoma Sq": (42.4790, -70.9660, "Wyoma Sq, Lynn"),
     "Arlington Heights": (42.4245, -71.1830, "Mass Ave at Park Ave, today's bus terminal"),
+    "Market St": (42.5320, -71.0275, "MarketStreet, Lynnfield (NERTA Orange loop stop)"),
+    "Langone Ferryport": (42.3685, -71.0547, "Langone Park, Commercial St, North End (NERTA station, was North End)"),
+}
+# Better spots from the rail poster session (data/rail_regional/cr_stations.geojson, Nov 8): real platforms or depots
+# where this file had only a town point. lat, lon, sources, verified.
+RAIL = {
+    "Hingham": (42.235838, -70.902708, ["MBTA V3 API place-GRB-0162", "OSM node/7005274156"], True),
+    "South Salem": (42.50778, -70.898114, ["City of Salem slides 2025", "Wikipedia: South Salem station"], True),
+    "Danvers": (42.565787, -70.941247, ["Commons photos 2015", "OSM Danvers Junction node"], True),
+    "Marblehead": (42.50238, -70.856398, ["Marblehead Weekly News", "Sanborn 1915 Marblehead sheet 10"], True),
+    "Winchester": (42.451088, -71.13783, ["MBTA V3 API place-NHRML-0078", "OSM node/1666023173"], True),
+    "Danversport": (42.557019, -70.930204, ["Sanborn 1927 Danvers sheet 13"], False),
 }
 FAR = {"Hudson", "Marlborough", "Taunton", "Easton Village", "North Easton", "Raynham Place"}  # off the tram area; left out
 CACHE = DAY / "data" / "tram" / "geocode_cache.json"
@@ -180,6 +192,12 @@ def stations():
     feats, todo = [], []
     for n, uses in sorted(nerta.items()):
         if n in FAR:
+            continue
+        if n in RAIL:
+            lat, lon, srcs, ver = RAIL[n]
+            feats.append({"type": "Feature", "geometry": mapping(Point(lon, lat)),
+                          "properties": {"name": n, "colors": sorted({c for c, _ in uses}), "status": sorted({s for _, s in uses}),
+                                         "sources": srcs, "verified": ver, "note": "station spot from the rail poster session"}})
             continue
         if n in HAND:
             lat, lon, why = HAND[n]
@@ -277,5 +295,70 @@ def buses():
     print(len(lines), "route shapes,", len(stops), "stops")
 
 
+WEEKDAY = "2026-11-10"  # a Tuesday in the current schedule
+
+
+def allbuses():
+    """Every bus route but Supplemental: its longest typical outbound shape and its weekday trip count (both directions).
+    -> data/tram/bus_all.geojson. Trip counts rank which routes are major."""
+    api = lambda path, **p: http_json(f"{API}/{path}?" + urllib.parse.urlencode(p, safe="[],."))  # noqa: E731
+    routes = [r for r in api("routes", **{"filter[type]": "3"})["data"] if r["attributes"]["description"] != "Supplemental Bus"]
+    part = OUT / "bus_all.partial.jsonl"   # one line per route, so a stopped run picks up where it left off
+    feats = [json.loads(ln) for ln in part.read_text(encoding="utf-8").splitlines()] if part.exists() else []
+    done = {f["properties"]["id"] for f in feats}
+    for r in routes:
+        a = r["attributes"]
+        if r["id"] in done:
+            continue
+        pats = api("route_patterns", **{"filter[route]": r["id"], "include": "representative_trip.shape"})
+        inc = {(i["type"], i["id"]): i for i in pats.get("included", [])}
+        best = None
+        for p in pats["data"]:
+            pa = p["attributes"]
+            if pa["typicality"] != 1 or pa["direction_id"] != 0:
+                continue
+            trip = inc.get(("trip", p["relationships"]["representative_trip"]["data"]["id"]))
+            if not trip:
+                continue
+            shp = inc.get(("shape", trip["relationships"]["shape"]["data"]["id"]))
+            if not shp:
+                continue
+            ln = LineString(decode(shp["attributes"]["polyline"]))
+            if best is None or ln.length > best[0].length:
+                best = (ln, pa["name"])
+        trips = len(api("trips", **{"filter[route]": r["id"], "filter[date]": WEEKDAY, "fields[trip]": "direction_id"})["data"])
+        geom = mapping(best[0]) if best else None
+        feat = {"type": "Feature", "geometry": geom,
+                "properties": {"route": a["short_name"], "id": r["id"], "description": a["description"], "long_name": a["long_name"],
+                               "pattern": best[1] if best else None, "weekday_trips": trips}}
+        feats.append(feat)
+        OUT.mkdir(parents=True, exist_ok=True)
+        with part.open("a", encoding="utf-8") as fh:
+            fh.write(json.dumps(feat) + "\n")
+        print(f"{a['short_name']:6s} {trips:4d} {a['description']:14s} {a['long_name']}", flush=True)
+    feats = [f for f in feats if f["geometry"]]
+    (OUT / "bus_all.geojson").write_text(json.dumps({"type": "FeatureCollection", "features": feats}), encoding="utf-8")
+    part.unlink()  # finished: a fresh run should pull fresh data, not resume
+    print(len(feats), "routes")
+
+
+EXTRA_TRAMS = ["216", "101", "34", "34E", "225", "100", "222", "64", "240", "220", "455", "215", "95", "75", "712", "78", "106", "60", "38"]
+
+
+def extrastops():
+    """Stops for the 19 trams Max added (November 7), from the MBTA API -> data/tram/bus_stops_extra.geojson."""
+    api = lambda path, **p: http_json(f"{API}/{path}?" + urllib.parse.urlencode(p, safe="[],"))  # noqa: E731
+    ids = {f["properties"]["route"]: f["properties"]["id"] for f in json.loads((OUT / "bus_all.geojson").read_text(encoding="utf-8"))["features"]}
+    stops = {}
+    for short in EXTRA_TRAMS:
+        for s in api("stops", **{"filter[route]": ids[short], "filter[direction_id]": "0"})["data"]:
+            st = stops.setdefault(s["id"], {"type": "Feature", "geometry": mapping(Point(s["attributes"]["longitude"], s["attributes"]["latitude"])),
+                                            "properties": {"name": s["attributes"]["name"], "routes": []}})
+            st["properties"]["routes"].append(short)
+        print(short, flush=True)
+    (OUT / "bus_stops_extra.geojson").write_text(json.dumps({"type": "FeatureCollection", "features": list(stops.values())}), encoding="utf-8")
+    print(len(stops), "stops")
+
+
 if __name__ == "__main__":
-    {"stations": stations, "buses": buses}[sys.argv[1]]()
+    {"stations": stations, "buses": buses, "allbuses": allbuses, "extrastops": extrastops}[sys.argv[1]]()
