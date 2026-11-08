@@ -80,6 +80,7 @@ main { display: block; }
 .section.tight { padding: 24px 0; }
 .section.wash { background: var(--wash); }
 .grid { display: grid; gap: 20px; }
+.grid > * { min-width: 0; }
 .grid.two { grid-template-columns: 1.15fr 1fr; }
 .grid.three { grid-template-columns: repeat(3, 1fr); }
 .grid.four { grid-template-columns: repeat(4, 1fr); }

@@ -8,6 +8,10 @@ document.addEventListener("DOMContentLoaded", async () => {
   st.innerHTML = N.ORDER.map(k => {
     const s = N.lineStatus(k);
     return `<li>${N.bullet(k)}<a class="name" href="/line.html?l=${k}">${N.LINES[k].name}</a><span class="state"><i class="dot ${s.level}"></i>${s.label}</span></li>`;
+  }).join("") + [["rail", "/rail.html", "Regional Rail"], ["ferry", "/ferry.html", "Ferry"]].map(([k, href, name]) => {
+    const bad = ["rail-wor", "rail-fra", "rail-pro", "rail-low", "ferry-hw", "ferry-nse"].map(x => N.lineStatus(x)).filter(s => s.level !== "ok").length;
+    const b = k === "rail" ? '<span class="bullet rail">RR</span>' : '<span class="bullet ferry">F</span>';
+    return `<li>${b}<a class="name" href="${href}">${name}</a><span class="state"><i class="dot ${bad ? "warn" : "ok"}"></i>${bad ? "Some delays" : "Normal service"}</span></li>`;
   }).join("");
   document.getElementById("status-time").textContent = "Updated " + new Date().toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit" });
 

@@ -1,0 +1,359 @@
+{
+ "lines": [
+  {
+   "key": "fit",
+   "name": "Fitchburg Line",
+   "hue": "#cfba84",
+   "hsr": false,
+   "stops": [
+    "North Station",
+    "Boston Central",
+    "South Station",
+    "Porter",
+    "Waltham",
+    "Brandeis/Roberts",
+    "Kendal Green",
+    "Lincoln",
+    "Concord",
+    "West Concord",
+    "South Acton",
+    "Littleton/Route 495",
+    "Ayer",
+    "Shirley",
+    "North Leominster",
+    "Fitchburg",
+    "Wachusett",
+    "Hudson",
+    "Marlborough"
+   ],
+   "ends": [
+    "Marlborough"
+   ]
+  },
+  {
+   "key": "low",
+   "name": "Lowell Line",
+   "hue": "#3680c4",
+   "hsr": false,
+   "stops": [
+    "North Station",
+    "Boston Central",
+    "South Station",
+    "Sullivan Sq",
+    "West Medford",
+    "Wedgemere",
+    "Winchester",
+    "Anderson/Woburn",
+    "Wilmington",
+    "North Billerica",
+    "Lowell"
+   ],
+   "ends": [
+    "Lowell"
+   ]
+  },
+  {
+   "key": "hav",
+   "name": "Haverhill Line",
+   "hue": "#c0630f",
+   "hsr": false,
+   "stops": [
+    "North Station",
+    "Boston Central",
+    "South Station",
+    "Sullivan Sq",
+    "Malden Center",
+    "Reading",
+    "North Wilmington",
+    "Ballardvale",
+    "Andover",
+    "Lawrence",
+    "Bradford",
+    "Haverhill"
+   ],
+   "ends": [
+    "Haverhill"
+   ]
+  },
+  {
+   "key": "pea",
+   "name": "Peabody Line",
+   "hue": "#3febbe",
+   "hsr": false,
+   "stops": [
+    "North Station",
+    "Boston Central",
+    "South Station",
+    "Chelsea",
+    "Central Sq",
+    "Swampscott",
+    "South Salem",
+    "Peabody",
+    "Danversport",
+    "Danvers",
+    "Middleton"
+   ],
+   "ends": []
+  },
+  {
+   "key": "nbp",
+   "name": "Newburyport / Rockport Line",
+   "hue": "#f99bee",
+   "hsr": false,
+   "stops": [
+    "North Station",
+    "Boston Central",
+    "South Station",
+    "Chelsea",
+    "Central Sq",
+    "Swampscott",
+    "South Salem",
+    "Marblehead",
+    "Salem",
+    "Beverly",
+    "North Beverly",
+    "Hamilton/Wenham",
+    "Ipswich",
+    "Rowley",
+    "Newburyport",
+    "Montserrat",
+    "Beverly Farms",
+    "Manchester",
+    "West Gloucester",
+    "Gloucester",
+    "Rockport"
+   ],
+   "ends": [
+    "Marblehead",
+    "Newburyport",
+    "Rockport"
+   ]
+  },
+  {
+   "key": "wor",
+   "name": "Framingham / Worcester Line",
+   "hue": "#71b743",
+   "hsr": false,
+   "stops": [
+    "North Station",
+    "Boston Central",
+    "South Station",
+    "Back Bay",
+    "David Ortiz",
+    "West Station",
+    "Boston Landing",
+    "Newtonville",
+    "West Newton",
+    "Auburndale",
+    "Wellesley Farms",
+    "Wellesley Hills",
+    "Wellesley Square",
+    "Natick Center",
+    "West Natick",
+    "Framingham",
+    "Ashland",
+    "Southborough",
+    "Westborough",
+    "Grafton",
+    "Worcester"
+   ],
+   "ends": [
+    "Worcester"
+   ]
+  },
+  {
+   "key": "fra",
+   "name": "Franklin Line",
+   "hue": "#a6bbf2",
+   "hsr": false,
+   "stops": [
+    "North Station",
+    "Boston Central",
+    "South Station",
+    "Back Bay",
+    "Ruggles",
+    "Hyde Park",
+    "Readville",
+    "Endicott",
+    "Dedham Corporate Center",
+    "Islington",
+    "Norwood Depot",
+    "Norwood Central",
+    "Windsor Gardens",
+    "Walpole",
+    "Norfolk",
+    "Franklin",
+    "Forge Park/495",
+    "Foxboro",
+    "Mansfield"
+   ],
+   "ends": [
+    "Forge Park/495"
+   ]
+  },
+  {
+   "key": "pro",
+   "name": "Providence Line",
+   "hue": "#f0ab99",
+   "hsr": false,
+   "stops": [
+    "North Station",
+    "Boston Central",
+    "South Station",
+    "Back Bay",
+    "Ruggles",
+    "Hyde Park",
+    "Readville",
+    "Route 128",
+    "Canton Junction",
+    "Sharon",
+    "Mansfield",
+    "Attleboro",
+    "Pawtucket/Central Falls",
+    "Providence",
+    "TF Green Airport",
+    "Wickford Junction",
+    "Canton Center",
+    "Stoughton",
+    "North Easton",
+    "Easton Village",
+    "Raynham Place",
+    "Taunton"
+   ],
+   "ends": [
+    "Wickford Junction",
+    "Taunton"
+   ]
+  },
+  {
+   "key": "fr",
+   "name": "Fall River / New Bedford Line",
+   "hue": "#489f90",
+   "hsr": false,
+   "stops": [
+    "North Station",
+    "Boston Central",
+    "South Station",
+    "JFK/UMass",
+    "Quincy Center",
+    "Braintree",
+    "Holbrook/Randolph",
+    "Montello",
+    "Brockton",
+    "Campello",
+    "Bridgewater",
+    "Middleborough",
+    "East Taunton",
+    "Church St",
+    "New Bedford",
+    "Freetown",
+    "Fall River Depot"
+   ],
+   "ends": [
+    "New Bedford",
+    "Fall River Depot"
+   ]
+  },
+  {
+   "key": "kin",
+   "name": "Kingston Line",
+   "hue": "#38e6f8",
+   "hsr": false,
+   "stops": [
+    "North Station",
+    "Boston Central",
+    "South Station",
+    "JFK/UMass",
+    "Quincy Center",
+    "Braintree",
+    "South Weymouth",
+    "Abington",
+    "Whitman",
+    "Hanson",
+    "Halifax",
+    "Kingston",
+    "Plymouth"
+   ],
+   "ends": [
+    "Plymouth"
+   ]
+  },
+  {
+   "key": "grb",
+   "name": "Greenbush Line",
+   "hue": "#937a12",
+   "hsr": false,
+   "stops": [
+    "North Station",
+    "Boston Central",
+    "South Station",
+    "JFK/UMass",
+    "Quincy Center",
+    "Weymouth Landing/East Braintree",
+    "East Weymouth",
+    "Hingham",
+    "Nantasket Junction",
+    "Cohasset",
+    "North Scituate",
+    "Greenbush"
+   ],
+   "ends": [
+    "Greenbush"
+   ]
+  },
+  {
+   "key": "hmon",
+   "name": "High-Speed Rail to Montreal",
+   "hue": null,
+   "hsr": true,
+   "stops": [
+    "North Station",
+    "Boston Central",
+    "South Station",
+    "Sullivan Sq"
+   ],
+   "ends": []
+  },
+  {
+   "key": "hmai",
+   "name": "High-Speed Rail to Bangor",
+   "hue": null,
+   "hsr": true,
+   "stops": [
+    "North Station",
+    "Boston Central",
+    "South Station",
+    "Sullivan Sq"
+   ],
+   "ends": []
+  },
+  {
+   "key": "halb",
+   "name": "High-Speed Rail to Albany",
+   "hue": null,
+   "hsr": true,
+   "stops": [
+    "North Station",
+    "Boston Central",
+    "South Station",
+    "Back Bay",
+    "West Station"
+   ],
+   "ends": []
+  },
+  {
+   "key": "hnyc",
+   "name": "High-Speed Rail to New York",
+   "hue": null,
+   "hsr": true,
+   "stops": [
+    "North Station",
+    "Boston Central",
+    "South Station",
+    "Back Bay",
+    "Route 128"
+   ],
+   "ends": []
+  }
+ ]
+}

@@ -9,6 +9,7 @@ import json
 import re
 import sys
 from pathlib import Path
+from shutil import copyfile as shutil_copy
 
 import matplotlib
 matplotlib.use("Agg")
@@ -149,6 +150,39 @@ def maps():
     return sizes
 
 
+HSR_TO = {"hmon": "Montreal", "hmai": "Bangor", "halb": "Albany", "hnyc": "New York"}
+
+
+def rail():
+    """Regional Rail and High-Speed Rail lines with stations in order, from make_rail_poster.py (read only, nothing drawn)."""
+    import make_rail_poster as RP
+    RP.build()
+    RP.stations()
+    lines = {k: [] for k in RP.LINES}
+    for s in RP.STATIONS:
+        for ln, _xy in s["dots"]:
+            if ln in lines and clean(s["name"]) not in lines[ln]:
+                lines[ln].append(clean(s["name"]))
+    out = []
+    for k, d in RP.LINES.items():
+        name = d["name"].title().replace(" / ", " / ")
+        if d.get("hsr"):
+            name = f"High-Speed Rail to {HSR_TO[k]}"
+        out.append({"key": k, "name": name, "hue": d.get("hue"), "hsr": bool(d.get("hsr")), "stops": lines[k],
+                    "ends": [n for n in lines[k] if any(clean(s["name"]) == n and s["kind"] == "end" for s in RP.STATIONS)]})
+    return {"lines": out}
+
+
+def ferry():
+    """Every ferry route with its docks, from make_ferry_network.py's own route export."""
+    import json as _j
+    import tempfile
+    import make_ferry_network as F
+    tmp = Path(tempfile.mkdtemp()) / "routes.json"
+    F.write_routes(tmp)
+    return _j.loads(tmp.read_text(encoding="utf-8"))
+
+
 def downloads():
     """Full-quality files for the Download links: vector PDFs and the 600 dpi system map PNG."""
     import shutil
@@ -169,4 +203,14 @@ if __name__ == "__main__":
             "lineColors": LINE_COLOR, "stops": sorted(stops.values(), key=lambda s: s["name"]), "segments": segments}
     (SITE / "data").mkdir(exist_ok=True)
     (SITE / "data" / "network.json").write_text(json.dumps(data, indent=1), encoding="utf-8")
+    (SITE / "data" / "rail.json").write_text(json.dumps(rail(), indent=1), encoding="utf-8")
+    fd = ferry()
+    fd.pop("source", None)
+    (SITE / "data" / "ferry.json").write_text(json.dumps(fd, indent=1), encoding="utf-8")
+    # A ferry network map rendered by render_web_maps.py ("ferry"), when there is one.
+    fn = RELEASE / "ferry_network.png"
+    if fn.exists():
+        web_image(fn, OUT / "maps" / "ferry_network.webp", 3600)
+        web_image(fn, OUT / "maps" / "ferry_network_thumb.webp", 900)
+        shutil_copy(RELEASE / "ferry_network.pdf", SITE / "downloads" / "ferry_network.pdf")
     print(len(stops), "stops,", len(segments), "segments")

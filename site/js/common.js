@@ -66,6 +66,30 @@
     NET = d;
     return d;
   }
+  /* Regional Rail and ferry: loaded on the pages that need them. */
+  let RAIL = null, FERRY = null;
+  async function rail() {
+    if (RAIL) return RAIL;
+    RAIL = await (await fetch("/data/rail.json")).json();
+    RAIL.byKey = {};
+    const MAIN_END = { fit: "Wachusett", pro: "Wickford Junction" };  // the poster lists their branches last
+    RAIL.lines.forEach(l => { RAIL.byKey[l.key] = l; l.terminal = MAIN_END[l.key] || (l.ends.length ? l.ends[l.ends.length - 1] : l.stops[l.stops.length - 1]); });
+    return RAIL;
+  }
+  async function ferry() {
+    if (FERRY) return FERRY;
+    FERRY = await (await fetch("/data/ferry.json")).json();
+    FERRY.byKey = {};
+    FERRY.routes.forEach(r => {
+      FERRY.byKey[r.key] = r;
+      const parts = [r.stops || [], ...Object.values(r.banks || {}), ...Object.values(r.branches || {})];
+      r.all = [...new Set(parts.flat())];
+    });
+    return FERRY;
+  }
+  /* Transfer codes used on the maps, to site line keys. */
+  const CODE = { RL: "red", OL: "orange", BL: "blue", GL: "green", YL: "yellow", CL: "cyan", IL: "indigo", SL: "silver", CR: "rail" };
+
   function slug(n) { return n.toLowerCase().replace(/'/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""); }
 
   /* Distance from Boston Central in map units: the core is busiest. */
@@ -199,11 +223,12 @@
   /* ---------- header and footer ---------- */
   const NAV = [
     ["/maps.html", "Maps"],
-    ["/map.html", "Interactive Map"],
-    ["/lines.html", "Lines & Schedules"],
+    ["/lines.html", "Subway"],
+    ["/rail.html", "Regional Rail"],
+    ["/ferry.html", "Ferry"],
     ["/stops.html", "Stations"],
     ["/alerts.html", "Alerts"],
-    ["/data.html", "Ridership Data"],
+    ["/data.html", "Data"],
     ["/fares.html", "Fares"]
   ];
   function header() {
@@ -245,12 +270,12 @@
     const input = document.getElementById("q"), box = document.getElementById("suggest");
     let active = -1, items = [];
     input.addEventListener("input", async () => {
-      const d = await network();
+      const all = await everyPlace();
       const q = input.value.trim().toLowerCase();
       if (!q) { box.classList.remove("open"); return; }
-      items = d.stops.filter(s => s.name.toLowerCase().includes(q)).sort((a, b) => a.name.toLowerCase().indexOf(q) - b.name.toLowerCase().indexOf(q)).slice(0, 8);
+      items = all.filter(s => s.name.toLowerCase().includes(q)).sort((a, b) => a.name.toLowerCase().indexOf(q) - b.name.toLowerCase().indexOf(q)).slice(0, 9);
       active = -1;
-      box.innerHTML = items.length ? items.map(s => `<a href="${stopLink(s)}">${s.lines.map(l => bullet(l)).join("")} ${esc(s.name)}</a>`).join("") : '<div class="small muted" style="padding:8px 10px">No stations match.</div>';
+      box.innerHTML = items.length ? items.map(s => `<a href="${s.href}">${s.badges} ${esc(s.name)}</a>`).join("") : '<div class="small muted" style="padding:8px 10px">No stations match.</div>';
       box.classList.add("open");
     });
     input.addEventListener("keydown", e => {
@@ -266,13 +291,36 @@
     });
     document.addEventListener("click", e => { if (!e.target.closest(".search")) box.classList.remove("open"); });
   }
+  /* One searchable list: subway stations, Regional Rail stations and ferry docks, each linking to the best page. */
+  let PLACES = null;
+  async function everyPlace() {
+    if (PLACES) return PLACES;
+    const [d, r, f] = await Promise.all([network(), rail(), ferry()]);
+    const seen = new Set();
+    PLACES = d.stops.map(s => { seen.add(s.id); return { name: s.name, href: stopLink(s), badges: s.lines.map(l => bullet(l)).join("") }; });
+    r.lines.forEach(l => l.stops.forEach(n => {
+      const id = slug(n);
+      if (seen.has(id)) return;
+      seen.add(id);
+      PLACES.push({ name: n, href: `/rail-line.html?l=${l.key}#${id}`, badges: bullet("rail") });
+    }));
+    f.routes.forEach(rt => rt.all.forEach(n => {
+      const id = slug(n);
+      if (seen.has(id)) return;
+      seen.add(id);
+      PLACES.push({ name: n, href: `/ferry-route.html?r=${rt.key}#${id}`, badges: `<span class="bullet ferry">F</span>` });
+    }));
+    PLACES.sort((a, b) => a.name.localeCompare(b.name));
+    return PLACES;
+  }
+
   function footer() {
     const f = document.createElement("footer");
     f.className = "foot";
     f.innerHTML = `<div class="wrap"><div class="cols">
   <div><span class="logo-chip"><img src="/assets/logo/nerta.svg" alt="" width="49" height="64"></span>
     <p>Serving 222 rapid transit stations across Greater Boston, every hour of every day.</p></div>
-  <div><h4>Ride</h4><ul><li><a href="/maps.html">Maps</a></li><li><a href="/map.html">Interactive map</a></li><li><a href="/lines.html">Lines &amp; schedules</a></li><li><a href="/stops.html">Stations</a></li></ul></div>
+  <div><h4>Ride</h4><ul><li><a href="/maps.html">Maps</a></li><li><a href="/map.html">Interactive map</a></li><li><a href="/lines.html">Subway</a></li><li><a href="/rail.html">Regional Rail</a></li><li><a href="/ferry.html">Ferry</a></li><li><a href="/stops.html">Stations</a></li></ul></div>
   <div><h4>Plan</h4><ul><li><a href="/#planner">Trip planner</a></li><li><a href="/alerts.html">Service alerts</a></li><li><a href="/fares.html">Fares &amp; passes</a></li><li><a href="/accessibility.html">Accessibility</a></li></ul></div>
   <div><h4>Data</h4><ul><li><a href="/data.html">Ridership dashboard</a></li><li><a href="/data.html#downloads">Open data</a></li><li><a href="/data.html#performance">Performance</a></li></ul></div>
   <div><h4>About</h4><ul><li><a href="/about.html">About this site</a></li><li><a href="/about.html#credits">Credits</a></li><li><a href="/bigger-dig.html">The BIGGER Dig</a></li></ul></div>
@@ -303,6 +351,6 @@
     });
   }
 
-  window.NERTA = { LINES, ORDER, BLURB, network, ridership, lineStatus, departures, isPeak, planTrip, headsign, rng, hash, fmt, esc, bullet, stopLink, qs, slug, coreDistance };
+  window.NERTA = { LINES, ORDER, BLURB, network, rail, ferry, everyPlace, CODE, ridership, lineStatus, departures, isPeak, planTrip, headsign, rng, hash, fmt, esc, bullet, stopLink, qs, slug, coreDistance };
   document.addEventListener("DOMContentLoaded", () => { header(); footer(); lightbox(); });
 })();

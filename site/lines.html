@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lines &amp; Schedules | NERTA</title>
+<title>Subway | NERTA</title>
 <meta name="description" content="Every NERTA rapid transit line: stations, how often trains run, and current service.">
 <link rel="icon" href="/assets/logo/t.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/css/site.css">
@@ -24,13 +24,17 @@ document.addEventListener("DOMContentLoaded", async () => {
 </head>
 <body>
 <header class="page-head"><div class="wrap">
-  <div class="crumbs"><a href="/">Home</a> / Lines &amp; Schedules</div>
-  <h1>Lines &amp; Schedules</h1>
+  <div class="crumbs"><a href="/">Home</a> / Subway</div>
+  <h1>Subway</h1>
   <p class="lede">Rapid transit runs 24 hours a day, every day. Trains come often enough that you never need a timetable.</p>
 </div></header>
 <main id="main"><section class="section"><div class="wrap">
   <div class="grid two" id="lines"></div>
-  <div class="card" style="margin-top:20px"><h2>Regional Rail and ferries</h2><p class="muted" style="margin:0">All 13 Regional Rail lines and High-Speed Rail meet the subway at Boston Central, North Station and South Station. Ferries leave Long Wharf for five routes around the harbor. See the <a href="/maps.html">maps</a>.</p></div>
+  <div class="grid three" style="margin-top:20px">
+    <a class="card" href="/rail.html" style="text-decoration:none;color:inherit;border-top:6px solid #80276c"><h2>Regional Rail</h2><p class="muted" style="margin:0">Eleven lines and High-Speed Rail, all through Boston Central.</p></a>
+    <a class="card" href="/ferry.html" style="text-decoration:none;color:inherit;border-top:6px solid #00796d"><h2>Ferry</h2><p class="muted" style="margin:0">Fifteen routes on the rivers, the harbor and the coast.</p></a>
+    <div class="card" style="border-top:6px solid #00843d"><h2>Trams</h2><p class="muted" style="margin:0">A new tram network is on the way. Maps coming soon.</p></div>
+  </div>
 </div></section></main>
 </body>
 </html>

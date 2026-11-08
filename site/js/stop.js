@@ -17,12 +17,18 @@ document.addEventListener("DOMContentLoaded", async () => {
       if (end !== s.id && !dirs.some(x => x.line === seg.line && x.to === end)) dirs.push({ line: seg.line, to: end });
     });
   });
+  // Regional Rail rows: outbound to each line's end, plus one inbound row. Downtown, where every line stops, show four.
+  const R = await N.rail();
+  const railLines = R.lines.filter(l => !l.hsr && l.stops.includes(s.name));
+  railLines.slice(0, 4).forEach(l => dirs.push({ line: "rail", to: N.slug(l.terminal), label: l.terminal, via: l.name, href: `/rail-line.html?l=${l.key}` }));
+  if (railLines.length && s.name !== "Boston Central") dirs.push({ line: "rail", to: "boston-central", label: "Boston Central", via: "Regional Rail, all lines", href: "/rail.html" });
   const board = () => {
     document.getElementById("board").innerHTML = `<div class="head"><span>Departures</span><span>${new Date().toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit" })}</span></div>` +
       dirs.map(x => {
         const m = N.departures(s.id, x.line, x.to, 3);
-        const via = x.line === "green" ? "Light rail" : x.line === "rail" ? "Regional Rail" : N.LINES[x.line].name;
-        return `<div class="dir">${N.bullet(x.line)}<div class="to">${N.esc(d.byId[x.to].name)}<small>${via}</small></div><div class="mins">${m.map(v => `<span>${v === 0 ? "Now" : v + "<em>min</em>"}</span>`).join("")}</div></div>`;
+        const via = x.via || (x.line === "green" ? "Light rail" : N.LINES[x.line].name);
+        const to = N.esc(x.label || d.byId[x.to].name);
+        return `<div class="dir">${N.bullet(x.line)}<div class="to">${x.href ? `<a href="${x.href}" style="color:inherit">${to}</a>` : to}<small>${N.esc(via)}</small></div><div class="mins">${m.map(v => `<span>${v === 0 ? "Now" : v + "<em>min</em>"}</span>`).join("")}</div></div>`;
       }).join("");
   };
   board(); setInterval(board, 20000);

@@ -174,21 +174,21 @@ def silver_layout():
 # Wellesley Hills and Auburndale are Worcester Line stations (MBTA stop data), as on the main map.
 EXTRA_TRANSFERS = {"West Medford": ["CR"], "Wellesley Hills": ["CR"], "Auburndale": ["CR"], "Porter": ["CR"], "South Station": ["CR", "HSR", "F"], "North Station": ["CR", "HSR", "F"], "Back Bay": ["CR", "HSR"], "West Station": ["CR", "HSR"],
                    "Ruggles": ["CR"], "Hyde Park": ["CR"], "Readville": ["CR"], "Sullivan Sq": ["CR"], "Chelsea": ["CR"], "Central Sq": ["CR"], "Reading": ["CR"], "Malden Center": ["CR"], "Oak Grove": ["CR"],
-                   "JFK/UMass": ["CR"], "Quincy Center": ["CR"], "Braintree": ["CR"], "Waltham": ["CR"], "Aquarium": ["F"], "Maverick": ["F"], "North End": ["F"], "Courthouse": ["F"], "Kendall/MIT": ["F"],
+                   "JFK/UMass": ["CR"], "Quincy Center": ["CR"], "Braintree": ["CR"], "Waltham": ["CR"], "Aquarium": ["F"], "Maverick": ["F"], "Langone Ferryport": ["F"], "Wonderland": ["F"], "Courthouse": ["F"], "Kendall/MIT": ["F"],
                    "Lynn Harbor": ["F"], "Encore": ["F"], "Navy Yard": ["F"], "Harvard": ["F"], "BU Bridge": ["F"], "Stadium": ["F"],
                    "Suffolk Downs": ["F"], "Revere Beach": ["F"], "Beachmont": ["F"], "Airport": ["SL"], "Terminals": ["SL"], "Logan Dock": ["F"], "L Street": ["F"], "State": ["CL", "CR", "HSR"],
                    "Boston Central": ["BL", "OL", "CR", "HSR"]}
 SILVER_LINKS = {"Airport": ["BL", "YL"], "Terminals": ["YL"], "Logan Dock": ["F"]}
 SHOW = {"State": "Boston Central"}
-FERRY_VIA = {"North Station": "Lovejoy Wharf", "Aquarium": "Long Wharf", "Maverick": "Piers Park", "North End": "Langone", "Courthouse": "Fan Pier",
+FERRY_VIA = {"North Station": "Lovejoy Wharf", "Aquarium": "Long Wharf", "Maverick": "Piers Park", "Courthouse": "Fan Pier",
              "L Street": "Carson Beach", "Harvard": "Weld", "Kendall/MIT": "Ames St", "South Station": "Dorchester Ave"}  # dock has its own name
 # Each ferry pill takes the color of the route that serves that station's dock on the main map (the main one where several call).
-FERRY_COLOR = {"North Station": M.ROUTE_COLOR["hw"], "Aquarium": M.ROUTE_COLOR["hw"], "North End": M.ROUTE_COLOR["hw"], "South Station": M.ROUTE_COLOR["hw"],
+FERRY_COLOR = {"North Station": M.ROUTE_COLOR["hw"], "Aquarium": M.ROUTE_COLOR["hw"], "Langone Ferryport": M.ROUTE_COLOR["hw"], "Wonderland": M.ROUTE_COLOR["nse"], "South Station": M.ROUTE_COLOR["hw"],
                "Navy Yard": M.ROUTE_COLOR["charles"], "Harvard": M.ROUTE_COLOR["charles"], "BU Bridge": M.ROUTE_COLOR["charles"],
                "Kendall/MIT": M.ROUTE_COLOR["charles"], "Encore": M.ROUTE_COLOR["mystic"], "Stadium": M.ROUTE_COLOR["mystic"],
                "Suffolk Downs": M.ROUTE_COLOR["chelsea"], "Maverick": M.ROUTE_COLOR["eb"], "Logan Dock": M.ROUTE_COLOR["eb"],
-               "Courthouse": M.ROUTE_COLOR["seaport"], "L Street": M.ROUTE_COLOR["sse"], "Revere Beach": M.ROUTE_COLOR["wr"],
-               "Beachmont": M.ROUTE_COLOR["wr"], "Lynn Harbor": M.ROUTE_COLOR["nse"]}
+               "Courthouse": M.ROUTE_COLOR["seaport"], "L Street": M.ROUTE_COLOR["sse"], "Revere Beach": M.ROUTE_COLOR["nse"],
+               "Beachmont": M.ROUTE_COLOR["nse"], "Lynn Harbor": M.ROUTE_COLOR["nse"]}
 for _dock, (_xy, _station, *_rest) in M.DOCKS.items():
     for _rt in M.FERRY_ROUTES:
         if _station and _dock in _rt["stops"]:

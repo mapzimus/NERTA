@@ -30,11 +30,12 @@ DAY = Path(__file__).resolve().parents[1]
 REPO = DAY.parent
 RED, ORANGE, BLUE, GREEN, YELLOW, PURPLE = "#da291c", "#ed8b00", "#003da5", "#00843d", "#f5c400", "#a98aa8"
 CR_TEXT_COLOR = "#80276c"
+WATERMARK = "#a6d6dc"  # a shade darker than the water
 WEB = os.environ.get("NERTA_WEB") == "1"  # nerta.fun version (Max): no hashtag, Day 8, disclaimer or sources; name under NERTA, @mapzimus in the water
 BUILT = True  # Max, November 7: drawn as built and real. lines() and CR_STOPS keep each piece's status (solid today, stripe real proposal,
               # dash invented) for line_audit.md; the drawing ignores it. Set False to show status again.
 CYAN, INDIGO = "#00a9c9", "#3f3fb5"
-PAPER, WATER, COAST = "#fcfcfa", "#bfe3e2", "#86bcbb"  # teal-leaning water; Day 8 draft was #c9e3ee / #7fb2c6
+PAPER, WATER, COAST = "#fcfcfa", "#b6e2e7", "#7dbcc2"  # teal-leaning water; Day 8 draft was #c9e3ee / #7fb2c6
 LW, CR = 9.0, 3.4
 HSR = "#ffd23f"
 SILVER = "#7c878e"
@@ -42,7 +43,7 @@ XLIM, YLIM = (-46, 229.4), (-20, 215.4)  # Day 8 was (-46, 222), (-20, 208)
 
 # Spots shared between lines, or that fix the shape of a line.
 CR_STOPS = [("Beverly", (212, 211.6), None, "solid"), ("Swampscott", (204, 194), "l", "solid"), ("Marblehead", (214.5, 198.5), None, "dash"), 
-            ("South Salem", (208.5, 198.5), None, "stripe"), ("Salem", (212, 203.8), None, "solid"), ("Peabody", (194, 198.5), "t", "dash"), ("Danversport", (187.5, 198.5), None, "dash"), ("Danvers", (181, 198.5), "t", "dash"), ("Middleton", (169, 205.5), "r", "dash"),
+            ("South Salem", (208.5, 198.5), None, "stripe"), ("Clifton", (211.5, 198.5), None, "dash"), ("Salem", (212, 203.8), None, "solid"), ("Peabody", (194, 198.5), "t", "dash"), ("Danversport", (187.5, 198.5), None, "dash"), ("Danvers", (181, 198.5), "t", "dash"), ("Middleton", (169, 205.5), "r", "dash"),
             ("Boston Landing", (15, 122), "t", "solid"), ("David Ortiz", (61.7, 86.3), "r", "solid"),
             
             ("Walpole", (34, -13), "l", "solid"), ("Foxboro", (34, -16), None, "solid"), ("Stoughton", (50, -7), None, "solid"),
@@ -58,7 +59,7 @@ A = {"Moakley Park": (124.9, 58.9), "Day Sq": (135, 133.6), "Arlington Ctr": (30
      "Copley": (75, 84), "Hynes": (59, 84), "Kenmore": (54, 84), "Fenway": (46, 76), "Longwood Medical Area": (59, 56), "Prudential": (69, 75), "Symphony": (69, 69), "Blandford St": (39, 89), "St. Mary's St": (39, 84),
      "Riverside": (-8, 22), "Harvard Ave": (20, 108), "Boston College": (-22, 66), "Norumbega": (-40, 92), "Newton City Hall": (-25, 63), "Weston": (-31, 57), "Wellesley Hills": (-14, 16), "Cleveland Circle": (-14, 48),
      "Newton Highlands": (12, 42), "Heath St": (40, 37), "Hyde Sq": (40, 32), "Hyde Park": (43, 14), "Nubian": (84, 56), "Tufts Medical Ctr": (92, 76), "Dover": (92, 71), "Northampton": (92, 67.6), "Four Corners": (92, 48), "Grove Hall": (84, 50), "Seaver St": (78, 44), "Wellington Hill": (71, 37), "Melnea Cass": (89, 56), "Inman Sq": (74.5, 124), "Auburndale": (-28, 60), "BU Bridge": (66, 96), "West Station": (59, 89), "Barrys Corner": (52, 110), "Lansdowne": (59, 89),
-     "Terminals": (148, 104), "Newmarket": (100, 56), "Broadway": (118, 64), "Readville": (46, 2), "Winthrop Center": (164, 124), "Orient Heights": (149, 139), "Maverick": (129, 119), "City Point": (152, 70), "Convention Center": (130, 64), "L Street": (145, 64), "West Broadway": (124, 64), "Boston Central": (118, 100), "Aquarium": (118, 108), "North End": (118, 114), "City Square": (122, 132), "Navy Yard": (124, 135), "Thompson Sq": (124, 141), "Stadium": (124, 150), "Encore": (116, 157), "Everett Sq": (130, 150), "Chelsea": (135, 150), "Fort Point": (125, 76), "Uphams Corner": (98, 54), "Bellingham Sq": (135, 141), "Talbot Ave": (79, 35), "Morton St": (71, 27), "Blue Hill Ave": (66, 22), "Fairmount": (50.5, 6.5),  "Mass. Ave": (79.5, 63.5), "Northeastern": (69, 65), "Seaport": (140, 76), "Courthouse": (133, 76)}
+     "Terminals": (148, 104), "Newmarket": (100, 56), "Broadway": (118, 64), "Readville": (46, 2), "Winthrop Center": (164, 124), "Orient Heights": (149, 139), "Maverick": (129, 119), "City Point": (152, 70), "Convention Center": (130, 64), "L Street": (145, 64), "West Broadway": (124, 64), "Boston Central": (118, 100), "Aquarium": (118, 108), "Langone Ferryport": (118, 114), "City Square": (122, 132), "Navy Yard": (124, 135), "Thompson Sq": (124, 141), "Stadium": (124, 150), "Encore": (116, 157), "Everett Sq": (130, 150), "Chelsea": (135, 150), "Fort Point": (125, 76), "Uphams Corner": (98, 54), "Bellingham Sq": (135, 141), "Talbot Ave": (79, 35), "Morton St": (71, 27), "Blue Hill Ave": (66, 22), "Fairmount": (50.5, 6.5),  "Mass. Ave": (79.5, 63.5), "Northeastern": (69, 65), "Seaport": (140, 76), "Courthouse": (133, 76)}
 
 
 def lines():
@@ -85,7 +86,7 @@ def lines():
           (ORANGE, "stripe", [(43, 27), (12, -4)], ["Forest Hills", "Roslindale Village", "Wu Sq", "Bellevue", "Highland", "West Roxbury", "VFW Parkway"])]
     x += [(INDIGO, "stripe", [(114, 76), (114, 70), (110, 66), (46, 2)], ["South Station", "Newmarket", "Uphams Corner", "Four Corners", "Talbot Ave", "Morton St", "Blue Hill Ave", "Fairmount", "Readville"])]
     x += [(CYAN, "dash", [(140, 76), (122, 76), (118, 80), (118, 128), (124, 134), (124, 157), (110, 157)],
-           ["Seaport", "Courthouse", "Fort Point", "Boston Central", "Aquarium", "North End", "North Station", "City Square", "Navy Yard", "Thompson Sq", "Stadium", "Encore", "Assembly"])]
+           ["Seaport", "Courthouse", "Fort Point", "Boston Central", "Aquarium", "Langone Ferryport", "North Station", "City Square", "Navy Yard", "Thompson Sq", "Stadium", "Encore", "Assembly"])]
     x += [(CYAN, "dash", [(140, 76), (149, 76), (152, 73), (152, 67), (149, 64), (122, 64), (118, 64)],
            ["Seaport", "Vertex Tower", "City Point", "L Street", "Convention Center", "West Broadway", "Broadway"])]
     x += [(BLUE, "solid", [(102, 100), (114, 100), (118, 108), (176, 166)], ["Gov't Center", "State", "Aquarium", "Maverick", "Airport", "Wood Island",
@@ -154,12 +155,12 @@ CR_TEXT = [("LOWELL LINE", (51, 204.6), "right"), ("HAVERHILL LINE", (116.2, 210
 
 BIG_CAPSULES = [(106, 120), (110, 100), (114.2, 77.2)]  # Tier 1 and Tier 2 capsules: North, Boston Central, South
 CAPSULES = [((110, 202), (114, 202)), ((110, 174), (114, 174)), ((118, 8), (121.6, 8)), ((43, 14), (46, 14)), ((118, 52), (121.6, 52)), ((118, 25.6), (121.6, 25.6)), ((20, 111), (20, 107.4)), ((106, 112), (110, 112)), ((106, 120), (118, 120)), ((110, 100), (118, 100)), ((46, 76), (50, 76)), ((114.2, 77.2), (116.4, 78.8)), ((135, 150), (135, 146))]
-RINGS = [r for r in ["Suffolk Downs", "Gov't Center", "Longwood Medical Area", "Braintree", "Central Sq", "VFW Parkway", "Wonderland", "Stadium", "Park Street", "Downtown Crossing", "Kendall/MIT", "Harvard", "Lechmere", "Assembly", "Back Bay", "Ruggles", "Forest Hills", "JFK/UMass",
+RINGS = [r for r in ["Langone Ferryport", "Suffolk Downs", "Gov't Center", "Longwood Medical Area", "Braintree", "Central Sq", "VFW Parkway", "Wonderland", "Stadium", "Park Street", "Downtown Crossing", "Kendall/MIT", "Harvard", "Lechmere", "Assembly", "Back Bay", "Ruggles", "Forest Hills", "JFK/UMass",
          "Ashmont", "Airport", "Kenmore", "Seaport", "Porter", "Charles/MGH", "Newmarket", "BU Bridge", "Terminals", "Alewife", "Mattapan", "Blue Hill Ave", "Convention Center", "Readville", "Orient Heights", "Aquarium", "Broadway", "Sullivan Sq", "Mass Ave", "Nubian", "Tufts Medical Ctr"] if r != "Airport"]
 ENDS = {"Lexington Route 128": RED, "Waltham": RED, "Winthrop Center": BLUE, "Weymouth": RED, "Mattapan": RED, "Readville": INDIGO, "VFW Parkway": ORANGE, "Wyoma Sq": BLUE, "West Medford": GREEN, "Weston": GREEN, "Wellesley Hills": GREEN,
         "Cleveland Circle": GREEN, "Reading": ORANGE, "Watertown": GREEN}
 NEW_ON_OLD = set()
-HIDE = {"Airport", "Back Bay", "Ruggles", "West Station", "Boston Central", "Nubian", "Melnea Cass", "Lynn Common", "Gov't Center", "State", "North Station", "South Station", "Haymarket", "Longwood Medical Area"}
+HIDE = {"Langone Ferryport", "Airport", "Back Bay", "Ruggles", "West Station", "Boston Central", "Nubian", "Melnea Cass", "Lynn Common", "Gov't Center", "State", "North Station", "South Station", "Haymarket", "Longwood Medical Area"}
 TEXT = {"Park Street": "Park\nStreet", "Kendall/MIT": "Kendall", "Newton City Hall": "Newton\nCity Hall", "Four Corners": "Four\nCorners", "Melnea Cass": "Melnea\nCass", "Mass Ave": "MIT", "Convention Center": "Convention\nCenter", "Boston Medical": "Boston\nMedical", "Community College": "Community\nCollege", "Science Park": "Science\nPark", "Museum of Fine Arts": "MFA", "Needham Junction": "Needham Jct",
         "Tufts Medical Ctr": "Tufts Medical Ctr", "Downtown Crossing": "Downtown\nCrossing"}
 SIDE = {}
@@ -182,10 +183,10 @@ for names, s in ((["Porter"], "bl"), (["Davis", "Harvard", "Kendall/MIT"], "tr")
                  (["Downtown Crossing"], "l"), (["Sullivan Sq"], "x"), (["JFK/UMass"], "br"), (["Airport"], "br")):
     for n in names:
         SIDE[n] = s
-NUDGE = {"North End": (2.4, -1.9), "North Cambridge": (1.5, 1.4), "Lechmere": (2.4, 0), "East Somerville": (4.5, 1.6), "Union Sq": (-3, 0), "Four Corners": (-0.5, 2.6), "Uphams Corner": (0.6, -0.4), "Chinatown": (-1, 0), "Savin Hill": (-1.5, 0), "Fields Corner": (-1.5, 0), "Shawmut": (-1.5, 0), "Park Street": (1.4, 0.8), "Charles/MGH": (-1.5, 0), "Navy Yard": (-0.8, 0), "Airport": (2.5, -1),
+NUDGE = {"Langone Ferryport": (2.4, -1.9), "North Cambridge": (1.5, 1.4), "Lechmere": (2.4, 0), "East Somerville": (4.5, 1.6), "Union Sq": (-3, 0), "Four Corners": (-0.5, 2.6), "Uphams Corner": (0.6, -0.4), "Chinatown": (-1, 0), "Savin Hill": (-1.5, 0), "Fields Corner": (-1.5, 0), "Shawmut": (-1.5, 0), "Park Street": (1.4, 0.8), "Charles/MGH": (-1.5, 0), "Navy Yard": (-0.8, 0), "Airport": (2.5, -1),
          "Brigham Circle": (0, -1.6), "Bellingham Sq": (-1.5, -2), "Lansdowne": (0.6, 0.7)}
 HALOED = {"Thompson Sq", "West Broadway", "Assembly", "Lansdowne"}
-SIDE.update({"North End": "r", "Dover": "r", "Northampton": "r", "Grove Hall": "r", "Wellington Hill": "along", "Blue Hill Ave": "l", "Inman Sq": "b", "Davis": "l", "Auburndale": "l", "Riverside": "l", "Union Sq": "t", "Lynn Harbor": "br", "Broadway": "br", "Charles/MGH": "tl", "Kendall/MIT": "l", "Assembly": "tr", "Encore": "b", "Lansdowne": "br", "Ruggles": "bl", "Brigham Circle": "l", "L Street": "t", "Seaport": "br", "Newmarket": "br", "Roslindale Village": "tl", "Hyde Park": "tr", "Heath St": "l", "Newton Corner": "t", "Courthouse": "t", "Hyde Sq": "l", "Forest Hills": "x", "Orient Heights": "r", "Seaver St": "l", "Terminals": "bl", "Roxbury Crossing": "br", "Broadway": "bl", "Thompson Sq": "l", "Navy Yard": "r", "City Square": "r", "Fort Point": "b", "Aquarium": "br", "Convention Center": "br", "City Point": "r", "West Broadway": "t", "Bellingham Sq": "r", "Stadium": "up", "Assembly": "tl", "Encore": "t", "Chelsea": "up", "Everett Sq": "up", "Nubian": "up"})
+SIDE.update({"Langone Ferryport": "r", "Dover": "r", "Northampton": "r", "Grove Hall": "r", "Wellington Hill": "along", "Blue Hill Ave": "l", "Inman Sq": "b", "Davis": "l", "Auburndale": "l", "Riverside": "l", "Union Sq": "t", "Lynn Harbor": "br", "Broadway": "br", "Charles/MGH": "tl", "Kendall/MIT": "l", "Assembly": "tr", "Encore": "b", "Lansdowne": "br", "Ruggles": "bl", "Brigham Circle": "l", "L Street": "t", "Seaport": "br", "Newmarket": "br", "Roslindale Village": "tl", "Hyde Park": "tr", "Heath St": "l", "Newton Corner": "t", "Courthouse": "t", "Hyde Sq": "l", "Forest Hills": "x", "Orient Heights": "r", "Seaver St": "l", "Terminals": "bl", "Roxbury Crossing": "br", "Broadway": "bl", "Thompson Sq": "l", "Navy Yard": "r", "City Square": "r", "Fort Point": "b", "Aquarium": "br", "Convention Center": "br", "City Point": "r", "West Broadway": "t", "Bellingham Sq": "r", "Stadium": "up", "Assembly": "tl", "Encore": "t", "Chelsea": "up", "Everett Sq": "up", "Nubian": "up"})
 
 
 def water(ax, z=1):
@@ -305,19 +306,19 @@ TEXT["Saugus Center"] = "Saugus Center"
 
 # Type audit, November 7 (15 reviewers; audit_type/MERGED.md). Later lines win.
 SIDE.update({"North Cambridge": "r", "Wellington": "l", "City Square": "r", "Savin Hill": "l", "Shawmut": "l", "Lynn Harbor": "l",
-             "North End": "tr", "Hawes St": "b"})
+             "Langone Ferryport": "tr", "Hawes St": "b"})
 NUDGE.update({"Harvard Ave": (0.3, 1.6), "Hawes St": (-2.2, -0.6), "St. Mary's St": (0.8, 0), "Newton City Hall": (0, -1.2), "Auburndale": (0, 0.9),
               "Boston College": (0, 0.5), "East Somerville": (-1.4, 1.2), "Stadium": (-0.35, -0.2), "Linden Sq": (-0.8, 0), "Davis": (-0.5, 0),
               "North Cambridge": (0.8, 0), "Science Park": (0.4, 0.5), "City Square": (-0.4, -1.4), "Inman Sq": (1.4, 0), "Kendall/MIT": (-0.4, 0),
               "Mass Ave": (-0.4, -0.7), "Day Sq": (-0.9, 0), "Bellingham Sq": (-1, 1.2), "Lynn Harbor": (0, 0.4), "Wood Island": (0.4, 0.4),
               "Savin Hill": (-0.75, 0), "Shawmut": (-0.1, 0), "Chinatown": (-1.3, -1.5), "Four Corners": (-0.5, 2.6), "Mattapan": (-1.0, 0),
-              "Weymouth": (0, 0), "West Broadway": (0.6, 0), "North End": (-0.6, -0.9), "Maverick": (-2.8, -1.4), "Mass. Ave": (-1.1, -0.9),
+              "Weymouth": (0, 0), "West Broadway": (0.6, 0), "Langone Ferryport": (-0.6, -0.9), "Maverick": (-2.8, -1.4), "Mass. Ave": (-1.1, -0.9),
               "West Medford": (-0.6, -0.8)})
 TEXT.update({"City Square": "City\nSq", "Charles/MGH": "Charles/\nMGH", "Day Sq": "Day\nSq", "Savin Hill": "Savin\nHill",
-             "West Broadway": "West\nBroadway", "North End": "North\nEnd", "St. Mary's St": "St. Mary\u2019s St", "Packard's Corner": "Packard\u2019s Corner",
+             "West Broadway": "West\nBroadway", "St. Mary's St": "St. Mary\u2019s St", "Packard's Corner": "Packard\u2019s Corner",
              "Gov't Center": "Gov\u2019t Center"})
 TEXT.pop("Needham Junction", None)  # the full name fits on one line
-HALOED |= {"North End", "Museum of Fine Arts"}
+HALOED |= {"Langone Ferryport", "Museum of Fine Arts"}
 A["Allston"] = (43.5, 111)  # off the Worcester Line, so it doesn't read as a rail transfer
 A["Maverick"] = (127.5, 117.5)  # down the Blue Line, clear of STATION
 A["Mass. Ave"] = (78.5, 62.5)  # its name no longer sits under the Back Bay ring
@@ -378,8 +379,9 @@ RIVERS = {"charles": [(-16, 128), (30, 128), (50, 125), (59, 118), (63, 108), (6
           # Chelsea Creek runs level between the Day Sq and Bellingham Sq names, then up to Suffolk Downs, so its loop has water
           "chelsea": [(129.4, 135.1), (133.5, 135.25), (135.0, 135.3), (136.6, 135.6), (137.5, 135.85), (139.6, 135.9), (141.0, 136.25),
                       (142.5, 136.55), (144.6, 136.95), (145.9, 137.9), (146.6, 139.0), (147.6, 140.6), (149.0, 142.4), (150.2, 144.2), (151.0, 146.0)],
+          "belle isle": [(168.4, 146.5), (163.6, 146.6), (159.8, 146.8)],  # Belle Isle Inlet, up to Suffolk Downs
           "neponset": [(141, 43), (118, 47), (108, 37), (99, 27), (97, 4), (100, -22)]}
-WIDTH = {"charles": 13, "mystic": 14, "chelsea": 10, "neponset": 7}  # wide enough for a river loop's two tracks
+WIDTH = {"charles": 13, "mystic": 14, "chelsea": 10, "belle isle": 8, "neponset": 7}  # wide enough for a river loop's two tracks
 CHARLES_WEST = [(-15.0, 128.1), (-16.6, 130.0), (-18.0, 131.9), (-21.0, 132.6), (-30.0, 132.7), (-38.0, 132.4), (-47.5, 132.1)]  # between the caption blocks
 BASIN = [(120, 127), (110, 128), (100, 127), (92, 118), (85, 105), (76, 99), (66, 97.5)]
 BASIN_PT = 27  # line width in points, about 5.6 diagram units
@@ -406,37 +408,38 @@ FERRY = "#00796d"  # Harbor West teal, the default ferry pill color on the line 
 # only docks that link to a station get a square, a walking link and a name (Max, November 7).
 FERRY_ROUTES = [
     {"key": "charles", "title": "Charles River", "color": "#9e00ff", "loop": True,
-     "stops": ["Lovejoy Wharf", "Nashua St", "Gronk", "Hatch Shell", "Esplanade", "Gloucester St", "BU Docks", "BU Bridge", "Agganis", "Western Ave",
+     "stops": ["Langone Ferryport", "Lovejoy Wharf", "Nashua St", "Gronk", "Hatch Shell", "Esplanade", "Gloucester St", "BU Docks", "BU Bridge", "Agganis", "Western Ave",
                "John W. Weeks", "Newell", "Cumnock", "Herter", "Northeastern", "Arsenal St",  # Boston bank, upstream
                "Belmont Hill", "Winsor", "Eliot", "Weld", "Riverside", "Magazine Beach", "DeWolfe", "Resch", "Ames St", "Broad Canal", "Poormans",
                "Charlesgate", "Museum of Science", "North Point", "Duck Tours", "Paul Revere Park", "Navy Yard"]},  # Cambridge bank, inbound
     {"key": "mystic", "title": "Mystic River", "color": "#cf8bff", "loop": True,
-     "stops": ["Menino", "Navy Yard", "Little Mystic", "Medford St", "Alford St", "Assembly", "Encore", "Stadium", "Admirals Hill", "Pearl St"]},
+     "stops": ["Langone Ferryport", "Menino", "Navy Yard", "Little Mystic", "Medford St", "Alford St", "Assembly", "Encore", "Stadium", "Admirals Hill", "Pearl St"]},
     {"key": "chelsea", "title": "Chelsea Creek", "color": "#c74ae6", "loop": True,
-     "stops": ["Quigley", "Chelsea St", "Eastern Ave", "Suffolk Downs", "Addison St", "Condor St", "Boston Bay"]},
+     "stops": ["Langone Ferryport", "Quigley", "Chelsea St", "Eastern Ave", "Suffolk Downs", "Addison St", "Condor St", "Boston Bay"]},
     {"key": "hw", "title": "Harbor West", "color": "#00796d",
-     "stops": ["Lovejoy Wharf", "Langone", "Battery Wharf", "Sargent's Wharf", "Long Wharf", "Central Wharf", "Rowes Wharf", "Dorchester Ave"]},
-    {"key": "express", "title": "Express", "color": "#003d36", "stops": ["Navy Yard", "Long Wharf"]},  # nonstop, at all times
-    {"key": "eb", "title": "East Boston", "color": "#26a69a", "stops": ["White St", "Bennington St", "Piers Park", "Porzio", "Logan Dock"]},
-    {"key": "hi", "title": "Harbor Islands", "color": "#005f73", "stops": ["Long Island", "Georges Island", "Spectacle Island", "Deer Island"]},
-    {"key": "seaport", "title": "Seaport", "color": "#8a4b1c", "stops": ["Martins Park", "Fan Pier", "Seaport", "Pavilion"]},
+     "stops": ["Langone Ferryport", "Lovejoy Wharf", "Battery Wharf", "Sargent's Wharf", "Long Wharf", "Central Wharf", "Rowes Wharf", "Dorchester Ave"]},
+    {"key": "express", "title": "Express", "color": "#003d36", "stops": ["Navy Yard", "Langone Ferryport", "Long Wharf"]},  # nonstop between them, at all times
+    {"key": "eb", "title": "East Boston", "color": "#26a69a", "stops": ["Langone Ferryport", "White St", "Bennington St", "Piers Park", "Porzio", "Logan Dock"]},
+    {"key": "hi", "title": "Harbor Islands", "color": "#005f73", "stops": ["Langone Ferryport", "Long Island", "Georges Island", "Spectacle Island", "Deer Island"]},
+    {"key": "seaport", "title": "Seaport", "color": "#8a4b1c", "stops": ["Langone Ferryport", "Martins Park", "Fan Pier", "Seaport", "Pavilion"]},
     {"key": "ssi", "title": "South Shore", "color": "#b5652a",
-     "stops": ["First St", "Castle Island", "M St", "Carson Beach", "Dorchester Shores", "Old Harbor", "UMass Boston", "Fox Point", "Finigan"]},
+     "stops": ["Langone Ferryport", "First St", "Castle Island", "M St", "Carson Beach", "Dorchester Shores", "Old Harbor", "UMass Boston", "Fox Point", "Finigan"]},
     {"key": "qb", "title": "Quincy Bay", "color": "#4a2a14",
-     "stops": ["Squantum Point", "Nickerson", "Thompson Island", "Moon Island", "Squantum", "Wollaston Beach", "Hough's Neck", "Nut Island"]},
-    {"key": "fore", "title": "Fore River", "color": "#a07a52", "stops": ["Bay Pointe", "King's Cove", "Wessagusset", "Hingham", "Nantasket", "Hull"]},
-    {"key": "wr", "title": "Winthrop and Revere", "color": "#6f7c00", "stops": ["Winthrop Beach", "Highlands Beach", "Revere Beach", "Beachmont"]},
+     "stops": ["Langone Ferryport", "Squantum Point", "Nickerson", "Thompson Island", "Moon Island", "Squantum", "Wollaston Beach", "Hough's Neck", "Nut Island"]},
+    {"key": "fore", "title": "Fore River", "color": "#a07a52", "stops": ["Langone Ferryport", "Bay Pointe", "King's Cove", "Wessagusset", "Hingham", "Nantasket", "Hull"]},
     {"key": "nse", "title": "North Shore", "color": "#9eb000", "fast": True,
-     "stops": ["Long Wharf", "Winthrop Landing", "Lynn Harbor", "Nahant Harbor", "Swampscott", "Marblehead", "Salem Wharf", "Beverly"]},
+     "express_stops": ["Langone Ferryport", "Lynn Harbor", "Salem Wharf", "Gloucester", "Rockport", "Newburyport", "Salisbury"],  # high-speed trips
+     "stops": ["Langone Ferryport", "Winthrop Landing", "Winthrop Beach", "Highlands Beach", "Suffolk Downs", "Beachmont", "Revere Beach", "Wonderland",
+               "Lynn Harbor", "Nahant Harbor", "Swampscott", "Clifton", "Marblehead", "Salem Wharf", "Beverly"]},
     {"key": "sse", "title": "South Shore", "color": "#611824", "fast": True,
-     "stops": ["Long Wharf", "Carson Beach", "UMass Boston", "Squantum Point", "Quincy", "Quincy Point", "Hingham"]},
+     "stops": ["Langone Ferryport", "Carson Beach", "UMass Boston", "Squantum Point", "Quincy", "Quincy Point", "Hingham"]},
 ]
 ROUTE_COLOR = {r["key"]: r["color"] for r in FERRY_ROUTES}
 ROUTE_COLOR.update({"inner-harbor": ROUTE_COLOR["hw"], "north-shore": ROUTE_COLOR["nse"], "south-shore": ROUTE_COLOR["sse"],
                     "harbor-islands": ROUTE_COLOR["hi"]})  # older names, still read by the T stripes and the line posters
 # Rough spot for every stop off the river loops. Docks snap to the nearest shore unless listed in AS_DRAWN.
 FERRY_SPOTS = {
-    "Lovejoy Wharf": (120.2, 125.5), "Langone": (120.9, 113.0), "Battery Wharf": (122.6, 109.1), "Sargent's Wharf": (120.75, 107.75),
+    "Lovejoy Wharf": (120.2, 125.5), "Langone Ferryport": (120.9, 113.0), "Wonderland": (180.6, 166.6), "Battery Wharf": (122.6, 109.1), "Sargent's Wharf": (120.75, 107.75),
     "Long Wharf": (121.0, 103.0), "Central Wharf": (120.3, 100.3), "Rowes Wharf": (120.3, 96.6), "Dorchester Ave": (120.9, 88.3),
     "White St": (124.9, 122.4), "Bennington St": (124.15, 118.8), "Piers Park": (128.5, 108.0), "Porzio": (133.4, 103.0), "Logan Dock": (139.6, 95.0),
     "Martins Park": (123.0, 91.0), "Fan Pier": (139.5, 82.5), "Seaport": (143.6, 81.3), "Pavilion": (150.4, 81.4),
@@ -448,11 +451,11 @@ FERRY_SPOTS = {
     "Hingham": (150.0, 9.0), "Nantasket": (185.2, 61.8), "Hull": (190.6, 61.4),
     "Long Island": (171.0, 69.6), "Georges Island": (178.0, 72.0), "Spectacle Island": (169.0, 76.0), "Deer Island": (175.6, 114.6),
     "Winthrop Beach": (180.4, 123.6), "Highlands Beach": (172.6, 134.6), "Revere Beach": (174.6, 159.8), "Beachmont": (165.2, 147.3),
-    "Winthrop Landing": (172.0, 118.0), "Lynn Harbor": (190.0, 174.0), "Nahant Harbor": (208.0, 155.0), "Swampscott": (207.0, 187.0),
+    "Winthrop Landing": (172.0, 118.0), "Lynn Harbor": (190.0, 174.0), "Nahant Harbor": (208.0, 155.0), "Swampscott": (207.0, 187.0), "Clifton": (215.6, 186.4),
     "Marblehead": (217.6, 195.2), "Salem Wharf": (219.5, 205.6), "Beverly": (218.7, 212.8),  # Glover Wharf, bent from (-70.879, 42.544)
 }
 AS_DRAWN = {"Battery Wharf", "Sargent's Wharf", "Central Wharf", "Rowes Wharf", "White St", "Bennington St", "Porzio", "Martins Park", "Seaport",
-            "Pavilion", "First St", "Castle Island", "M St", "Spectacle Island", "Deer Island", "Winthrop Beach", "Revere Beach", "Beachmont", "Nantasket", "Hull",
+            "Pavilion", "First St", "Castle Island", "M St", "Spectacle Island", "Deer Island", "Wonderland", "Clifton", "Winthrop Beach", "Revere Beach", "Beachmont", "Nantasket", "Hull",
             "Nickerson", "Thompson Island", "Moon Island", "Squantum", "Wollaston Beach", "Hough's Neck", "Nut Island", "Bay Pointe", "King's Cove",
             "Wessagusset", "Dorchester Shores", "Old Harbor", "UMass Boston", "Fox Point", "Finigan"}
 # River-loop stops: a rough spot, put on the stop's own bank. Stops in LOOP_ENDS sit on the loop's turn instead.
@@ -477,16 +480,18 @@ DOCKS = {
     "Lovejoy Wharf": (None, "North Station", None, 0, None), "Navy Yard": (None, "Navy Yard", None, 0, None),
     "Weld": (None, "Harvard", "r", 1.5, None), "BU Bridge": (None, "BU Bridge", None, 0, None), "Ames St": (None, "Kendall/MIT", "r", 2.4, None),
     "Encore": (None, "Encore", None, 0, None), "Stadium": (None, "Stadium", None, 0, None), "Suffolk Downs": (None, "Suffolk Downs", None, 0, None),
-    "Langone": (None, "North End", None, 0, None), "Long Wharf": (None, "Aquarium", "r", 1.8, None), "Dorchester Ave": (None, "South Station", "r", 1.5, None),
+    "Langone Ferryport": (None, "Langone Ferryport", None, 0, None), "Long Wharf": (None, "Aquarium", "r", 1.6, None),
+    "Wonderland": (None, "Wonderland", None, 0, None), "Dorchester Ave": (None, "South Station", "r", 1.5, None),
     "Piers Park": (None, "Maverick", "tr", 1.6, None), "Logan Dock": (None, None, "b", 2.0, None), "Fan Pier": (None, "Courthouse", "tl", 1.8, None),
     "Carson Beach": (None, "L Street", "tr", 1.2, None),
     "Revere Beach": (None, "Revere Beach", None, 0, None), "Beachmont": (None, "Beachmont", None, 0, None), "Lynn Harbor": (None, "Lynn Harbor", None, 0, None),
     "Swampscott": (None, "Swampscott", None, 0, None), "Marblehead": (None, "Marblehead", None, 0, None),  # named by the commuter stops they link to
     "Salem Wharf": (None, "Salem", None, 0, None), "Beverly": (None, "Beverly", None, 0, None),
 }
+NSE_SUFFOLK = (160.6, 146.8)  # the North Shore boats' Suffolk Downs landing, at the head of Belle Isle Inlet
 LINK_AT = {"North Station": (117.8, 121.4), "South Station": (117.6, 80.0)}  # the pill ends nearest the dock
-LABEL_AT = {"Lovejoy Wharf": ((119.1, 121.5), "r", "Lovejoy\nWharf")}  # in NORTH STATION's old spot, right of its pill
-HUB_DOCKS = {"Long Wharf"}
+LABEL_AT = {"Lovejoy Wharf": ((119.3, 122.4), "r", "Lovejoy Wharf")}  # in NORTH STATION's old spot, right of its pill
+HUB_DOCKS = {"Langone Ferryport"}  # every major ferry route starts and ends here (Max, November 7)
 # Best-known Charles docks with room for a name, though no station is beside them: (side, gap)
 STOP_LABELS = {"Hatch Shell": ("r", 1.5), "Esplanade": ("r", 1.5), "Herter": ("b", 1.4), "Arsenal St": ("b", 1.4), "Northeastern": ("t", 2.0),
                "Eliot": ("t", 1.2)}
@@ -497,8 +502,10 @@ FERRY_LEGS = [{"key": r["key"], "title": r["title"], "kind": "strip", "outline":
 
 
 # Boats stay out of these boxes: the Key, the BOSTON CENTRAL and SOUTH STATION names, City Point and Vertex Tower.
-KEEP_OUT = [(156.2, 222, -20, 60.6), (121.5, 138.2, 93.3, 101.8), (120.0, 137.5, 80.6, 86.4), (152.5, 166.0, 68.6, 72.2), (145.6, 154.0, 77.0, 80.4)]
-LOOP_LW, LOOP_GAP = 2.4, 0.42  # river loops: two rows of small dots, 2 x 0.42 units apart
+KEEP_OUT = [(156.2, 222, -20, 60.6), (121.5, 138.2, 93.3, 101.8), (120.0, 137.5, 80.6, 86.4), (152.5, 166.0, 68.6, 72.2), (145.6, 154.0, 77.0, 80.4),
+            (192.6, 230.0, 79.4, 145.0)]  # last one is the BIGGER Dig panel
+LOOP_LW, LOOP_GAP = 2.4, 0.42
+WATERMARKS = [(184.5, 95.0), (188.5, 110.0), (213.0, 75.0), (186.0, 84.5), (162.5, 101.0)]  # river loops: two rows of small dots, 2 x 0.42 units apart
 
 
 def ferry_track(ax, xy, color, lw=3.4, z=2.6, phase=0.0, casing=True, fast=False):
@@ -649,7 +656,7 @@ def ferries(ax):
     chelsea_path = np.vstack([ce_l, u_turn(ce_l[-1], ce_r[-1], (153, 149)), ce_r[::-1], u_turn(ce_r[0], ce_l[0], (126, 135))])
     rows = {"charles": (ch_l, ch_r), "mystic": (my_l, my_r), "chelsea": (ce_l, ce_r)}
     loop_paths = {"charles": charles_path, "mystic": [mystic_path], "chelsea": [chelsea_path]}
-    left_bank = {"charles": set(FERRY_ROUTES[0]["stops"][16:]), "mystic": {"Encore", "Stadium", "Admirals Hill", "Pearl St"},
+    left_bank = {"charles": set(FERRY_ROUTES[0]["stops"][FERRY_ROUTES[0]["stops"].index("Belmont Hill"):]), "mystic": {"Encore", "Stadium", "Admirals Hill", "Pearl St"},
                  "chelsea": {"Quigley", "Chelsea St", "Eastern Ave"}}
     for key, spots in LOOP_SPOTS.items():
         lrow, rrow = (LineString(v) for v in rows[key])
@@ -667,27 +674,31 @@ def ferries(ax):
     out_east = [(141.0, 87.6), (150.0, 84.4)]
     sb = [(163.0, 77.0), (167.0, 72.5), (166.2, 67.4), at["Castle Island"], (160.4, 63.4), (159.6, 62.7), at["M St"]]  # round South Boston
     sb_tail = by_hand([at["M St"], (157.3, 61.3), (156.0, 60.6), (151.5, 60.35), (149.0, 59.9), (147.6, 60.0), at["Carson Beach"]])  # under the Carson Beach name
+    LF = at["Langone Ferryport"]
+    up = [LF, (122.6, 114.2)] + CH[7::-1]  # hub up the channel to the junction off Lovejoy Wharf
+    down = [LF, (121.7, 111.6), (122.4, 109.8), (121.7, 108.6), at["Sargent's Wharf"], (119.95, 105.7), at["Long Wharf"]]  # hub to Long Wharf
+    out = lambda *legs: by_hand(down) + route([at["Long Wharf"]] + trunk + out_east + [q for leg in legs for q in leg])
     paths = {
-        "charles": charles_path, "mystic": [mystic_path], "chelsea": [chelsea_path],
-        "hw": by_hand(LJ, CH[:8], [(122.6, 114.2), at["Langone"], (121.7, 111.6), at["Battery Wharf"], (121.7, 108.6), at["Sargent's Wharf"],
-                                   (119.95, 105.7), at["Long Wharf"], at["Central Wharf"], at["Rowes Wharf"], (120.9, 92.0), at["Dorchester Ave"]]),
-        "express": by_hand(NY, CH[1:], to_lw[1:]),
-        "eb": by_hand([at["White St"], at["Bennington St"]], CH[5:], [(124.6, 109.3), (126.6, 109.0), at["Piers Park"]])
+        "charles": charles_path + by_hand(up), "mystic": [mystic_path] + by_hand([at["Navy Yard"]], NY, up[::-1]),
+        "chelsea": [chelsea_path] + by_hand([(130.8, 135.2), (129.7, 135.0), at["Navy Yard"]], NY, up[::-1]),
+        "hw": by_hand(up, LJ[::-1][1:]) + by_hand([LF, (121.7, 111.6), at["Battery Wharf"], (121.7, 108.6), at["Sargent's Wharf"],
+                                                   (119.95, 105.7), at["Long Wharf"], at["Central Wharf"], at["Rowes Wharf"], (120.9, 92.0), at["Dorchester Ave"]]),
+        "express": by_hand([at["Navy Yard"]], NY, up[::-1]) + by_hand(down),
+        "eb": by_hand(up[:5], [at["Bennington St"], (124.75, 121.0), at["White St"]]) + by_hand([LF, (122.6, 111.4), K, (124.6, 109.3), (126.6, 109.0), at["Piers Park"]])
               + route([at["Piers Park"], (131.4, 104.4), at["Porzio"], (138.6, 102.4), (139.6, 98.6), at["Logan Dock"]]),
-        "hi": route([at["Long Island"], at["Georges Island"], at["Spectacle Island"], (172.0, 84.0), (175.0, 100.0), at["Deer Island"]]),
-        "seaport": route([at["Martins Park"], (134.0, 91.0), (139.6, 88.0), at["Fan Pier"], at["Seaport"], at["Pavilion"]]),
-        "ssi": route([at["First St"]] + sb) + sb_tail + route([at["Carson Beach"], at["Dorchester Shores"], at["Old Harbor"], at["UMass Boston"], (148.0, 49.5), (144.0, 47.6), at["Fox Point"], at["Finigan"]]),
-        "qb": route([at["Squantum Point"], at["Nickerson"], at["Thompson Island"], at["Moon Island"], at["Squantum"], at["Wollaston Beach"],
+        "hi": out([(160.0, 79.0), at["Long Island"]]) + route([at["Long Island"], at["Georges Island"], at["Spectacle Island"], (172.0, 84.0), (175.0, 100.0), at["Deer Island"]]),
+        "seaport": by_hand(down) + route([at["Long Wharf"], (121.0, 98.0), (121.2, 92.6), at["Martins Park"], (134.0, 91.0), (139.6, 88.0), at["Fan Pier"], at["Seaport"], at["Pavilion"]]),
+        "ssi": out([at["First St"]]) + route([at["First St"]] + sb) + sb_tail + route([at["Carson Beach"], at["Dorchester Shores"], at["Old Harbor"], at["UMass Boston"], (148.0, 49.5), (144.0, 47.6), at["Fox Point"], at["Finigan"]]),
+        "qb": out(sb) + sb_tail + route([at["Carson Beach"], at["UMass Boston"], at["Squantum Point"], at["Nickerson"], at["Thompson Island"], at["Moon Island"], at["Squantum"], at["Wollaston Beach"],
                      at["Hough's Neck"], at["Nut Island"]]),
-        "fore": route([at["Bay Pointe"], at["King's Cove"], at["Wessagusset"], at["Hingham"], (155.4, 13.0), (155.6, 40.0), (155.4, 56.0),
+        "fore": out(sb) + sb_tail + route([at["Carson Beach"], at["UMass Boston"], at["Squantum Point"], at["Quincy"], at["Bay Pointe"], at["King's Cove"], at["Wessagusset"], at["Hingham"], (155.4, 13.0), (155.6, 40.0), (155.4, 56.0),
                        (156.4, 61.6), (159.6, 62.7), (162.4, 62.7)])  # up the bay, past the Key, through the Castle Island gap
                 + by_hand([(162.4, 62.7), (168.0, 62.1), (174.5, 62.8), (180.0, 62.5), at["Nantasket"], at["Hull"]]),  # along Hull's shore
-        "wr": route([at["Winthrop Beach"], (180.0, 127.4), (177.6, 130.4), at["Highlands Beach"], (177.6, 140.6), (180.6, 147.6), (181.2, 154.6), (178.8, 159.4),
-                     at["Revere Beach"]]) + route([(180.6, 149.0), (176.4, 147.4), at["Beachmont"]]),
-        "nse": route([at["Long Wharf"]] + trunk + out_east + [(162, 80), at["Winthrop Landing"], (176, 116), (190, 150), at["Lynn Harbor"],
-                      at["Nahant Harbor"], at["Swampscott"], (212, 186.8), (218.5, 185.8), (221.6, 189), (221.6, 195.5), at["Marblehead"],
+        "nse": out([(162, 80), at["Winthrop Landing"], (176, 116), at["Winthrop Beach"], (180.0, 127.4), (177.6, 130.4), at["Highlands Beach"],
+                    (177.6, 140.6), (171.0, 146.4), NSE_SUFFOLK, at["Beachmont"], (176.4, 147.4), (181.0, 150.0), (181.6, 156.6), at["Revere Beach"], (178.8, 162.6), at["Wonderland"], (186.0, 170.0), at["Lynn Harbor"],
+                      at["Nahant Harbor"], at["Swampscott"], (212, 186.8), at["Clifton"], (218.5, 185.8), (221.6, 189), (221.6, 195.5), at["Marblehead"],
                       at["Salem Wharf"], at["Beverly"], (224.5, 210.5)]),
-        "sse": route([at["Long Wharf"]] + trunk + out_east + sb) + sb_tail + route([at["Carson Beach"], at["UMass Boston"], at["Squantum Point"], at["Quincy"], at["Quincy Point"], at["Hingham"]]),
+        "sse": out(sb) + sb_tail + route([at["Carson Beach"], at["UMass Boston"], at["Squantum Point"], at["Quincy"], at["Quincy Point"], at["Hingham"]]),
     }
     GLOUCESTER_OUT = (224.5, 210.5)  # out of Beverly Harbor, heading up the coast toward Cape Ann
     land, by_route = 0.0, {}
@@ -728,6 +739,11 @@ def ferries(ax):
                 print("dock station missing:", n, station)
         ax.scatter(*q, s=86 if n in HUB_DOCKS else 52, marker="s", color=WHITE, edgecolor=INK, lw=1.3 if n in HUB_DOCKS else 1.0, zorder=7.2)
         ax.scatter(*q, s=9, color=INK if len(set(cols)) > 1 else cols[0], zorder=7.3)
+    ax.scatter(*NSE_SUFFOLK, s=52, marker="s", color=WHITE, edgecolor=INK, lw=1.0, zorder=7.2)
+    ax.scatter(*NSE_SUFFOLK, s=9, color=ROUTE_COLOR["nse"], zorder=7.3)
+    walk(ax, NSE_SUFFOLK, PTS["Suffolk Downs"])
+    # The hub's name, beside its ring and dock, left of the Blue Line
+    label(ax, (119.35, 119.3), "Langone\nFerryport", "r", gap=0, fs=7.4, weight="bold")
     for n, (_, _, side, gap, text) in DOCKS.items():
         if n in LABEL_AT:
             xy_, side_, text_ = LABEL_AT[n]
@@ -743,8 +759,9 @@ def ferries(ax):
         ax.text(x, y, text, fontsize=7.0, fontweight="bold", color=color, ha=ha, va="bottom", zorder=6.6,
                 path_effects=[pe.withStroke(linewidth=2.4, foreground=WHITE)])
 
-    title(194, 147.5, "NORTH SHORE EXPRESS", "#6f7c00", ha="left")  # open water east of the route
-    title(194, 145.3, "TO SALISBURY VIA GLOUCESTER", "#6f7c00", ha="left")
+    title(188.0, 149.7, "NORTH SHORE EXPRESS", "#6f7c00", ha="left")  # open water east of the route
+    title(188.0, 147.5, "TO SALISBURY VIA GLOUCESTER, NEWBURYPORT", "#6f7c00", ha="left")
+    title(188.0, 145.3, "HIGH-SPEED TRIPS: LANGONE, LYNN, SALEM", "#6f7c00", ha="left")
     title(147.0, 21.5, "SOUTH SHORE EXPRESS", ROUTE_COLOR["sse"])
     title(147.0, 19.3, "ON TO CAPE COD & THE ISLANDS", ROUTE_COLOR["sse"])  # the full run is on the Ferry Map
     title(184, 77.6, "HARBOR ISLANDS FERRY", ROUTE_COLOR["hi"], ha="left")
@@ -753,7 +770,9 @@ def ferries(ax):
                 arrowprops=dict(arrowstyle="-|>,head_width=0.35,head_length=0.6", color=ROUTE_COLOR["nse"], lw=1.4), zorder=6.6)
     ax.text(228.8, 213.6, "TO SALISBURY", fontsize=7.0, fontweight="bold", color="#6f7c00", ha="right", va="bottom",
             zorder=6.6, path_effects=[pe.withStroke(linewidth=2.4, foreground=WHITE)])  # along the top edge, clear of the Salem docks
-    ax.text(198, 67, "The Express to Navy Yard follows\na crossing chartered in 1631", fontsize=7.4, color=ROUTE_COLOR["express"],
+    for x_, y_ in WATERMARKS:  # Max's handle, very light, in open water
+        ax.text(x_, y_, "@mapzimus", fontsize=6.0, color=WATERMARK, ha="center", va="center", zorder=1.5)
+    ax.text(198, 67, "The Express from Navy Yard follows\na crossing chartered in 1631", fontsize=7.4, color=ROUTE_COLOR["express"],
             ha="left", va="bottom", zorder=3)
 
 
@@ -778,7 +797,8 @@ def main():
                                ((121.6, -14), (121.6, -18)), ((143.2, -13.6), (146, -16.4)), ((114, 211.2), (114, 215.2)), ((212, 211.2), (212, 215.2))):
         ax.annotate("", xy=(x1, y1), xytext=(x0, y0), arrowprops=dict(arrowstyle="-|>,head_width=0.45,head_length=0.8", color=PURPLE, lw=0, shrinkA=0, shrinkB=0), zorder=3.3)
     label(ax, (207.6, 199.5), "South Salem", "tl", gap=0, fs=7.8, color=CR_TEXT_COLOR)  # above its stop
-    label(ax, (215.6, 197.0), "Marblehead", "bl", gap=0, fs=7.8, color=CR_TEXT_COLOR)  # under its stop, above the ferry dock
+    label(ax, (215.6, 197.0), "Marblehead", "bl", gap=0, fs=7.8, color=CR_TEXT_COLOR)
+    label(ax, (212.7, 199.5), "Clifton", "tr", gap=0, fs=7.8, color=CR_TEXT_COLOR)  # Max's stop, a Marblehead neighborhood  # under its stop, above the ferry dock
     for name, xy, side, st in CR_STOPS:
         ax.scatter(*xy, s=46, marker="s", color=PURPLE if st == "solid" or BUILT else WHITE, edgecolor=PURPLE, lw=1.4, zorder=6)
         if side:
@@ -938,27 +958,37 @@ def main():
             if part.endswith(" "):  # the ink width leaves out the trailing space, so add one space's advance (12 pt Arial Narrow)
                 x += 0.62
     # Callout in the harbor, and the Key: one type system. Headings 11 bold, body 9.6, captions 7.6.
-    for x0, y0, w_, h_ in ((157, 80, 62, 33), (157, -15.2, 62, 75.0)):  # Key grew 6 units up for the ferry rows
+    DX, DY = 193.6, 144.0  # the Dig panel's top left, in open sea east of the harbor (Max: moved northeast, November 7)
+    for x0, y0, w_, h_ in ((DX, DY - 64.0, 35.4, 64.0), (157, -15.2, 62, 75.0)):  # Key grew 6 units up for the ferry rows
         ax.add_patch(FancyBboxPatch((x0, y0), w_, h_, boxstyle="round,pad=0,rounding_size=1.2", fc=WHITE, ec=INK, lw=1.0, zorder=11))
-    ax.text(160.5, 110.6, "The BIGGER Dig", fontsize=22, fontweight="bold", color=RED, zorder=12, va="top")
-    ax.text(160.5, 104.6, "Four tracks under downtown join North and South Stations at" + chr(10) + "Boston Central, under Atlantic Avenue. Underground walkways" + chr(10) + "reach Downtown Crossing and Park St.",
-            fontsize=9.6, color=INK, zorder=12, va="top", linespacing=1.18)
-    ax.plot([160.5, 215.5], [97.4, 97.4], color=INK, lw=0.7, zorder=12)
-    # Cost stats, all in 2026 dollars. One scale: 55 diagram units = $125B.
-    ax.text(160.5, 96.5, "~$125B", fontsize=17, fontweight="bold", color=RED, zorder=12, va="top")
-    ax.text(160.5, 92.5, "Whole map, rough estimate", fontsize=7.6, color=INK, zorder=12, va="top")
-    for x, big, small in ((183.5, "5\u00d7", "The Big Dig"), (195.5, "~140", "New miles"), (207, "224", "T stops")):
-        ax.text(x, 96.3, big, fontsize=12.5, fontweight="bold", color=INK, zorder=12, va="top")
-        ax.text(x, 92.5, small, fontsize=7.6, color=INK, zorder=12, va="top")
-    u = 55 / 125
-    x_ = 160.5
+    tx_ = DX + 2.2
+    ax.text(tx_, DY - 2.0, "The BIGGER Dig", fontsize=17, fontweight="bold", color=RED, zorder=12, va="top")
+    ax.text(tx_, DY - 6.8, chr(10).join(("Four tracks under Atlantic Ave join", "North and South Stations through", "Boston Central. Every commuter rail",
+                                          "line runs straight through: Lowell to", "Providence is one seat. Walkways reach",
+                                          "Downtown Crossing and Park St.")), fontsize=7.4, color=INK, zorder=12, va="top", linespacing=1.2)
+    ax.plot([tx_, DX + 33.2], [DY - 19.0, DY - 19.0], color=INK, lw=0.7, zorder=12)
+    rapid = len({c for c, *_ in lines()}) + 1  # the Silver Line is drawn on its own
+    cr_lines = sum(" LINE" in t for t, *_ in CR_TEXT)
+    for k, (big, small) in enumerate(((str(rapid), "Rapid transit lines"), ("224", "T stops"), (str(cr_lines), "Commuter rail lines"),
+                                      (str(len(FERRY_ROUTES)), "Ferry routes"), ("5×", "The Big Dig's cost"), ("~140", "New miles"))):
+        x_, y_ = tx_ + (k % 2) * 15.6, DY - 20.0 - (k // 2) * 5.8
+        ax.text(x_, y_, big, fontsize=12.0, fontweight="bold", color=INK, zorder=12, va="top")
+        ax.text(x_, y_ - 3.2, small, fontsize=7.4, color=INK, zorder=12, va="top")
+    ax.plot([tx_, DX + 33.2], [DY - 38.0, DY - 38.0], color=INK, lw=0.7, zorder=12)
+    # Cost, all in 2026 dollars. One scale: 30.6 diagram units = $125B.
+    ax.text(tx_, DY - 39.0, "~$125B", fontsize=15, fontweight="bold", color=RED, zorder=12, va="top")
+    ax.text(tx_ + 14.0, DY - 41.0, "Whole map, rough estimate", fontsize=7.0, color=INK, zorder=12, va="top")
+    u = 30.6 / 125
+    x_ = tx_
     for k, (wide_, c_, t_) in enumerate(((20, INK, "Tunnel $20B"), (38, CR_TEXT_COLOR, "Regional rail $38B"), (67, RED, "New subway lines $67B"))):
-        ax.add_patch(FancyBboxPatch((x_, 87.6), wide_ * u - 0.25, 2.5, boxstyle="square,pad=0", fc=c_, ec="none", zorder=12))
-        # first label at its bar's start, the others at their bar's end, so the three never run together
-        ax.text(x_ if k == 0 else x_ + wide_ * u - 0.25, 86.9, t_, fontsize=7.2, color=INK, zorder=12, va="top", ha="left" if k == 0 else "right")
+        ax.add_patch(FancyBboxPatch((x_, DY - 45.6), wide_ * u - 0.25, 2.3, boxstyle="square,pad=0", fc=c_, ec="none", zorder=12))
+        ax.add_patch(FancyBboxPatch((tx_, DY - 48.6 - k * 2.4), 1.6, 1.6, boxstyle="square,pad=0", fc=c_, ec="none", zorder=12))
+        ax.text(tx_ + 2.4, DY - 47.8 - k * 2.4, t_, fontsize=7.2, color=INK, zorder=12, va="center")
         x_ += wide_ * u
-    ax.add_patch(FancyBboxPatch((160.5, 81.9), 24 * u, 1.9, boxstyle="square,pad=0", fc="#9a9a9e", ec="none", zorder=12))
-    ax.text(160.5 + 24 * u + 0.8, 82.85, "Original Big Dig, $24B. All figures in 2026 dollars.", fontsize=7.2, color=INK, zorder=12, va="center")
+    ax.add_patch(FancyBboxPatch((tx_, DY - 56.6), 24 * u, 1.6, boxstyle="square,pad=0", fc="#9a9a9e", ec="none", zorder=12))
+    ax.text(tx_ + 24 * u + 0.8, DY - 55.8, "Original Big Dig, $24B", fontsize=7.2, color=INK, zorder=12, va="center")
+    ax.text(tx_, DY - 59.0, "All figures in 2026 dollars.", fontsize=7.2, color=INK, zorder=12, va="center")
+    ax.text(tx_, DY - 61.6, "Driverless maglev, 24 hours a day.", fontsize=7.4, fontweight="bold", color=INK, zorder=12, va="center")
     # Key, for riders, like a transit authority's: lines, regional rail and ferries, stations.
     lx, tx, ly, step = 160.5, 174.5, 56.0, 3.0
     y = ly
@@ -1003,7 +1033,7 @@ def main():
         ax.plot(*loop_.T, color=fam[key], lw=LOOP_LW, ls=(0, (0.01, 2.0)), dash_capstyle="round", zorder=12)
     row("River ferry, loops along both banks", y)
     y -= step
-    for k, key in enumerate(("hw", "ssi", "wr")):
+    for k, key in enumerate(("hw", "hi", "ssi")):
         ferry_track(ax, [(lx + 0.3 + k * 4.0, y), (lx + 1.75 + k * 4.0, y)], fam[key], z=12, casing=False)
     row("Harbor and bay ferry", y)
     y -= step
