@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const N = window.NERTA, d = await N.network();
   const last = new Date(); last.setDate(1); last.setMonth(last.getMonth() - 1);
   const monthName = last.toLocaleString("en-US", { month: "long", year: "numeric" });
-  document.getElementById("period").textContent = "Data for " + monthName;
+  document.getElementById("period").textContent = "Data for last month";
 
   const stops = d.stops.filter(s => s.lines.some(l => l !== "rail"));
   const byLine = N.ORDER.map(k => {
@@ -36,8 +36,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     ${[0, 0.5, 1].map(f => { const v = lo + (hi - lo) * f; return `<line x1="60" x2="620" y1="${Y(v)}" y2="${Y(v)}" stroke="#e2e2dd"/><text x="54" y="${Y(v) + 4}" text-anchor="end">${(v / 1e6).toFixed(2)}M</text>`; }).join("")}
     <path d="${area}" fill="#bfe3e2" opacity=".7"/>
     <polyline fill="none" stroke="#16161a" stroke-width="2.5" points="${vals.map((v, i) => X(i) + "," + Y(v)).join(" ")}"/>
-    ${vals.map((v, i) => `<circle cx="${X(i)}" cy="${Y(v)}" r="9" fill="transparent"><title>${months[i].toLocaleString("en-US", { month: "short", year: "numeric" })}: ${N.fmt(v)}</title></circle>`).join("")}
-    ${months.map((m, i) => m.getMonth() === 0 ? `<text x="${X(i)}" y="194" text-anchor="middle">Jan ${m.getFullYear()}</text>` : "").join("")}
+    ${vals.map((v, i) => `<circle cx="${X(i)}" cy="${Y(v)}" r="9" fill="transparent"><title>${23 - i ? 23 - i + (i === 22 ? " month" : " months") + " ago" : "Last month"}: ${N.fmt(v)}</title></circle>`).join("")}
+    <text x="${X(0)}" y="194" text-anchor="start">2 years ago</text><text x="${X(11)}" y="194" text-anchor="middle">1 year ago</text><text x="${X(23)}" y="194" text-anchor="end">Last month</text>
   </svg>`;
 
   document.getElementById("otp").innerHTML = N.ORDER.map(k => {
@@ -54,10 +54,10 @@ document.addEventListener("DOMContentLoaded", async () => {
   }).join("");
 
   document.getElementById("csv").addEventListener("click", () => {
-    const rows = [["station_id", "station_name", "lines", "weekday_boardings", "month"]];
-    d.stops.forEach(s => rows.push([s.id, `"${s.name.replace(/"/g, '""')}"`, s.lines.join(";"), N.ridership(s), last.toISOString().slice(0, 7)]));
+    const rows = [["station_id", "station_name", "lines", "weekday_boardings"]];
+    d.stops.forEach(s => rows.push([s.id, `"${s.name.replace(/"/g, '""')}"`, s.lines.join(";"), N.ridership(s)]));
     const blob = new Blob([rows.map(r => r.join(",")).join("\n")], { type: "text/csv" });
     const a = document.createElement("a");
-    a.href = URL.createObjectURL(blob); a.download = `nerta_station_ridership_${last.toISOString().slice(0, 7)}.csv`; a.click();
+    a.href = URL.createObjectURL(blob); a.download = "nerta_station_ridership.csv"; a.click();
   });
 });

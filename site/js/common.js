@@ -239,7 +239,7 @@
   }
   function tick() {
     const c = document.getElementById("clock");
-    if (c) c.textContent = new Date().toLocaleString("en-US", { weekday: "short", month: "short", day: "numeric", hour: "numeric", minute: "2-digit" });
+    if (c) c.textContent = new Date().toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit" });
   }
   async function searchBox() {
     const input = document.getElementById("q"), box = document.getElementById("suggest");
@@ -277,7 +277,7 @@
   <div><h4>Data</h4><ul><li><a href="/data.html">Ridership dashboard</a></li><li><a href="/data.html#downloads">Open data</a></li><li><a href="/data.html#performance">Performance</a></li></ul></div>
   <div><h4>About</h4><ul><li><a href="/about.html">About this site</a></li><li><a href="/about.html#credits">Credits</a></li><li><a href="/bigger-dig.html">The BIGGER Dig</a></li></ul></div>
 </div>
-<div class="fine"><span>&copy; ${new Date().getFullYear()} NERTA. Maps: Maxwell Howe.</span><span><a href="/about.html">A fan project, not a real transit agency.</a></span></div></div>`;
+<div class="fine"><span>&copy; NERTA. Maps: Maxwell Howe.</span><span><a href="/about.html">A fan project, not a real transit agency.</a></span></div></div>`;
     document.body.append(f);
   }
 

@@ -1,0 +1,6241 @@
+{
+"type": "FeatureCollection",
+"features": [
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-70.934405,
+42.107156
+]
+},
+"properties": {
+"name": "Abington",
+"colors": [
+"#80276c"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 12 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.030395,
+42.374262
+]
+},
+"properties": {
+"name": "Airport",
+"colors": [
+"#003da5",
+"#f5c400"
+],
+"status": [
+"dash",
+"solid"
+],
+"sources": [
+"MBTA API"
+],
+"verified": false,
+"note": ""
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.141287,
+42.39583
+]
+},
+"properties": {
+"name": "Alewife",
+"colors": [
+"#da291c"
+],
+"status": [
+"solid",
+"stripe"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 28 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.1321164,
+42.3530067
+]
+},
+"properties": {
+"name": "Allston",
+"colors": [
+"#00843d"
+],
+"status": [
+"stripe"
+],
+"sources": [
+"Nominatim (OSM)"
+],
+"verified": false,
+"note": "Allston, Boston, Suffolk County, Massachusetts, United States"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.137955,
+42.348701
+]
+},
+"properties": {
+"name": "Allston St",
+"colors": [
+"#00843d"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 30 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.114748,
+42.350992
+]
+},
+"properties": {
+"name": "Amory St",
+"colors": [
+"#00843d"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 1 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.144475,
+42.516987
+]
+},
+"properties": {
+"name": "Anderson/Woburn",
+"colors": [
+"#80276c"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API"
+],
+"verified": false,
+"note": ""
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.057655,
+42.330154
+]
+},
+"properties": {
+"name": "Andrew",
+"colors": [
+"#da291c"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 43 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.051652,
+42.359784
+]
+},
+"properties": {
+"name": "Aquarium",
+"colors": [
+"#003da5",
+"#00a9c9"
+],
+"status": [
+"dash",
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 37 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.070893,
+42.351902
+]
+},
+"properties": {
+"name": "Arlington",
+"colors": [
+"#00843d"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 37 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.1485439,
+42.4124649
+]
+},
+"properties": {
+"name": "Arlington Ctr",
+"colors": [
+"#da291c"
+],
+"status": [
+"stripe"
+],
+"sources": [
+"Nominatim (OSM)"
+],
+"verified": false,
+"note": "Arlington Center, 369A, Massachusetts Avenue, Arlington, Middlesex County, Massa"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.183,
+42.4245
+]
+},
+"properties": {
+"name": "Arlington Heights",
+"colors": [
+"#da291c"
+],
+"status": [
+"stripe"
+],
+"sources": [
+"placed by hand"
+],
+"verified": false,
+"note": "Mass Ave at Park Ave, today's bus terminal"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.063777,
+42.28452
+]
+},
+"properties": {
+"name": "Ashmont",
+"colors": [
+"#da291c"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API"
+],
+"verified": false,
+"note": ""
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.077257,
+42.392811
+]
+},
+"properties": {
+"name": "Assembly",
+"colors": [
+"#00a9c9",
+"#ed8b00"
+],
+"status": [
+"dash",
+"solid"
+],
+"sources": [
+"MBTA API"
+],
+"verified": false,
+"note": ""
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.250373,
+42.345833
+]
+},
+"properties": {
+"name": "Auburndale",
+"colors": [
+"#00843d"
+],
+"status": [
+"dash"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 5 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.588476,
+42.559074
+]
+},
+"properties": {
+"name": "Ayer",
+"colors": [
+"#80276c"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API"
+],
+"verified": false,
+"note": ""
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.110663,
+42.3523916
+]
+},
+"properties": {
+"name": "BU Bridge",
+"colors": [
+"#f5c400"
+],
+"status": [
+"stripe"
+],
+"sources": [
+"Nominatim (OSM)"
+],
+"verified": false,
+"note": "Boston University Bridge, Cambridgeport, Cambridge, Middlesex County, Massachuse"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.1071864,
+42.3500779
+]
+},
+"properties": {
+"name": "BU Central",
+"colors": [
+"#00843d"
+],
+"status": [
+"solid"
+],
+"sources": [
+"OpenStreetMap"
+],
+"verified": false,
+"note": ""
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.104313,
+42.3497275
+]
+},
+"properties": {
+"name": "BU East",
+"colors": [
+"#00843d"
+],
+"status": [
+"solid"
+],
+"sources": [
+"OpenStreetMap"
+],
+"verified": false,
+"note": ""
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.119924,
+42.351616
+]
+},
+"properties": {
+"name": "Babcock St",
+"colors": [
+"#00843d"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 1 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.075727,
+42.34735
+]
+},
+"properties": {
+"name": "Back Bay",
+"colors": [
+"#ed8b00"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API"
+],
+"verified": false,
+"note": ""
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.111313,
+42.330139
+]
+},
+"properties": {
+"name": "Back of the Hill",
+"colors": [
+"#00843d"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 83 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.111003,
+42.399889
+]
+},
+"properties": {
+"name": "Ball Sq",
+"colors": [
+"#00843d"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 42 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-70.9923194,
+42.3975423
+]
+},
+"properties": {
+"name": "Beachmont",
+"colors": [
+"#003da5"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 23 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.140455,
+42.335765
+]
+},
+"properties": {
+"name": "Beaconsfield",
+"colors": [
+"#00843d"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 4 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.145557,
+42.286588
+]
+},
+"properties": {
+"name": "Bellevue",
+"colors": [
+"#ed8b00"
+],
+"status": [
+"stripe"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 6 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.033884,
+42.395438
+]
+},
+"properties": {
+"name": "Bellingham Sq",
+"colors": [
+"#f5c400"
+],
+"status": [
+"dash"
+],
+"sources": [
+"MBTA API"
+],
+"verified": false,
+"note": ""
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.17619,
+42.395896
+]
+},
+"properties": {
+"name": "Belmont Ctr",
+"colors": [
+"#da291c"
+],
+"status": [
+"stripe"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 11 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-70.885432,
+42.547276
+]
+},
+"properties": {
+"name": "Beverly",
+"colors": [
+"#80276c"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API"
+],
+"verified": false,
+"note": ""
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.0847294,
+42.3660435
+]
+},
+"properties": {
+"name": "Binney",
+"colors": [
+"#f5c400"
+],
+"status": [
+"stripe"
+],
+"sources": [
+"Nominatim (OSM)"
+],
+"verified": false,
+"note": "Binney Street, East Cambridge, Cambridge, Middlesex County, Massachusetts, 02142"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.100258,
+42.349293
+]
+},
+"properties": {
+"name": "Blandford St",
+"colors": [
+"#00843d"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 15 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.095782,
+42.271466
+]
+},
+"properties": {
+"name": "Blue Hill Ave",
+"colors": [
+"#3f3fb5",
+"#ed8b00"
+],
+"status": [
+"dash",
+"stripe"
+],
+"sources": [
+"MBTA API"
+],
+"verified": false,
+"note": ""
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.052,
+42.3594
+]
+},
+"properties": {
+"name": "Boston Central",
+"colors": [
+"#00a9c9"
+],
+"status": [
+"dash"
+],
+"sources": [
+"placed by hand"
+],
+"verified": false,
+"note": "Atlantic Ave at State St, the BIGGER Dig's midpoint (NERTA station)"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.166769,
+42.340081
+]
+},
+"properties": {
+"name": "Boston College",
+"colors": [
+"#00843d"
+],
+"status": [
+"dash",
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 7 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.139883,
+42.357293
+]
+},
+"properties": {
+"name": "Boston Landing",
+"colors": [
+"#80276c"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 60 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.0746444,
+42.334172
+]
+},
+"properties": {
+"name": "Boston Medical",
+"colors": [
+"#f5c400"
+],
+"status": [
+"dash"
+],
+"sources": [
+"Nominatim (OSM)"
+],
+"verified": false,
+"note": "Boston Medical Center, 1, Harrison Avenue, Roxbury, Boston, Suffolk County, Mass"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.06459,
+42.35302
+]
+},
+"properties": {
+"name": "Boylston",
+"colors": [
+"#00843d"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 22 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.0011385,
+42.2078543
+]
+},
+"properties": {
+"name": "Braintree",
+"colors": [
+"#da291c"
+],
+"status": [
+"dash",
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 51 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.129082,
+42.340023
+]
+},
+"properties": {
+"name": "Brandon Hall",
+"colors": [
+"#00843d"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 7 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-70.96537,
+41.984916
+]
+},
+"properties": {
+"name": "Bridgewater",
+"colors": [
+"#80276c"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API"
+],
+"verified": false,
+"note": ""
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.104609,
+42.334229
+]
+},
+"properties": {
+"name": "Brigham Circle",
+"colors": [
+"#00843d"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 86 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.1534248,
+42.3491079
+]
+},
+"properties": {
+"name": "Brighton Center",
+"colors": [
+"#00843d"
+],
+"status": [
+"stripe"
+],
+"sources": [
+"Nominatim (OSM)"
+],
+"verified": false,
+"note": "Brighton Center, Brighton, Boston, Suffolk County, Massachusetts, 02135, United "
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.056967,
+42.342622
+]
+},
+"properties": {
+"name": "Broadway",
+"colors": [
+"#00a9c9",
+"#da291c"
+],
+"status": [
+"dash",
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 46 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.016534,
+42.084659
+]
+},
+"properties": {
+"name": "Brockton",
+"colors": [
+"#80276c"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API"
+],
+"verified": false,
+"note": ""
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.126683,
+42.331316
+]
+},
+"properties": {
+"name": "Brookline Hills",
+"colors": [
+"#00843d"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 7 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.116857,
+42.332608
+]
+},
+"properties": {
+"name": "Brookline Village",
+"colors": [
+"#00843d"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 14 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.062519,
+42.272429
+]
+},
+"properties": {
+"name": "Butler",
+"colors": [
+"#da291c"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 0 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.087338,
+42.267563
+]
+},
+"properties": {
+"name": "Capen St",
+"colors": [
+"#da291c"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 9 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.060394,
+42.279629
+]
+},
+"properties": {
+"name": "Cedar Grove",
+"colors": [
+"#da291c"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 7 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.103802,
+42.365486
+]
+},
+"properties": {
+"name": "Central",
+"colors": [
+"#da291c"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 27 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.073444,
+42.270027
+]
+},
+"properties": {
+"name": "Central Ave",
+"colors": [
+"#da291c"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 8 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-70.9459192,
+42.4626973
+]
+},
+"properties": {
+"name": "Central Sq",
+"colors": [
+"#003da5"
+],
+"status": [
+"dash",
+"stripe"
+],
+"sources": [
+"OpenStreetMap"
+],
+"verified": false,
+"note": ""
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.070628,
+42.361166
+]
+},
+"properties": {
+"name": "Charles/MGH",
+"colors": [
+"#003da5",
+"#da291c"
+],
+"status": [
+"dash",
+"solid",
+"stripe"
+],
+"sources": [
+"MBTA API"
+],
+"verified": false,
+"note": ""
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.041314,
+42.397024
+]
+},
+"properties": {
+"name": "Chelsea",
+"colors": [
+"#f5c400"
+],
+"status": [
+"dash"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 99 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.164699,
+42.326753
+]
+},
+"properties": {
+"name": "Chestnut Hill",
+"colors": [
+"#00843d"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 5 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.15316,
+42.338169
+]
+},
+"properties": {
+"name": "Chestnut Hill Ave",
+"colors": [
+"#00843d"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 30 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.062752,
+42.352547
+]
+},
+"properties": {
+"name": "Chinatown",
+"colors": [
+"#ed8b00"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 38 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.150711,
+42.340805
+]
+},
+"properties": {
+"name": "Chiswick Rd",
+"colors": [
+"#00843d"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 25 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.0286611,
+42.3362091
+]
+},
+"properties": {
+"name": "City Point",
+"colors": [
+"#00a9c9"
+],
+"status": [
+"dash"
+],
+"sources": [
+"Nominatim (OSM)"
+],
+"verified": false,
+"note": "City Point, South Boston, Boston, Suffolk County, Massachusetts, 02127, United S"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.0613892,
+42.371959
+]
+},
+"properties": {
+"name": "City Square",
+"colors": [
+"#00a9c9"
+],
+"status": [
+"dash"
+],
+"sources": [
+"Nominatim (OSM)"
+],
+"verified": false,
+"note": "City Square, Charlestown, Boston, Suffolk County, Massachusetts, 02129, United S"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.149326,
+42.336142
+]
+},
+"properties": {
+"name": "Cleveland Circle",
+"colors": [
+"#00843d"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 28 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.0174,
+42.4505
+]
+},
+"properties": {
+"name": "Cliftondale",
+"colors": [
+"#ed8b00"
+],
+"status": [
+"dash"
+],
+"sources": [
+"placed by hand"
+],
+"verified": false,
+"note": "Cliftondale Sq, Saugus"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-70.837529,
+42.24421
+]
+},
+"properties": {
+"name": "Cohasset",
+"colors": [
+"#80276c"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 5 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.069533,
+42.373622
+]
+},
+"properties": {
+"name": "Community College",
+"colors": [
+"#ed8b00"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API"
+],
+"verified": false,
+"note": ""
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.357677,
+42.456565
+]
+},
+"properties": {
+"name": "Concord",
+"colors": [
+"#80276c"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 12 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.045,
+42.3453
+]
+},
+"properties": {
+"name": "Convention Center",
+"colors": [
+"#00a9c9",
+"#f5c400"
+],
+"status": [
+"dash"
+],
+"sources": [
+"placed by hand"
+],
+"verified": false,
+"note": "Boston Convention and Exhibition Center, Summer St"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.121263,
+42.342116
+]
+},
+"properties": {
+"name": "Coolidge Corner",
+"colors": [
+"#00843d"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 5 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.077447,
+42.349974
+]
+},
+"properties": {
+"name": "Copley",
+"colors": [
+"#00843d"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 16 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.04685,
+42.35245
+]
+},
+"properties": {
+"name": "Courthouse",
+"colors": [
+"#00a9c9"
+],
+"status": [
+"dash"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 7 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-70.9362957,
+42.5664984
+]
+},
+"properties": {
+"name": "Danvers",
+"colors": [
+"#80276c"
+],
+"status": [
+"dash"
+],
+"sources": [
+"Nominatim (OSM)"
+],
+"verified": false,
+"note": "Danvers, Essex County, Massachusetts, United States"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-70.9236882,
+42.5512656
+]
+},
+"properties": {
+"name": "Danversport",
+"colors": [
+"#80276c"
+],
+"status": [
+"dash"
+],
+"sources": [
+"Nominatim (OSM)"
+],
+"verified": false,
+"note": "Danversport, Danvers, Essex County, Massachusetts, 01923, United States"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.099974,
+42.347581
+]
+},
+"properties": {
+"name": "David Ortiz",
+"colors": [
+"#80276c"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API"
+],
+"verified": false,
+"note": ""
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.121815,
+42.39674
+]
+},
+"properties": {
+"name": "Davis",
+"colors": [
+"#da291c"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 72 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.0275003,
+42.3794213
+]
+},
+"properties": {
+"name": "Day Sq",
+"colors": [
+"#f5c400"
+],
+"status": [
+"dash"
+],
+"sources": [
+"Nominatim (OSM)"
+],
+"verified": false,
+"note": "Day Square, East Boston, Boston, Suffolk County, Massachusetts, United States"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.142156,
+42.337656
+]
+},
+"properties": {
+"name": "Dean Rd",
+"colors": [
+"#00843d"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 25 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.064,
+42.3446
+]
+},
+"properties": {
+"name": "Dover",
+"colors": [
+"#ed8b00"
+],
+"status": [
+"dash"
+],
+"sources": [
+"placed by hand"
+],
+"verified": false,
+"note": "Washington St at E Berkeley St, the old Dover el stop"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.060225,
+42.355518
+]
+},
+"properties": {
+"name": "Downtown Crossing",
+"colors": [
+"#da291c",
+"#ed8b00"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 18 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.1467203,
+42.404263
+]
+},
+"properties": {
+"name": "East Arlington",
+"colors": [
+"#da291c"
+],
+"status": [
+"stripe"
+],
+"sources": [
+"Nominatim (OSM)"
+],
+"verified": false,
+"note": "East Arlington, Arlington, Middlesex County, Massachusetts, 02474, United States"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.086625,
+42.379467
+]
+},
+"properties": {
+"name": "East Somerville",
+"colors": [
+"#00843d"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 40 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-70.9214,
+42.2191
+]
+},
+"properties": {
+"name": "East Weymouth",
+"colors": [
+"#80276c"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 81 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.216684,
+42.319045
+]
+},
+"properties": {
+"name": "Eliot",
+"colors": [
+"#00843d"
+],
+"status": [
+"solid",
+"stripe"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 24 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.0692559,
+42.3955278
+]
+},
+"properties": {
+"name": "Encore",
+"colors": [
+"#00a9c9"
+],
+"status": [
+"dash"
+],
+"sources": [
+"Nominatim (OSM)"
+],
+"verified": false,
+"note": "Encore Boston Harbor, 1, Broadway, Charlestown, Everett, Suffolk County, Massach"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.158647,
+42.233249
+]
+},
+"properties": {
+"name": "Endicott",
+"colors": [
+"#80276c"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 15 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.144852,
+42.337104
+]
+},
+"properties": {
+"name": "Englewood Ave",
+"colors": [
+"#00843d"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 15 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.0536,
+42.4084
+]
+},
+"properties": {
+"name": "Everett Sq",
+"colors": [
+"#f5c400"
+],
+"status": [
+"dash"
+],
+"sources": [
+"placed by hand"
+],
+"verified": false,
+"note": "Broadway, Everett"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.131073,
+42.339725
+]
+},
+"properties": {
+"name": "Fairbanks St",
+"colors": [
+"#00843d"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API"
+],
+"verified": false,
+"note": ""
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.11927,
+42.253638
+]
+},
+"properties": {
+"name": "Fairmount",
+"colors": [
+"#3f3fb5"
+],
+"status": [
+"stripe"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 27 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.104213,
+42.345403
+]
+},
+"properties": {
+"name": "Fenway",
+"colors": [
+"#00843d",
+"#f5c400"
+],
+"status": [
+"dash",
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 40 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.105728,
+42.333706
+]
+},
+"properties": {
+"name": "Fenwood Rd",
+"colors": [
+"#00843d"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 17 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.061667,
+42.300093
+]
+},
+"properties": {
+"name": "Fields Corner",
+"colors": [
+"#da291c"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API"
+],
+"verified": false,
+"note": ""
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.113943,
+42.300713
+]
+},
+"properties": {
+"name": "Forest Hills",
+"colors": [
+"#00843d",
+"#ed8b00"
+],
+"status": [
+"solid",
+"stripe"
+],
+"sources": [
+"MBTA API"
+],
+"verified": false,
+"note": ""
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.0518208,
+42.3509521
+]
+},
+"properties": {
+"name": "Fort Point",
+"colors": [
+"#00a9c9"
+],
+"status": [
+"dash"
+],
+"sources": [
+"Nominatim (OSM)"
+],
+"verified": false,
+"note": "Fort Point Channel, South Boston, Boston, Suffolk County, Massachusetts, 02205, "
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.076833,
+42.305037
+]
+},
+"properties": {
+"name": "Four Corners",
+"colors": [
+"#3f3fb5"
+],
+"status": [
+"stripe"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 8 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.26151,
+42.0951
+]
+},
+"properties": {
+"name": "Foxboro",
+"colors": [
+"#80276c"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API"
+],
+"verified": false,
+"note": ""
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.096766,
+42.387928
+]
+},
+"properties": {
+"name": "Gilman Sq",
+"colors": [
+"#00843d"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 2 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.059215,
+42.359705
+]
+},
+"properties": {
+"name": "Gov't Center",
+"colors": [
+"#003da5",
+"#00843d"
+],
+"status": [
+"solid",
+"stripe"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 10 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.107414,
+42.310525
+]
+},
+"properties": {
+"name": "Green St",
+"colors": [
+"#ed8b00"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API"
+],
+"verified": false,
+"note": ""
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-70.746641,
+42.178776
+]
+},
+"properties": {
+"name": "Greenbush",
+"colors": [
+"#80276c"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API"
+],
+"verified": false,
+"note": ""
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.067247,
+42.483005
+]
+},
+"properties": {
+"name": "Greenwood",
+"colors": [
+"#ed8b00"
+],
+"status": [
+"stripe"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 10 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.134949,
+42.348545
+]
+},
+"properties": {
+"name": "Griggs St",
+"colors": [
+"#00843d"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 58 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.0744954,
+42.3112092
+]
+},
+"properties": {
+"name": "Grove Hall",
+"colors": [
+"#ed8b00"
+],
+"status": [
+"dash"
+],
+"sources": [
+"Nominatim (OSM)"
+],
+"verified": false,
+"note": "Grove Hall, Dorchester, Boston, Suffolk County, Massachusetts, 02121, United Sta"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-70.882438,
+42.043967
+]
+},
+"properties": {
+"name": "Hanson",
+"colors": [
+"#80276c"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API"
+],
+"verified": false,
+"note": ""
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.118956,
+42.373362
+]
+},
+"properties": {
+"name": "Harvard",
+"colors": [
+"#00843d",
+"#da291c"
+],
+"status": [
+"dash",
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 1 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.131355,
+42.350243
+]
+},
+"properties": {
+"name": "Harvard Ave",
+"colors": [
+"#00843d"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 34 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.111145,
+42.344906
+]
+},
+"properties": {
+"name": "Hawes St",
+"colors": [
+"#00843d"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 28 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.05829,
+42.363021
+]
+},
+"properties": {
+"name": "Haymarket",
+"colors": [
+"#00843d",
+"#ed8b00"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 107 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.110252,
+42.328316
+]
+},
+"properties": {
+"name": "Heath St",
+"colors": [
+"#00843d"
+],
+"status": [
+"solid",
+"stripe"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 8 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.215528,
+42.275648
+]
+},
+"properties": {
+"name": "Hersey",
+"colors": [
+"#00843d"
+],
+"status": [
+"stripe"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 5 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.153937,
+42.284969
+]
+},
+"properties": {
+"name": "Highland",
+"colors": [
+"#ed8b00"
+],
+"status": [
+"stripe"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 6 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-70.8897676,
+42.2417669
+]
+},
+"properties": {
+"name": "Hingham",
+"colors": [
+"#80276c"
+],
+"status": [
+"solid"
+],
+"sources": [
+"Nominatim (OSM)"
+],
+"verified": false,
+"note": "Hingham, Plymouth County, Massachusetts, 02043, United States"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.125526,
+42.25503
+]
+},
+"properties": {
+"name": "Hyde Park",
+"colors": [
+"#ed8b00"
+],
+"status": [
+"stripe"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 47 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.1101,
+42.3218
+]
+},
+"properties": {
+"name": "Hyde Sq",
+"colors": [
+"#00843d"
+],
+"status": [
+"stripe"
+],
+"sources": [
+"placed by hand"
+],
+"verified": false,
+"note": "Centre St, Jamaica Plain"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.08784,
+42.3478706
+]
+},
+"properties": {
+"name": "Hynes",
+"colors": [
+"#00843d"
+],
+"status": [
+"solid",
+"stripe"
+],
+"sources": [
+"Nominatim (OSM)"
+],
+"verified": false,
+"note": "Hynes, 360, Newbury Street, Back Bay, Boston, Suffolk County, Massachusetts, 021"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.1006322,
+42.3736503
+]
+},
+"properties": {
+"name": "Inman Sq",
+"colors": [
+"#00843d"
+],
+"status": [
+"dash"
+],
+"sources": [
+"Nominatim (OSM)"
+],
+"verified": false,
+"note": "Inman Square, Wellington-Harrington, Cambridge, Middlesex County, Massachusetts,"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.0812623,
+42.377904
+]
+},
+"properties": {
+"name": "Inner Belt",
+"colors": [
+"#f5c400"
+],
+"status": [
+"dash"
+],
+"sources": [
+"Nominatim (OSM)"
+],
+"verified": false,
+"note": "Inner Belt, Somerville, Middlesex County, Massachusetts, 02141, United States"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.183961,
+42.22105
+]
+},
+"properties": {
+"name": "Islington",
+"colors": [
+"#80276c"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 1 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.052391,
+42.320685
+]
+},
+"properties": {
+"name": "JFK/UMass",
+"colors": [
+"#da291c",
+"#f5c400"
+],
+"status": [
+"dash",
+"solid"
+],
+"sources": [
+"MBTA API"
+],
+"verified": false,
+"note": ""
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.099592,
+42.323132
+]
+},
+"properties": {
+"name": "Jackson Sq",
+"colors": [
+"#ed8b00"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API"
+],
+"verified": false,
+"note": ""
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.0861765,
+42.3624908
+]
+},
+"properties": {
+"name": "Kendall/MIT",
+"colors": [
+"#da291c",
+"#f5c400"
+],
+"status": [
+"solid",
+"stripe"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 38 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.095169,
+42.348949
+]
+},
+"properties": {
+"name": "Kenmore",
+"colors": [
+"#00843d",
+"#f5c400"
+],
+"status": [
+"dash",
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 41 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.114197,
+42.344074
+]
+},
+"properties": {
+"name": "Kent St",
+"colors": [
+"#00843d"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 14 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-70.721709,
+41.97762
+]
+},
+"properties": {
+"name": "Kingston",
+"colors": [
+"#80276c"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API"
+],
+"verified": false,
+"note": ""
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.0342879,
+42.3290335
+]
+},
+"properties": {
+"name": "L Street",
+"colors": [
+"#00a9c9"
+],
+"status": [
+"dash"
+],
+"sources": [
+"Nominatim (OSM)"
+],
+"verified": false,
+"note": "L Street Beach, South Boston, Boston, Suffolk County, Massachusetts, United Stat"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.076584,
+42.371572
+]
+},
+"properties": {
+"name": "Lechmere",
+"colors": [
+"#00843d",
+"#f5c400"
+],
+"status": [
+"dash",
+"solid",
+"stripe"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 48 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.2276,
+42.4473
+]
+},
+"properties": {
+"name": "Lexington Ctr",
+"colors": [
+"#da291c"
+],
+"status": [
+"stripe"
+],
+"sources": [
+"placed by hand"
+],
+"verified": false,
+"note": "Lexington Center"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.258,
+42.4719
+]
+},
+"properties": {
+"name": "Lexington Route 128",
+"colors": [
+"#da291c"
+],
+"status": [
+"stripe"
+],
+"sources": [
+"placed by hand"
+],
+"verified": false,
+"note": "Old Lexington branch at Route 128 (NERTA station)"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.0295,
+42.4262
+]
+},
+"properties": {
+"name": "Linden Sq",
+"colors": [
+"#ed8b00"
+],
+"status": [
+"dash"
+],
+"sources": [
+"placed by hand"
+],
+"verified": false,
+"note": "Linden, Malden"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.109956,
+42.341702
+]
+},
+"properties": {
+"name": "Longwood",
+"colors": [
+"#00843d"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 9 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.100052,
+42.33596
+]
+},
+"properties": {
+"name": "Longwood Medical Area",
+"colors": [
+"#00843d",
+"#f5c400"
+],
+"status": [
+"dash",
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 48 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-70.9494935,
+42.4334301
+]
+},
+"properties": {
+"name": "Lynn Harbor",
+"colors": [
+"#003da5"
+],
+"status": [
+"stripe"
+],
+"sources": [
+"Nominatim (OSM)"
+],
+"verified": false,
+"note": "Lynn Harbor, Nahant, Essex County, Massachusetts, 01901, United States"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.1063879,
+42.393682
+]
+},
+"properties": {
+"name": "Magoun Sq",
+"colors": [
+"#00843d"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 67 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.07411,
+42.426632
+]
+},
+"properties": {
+"name": "Malden Center",
+"colors": [
+"#ed8b00"
+],
+"status": [
+"dash",
+"solid"
+],
+"sources": [
+"MBTA API"
+],
+"verified": false,
+"note": ""
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.219917,
+42.032787
+]
+},
+"properties": {
+"name": "Mansfield",
+"colors": [
+"#80276c"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API"
+],
+"verified": false,
+"note": ""
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-70.8578253,
+42.500096
+]
+},
+"properties": {
+"name": "Marblehead",
+"colors": [
+"#80276c"
+],
+"status": [
+"dash"
+],
+"sources": [
+"Nominatim (OSM)"
+],
+"verified": false,
+"note": "Marblehead, Essex County, Massachusetts, 01945, United States"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.0966272,
+42.3582529
+]
+},
+"properties": {
+"name": "Mass Ave",
+"colors": [
+"#003da5",
+"#f5c400"
+],
+"status": [
+"dash",
+"stripe"
+],
+"sources": [
+"Nominatim (OSM)"
+],
+"verified": false,
+"note": "Massachusetts Institute of Technology, Massachusetts Avenue, MIT, Cambridge, Mid"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.083423,
+42.341512
+]
+},
+"properties": {
+"name": "Mass. Ave",
+"colors": [
+"#ed8b00"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API"
+],
+"verified": false,
+"note": ""
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.092486,
+42.26762
+]
+},
+"properties": {
+"name": "Mattapan",
+"colors": [
+"#da291c",
+"#ed8b00"
+],
+"status": [
+"dash",
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 18 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.0395296,
+42.3691186
+]
+},
+"properties": {
+"name": "Maverick",
+"colors": [
+"#003da5"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API"
+],
+"verified": false,
+"note": ""
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.1253309,
+42.4125963
+]
+},
+"properties": {
+"name": "Medford Hillside",
+"colors": [
+"#00843d"
+],
+"status": [
+"stripe"
+],
+"sources": [
+"Nominatim (OSM)"
+],
+"verified": false,
+"note": "Medford Hillside, West Medford, Medford, Middlesex County, Massachusetts, 02144,"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.117044,
+42.407975
+]
+},
+"properties": {
+"name": "Medford/Tufts",
+"colors": [
+"#00843d"
+],
+"status": [
+"solid",
+"stripe"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 41 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.0738512,
+42.3315229
+]
+},
+"properties": {
+"name": "Melnea Cass",
+"colors": [
+"#f5c400"
+],
+"status": [
+"dash"
+],
+"sources": [
+"Nominatim (OSM)"
+],
+"verified": false,
+"note": "Melnea Cass Boulevard, Roxbury, Boston, Suffolk County, Massachusetts, 02118, Un"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.068297,
+42.469464
+]
+},
+"properties": {
+"name": "Melrose Highlands",
+"colors": [
+"#ed8b00"
+],
+"status": [
+"stripe"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 6 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.069789,
+42.458768
+]
+},
+"properties": {
+"name": "Melrose/Cedar Park",
+"colors": [
+"#ed8b00"
+],
+"status": [
+"stripe"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 1 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.0159146,
+42.5951005
+]
+},
+"properties": {
+"name": "Middleton",
+"colors": [
+"#80276c"
+],
+"status": [
+"dash"
+],
+"sources": [
+"Nominatim (OSM)"
+],
+"verified": false,
+"note": "Middleton, Essex County, Massachusetts, 01949, United States"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.067266,
+42.270349
+]
+},
+"properties": {
+"name": "Milton",
+"colors": [
+"#da291c"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 9 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.109756,
+42.333195
+]
+},
+"properties": {
+"name": "Mission Park",
+"colors": [
+"#00843d"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 23 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.0505138,
+42.3260166
+]
+},
+"properties": {
+"name": "Moakley Park",
+"colors": [
+"#f5c400"
+],
+"status": [
+"dash"
+],
+"sources": [
+"Nominatim (OSM)"
+],
+"verified": false,
+"note": "Joe Moakley Park, 1005, South Boston, Boston, Suffolk County, Massachusetts, 021"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.085475,
+42.280994
+]
+},
+"properties": {
+"name": "Morton St",
+"colors": [
+"#3f3fb5"
+],
+"status": [
+"stripe"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 92 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.095512,
+42.337711
+]
+},
+"properties": {
+"name": "Museum of Fine Arts",
+"colors": [
+"#00843d"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 46 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.0557859,
+42.374846
+]
+},
+"properties": {
+"name": "Navy Yard",
+"colors": [
+"#00a9c9"
+],
+"status": [
+"dash"
+],
+"sources": [
+"Nominatim (OSM)"
+],
+"verified": false,
+"note": "Charlestown Navy Yard, Charlestown, Boston, Suffolk County, Massachusetts, 02129"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.2177068,
+42.3004011
+]
+},
+"properties": {
+"name": "Needham Crossing",
+"colors": [
+"#00843d"
+],
+"status": [
+"stripe"
+],
+"sources": [
+"Nominatim (OSM)"
+],
+"verified": false,
+"note": "Needham Crossing, Needham Heights, Needham, Norfolk County, Massachusetts, Unite"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.236027,
+42.293444
+]
+},
+"properties": {
+"name": "Needham Heights",
+"colors": [
+"#00843d"
+],
+"status": [
+"stripe"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 5 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.235559,
+42.273187
+]
+},
+"properties": {
+"name": "Needham Junction",
+"colors": [
+"#00843d"
+],
+"status": [
+"stripe"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 10 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.065674,
+42.327415
+]
+},
+"properties": {
+"name": "Newmarket",
+"colors": [
+"#3f3fb5",
+"#f5c400"
+],
+"status": [
+"dash",
+"stripe"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 18 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.192414,
+42.329443
+]
+},
+"properties": {
+"name": "Newton Centre",
+"colors": [
+"#00843d"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 2 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.2087333,
+42.3373845
+]
+},
+"properties": {
+"name": "Newton City Hall",
+"colors": [
+"#00843d"
+],
+"status": [
+"dash"
+],
+"sources": [
+"Nominatim (OSM)"
+],
+"verified": false,
+"note": "Newton City Hall, 1000, Commonwealth Avenue, Four Corners, Newtonville, Newton, "
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.1845353,
+42.3575488
+]
+},
+"properties": {
+"name": "Newton Corner",
+"colors": [
+"#00843d"
+],
+"status": [
+"stripe"
+],
+"sources": [
+"Nominatim (OSM)"
+],
+"verified": false,
+"note": "Newton Corner, Newton, Middlesex County, Massachusetts, 02458, United States"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.205509,
+42.322381
+]
+},
+"properties": {
+"name": "Newton Highlands",
+"colors": [
+"#00843d"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 28 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.2205261,
+42.3094507
+]
+},
+"properties": {
+"name": "Newton Upper Falls",
+"colors": [
+"#00843d"
+],
+"status": [
+"stripe"
+],
+"sources": [
+"Nominatim (OSM)"
+],
+"verified": false,
+"note": "Newton Upper Falls, Newton, Middlesex County, Massachusetts, 02464, United State"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.205408,
+42.351702
+]
+},
+"properties": {
+"name": "Newtonville",
+"colors": [
+"#80276c"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 26 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.1356322,
+42.3958664
+]
+},
+"properties": {
+"name": "North Cambridge",
+"colors": [
+"#da291c"
+],
+"status": [
+"solid"
+],
+"sources": [
+"Nominatim (OSM)"
+],
+"verified": false,
+"note": "North Cambridge, Cambridge, Middlesex County, Massachusetts, 02140, United State"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.0544954,
+42.3650974
+]
+},
+"properties": {
+"name": "North End",
+"colors": [
+"#00a9c9"
+],
+"status": [
+"dash"
+],
+"sources": [
+"Nominatim (OSM)"
+],
+"verified": false,
+"note": "North End, Boston, Suffolk County, Massachusetts, United States"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.029583,
+42.275275
+]
+},
+"properties": {
+"name": "North Quincy",
+"colors": [
+"#da291c"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 85 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-70.788602,
+42.219528
+]
+},
+"properties": {
+"name": "North Scituate",
+"colors": [
+"#80276c"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API"
+],
+"verified": false,
+"note": ""
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.06129,
+42.365577
+]
+},
+"properties": {
+"name": "North Station",
+"colors": [
+"#00843d",
+"#00a9c9",
+"#ed8b00"
+],
+"status": [
+"dash",
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 95 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.0736233,
+42.3324351
+]
+},
+"properties": {
+"name": "Northampton",
+"colors": [
+"#ed8b00"
+],
+"status": [
+"dash"
+],
+"sources": [
+"Nominatim (OSM)"
+],
+"verified": false,
+"note": "Northampton Street, Roxbury, Boston, Suffolk County, Massachusetts, 02118, Unite"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.0896964,
+42.3400544
+]
+},
+"properties": {
+"name": "Northeastern",
+"colors": [
+"#00843d"
+],
+"status": [
+"solid"
+],
+"sources": [
+"OpenStreetMap"
+],
+"verified": false,
+"note": ""
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.1994976,
+42.194543
+]
+},
+"properties": {
+"name": "Norwood",
+"colors": [
+"#80276c"
+],
+"status": [
+"solid"
+],
+"sources": [
+"Nominatim (OSM)"
+],
+"verified": false,
+"note": "Norwood, Norfolk County, Massachusetts, 02062, United States"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.083982,
+42.329544
+]
+},
+"properties": {
+"name": "Nubian",
+"colors": [
+"#ed8b00",
+"#f5c400"
+],
+"status": [
+"dash"
+],
+"sources": [
+"MBTA API"
+],
+"verified": false,
+"note": ""
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.071097,
+42.43668
+]
+},
+"properties": {
+"name": "Oak Grove",
+"colors": [
+"#ed8b00"
+],
+"status": [
+"solid",
+"stripe"
+],
+"sources": [
+"MBTA API"
+],
+"verified": false,
+"note": ""
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.1680783,
+42.3508776
+]
+},
+"properties": {
+"name": "Oak Sq",
+"colors": [
+"#00843d"
+],
+"status": [
+"stripe"
+],
+"sources": [
+"Nominatim (OSM)"
+],
+"verified": false,
+"note": "Oak Square, Brighton, Boston, Suffolk County, Massachusetts, United States"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.004736,
+42.386867
+]
+},
+"properties": {
+"name": "Orient Heights",
+"colors": [
+"#003da5"
+],
+"status": [
+"dash",
+"solid"
+],
+"sources": [
+"MBTA API"
+],
+"verified": false,
+"note": ""
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.125031,
+42.351967
+]
+},
+"properties": {
+"name": "Packard's Corner",
+"colors": [
+"#00843d"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 34 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.0624242,
+42.3563946
+]
+},
+"properties": {
+"name": "Park Street",
+"colors": [
+"#00843d",
+"#da291c"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 7 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-70.9272446,
+42.5258965
+]
+},
+"properties": {
+"name": "Peabody",
+"colors": [
+"#80276c"
+],
+"status": [
+"dash"
+],
+"sources": [
+"Nominatim (OSM)"
+],
+"verified": false,
+"note": "Peabody, Essex County, Massachusetts, 01960, United States"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.119149,
+42.3884
+]
+},
+"properties": {
+"name": "Porter",
+"colors": [
+"#da291c"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 39 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.081696,
+42.34557
+]
+},
+"properties": {
+"name": "Prudential",
+"colors": [
+"#00843d"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 30 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.007153,
+42.233391
+]
+},
+"properties": {
+"name": "Quincy Adams",
+"colors": [
+"#da291c"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 25 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.005409,
+42.251809
+]
+},
+"properties": {
+"name": "Quincy Center",
+"colors": [
+"#da291c"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 18 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.108294,
+42.52221
+]
+},
+"properties": {
+"name": "Reading",
+"colors": [
+"#ed8b00"
+],
+"status": [
+"stripe"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 99 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.133246,
+42.238405
+]
+},
+"properties": {
+"name": "Readville",
+"colors": [
+"#3f3fb5",
+"#ed8b00"
+],
+"status": [
+"stripe"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 60 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.148758,
+42.335088
+]
+},
+"properties": {
+"name": "Reservoir",
+"colors": [
+"#00843d"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 44 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-70.9925332,
+42.4078425
+]
+},
+"properties": {
+"name": "Revere Beach",
+"colors": [
+"#003da5"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 3 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.252685,
+42.337352
+]
+},
+"properties": {
+"name": "Riverside",
+"colors": [
+"#00843d"
+],
+"status": [
+"dash",
+"solid"
+],
+"sources": [
+"MBTA API"
+],
+"verified": false,
+"note": ""
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.111931,
+42.331684
+]
+},
+"properties": {
+"name": "Riverway",
+"colors": [
+"#00843d"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 7 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.130283,
+42.287442
+]
+},
+"properties": {
+"name": "Roslindale Village",
+"colors": [
+"#ed8b00"
+],
+"status": [
+"stripe"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 6 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.095451,
+42.331397
+]
+},
+"properties": {
+"name": "Roxbury Crossing",
+"colors": [
+"#ed8b00"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API"
+],
+"verified": false,
+"note": ""
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.088961,
+42.336377
+]
+},
+"properties": {
+"name": "Ruggles",
+"colors": [
+"#ed8b00",
+"#f5c400"
+],
+"status": [
+"dash",
+"solid"
+],
+"sources": [
+"MBTA API"
+],
+"verified": false,
+"note": ""
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-70.895876,
+42.524792
+]
+},
+"properties": {
+"name": "Salem",
+"colors": [
+"#80276c"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 49 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.011,
+42.4646
+]
+},
+"properties": {
+"name": "Saugus Center",
+"colors": [
+"#ed8b00"
+],
+"status": [
+"dash"
+],
+"sources": [
+"placed by hand"
+],
+"verified": false,
+"note": "Saugus Center"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.053331,
+42.31129
+]
+},
+"properties": {
+"name": "Savin Hill",
+"colors": [
+"#da291c"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API"
+],
+"verified": false,
+"note": ""
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.067666,
+42.366664
+]
+},
+"properties": {
+"name": "Science Park",
+"colors": [
+"#00843d"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API"
+],
+"verified": false,
+"note": ""
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.0421584,
+42.3462652
+]
+},
+"properties": {
+"name": "Seaport",
+"colors": [
+"#00a9c9",
+"#f5c400"
+],
+"status": [
+"dash"
+],
+"sources": [
+"Nominatim (OSM)"
+],
+"verified": false,
+"note": "Seaport, Boston, Suffolk County, Massachusetts, 02210, United States"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.0935017,
+42.3117487
+]
+},
+"properties": {
+"name": "Seaver St",
+"colors": [
+"#ed8b00"
+],
+"status": [
+"dash"
+],
+"sources": [
+"Nominatim (OSM)"
+],
+"verified": false,
+"note": "Seaver Street, Roxbury, Boston, Suffolk County, Massachusetts, 02119, United Sta"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.065738,
+42.2931258
+]
+},
+"properties": {
+"name": "Shawmut",
+"colors": [
+"#da291c"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API"
+],
+"verified": false,
+"note": ""
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.457744,
+42.460375
+]
+},
+"properties": {
+"name": "South Acton",
+"colors": [
+"#80276c"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API"
+],
+"verified": false,
+"note": ""
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-70.8925486,
+42.5112068
+]
+},
+"properties": {
+"name": "South Salem",
+"colors": [
+"#80276c"
+],
+"status": [
+"stripe"
+],
+"sources": [
+"Nominatim (OSM)"
+],
+"verified": false,
+"note": "South Salem, Salem, Essex County, Massachusetts, 01970, United States"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.157661,
+42.3396
+]
+},
+"properties": {
+"name": "South St",
+"colors": [
+"#00843d"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 37 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.055242,
+42.352271
+]
+},
+"properties": {
+"name": "South Station",
+"colors": [
+"#3f3fb5",
+"#da291c"
+],
+"status": [
+"solid",
+"stripe"
+],
+"sources": [
+"MBTA API"
+],
+"verified": false,
+"note": ""
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.107353,
+42.345974
+]
+},
+"properties": {
+"name": "St. Mary's St",
+"colors": [
+"#00843d"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 7 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.116997,
+42.343327
+]
+},
+"properties": {
+"name": "St. Paul St",
+"colors": [
+"#00843d"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 22 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.066,
+42.3895
+]
+},
+"properties": {
+"name": "Stadium",
+"colors": [
+"#00a9c9",
+"#f5c400"
+],
+"status": [
+"dash"
+],
+"sources": [
+"placed by hand"
+],
+"verified": false,
+"note": "Former Mystic power plant site, Everett: the proposed soccer stadium"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.057598,
+42.358978
+]
+},
+"properties": {
+"name": "State",
+"colors": [
+"#003da5",
+"#ed8b00"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 24 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.104248,
+42.317062
+]
+},
+"properties": {
+"name": "Stony Brook",
+"colors": [
+"#ed8b00"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API"
+],
+"verified": false,
+"note": ""
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.103627,
+42.124084
+]
+},
+"properties": {
+"name": "Stoughton",
+"colors": [
+"#80276c"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 102 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-70.9971226,
+42.3905007
+]
+},
+"properties": {
+"name": "Suffolk Downs",
+"colors": [
+"#003da5"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 5 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.076994,
+42.383975
+]
+},
+"properties": {
+"name": "Sullivan Sq",
+"colors": [
+"#ed8b00",
+"#f5c400"
+],
+"status": [
+"dash",
+"solid"
+],
+"sources": [
+"MBTA API"
+],
+"verified": false,
+"note": ""
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.12561,
+42.34111
+]
+},
+"properties": {
+"name": "Summit Ave",
+"colors": [
+"#00843d"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 49 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.146202,
+42.341614
+]
+},
+"properties": {
+"name": "Sutherland Rd",
+"colors": [
+"#00843d"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 9 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-70.922537,
+42.473743
+]
+},
+"properties": {
+"name": "Swampscott",
+"colors": [
+"#80276c"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 10 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.085056,
+42.342687
+]
+},
+"properties": {
+"name": "Symphony",
+"colors": [
+"#00843d"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 13 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.07814,
+42.292246
+]
+},
+"properties": {
+"name": "Talbot Ave",
+"colors": [
+"#3f3fb5"
+],
+"status": [
+"stripe"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 144 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.138702,
+42.338459
+]
+},
+"properties": {
+"name": "Tappan St",
+"colors": [
+"#00843d"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 22 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.0136401,
+42.3631767
+]
+},
+"properties": {
+"name": "Terminals",
+"colors": [
+"#f5c400"
+],
+"status": [
+"dash"
+],
+"sources": [
+"Nominatim (OSM)"
+],
+"verified": false,
+"note": "Logan International Airport, 1, Harborside Drive, East Boston, Boston, Suffolk C"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.0644581,
+42.3753408
+]
+},
+"properties": {
+"name": "Thompson Sq",
+"colors": [
+"#00a9c9"
+],
+"status": [
+"dash"
+],
+"sources": [
+"Nominatim (OSM)"
+],
+"verified": false,
+"note": "Thompson Square, Charlestown, Boston, Suffolk County, Massachusetts, United Stat"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.063917,
+42.349662
+]
+},
+"properties": {
+"name": "Tufts Medical Ctr",
+"colors": [
+"#ed8b00"
+],
+"status": [
+"dash",
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 6 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.094761,
+42.377359
+]
+},
+"properties": {
+"name": "Union Sq",
+"colors": [
+"#00843d"
+],
+"status": [
+"dash",
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 79 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.068627,
+42.319125
+]
+},
+"properties": {
+"name": "Uphams Corner",
+"colors": [
+"#3f3fb5"
+],
+"status": [
+"stripe"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 2 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.1623337,
+42.2936112
+]
+},
+"properties": {
+"name": "VFW Parkway",
+"colors": [
+"#00843d",
+"#ed8b00"
+],
+"status": [
+"stripe"
+],
+"sources": [
+"Nominatim (OSM)"
+],
+"verified": false,
+"note": "Veterans of Foreign Wars Parkway, West Roxbury, Boston, Suffolk County, Massachu"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.081343,
+42.268347
+]
+},
+"properties": {
+"name": "Valley Rd",
+"colors": [
+"#da291c"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 7 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.0449054,
+42.3547927
+]
+},
+"properties": {
+"name": "Vertex Tower",
+"colors": [
+"#00a9c9"
+],
+"status": [
+"dash"
+],
+"sources": [
+"Nominatim (OSM)"
+],
+"verified": false,
+"note": "Fan Pier Harborwalk, Seaport, Boston, Suffolk County, Massachusetts, United Stat"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.230609,
+42.325845
+]
+},
+"properties": {
+"name": "Waban",
+"colors": [
+"#00843d"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 3 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.075566,
+42.502126
+]
+},
+"properties": {
+"name": "Wakefield",
+"colors": [
+"#ed8b00"
+],
+"status": [
+"stripe"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 6 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.25779,
+42.145477
+]
+},
+"properties": {
+"name": "Walpole",
+"colors": [
+"#80276c"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API"
+],
+"verified": false,
+"note": ""
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.235615,
+42.374296
+]
+},
+"properties": {
+"name": "Waltham",
+"colors": [
+"#da291c"
+],
+"status": [
+"stripe"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 48 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.140457,
+42.348343
+]
+},
+"properties": {
+"name": "Warren St",
+"colors": [
+"#00843d"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 38 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.13533,
+42.339394
+]
+},
+"properties": {
+"name": "Washington Sq",
+"colors": [
+"#00843d"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 39 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.142853,
+42.343864
+]
+},
+"properties": {
+"name": "Washington St",
+"colors": [
+"#00843d"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 28 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.1857,
+42.3653
+]
+},
+"properties": {
+"name": "Watertown",
+"colors": [
+"#00843d"
+],
+"status": [
+"stripe"
+],
+"sources": [
+"placed by hand"
+],
+"verified": false,
+"note": "Watertown Sq"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.190744,
+42.3876
+]
+},
+"properties": {
+"name": "Waverley Sq",
+"colors": [
+"#da291c"
+],
+"status": [
+"stripe"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 3 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.2925571,
+42.2964859
+]
+},
+"properties": {
+"name": "Wellesley",
+"colors": [
+"#80276c"
+],
+"status": [
+"solid"
+],
+"sources": [
+"Nominatim (OSM)"
+],
+"verified": false,
+"note": "Wellesley, Norfolk County, Massachusetts, United States"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.277044,
+42.31037
+]
+},
+"properties": {
+"name": "Wellesley Hills",
+"colors": [
+"#00843d"
+],
+"status": [
+"dash"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 20 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.077082,
+42.40237
+]
+},
+"properties": {
+"name": "Wellington",
+"colors": [
+"#ed8b00"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API"
+],
+"verified": false,
+"note": ""
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.0950513,
+42.2823206
+]
+},
+"properties": {
+"name": "Wellington Hill",
+"colors": [
+"#ed8b00"
+],
+"status": [
+"dash"
+],
+"sources": [
+"Nominatim (OSM)"
+],
+"verified": false,
+"note": "Wellington Hill, Boston, Suffolk County, Massachusetts, 02126, United States"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.0540896,
+42.3409137
+]
+},
+"properties": {
+"name": "West Broadway",
+"colors": [
+"#00a9c9"
+],
+"status": [
+"dash"
+],
+"sources": [
+"Nominatim (OSM)"
+],
+"verified": false,
+"note": "West Broadway, South Boston, Boston, Suffolk County, Massachusetts, 02205, Unite"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.133342,
+42.421776
+]
+},
+"properties": {
+"name": "West Medford",
+"colors": [
+"#00843d"
+],
+"status": [
+"stripe"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 12 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.230528,
+42.347878
+]
+},
+"properties": {
+"name": "West Newton",
+"colors": [
+"#80276c"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 5 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.160065,
+42.281358
+]
+},
+"properties": {
+"name": "West Roxbury",
+"colors": [
+"#ed8b00"
+],
+"status": [
+"stripe"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 7 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.126,
+42.356
+]
+},
+"properties": {
+"name": "West Station",
+"colors": [
+"#003da5",
+"#00843d",
+"#f5c400"
+],
+"status": [
+"dash",
+"stripe"
+],
+"sources": [
+"placed by hand"
+],
+"verified": false,
+"note": "Beacon Park Yard, Allston"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.3031132,
+42.3667625
+]
+},
+"properties": {
+"name": "Weston",
+"colors": [
+"#00843d"
+],
+"status": [
+"dash"
+],
+"sources": [
+"Nominatim (OSM)"
+],
+"verified": false,
+"note": "Weston, Middlesex County, Massachusetts, 02493, United States"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-70.9626845,
+42.2242222
+]
+},
+"properties": {
+"name": "Weymouth",
+"colors": [
+"#da291c"
+],
+"status": [
+"dash"
+],
+"sources": [
+"Nominatim (OSM)"
+],
+"verified": false,
+"note": "Weymouth Landing, Weymouth, Norfolk County, Massachusetts, 02188, United States"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.174334,
+42.546624
+]
+},
+"properties": {
+"name": "Wilmington",
+"colors": [
+"#80276c"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 25 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.1369982,
+42.4523178
+]
+},
+"properties": {
+"name": "Winchester",
+"colors": [
+"#80276c"
+],
+"status": [
+"solid"
+],
+"sources": [
+"Nominatim (OSM)"
+],
+"verified": false,
+"note": "Winchester, Middlesex County, Massachusetts, 01890, United States"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-70.9864,
+42.3762
+]
+},
+"properties": {
+"name": "Winthrop Center",
+"colors": [
+"#003da5"
+],
+"status": [
+"dash"
+],
+"sources": [
+"placed by hand"
+],
+"verified": false,
+"note": "Winthrop"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.0203369,
+42.2665139
+]
+},
+"properties": {
+"name": "Wollaston",
+"colors": [
+"#da291c"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 30 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-70.991648,
+42.41342
+]
+},
+"properties": {
+"name": "Wonderland",
+"colors": [
+"#003da5",
+"#ed8b00"
+],
+"status": [
+"dash",
+"solid",
+"stripe"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 7 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.0228654,
+42.3796403
+]
+},
+"properties": {
+"name": "Wood Island",
+"colors": [
+"#003da5"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 8 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.243362,
+42.332902
+]
+},
+"properties": {
+"name": "Woodland",
+"colors": [
+"#00843d"
+],
+"status": [
+"solid"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 3 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.1385,
+42.2861
+]
+},
+"properties": {
+"name": "Wu Sq",
+"colors": [
+"#ed8b00"
+],
+"status": [
+"stripe"
+],
+"sources": [
+"placed by hand"
+],
+"verified": false,
+"note": "Invented NERTA stop, midway Roslindale Village to Bellevue"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-70.966,
+42.479
+]
+},
+"properties": {
+"name": "Wyoma Sq",
+"colors": [
+"#003da5"
+],
+"status": [
+"dash"
+],
+"sources": [
+"placed by hand"
+],
+"verified": false,
+"note": "Wyoma Sq, Lynn"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.069379,
+42.451731
+]
+},
+"properties": {
+"name": "Wyoming Hill",
+"colors": [
+"#ed8b00"
+],
+"status": [
+"stripe"
+],
+"sources": [
+"MBTA API",
+"OpenStreetMap"
+],
+"verified": true,
+"note": "MBTA and OSM 25 m apart"
+}
+}
+]
+}

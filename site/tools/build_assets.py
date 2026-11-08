@@ -109,7 +109,7 @@ def logos():
         draw_t(ax, 0, 0, tr, colors)
         ro = tr + 0.6
         draw_nerta(ax, 0, -ro - 1.0, 2 * ro, "B", colors=colors)
-        fig.savefig(path, transparent=True, bbox_inches="tight", pad_inches=0.02)
+        fig.savefig(path, transparent=True, bbox_inches="tight", pad_inches=0.02, metadata={"Date": None})
         plt.close(fig)
 
     def roundel_only(path, colors):
@@ -121,7 +121,7 @@ def logos():
         ax.set_axis_off()
         ax.add_patch(Circle((0, 0), 7.6, fc=WHITE, ec=INK, lw=4.5 * 2.2 / 3.73 * 1.25, zorder=12))
         draw_t(ax, 0, 0, 7.6, colors)
-        fig.savefig(path, transparent=True, bbox_inches="tight", pad_inches=0.02)
+        fig.savefig(path, transparent=True, bbox_inches="tight", pad_inches=0.02, metadata={"Date": None})
         plt.close(fig)
 
     system = (M.RED, M.ORANGE, M.YELLOW, M.BLUE, M.ROUTE_COLOR["inner-harbor"], M.CYAN, M.SILVER, M.HSR, M.INDIGO,

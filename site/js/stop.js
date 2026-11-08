@@ -74,8 +74,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   const pts = vals.map((v, i) => [40 + i * 52, 140 - (v - vmin) / (vmax - vmin) * 120]);
   document.getElementById("monthly").innerHTML = `<svg class="chart" viewBox="0 0 640 170" role="img" aria-label="Boardings per month">
     <polyline fill="none" stroke="#16161a" stroke-width="3" points="${pts.map(p => p.join(",")).join(" ")}"/>
-    ${pts.map((p, i) => `<circle cx="${p[0]}" cy="${p[1]}" r="4.5" fill="#fff" stroke="#16161a" stroke-width="2"><title>${months[i].toLocaleString("en-US", { month: "long", year: "numeric" })}: ${N.fmt(vals[i])}</title></circle>`).join("")}
-    ${pts.map((p, i) => i % 2 ? "" : `<text x="${p[0]}" y="164" text-anchor="middle">${months[i].toLocaleString("en-US", { month: "short" })}</text>`).join("")}
+    ${pts.map((p, i) => `<circle cx="${p[0]}" cy="${p[1]}" r="4.5" fill="#fff" stroke="#16161a" stroke-width="2"><title>${11 - i ? 11 - i + (i === 10 ? " month" : " months") + " ago" : "Last month"}: ${N.fmt(vals[i])}</title></circle>`).join("")}
+    <text x="${pts[0][0]}" y="164" text-anchor="start">12 months ago</text><text x="${pts[11][0]}" y="164" text-anchor="end">Last month</text>
   </svg><p class="small" style="margin:6px 0 0">Last month: <b>${N.fmt(vals[11])}</b> boardings</p>`;
 
   // Facts
@@ -91,9 +91,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     ["Bike parking", `${Math.round(20 + f() * 80)} spaces`],
     ["Pods", "On demand, 24 hours"],
     ...(s.hsr ? [["High-Speed Rail", "Yes, at this station"]] : []),
-    ...(s.ferry ? [["Ferry", s.ferry === s.name ? "Dock at this station" : `${N.esc(s.ferry)} dock, short walk`]] : []),
-    ["Opened", String(s.status === "solid" ? 1897 + Math.floor(f() * 90) : 2026 - Math.floor(f() * 3))]
-  ].map(([a, b]) => `<dt>${a}</dt><dd>${b}</dd>`).join("");
+    ...(s.ferry ? [["Ferry", s.ferry === s.name ? "Dock at this station" : `${N.esc(s.ferry)} dock, short walk`]] : [])  ].map(([a, b]) => `<dt>${a}</dt><dd>${b}</dd>`).join("");
 
   // Nearby, by distance on the diagram.
   const near = d.stops.filter(x => x.id !== s.id && !x.offmap).map(x => [x, Math.hypot(x.x - s.x, x.y - s.y)]).sort((a, b) => a[1] - b[1]).slice(0, 5);

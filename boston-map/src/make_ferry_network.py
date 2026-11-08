@@ -161,7 +161,7 @@ for n, x, pl, k in (("White St", 27.4, [], "end"), ("Bennington St", 31.0, [], "
 # --- Winthrop and Revere; Harbor Islands
 for n, r, pl, k in (("Winthrop Beach", 25.2, [], "end"), ("Highlands Beach", 26.2, [], "stop"), ("Revere Beach", 27.2, ["BL"], "stop"),
                     ("Beachmont", 28.2, ["BL"], "end")):
-    stop(n, 45, r, "r", pl, k, route="wr")
+    stop(n, 45, r, "r", pl, k, route="wr", pm="o")   # BL pills in a column on the open side, names clean
 for n, r, k in (("Deer Island", 26.4, "end"), ("Spectacle Island", 27.4, "stop"), ("Georges Island", 28.4, "stop"), ("Long Island", 29.4, "end")):
     stop(n, 31, r, "r", (), k, route="hi")
 
@@ -338,7 +338,8 @@ track("isl", ["Chatham", (NX, 58), "Wauwinet", "Siasconset", "Nobadeer", (NX, 63
 track("isl", ["Smith Point", "Tuckernuck Is.", "Brant Point", "Nantucket Downtown", "Coskata"])
 track("isl", ["Coskata", (25, 58), "Oak Bluffs"])
 track("isl", ["Lagoon Pond", "Oak Bluffs"])
-track("isl", ["Oak Bluffs", "Edgartown", "Chappaquiddick", "Katama Beach", (23, 66), "MVY Connection", "Chilmark", "Aquinnah"])
+MV_RING = ["Oak Bluffs", "Edgartown", "Chappaquiddick", "Katama Beach", (23, 66), "MVY Connection", "Chilmark", "Aquinnah"]
+track("isl", MV_RING)
 track("isl", ["Aquinnah", "Vineyard Haven"])
 track("isl", ["Vineyard Haven", "Lagoon Pond"])
 track("isl", ["Vineyard Haven", "Woods Hole"], r=0)
@@ -385,6 +386,19 @@ def arrow(ax, x, y, ang, color, size=1.5, z=6, edge=WHITE):
     if edge == WHITE:
         ax.add_patch(Polygon(tri, closed=True, fc=WHITE, ec=WHITE, lw=3.2, zorder=z - 0.01, joinstyle="round"))
     ax.add_patch(Polygon(tri, closed=True, fc=color, ec=edge, lw=0.9, zorder=z, joinstyle="miter"))
+
+
+def track_arrow(ax, pts, r, near, color, size=1.6, lw=FLW, z=6):
+    """An arrow on a high-speed track, pointing the way the track is drawn, slid to the nearest spot where its tip and tail
+    both fall in a gap between streaks, so no cut-off streak shows beside it."""
+    xy = rounded([grid_pt(p) for p in pts], r) if r else np.array([grid_pt(p) for p in pts], float)
+    ln = LineString(xy)
+    per, gap_c = 3.1 * lw / PPU, 2.3 * lw / PPU      # dash pattern (1.5, 1.6) x lw: one period, and the middle of its gap
+    tip = 1.2 * size
+    sa = round((ln.project(Point(G(*near))) + tip - gap_c) / per) * per + gap_c - tip
+    a, b = ln.interpolate(sa - 0.4), ln.interpolate(sa + 0.4)
+    p = ln.interpolate(sa)
+    arrow(ax, p.x, p.y, np.degrees(np.arctan2(b.y - a.y, b.x - a.x)), color, size, z)
 
 
 def round_closed(pts, radii, n=14):
@@ -529,7 +543,7 @@ def dot_run(ax, xy, cuts, color, lw, docks, z=4.1):
                 pts.append((a + b) / 2)
             continue
         gaps = round((b1 - a1) / step)
-        if gaps and (b1 - a1) / gaps < 0.7 * step:   # never crowd the dots: one fewer gap instead
+        if gaps and (b1 - a1) / gaps < 0.9 * step:   # never crowd the dots: one fewer gap instead
             gaps -= 1
         pts += [(a1 + b1) / 2] if gaps == 0 else list(np.linspace(a1, b1, gaps + 1))
     xs = np.array([(p.x, p.y) for p in (ln.interpolate(t) for t in pts)])
@@ -615,8 +629,8 @@ def draw_labels(ax):
                 tot = n_p * 6.6 + (n_p - 1) * 0.35
                 py = by0 - 0.7 - 1.45 if side == "t" else by1 + 0.7 + 1.45
                 pills_row(ax, cx - tot / 2, py, s["pills"], 1)
-            elif s["pm"] == "o" and side in ("l", "r"):  # beside the dot, on the side away from the name
-                pills_row(ax, bx1 + 1.0, cy, s["pills"], 1) if side == "l" else pills_row(ax, bx0 - 1.0, cy, s["pills"], -1)
+            elif s["pm"] == "o" and side in ("l", "r"):  # beside the dot, on the side away from the name, set from the dot's center
+                pills_row(ax, cx + 2.5, cy, s["pills"], 1) if side == "l" else pills_row(ax, cx - 2.5, cy, s["pills"], -1)  # so a column lines up
             elif side in ("l", "tl", "bl"):
                 pills_row(ax, tx0 - 1.0, ty, s["pills"], -1)
             else:
@@ -986,10 +1000,10 @@ def main():
     draw_labels(ax)
 
     # Bass River loop runs one way; Martha's Vineyard ring runs clockwise
-    arrow(ax, *G(YX, 50.3), 0, col("sse"), 1.6, 6)
-    arrow(ax, *G(YX + 0.75, 52.6), 180, col("sse"), 1.6, 6)
-    arrow(ax, *G(13.25, 60), 0, col("isl"), 1.6, 6)
-    arrow(ax, *G(20.75, 66), 180, col("isl"), 1.6, 6)
+    track_arrow(ax, BASS, 1.2, (YX, 50.3), col("sse"))
+    track_arrow(ax, BASS, 1.2, (YX + 0.75, 52.6), col("sse"))
+    track_arrow(ax, ["Vineyard Haven", "Lagoon Pond"], RR, (13.25, 60), col("isl"))
+    track_arrow(ax, MV_RING, RR, (20.75, 66), col("isl"))
 
     def cap(x, r, s, key, ha="left", fs=10.0, va="center", wt="bold"):
         txt(ax, *G(x, r), s, fs, wt, ha, va, color=tcol(key))

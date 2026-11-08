@@ -78,6 +78,31 @@ ALIAS = {"Gov't Center": "Government Center", "Mass. Ave": "Massachusetts Avenue
          "Prudential": "Prudential", "Symphony": "Symphony", "Longwood Medical Area": "Longwood Medical Area", "Ruggles": "Ruggles"}
 
 
+# Placed by hand (one source: Claude's reading of the street map; unverified). Used where Nominatim found the wrong
+# place or nothing. lat, lon, why.
+HAND = {
+    "Boston Central": (42.3594, -71.0520, "Atlantic Ave at State St, the BIGGER Dig's midpoint (NERTA station)"),
+    "Dover": (42.3446, -71.0640, "Washington St at E Berkeley St, the old Dover el stop"),
+    "Everett Sq": (42.4084, -71.0536, "Broadway, Everett"),
+    "Hyde Sq": (42.3218, -71.1101, "Centre St, Jamaica Plain"),
+    "Linden Sq": (42.4262, -71.0295, "Linden, Malden"),
+    "Stadium": (42.3895, -71.0660, "Former Mystic power plant site, Everett: the proposed soccer stadium"),
+    "Watertown": (42.3653, -71.1857, "Watertown Sq"),
+    "West Station": (42.3560, -71.1260, "Beacon Park Yard, Allston"),
+    "Winthrop Center": (42.3762, -70.9864, "Winthrop"),
+    "Lexington Route 128": (42.4719, -71.2580, "Old Lexington branch at Route 128 (NERTA station)"),
+    "Lexington Ctr": (42.4473, -71.2276, "Lexington Center"),
+    "Saugus Center": (42.4646, -71.0110, "Saugus Center"),
+    "Cliftondale": (42.4505, -71.0174, "Cliftondale Sq, Saugus"),
+    "Convention Center": (42.3453, -71.0450, "Boston Convention and Exhibition Center, Summer St"),
+    "Wu Sq": (42.2861, -71.1385, "Invented NERTA stop, midway Roslindale Village to Bellevue"),
+    "Wyoma Sq": (42.4790, -70.9660, "Wyoma Sq, Lynn"),
+    "Arlington Heights": (42.4245, -71.1830, "Mass Ave at Park Ave, today's bus terminal"),
+}
+FAR = {"Hudson", "Marlborough", "Taunton", "Easton Village", "North Easton", "Raynham Place"}  # off the tram area; left out
+CACHE = DAY / "data" / "tram" / "geocode_cache.json"
+
+
 def norm(s):
     s = s.lower().replace("’", "'").replace("saint ", "st ").replace("st. ", "st ")
     for a, b in ((" street", " st"), (" square", " sq"), (" avenue", " ave"), (" road", " rd"), (" center", " ctr"), (" centre", " ctr")):
@@ -105,15 +130,25 @@ def nerta_stations():
         for n in stops:
             out.setdefault(n.rstrip("+"), []).append((color, style))
     for n, _xy, _side, style in M.CR_STOPS:
-        out.setdefault(n.replace("\n", " "), []).append((M.CR_TEXT_COLOR, style))
+        out.setdefault(n.replace("\n", " ").replace(" ", ""), []).append((M.CR_TEXT_COLOR, style))
     return out
+
+
+def cached(key, fn):
+    c = json.loads(CACHE.read_text(encoding="utf-8")) if CACHE.exists() else {}
+    if key not in c:
+        c[key] = fn()
+        CACHE.parent.mkdir(parents=True, exist_ok=True)
+        CACHE.write_text(json.dumps(c), encoding="utf-8")
+    return c[key]
 
 
 def overpass_stations():
     s, w, n, e = BBOX
     q = (f'[out:json][timeout:120];(node["railway"~"^(station|halt|tram_stop)$"]({s},{w},{n},{e});'
          f'node["public_transport"="station"]({s},{w},{n},{e}););out;')
-    js = http_json("https://overpass-api.de/api/interpreter", {"User-Agent": UA["User-Agent"]}, urllib.parse.urlencode({"data": q}).encode())
+    js = cached("overpass", lambda: http_json("https://overpass-api.de/api/interpreter", {"User-Agent": UA["User-Agent"]},
+                                              urllib.parse.urlencode({"data": q}).encode()))
     out = {}
     for el in js["elements"]:
         name = el.get("tags", {}).get("name")
@@ -126,7 +161,7 @@ def nominatim(name):
     s, w, n, e = BBOX
     url = "https://nominatim.openstreetmap.org/search?" + urllib.parse.urlencode(
         {"q": f"{name}, Massachusetts", "format": "json", "limit": 1, "viewbox": f"{w},{n},{e},{s}", "bounded": 1})
-    js = http_json(url, {"User-Agent": UA["User-Agent"]}, tries=(1.2, 10))
+    js = cached("nom:" + name, lambda: http_json(url, {"User-Agent": UA["User-Agent"]}, tries=(1.2, 10)))
     return (float(js[0]["lon"]), float(js[0]["lat"]), js[0]["display_name"]) if js else None
 
 
@@ -144,6 +179,14 @@ def stations():
     osm = overpass_stations()
     feats, todo = [], []
     for n, uses in sorted(nerta.items()):
+        if n in FAR:
+            continue
+        if n in HAND:
+            lat, lon, why = HAND[n]
+            feats.append({"type": "Feature", "geometry": mapping(Point(lon, lat)),
+                          "properties": {"name": n, "colors": sorted({c for c, _ in uses}), "status": sorted({s for _, s in uses}),
+                                         "sources": ["placed by hand"], "verified": False, "note": why}})
+            continue
         keys = [norm(n), norm(ALIAS.get(n, n))]
         a = next((mbta[k] for k in keys if k in mbta), None)
         o = None
