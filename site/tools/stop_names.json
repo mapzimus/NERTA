@@ -1,0 +1,3179 @@
+[
+{
+"name": "Abington",
+"modes": [
+"rail",
+"rail(main map)"
+]
+},
+{
+"name": "Acapesket",
+"modes": [
+"ferry:sse"
+]
+},
+{
+"name": "Addison St",
+"modes": [
+"ferry:chelsea"
+]
+},
+{
+"name": "Admirals Hill",
+"modes": [
+"ferry:mystic"
+]
+},
+{
+"name": "Agganis",
+"modes": [
+"ferry:charles"
+]
+},
+{
+"name": "Airport",
+"modes": [
+"subway:blue",
+"subway:silver",
+"subway:yellow"
+]
+},
+{
+"name": "Alewife",
+"modes": [
+"subway:red"
+]
+},
+{
+"name": "Alford St",
+"modes": [
+"ferry:mystic"
+]
+},
+{
+"name": "Allston",
+"modes": [
+"subway:green"
+]
+},
+{
+"name": "Allston St",
+"modes": [
+"subway:green"
+]
+},
+{
+"name": "Ames St",
+"modes": [
+"ferry:charles"
+]
+},
+{
+"name": "Amory St",
+"modes": [
+"subway:green"
+]
+},
+{
+"name": "Anderson/Woburn",
+"modes": [
+"rail",
+"rail(main map)"
+]
+},
+{
+"name": "Andover",
+"modes": [
+"rail"
+]
+},
+{
+"name": "Andrew",
+"modes": [
+"subway:red"
+]
+},
+{
+"name": "Annisquam",
+"modes": [
+"ferry:nse"
+]
+},
+{
+"name": "Aquarium",
+"modes": [
+"subway:blue",
+"subway:cyan"
+]
+},
+{
+"name": "Aquinnah",
+"modes": [
+"ferry:isl"
+]
+},
+{
+"name": "Arlington",
+"modes": [
+"subway:green"
+]
+},
+{
+"name": "Arlington Ctr",
+"modes": [
+"subway:red"
+]
+},
+{
+"name": "Arlington Heights",
+"modes": [
+"subway:red"
+]
+},
+{
+"name": "Arsenal St",
+"modes": [
+"ferry:charles"
+]
+},
+{
+"name": "Ashland",
+"modes": [
+"rail"
+]
+},
+{
+"name": "Ashmont",
+"modes": [
+"subway:red"
+]
+},
+{
+"name": "Assembly",
+"modes": [
+"ferry:mystic",
+"subway:cyan",
+"subway:orange"
+]
+},
+{
+"name": "Attleboro",
+"modes": [
+"rail"
+]
+},
+{
+"name": "Auburndale",
+"modes": [
+"rail",
+"subway:green"
+]
+},
+{
+"name": "Ayer",
+"modes": [
+"rail",
+"rail(main map)"
+]
+},
+{
+"name": "BU Bridge",
+"modes": [
+"ferry:charles",
+"subway:yellow"
+]
+},
+{
+"name": "BU Central",
+"modes": [
+"subway:green"
+]
+},
+{
+"name": "BU Docks",
+"modes": [
+"ferry:charles"
+]
+},
+{
+"name": "BU East",
+"modes": [
+"subway:green"
+]
+},
+{
+"name": "Babcock St",
+"modes": [
+"subway:green"
+]
+},
+{
+"name": "Back Bay",
+"modes": [
+"rail",
+"subway:orange"
+]
+},
+{
+"name": "Back of the Hill",
+"modes": [
+"subway:green"
+]
+},
+{
+"name": "Ball Sq",
+"modes": [
+"subway:green"
+]
+},
+{
+"name": "Ballardvale",
+"modes": [
+"rail"
+]
+},
+{
+"name": "Bass River / Rte 28",
+"modes": [
+"ferry:sse"
+]
+},
+{
+"name": "Battery Wharf",
+"modes": [
+"ferry:hw"
+]
+},
+{
+"name": "Bay Pointe",
+"modes": [
+"ferry:fore"
+]
+},
+{
+"name": "Beachmont",
+"modes": [
+"ferry:nse",
+"subway:blue"
+]
+},
+{
+"name": "Beaconsfield",
+"modes": [
+"subway:green"
+]
+},
+{
+"name": "Bellevue",
+"modes": [
+"subway:orange"
+]
+},
+{
+"name": "Bellingham Sq",
+"modes": [
+"subway:yellow"
+]
+},
+{
+"name": "Belmont Ctr",
+"modes": [
+"subway:red"
+]
+},
+{
+"name": "Belmont Hill",
+"modes": [
+"ferry:charles"
+]
+},
+{
+"name": "Bennington St",
+"modes": [
+"ferry:eb"
+]
+},
+{
+"name": "Beverly",
+"modes": [
+"ferry:nse",
+"rail",
+"rail(main map)"
+]
+},
+{
+"name": "Beverly Farms",
+"modes": [
+"ferry:nse",
+"rail"
+]
+},
+{
+"name": "Binney",
+"modes": [
+"subway:yellow"
+]
+},
+{
+"name": "Blandford St",
+"modes": [
+"subway:green"
+]
+},
+{
+"name": "Blue Hill Ave",
+"modes": [
+"subway:indigo",
+"subway:orange"
+]
+},
+{
+"name": "Boston Bay",
+"modes": [
+"ferry:chelsea"
+]
+},
+{
+"name": "Boston Central",
+"modes": [
+"rail",
+"subway:cyan"
+]
+},
+{
+"name": "Boston College",
+"modes": [
+"subway:green"
+]
+},
+{
+"name": "Boston Landing",
+"modes": [
+"rail",
+"rail(main map)"
+]
+},
+{
+"name": "Boston Medical",
+"modes": [
+"subway:yellow"
+]
+},
+{
+"name": "Boylston",
+"modes": [
+"subway:green"
+]
+},
+{
+"name": "Bradford",
+"modes": [
+"rail"
+]
+},
+{
+"name": "Braintree",
+"modes": [
+"rail",
+"subway:red"
+]
+},
+{
+"name": "Brandeis/Roberts",
+"modes": [
+"rail"
+]
+},
+{
+"name": "Brandon Hall",
+"modes": [
+"subway:green"
+]
+},
+{
+"name": "Brant Point",
+"modes": [
+"ferry:isl"
+]
+},
+{
+"name": "Brant Rock / Green Harbor",
+"modes": [
+"ferry:sse"
+]
+},
+{
+"name": "Bridgewater",
+"modes": [
+"rail",
+"rail(main map)"
+]
+},
+{
+"name": "Brier Neck",
+"modes": [
+"ferry:nse"
+]
+},
+{
+"name": "Brigham Circle",
+"modes": [
+"subway:green"
+]
+},
+{
+"name": "Brighton Center",
+"modes": [
+"subway:green"
+]
+},
+{
+"name": "Broad Canal",
+"modes": [
+"ferry:charles"
+]
+},
+{
+"name": "Broadway",
+"modes": [
+"subway:cyan",
+"subway:red"
+]
+},
+{
+"name": "Brockton",
+"modes": [
+"rail",
+"rail(main map)"
+]
+},
+{
+"name": "Brookline Hills",
+"modes": [
+"subway:green"
+]
+},
+{
+"name": "Brookline Village",
+"modes": [
+"subway:green"
+]
+},
+{
+"name": "Butler",
+"modes": [
+"subway:red"
+]
+},
+{
+"name": "Buzzards Bay",
+"modes": [
+"ferry:sse"
+]
+},
+{
+"name": "Campello",
+"modes": [
+"rail"
+]
+},
+{
+"name": "Canton Center",
+"modes": [
+"rail"
+]
+},
+{
+"name": "Canton Junction",
+"modes": [
+"rail"
+]
+},
+{
+"name": "Capen St",
+"modes": [
+"subway:red"
+]
+},
+{
+"name": "Carson Beach",
+"modes": [
+"ferry:sse",
+"ferry:ssi"
+]
+},
+{
+"name": "Castle Island",
+"modes": [
+"ferry:ssi"
+]
+},
+{
+"name": "Cedar Grove",
+"modes": [
+"subway:red"
+]
+},
+{
+"name": "Central",
+"modes": [
+"subway:red"
+]
+},
+{
+"name": "Central Ave",
+"modes": [
+"subway:red"
+]
+},
+{
+"name": "Central Sq",
+"modes": [
+"rail",
+"subway:blue"
+]
+},
+{
+"name": "Central Wharf",
+"modes": [
+"ferry:hw"
+]
+},
+{
+"name": "Chappaquiddick",
+"modes": [
+"ferry:isl"
+]
+},
+{
+"name": "Charles/MGH",
+"modes": [
+"subway:blue",
+"subway:red"
+]
+},
+{
+"name": "Charlesgate",
+"modes": [
+"ferry:charles"
+]
+},
+{
+"name": "Chatham",
+"modes": [
+"ferry:isl",
+"ferry:sse"
+]
+},
+{
+"name": "Chelsea",
+"modes": [
+"rail",
+"subway:yellow"
+]
+},
+{
+"name": "Chelsea St",
+"modes": [
+"ferry:chelsea"
+]
+},
+{
+"name": "Chestnut Hill",
+"modes": [
+"subway:green"
+]
+},
+{
+"name": "Chestnut Hill Ave",
+"modes": [
+"subway:green"
+]
+},
+{
+"name": "Chilmark",
+"modes": [
+"ferry:isl"
+]
+},
+{
+"name": "Chinatown",
+"modes": [
+"subway:orange"
+]
+},
+{
+"name": "Chiswick Rd",
+"modes": [
+"subway:green"
+]
+},
+{
+"name": "Church St",
+"modes": [
+"rail"
+]
+},
+{
+"name": "Cisco",
+"modes": [
+"ferry:isl"
+]
+},
+{
+"name": "City Point",
+"modes": [
+"subway:cyan"
+]
+},
+{
+"name": "City Square",
+"modes": [
+"subway:cyan"
+]
+},
+{
+"name": "Cleveland Circle",
+"modes": [
+"subway:green"
+]
+},
+{
+"name": "Clifton",
+"modes": [
+"ferry:nse",
+"rail",
+"rail(main map)"
+]
+},
+{
+"name": "Cliftondale",
+"modes": [
+"subway:orange"
+]
+},
+{
+"name": "Coast Guard Beach",
+"modes": [
+"ferry:sse"
+]
+},
+{
+"name": "Cohasset",
+"modes": [
+"rail",
+"rail(main map)"
+]
+},
+{
+"name": "Community College",
+"modes": [
+"subway:orange"
+]
+},
+{
+"name": "Concord",
+"modes": [
+"rail",
+"rail(main map)"
+]
+},
+{
+"name": "Condor St",
+"modes": [
+"ferry:chelsea"
+]
+},
+{
+"name": "Convention Center",
+"modes": [
+"subway:cyan",
+"subway:yellow"
+]
+},
+{
+"name": "Coolidge Corner",
+"modes": [
+"subway:green"
+]
+},
+{
+"name": "Copley",
+"modes": [
+"subway:green"
+]
+},
+{
+"name": "Coskata",
+"modes": [
+"ferry:isl"
+]
+},
+{
+"name": "Courthouse",
+"modes": [
+"subway:cyan"
+]
+},
+{
+"name": "Crane Beach",
+"modes": [
+"ferry:nse"
+]
+},
+{
+"name": "Cumnock",
+"modes": [
+"ferry:charles"
+]
+},
+{
+"name": "Cuttyhunk",
+"modes": [
+"ferry:isl",
+"ferry:sse"
+]
+},
+{
+"name": "Danvers",
+"modes": [
+"rail",
+"rail(main map)"
+]
+},
+{
+"name": "Danversport",
+"modes": [
+"rail",
+"rail(main map)"
+]
+},
+{
+"name": "David Ortiz",
+"modes": [
+"rail",
+"rail(main map)"
+]
+},
+{
+"name": "Davis",
+"modes": [
+"subway:red"
+]
+},
+{
+"name": "Day Sq",
+"modes": [
+"subway:yellow"
+]
+},
+{
+"name": "DeWolfe",
+"modes": [
+"ferry:charles"
+]
+},
+{
+"name": "Dean Rd",
+"modes": [
+"subway:green"
+]
+},
+{
+"name": "Dedham Corporate Center",
+"modes": [
+"rail"
+]
+},
+{
+"name": "Deer Island",
+"modes": [
+"ferry:hi"
+]
+},
+{
+"name": "Dennis Port",
+"modes": [
+"ferry:sse"
+]
+},
+{
+"name": "Dorchester Ave",
+"modes": [
+"ferry:hw"
+]
+},
+{
+"name": "Dorchester Shores",
+"modes": [
+"ferry:ssi"
+]
+},
+{
+"name": "Dover",
+"modes": [
+"subway:orange"
+]
+},
+{
+"name": "Downtown Crossing",
+"modes": [
+"subway:orange",
+"subway:red"
+]
+},
+{
+"name": "Duck Tours",
+"modes": [
+"ferry:charles"
+]
+},
+{
+"name": "Duxbury",
+"modes": [
+"ferry:sse"
+]
+},
+{
+"name": "East Arlington",
+"modes": [
+"subway:red"
+]
+},
+{
+"name": "East Somerville",
+"modes": [
+"subway:green"
+]
+},
+{
+"name": "East Taunton",
+"modes": [
+"rail"
+]
+},
+{
+"name": "East Weymouth",
+"modes": [
+"rail",
+"rail(main map)"
+]
+},
+{
+"name": "Eastern Ave",
+"modes": [
+"ferry:chelsea"
+]
+},
+{
+"name": "Easton Village",
+"modes": [
+"rail",
+"rail(main map)"
+]
+},
+{
+"name": "Edgartown",
+"modes": [
+"ferry:isl"
+]
+},
+{
+"name": "Eliot",
+"modes": [
+"ferry:charles",
+"subway:green"
+]
+},
+{
+"name": "Encore",
+"modes": [
+"ferry:mystic",
+"subway:cyan"
+]
+},
+{
+"name": "Endicott",
+"modes": [
+"rail",
+"rail(main map)"
+]
+},
+{
+"name": "Englewood Ave",
+"modes": [
+"subway:green"
+]
+},
+{
+"name": "Esplanade",
+"modes": [
+"ferry:charles"
+]
+},
+{
+"name": "Everett Sq",
+"modes": [
+"subway:yellow"
+]
+},
+{
+"name": "Fairbanks St",
+"modes": [
+"subway:green"
+]
+},
+{
+"name": "Fairhaven",
+"modes": [
+"ferry:sse"
+]
+},
+{
+"name": "Fairmount",
+"modes": [
+"subway:indigo"
+]
+},
+{
+"name": "Fall River",
+"modes": [
+"ferry:sse"
+]
+},
+{
+"name": "Fall River Depot",
+"modes": [
+"rail"
+]
+},
+{
+"name": "Falmouth",
+"modes": [
+"ferry:sse"
+]
+},
+{
+"name": "Fan Pier",
+"modes": [
+"ferry:seaport"
+]
+},
+{
+"name": "Fenway",
+"modes": [
+"subway:green",
+"subway:yellow"
+]
+},
+{
+"name": "Fenwood Rd",
+"modes": [
+"subway:green"
+]
+},
+{
+"name": "Fields Corner",
+"modes": [
+"subway:red"
+]
+},
+{
+"name": "Finigan",
+"modes": [
+"ferry:ssi"
+]
+},
+{
+"name": "First St",
+"modes": [
+"ferry:ssi"
+]
+},
+{
+"name": "Fitchburg",
+"modes": [
+"rail"
+]
+},
+{
+"name": "Forest Hills",
+"modes": [
+"subway:green",
+"subway:orange"
+]
+},
+{
+"name": "Forge Park/495",
+"modes": [
+"rail"
+]
+},
+{
+"name": "Fort Point",
+"modes": [
+"subway:cyan"
+]
+},
+{
+"name": "Four Corners",
+"modes": [
+"subway:indigo"
+]
+},
+{
+"name": "Fox Point",
+"modes": [
+"ferry:ssi"
+]
+},
+{
+"name": "Foxboro",
+"modes": [
+"rail",
+"rail(main map)"
+]
+},
+{
+"name": "Framingham",
+"modes": [
+"rail"
+]
+},
+{
+"name": "Franklin",
+"modes": [
+"rail"
+]
+},
+{
+"name": "Freetown",
+"modes": [
+"rail"
+]
+},
+{
+"name": "Georges Island",
+"modes": [
+"ferry:hi"
+]
+},
+{
+"name": "Gilman Sq",
+"modes": [
+"subway:green"
+]
+},
+{
+"name": "Gloucester",
+"modes": [
+"ferry:nse",
+"rail"
+]
+},
+{
+"name": "Gloucester St",
+"modes": [
+"ferry:charles"
+]
+},
+{
+"name": "Gov't Center",
+"modes": [
+"subway:blue",
+"subway:green"
+]
+},
+{
+"name": "Grafton",
+"modes": [
+"rail"
+]
+},
+{
+"name": "Green St",
+"modes": [
+"subway:orange"
+]
+},
+{
+"name": "Greenbush",
+"modes": [
+"rail",
+"rail(main map)"
+]
+},
+{
+"name": "Greenwood",
+"modes": [
+"subway:orange"
+]
+},
+{
+"name": "Griggs St",
+"modes": [
+"subway:green"
+]
+},
+{
+"name": "Gronk",
+"modes": [
+"ferry:charles"
+]
+},
+{
+"name": "Grove Hall",
+"modes": [
+"subway:orange"
+]
+},
+{
+"name": "Halifax",
+"modes": [
+"rail"
+]
+},
+{
+"name": "Hamilton/Wenham",
+"modes": [
+"rail"
+]
+},
+{
+"name": "Hanson",
+"modes": [
+"rail",
+"rail(main map)"
+]
+},
+{
+"name": "Harvard",
+"modes": [
+"subway:green",
+"subway:red"
+]
+},
+{
+"name": "Harvard Ave",
+"modes": [
+"subway:green"
+]
+},
+{
+"name": "Harwich Point",
+"modes": [
+"ferry:sse"
+]
+},
+{
+"name": "Hatch Shell",
+"modes": [
+"ferry:charles"
+]
+},
+{
+"name": "Haverhill",
+"modes": [
+"rail"
+]
+},
+{
+"name": "Hawes St",
+"modes": [
+"subway:green"
+]
+},
+{
+"name": "Haymarket",
+"modes": [
+"subway:green",
+"subway:orange"
+]
+},
+{
+"name": "Heath St",
+"modes": [
+"subway:green"
+]
+},
+{
+"name": "Hersey",
+"modes": [
+"subway:green"
+]
+},
+{
+"name": "Herter",
+"modes": [
+"ferry:charles"
+]
+},
+{
+"name": "Highland",
+"modes": [
+"subway:orange"
+]
+},
+{
+"name": "Highlands Beach",
+"modes": [
+"ferry:nse"
+]
+},
+{
+"name": "Hingham",
+"modes": [
+"ferry:fore",
+"ferry:sse",
+"rail",
+"rail(main map)"
+]
+},
+{
+"name": "Holbrook/Randolph",
+"modes": [
+"rail"
+]
+},
+{
+"name": "Hough's Neck",
+"modes": [
+"ferry:qb"
+]
+},
+{
+"name": "Hudson",
+"modes": [
+"rail",
+"rail(main map)"
+]
+},
+{
+"name": "Hull",
+"modes": [
+"ferry:fore",
+"ferry:sse"
+]
+},
+{
+"name": "Humarock",
+"modes": [
+"ferry:sse"
+]
+},
+{
+"name": "Hyannis",
+"modes": [
+"ferry:sse"
+]
+},
+{
+"name": "Hyannisport",
+"modes": [
+"ferry:sse"
+]
+},
+{
+"name": "Hyde Park",
+"modes": [
+"rail",
+"subway:orange"
+]
+},
+{
+"name": "Hyde Sq",
+"modes": [
+"subway:green"
+]
+},
+{
+"name": "Hynes",
+"modes": [
+"subway:green"
+]
+},
+{
+"name": "Inman Sq",
+"modes": [
+"subway:green"
+]
+},
+{
+"name": "Inner Belt",
+"modes": [
+"subway:yellow"
+]
+},
+{
+"name": "Ipswich",
+"modes": [
+"ferry:nse",
+"rail"
+]
+},
+{
+"name": "Islington",
+"modes": [
+"rail",
+"rail(main map)"
+]
+},
+{
+"name": "JFK/UMass",
+"modes": [
+"rail",
+"subway:red",
+"subway:yellow"
+]
+},
+{
+"name": "Jackson Sq",
+"modes": [
+"subway:orange"
+]
+},
+{
+"name": "John W. Weeks",
+"modes": [
+"ferry:charles"
+]
+},
+{
+"name": "Katama Beach",
+"modes": [
+"ferry:isl"
+]
+},
+{
+"name": "Kendal Green",
+"modes": [
+"rail"
+]
+},
+{
+"name": "Kendall/MIT",
+"modes": [
+"subway:red",
+"subway:yellow"
+]
+},
+{
+"name": "Kenmore",
+"modes": [
+"subway:green",
+"subway:yellow"
+]
+},
+{
+"name": "Kent St",
+"modes": [
+"subway:green"
+]
+},
+{
+"name": "King's Cove",
+"modes": [
+"ferry:fore"
+]
+},
+{
+"name": "Kingston",
+"modes": [
+"rail",
+"rail(main map)"
+]
+},
+{
+"name": "L Street",
+"modes": [
+"subway:cyan"
+]
+},
+{
+"name": "Lagoon Pond",
+"modes": [
+"ferry:isl"
+]
+},
+{
+"name": "Langone Ferryport",
+"modes": [
+"ferry:eb",
+"ferry:express",
+"ferry:fore",
+"ferry:hi",
+"ferry:hw",
+"ferry:nse",
+"ferry:qb",
+"ferry:seaport",
+"ferry:sse",
+"ferry:ssi",
+"subway:cyan"
+]
+},
+{
+"name": "Lawrence",
+"modes": [
+"rail"
+]
+},
+{
+"name": "Lechmere",
+"modes": [
+"subway:green",
+"subway:yellow"
+]
+},
+{
+"name": "Lexington Ctr",
+"modes": [
+"subway:red"
+]
+},
+{
+"name": "Lexington Route 128",
+"modes": [
+"subway:red"
+]
+},
+{
+"name": "Lincoln",
+"modes": [
+"rail"
+]
+},
+{
+"name": "Linden Sq",
+"modes": [
+"subway:orange"
+]
+},
+{
+"name": "Little Mystic",
+"modes": [
+"ferry:mystic"
+]
+},
+{
+"name": "Littleton/Route 495",
+"modes": [
+"rail"
+]
+},
+{
+"name": "Logan Dock",
+"modes": [
+"ferry:eb",
+"subway:silver"
+]
+},
+{
+"name": "Long Island",
+"modes": [
+"ferry:hi"
+]
+},
+{
+"name": "Long Wharf",
+"modes": [
+"ferry:express",
+"ferry:hw"
+]
+},
+{
+"name": "Longwood",
+"modes": [
+"subway:green"
+]
+},
+{
+"name": "Longwood Medical Area",
+"modes": [
+"subway:green",
+"subway:yellow"
+]
+},
+{
+"name": "Lovejoy Wharf",
+"modes": [
+"ferry:charles"
+]
+},
+{
+"name": "Lowell",
+"modes": [
+"rail"
+]
+},
+{
+"name": "Lynn Harbor",
+"modes": [
+"ferry:nse",
+"subway:blue"
+]
+},
+{
+"name": "M St",
+"modes": [
+"ferry:ssi"
+]
+},
+{
+"name": "MVY Connection",
+"modes": [
+"ferry:isl"
+]
+},
+{
+"name": "Magazine Beach",
+"modes": [
+"ferry:charles"
+]
+},
+{
+"name": "Magnolia",
+"modes": [
+"ferry:nse"
+]
+},
+{
+"name": "Magoun Sq",
+"modes": [
+"subway:green"
+]
+},
+{
+"name": "Malden Center",
+"modes": [
+"rail",
+"subway:orange"
+]
+},
+{
+"name": "Manchester",
+"modes": [
+"rail"
+]
+},
+{
+"name": "Manchester-by-the-Sea",
+"modes": [
+"ferry:nse"
+]
+},
+{
+"name": "Mansfield",
+"modes": [
+"rail",
+"rail(main map)"
+]
+},
+{
+"name": "Marblehead",
+"modes": [
+"ferry:nse",
+"rail",
+"rail(main map)"
+]
+},
+{
+"name": "Marconi Beach",
+"modes": [
+"ferry:sse"
+]
+},
+{
+"name": "Marion",
+"modes": [
+"ferry:sse"
+]
+},
+{
+"name": "Marlborough",
+"modes": [
+"rail",
+"rail(main map)"
+]
+},
+{
+"name": "Martins Park",
+"modes": [
+"ferry:seaport"
+]
+},
+{
+"name": "Mass Ave",
+"modes": [
+"subway:blue",
+"subway:yellow"
+]
+},
+{
+"name": "Mass. Ave",
+"modes": [
+"subway:orange"
+]
+},
+{
+"name": "Mattapan",
+"modes": [
+"subway:orange",
+"subway:red"
+]
+},
+{
+"name": "Mattapoisett",
+"modes": [
+"ferry:sse"
+]
+},
+{
+"name": "Maverick",
+"modes": [
+"subway:blue"
+]
+},
+{
+"name": "Medford Hillside",
+"modes": [
+"subway:green"
+]
+},
+{
+"name": "Medford St",
+"modes": [
+"ferry:mystic"
+]
+},
+{
+"name": "Medford/Tufts",
+"modes": [
+"subway:green"
+]
+},
+{
+"name": "Melnea Cass",
+"modes": [
+"subway:yellow"
+]
+},
+{
+"name": "Melrose Highlands",
+"modes": [
+"subway:orange"
+]
+},
+{
+"name": "Melrose/Cedar Park",
+"modes": [
+"subway:orange"
+]
+},
+{
+"name": "Menino",
+"modes": [
+"ferry:mystic"
+]
+},
+{
+"name": "Middleborough",
+"modes": [
+"rail"
+]
+},
+{
+"name": "Middleton",
+"modes": [
+"rail",
+"rail(main map)"
+]
+},
+{
+"name": "Mill Wharf",
+"modes": [
+"ferry:sse"
+]
+},
+{
+"name": "Milton",
+"modes": [
+"subway:red"
+]
+},
+{
+"name": "Minot (Scituate)",
+"modes": [
+"ferry:sse"
+]
+},
+{
+"name": "Mission Park",
+"modes": [
+"subway:green"
+]
+},
+{
+"name": "Moakley Park",
+"modes": [
+"subway:yellow"
+]
+},
+{
+"name": "Montello",
+"modes": [
+"rail"
+]
+},
+{
+"name": "Montserrat",
+"modes": [
+"rail"
+]
+},
+{
+"name": "Moon Island",
+"modes": [
+"ferry:qb"
+]
+},
+{
+"name": "Morton St",
+"modes": [
+"subway:indigo"
+]
+},
+{
+"name": "Museum of Fine Arts",
+"modes": [
+"subway:green"
+]
+},
+{
+"name": "Museum of Science",
+"modes": [
+"ferry:charles"
+]
+},
+{
+"name": "N. Barnstable / Sandy Neck",
+"modes": [
+"ferry:sse"
+]
+},
+{
+"name": "Nahant Harbor",
+"modes": [
+"ferry:nse"
+]
+},
+{
+"name": "Namskaket",
+"modes": [
+"ferry:sse"
+]
+},
+{
+"name": "Nantasket",
+"modes": [
+"ferry:fore"
+]
+},
+{
+"name": "Nantasket Junction",
+"modes": [
+"rail"
+]
+},
+{
+"name": "Nantucket Downtown",
+"modes": [
+"ferry:isl"
+]
+},
+{
+"name": "Nashua St",
+"modes": [
+"ferry:charles"
+]
+},
+{
+"name": "Natick Center",
+"modes": [
+"rail"
+]
+},
+{
+"name": "Nauset Beach",
+"modes": [
+"ferry:sse"
+]
+},
+{
+"name": "Navy Yard",
+"modes": [
+"ferry:charles",
+"ferry:express",
+"ferry:mystic",
+"subway:cyan"
+]
+},
+{
+"name": "Needham Crossing",
+"modes": [
+"subway:green"
+]
+},
+{
+"name": "Needham Heights",
+"modes": [
+"subway:green"
+]
+},
+{
+"name": "Needham Junction",
+"modes": [
+"subway:green"
+]
+},
+{
+"name": "New Bedford",
+"modes": [
+"ferry:isl",
+"ferry:sse",
+"rail"
+]
+},
+{
+"name": "New Silver Beach",
+"modes": [
+"ferry:sse"
+]
+},
+{
+"name": "Newburyport",
+"modes": [
+"ferry:nse",
+"rail"
+]
+},
+{
+"name": "Newell",
+"modes": [
+"ferry:charles"
+]
+},
+{
+"name": "Newmarket",
+"modes": [
+"subway:indigo",
+"subway:yellow"
+]
+},
+{
+"name": "Newport",
+"modes": [
+"ferry:sse"
+]
+},
+{
+"name": "Newton Centre",
+"modes": [
+"subway:green"
+]
+},
+{
+"name": "Newton City Hall",
+"modes": [
+"subway:green"
+]
+},
+{
+"name": "Newton Corner",
+"modes": [
+"subway:green"
+]
+},
+{
+"name": "Newton Highlands",
+"modes": [
+"subway:green"
+]
+},
+{
+"name": "Newton Upper Falls",
+"modes": [
+"subway:green"
+]
+},
+{
+"name": "Newtonville",
+"modes": [
+"rail",
+"rail(main map)"
+]
+},
+{
+"name": "Nickerson",
+"modes": [
+"ferry:qb"
+]
+},
+{
+"name": "Nobadeer",
+"modes": [
+"ferry:isl"
+]
+},
+{
+"name": "Noman's Land",
+"modes": [
+"ferry:isl"
+]
+},
+{
+"name": "Norfolk",
+"modes": [
+"rail"
+]
+},
+{
+"name": "North Beverly",
+"modes": [
+"rail"
+]
+},
+{
+"name": "North Billerica",
+"modes": [
+"rail"
+]
+},
+{
+"name": "North Cambridge",
+"modes": [
+"subway:red"
+]
+},
+{
+"name": "North Easton",
+"modes": [
+"rail",
+"rail(main map)"
+]
+},
+{
+"name": "North Leominster",
+"modes": [
+"rail"
+]
+},
+{
+"name": "North Point",
+"modes": [
+"ferry:charles"
+]
+},
+{
+"name": "North Quincy",
+"modes": [
+"subway:red"
+]
+},
+{
+"name": "North Scituate",
+"modes": [
+"rail",
+"rail(main map)"
+]
+},
+{
+"name": "North Station",
+"modes": [
+"rail",
+"subway:cyan",
+"subway:green",
+"subway:orange"
+]
+},
+{
+"name": "North Wilmington",
+"modes": [
+"rail"
+]
+},
+{
+"name": "Northampton",
+"modes": [
+"subway:orange"
+]
+},
+{
+"name": "Northeastern",
+"modes": [
+"ferry:charles",
+"subway:green"
+]
+},
+{
+"name": "Norwood",
+"modes": [
+"rail(main map)"
+]
+},
+{
+"name": "Norwood Central",
+"modes": [
+"rail"
+]
+},
+{
+"name": "Norwood Depot",
+"modes": [
+"rail"
+]
+},
+{
+"name": "Nubian",
+"modes": [
+"subway:orange",
+"subway:yellow"
+]
+},
+{
+"name": "Nut Island",
+"modes": [
+"ferry:qb"
+]
+},
+{
+"name": "Oak Bluffs",
+"modes": [
+"ferry:isl",
+"ferry:sse"
+]
+},
+{
+"name": "Oak Grove",
+"modes": [
+"rail",
+"subway:orange"
+]
+},
+{
+"name": "Oak Sq",
+"modes": [
+"subway:green"
+]
+},
+{
+"name": "Office Center",
+"modes": [
+"subway:silver"
+]
+},
+{
+"name": "Old Harbor",
+"modes": [
+"ferry:ssi"
+]
+},
+{
+"name": "Old Wharf",
+"modes": [
+"ferry:sse"
+]
+},
+{
+"name": "Onset",
+"modes": [
+"ferry:sse"
+]
+},
+{
+"name": "Orient Heights",
+"modes": [
+"subway:blue"
+]
+},
+{
+"name": "Osterville",
+"modes": [
+"ferry:sse"
+]
+},
+{
+"name": "Packard's Corner",
+"modes": [
+"subway:green"
+]
+},
+{
+"name": "Park Street",
+"modes": [
+"subway:green",
+"subway:red"
+]
+},
+{
+"name": "Parking",
+"modes": [
+"subway:silver"
+]
+},
+{
+"name": "Paul Revere Park",
+"modes": [
+"ferry:charles"
+]
+},
+{
+"name": "Pavilion",
+"modes": [
+"ferry:seaport"
+]
+},
+{
+"name": "Pawtucket/Central Falls",
+"modes": [
+"rail"
+]
+},
+{
+"name": "Peabody",
+"modes": [
+"rail",
+"rail(main map)"
+]
+},
+{
+"name": "Pearl St",
+"modes": [
+"ferry:mystic"
+]
+},
+{
+"name": "Piers Park",
+"modes": [
+"ferry:eb"
+]
+},
+{
+"name": "Plum Island Central",
+"modes": [
+"ferry:nse"
+]
+},
+{
+"name": "Plum Island North",
+"modes": [
+"ferry:nse"
+]
+},
+{
+"name": "Plum Island South",
+"modes": [
+"ferry:nse"
+]
+},
+{
+"name": "Plymouth",
+"modes": [
+"rail"
+]
+},
+{
+"name": "Plymouth Rock",
+"modes": [
+"ferry:sse"
+]
+},
+{
+"name": "Pocasset",
+"modes": [
+"ferry:sse"
+]
+},
+{
+"name": "Poormans",
+"modes": [
+"ferry:charles"
+]
+},
+{
+"name": "Popponesset",
+"modes": [
+"ferry:sse"
+]
+},
+{
+"name": "Porter",
+"modes": [
+"rail",
+"subway:red"
+]
+},
+{
+"name": "Porzio",
+"modes": [
+"ferry:eb"
+]
+},
+{
+"name": "Prides Crossing",
+"modes": [
+"ferry:nse"
+]
+},
+{
+"name": "Providence",
+"modes": [
+"rail"
+]
+},
+{
+"name": "Provincetown",
+"modes": [
+"ferry:sse"
+]
+},
+{
+"name": "Prudential",
+"modes": [
+"subway:green"
+]
+},
+{
+"name": "Quigley",
+"modes": [
+"ferry:chelsea"
+]
+},
+{
+"name": "Quincy",
+"modes": [
+"ferry:sse"
+]
+},
+{
+"name": "Quincy Adams",
+"modes": [
+"subway:red"
+]
+},
+{
+"name": "Quincy Center",
+"modes": [
+"rail",
+"subway:red"
+]
+},
+{
+"name": "Quincy Point",
+"modes": [
+"ferry:sse"
+]
+},
+{
+"name": "Race Point",
+"modes": [
+"ferry:sse"
+]
+},
+{
+"name": "Raynham Place",
+"modes": [
+"rail",
+"rail(main map)"
+]
+},
+{
+"name": "Reading",
+"modes": [
+"rail",
+"subway:orange"
+]
+},
+{
+"name": "Readville",
+"modes": [
+"rail",
+"subway:indigo",
+"subway:orange"
+]
+},
+{
+"name": "Rental Cars",
+"modes": [
+"subway:silver"
+]
+},
+{
+"name": "Resch",
+"modes": [
+"ferry:charles"
+]
+},
+{
+"name": "Reservoir",
+"modes": [
+"subway:green"
+]
+},
+{
+"name": "Revere Beach",
+"modes": [
+"ferry:nse",
+"subway:blue"
+]
+},
+{
+"name": "Riverside",
+"modes": [
+"ferry:charles",
+"subway:green"
+]
+},
+{
+"name": "Riverway",
+"modes": [
+"subway:green"
+]
+},
+{
+"name": "Rockport",
+"modes": [
+"ferry:nse",
+"rail"
+]
+},
+{
+"name": "Roslindale Village",
+"modes": [
+"subway:orange"
+]
+},
+{
+"name": "Route 128",
+"modes": [
+"rail",
+"rail(main map)"
+]
+},
+{
+"name": "Rowes Wharf",
+"modes": [
+"ferry:hw"
+]
+},
+{
+"name": "Rowley",
+"modes": [
+"rail"
+]
+},
+{
+"name": "Roxbury Crossing",
+"modes": [
+"subway:orange"
+]
+},
+{
+"name": "Ruggles",
+"modes": [
+"rail",
+"subway:orange",
+"subway:yellow"
+]
+},
+{
+"name": "Salem",
+"modes": [
+"rail",
+"rail(main map)"
+]
+},
+{
+"name": "Salem Wharf",
+"modes": [
+"ferry:nse"
+]
+},
+{
+"name": "Salisbury",
+"modes": [
+"ferry:nse"
+]
+},
+{
+"name": "Sandwich Boardwalk",
+"modes": [
+"ferry:sse"
+]
+},
+{
+"name": "Sargent's Wharf",
+"modes": [
+"ferry:hw"
+]
+},
+{
+"name": "Saugus Center",
+"modes": [
+"subway:orange"
+]
+},
+{
+"name": "Savin Hill",
+"modes": [
+"subway:red"
+]
+},
+{
+"name": "Science Park",
+"modes": [
+"subway:green"
+]
+},
+{
+"name": "Seaport",
+"modes": [
+"ferry:seaport",
+"subway:cyan",
+"subway:yellow"
+]
+},
+{
+"name": "Seaver St",
+"modes": [
+"subway:orange"
+]
+},
+{
+"name": "Sesuit",
+"modes": [
+"ferry:sse"
+]
+},
+{
+"name": "Shad Hole Rd",
+"modes": [
+"ferry:sse"
+]
+},
+{
+"name": "Sharon",
+"modes": [
+"rail"
+]
+},
+{
+"name": "Shawmut",
+"modes": [
+"subway:red"
+]
+},
+{
+"name": "Shirley",
+"modes": [
+"rail"
+]
+},
+{
+"name": "Siasconset",
+"modes": [
+"ferry:isl"
+]
+},
+{
+"name": "Smith Point",
+"modes": [
+"ferry:isl"
+]
+},
+{
+"name": "South Acton",
+"modes": [
+"rail",
+"rail(main map)"
+]
+},
+{
+"name": "South Dartmouth",
+"modes": [
+"ferry:sse"
+]
+},
+{
+"name": "South Salem",
+"modes": [
+"rail",
+"rail(main map)"
+]
+},
+{
+"name": "South Shore",
+"modes": [
+"ferry:isl"
+]
+},
+{
+"name": "South St",
+"modes": [
+"subway:green"
+]
+},
+{
+"name": "South Station",
+"modes": [
+"rail",
+"subway:indigo",
+"subway:red"
+]
+},
+{
+"name": "South Weymouth",
+"modes": [
+"rail"
+]
+},
+{
+"name": "South Yarmouth",
+"modes": [
+"ferry:sse"
+]
+},
+{
+"name": "Southborough",
+"modes": [
+"rail"
+]
+},
+{
+"name": "Spectacle Island",
+"modes": [
+"ferry:hi"
+]
+},
+{
+"name": "Squantum",
+"modes": [
+"ferry:qb"
+]
+},
+{
+"name": "Squantum Point",
+"modes": [
+"ferry:qb",
+"ferry:sse"
+]
+},
+{
+"name": "St. Mary's St",
+"modes": [
+"subway:green"
+]
+},
+{
+"name": "St. Paul St",
+"modes": [
+"subway:green"
+]
+},
+{
+"name": "Stadium",
+"modes": [
+"ferry:mystic",
+"subway:cyan",
+"subway:yellow"
+]
+},
+{
+"name": "State",
+"modes": [
+"subway:blue",
+"subway:orange"
+]
+},
+{
+"name": "Stony Brook",
+"modes": [
+"subway:orange"
+]
+},
+{
+"name": "Stoughton",
+"modes": [
+"rail",
+"rail(main map)"
+]
+},
+{
+"name": "Suffolk Downs",
+"modes": [
+"ferry:chelsea",
+"ferry:nse",
+"subway:blue"
+]
+},
+{
+"name": "Sullivan Sq",
+"modes": [
+"rail",
+"subway:orange",
+"subway:yellow"
+]
+},
+{
+"name": "Summit Ave",
+"modes": [
+"subway:green"
+]
+},
+{
+"name": "Sutherland Rd",
+"modes": [
+"subway:green"
+]
+},
+{
+"name": "Swampscott",
+"modes": [
+"ferry:nse",
+"rail",
+"rail(main map)"
+]
+},
+{
+"name": "Symphony",
+"modes": [
+"subway:green"
+]
+},
+{
+"name": "TF Green Airport",
+"modes": [
+"rail"
+]
+},
+{
+"name": "Talbot Ave",
+"modes": [
+"subway:indigo"
+]
+},
+{
+"name": "Tappan St",
+"modes": [
+"subway:green"
+]
+},
+{
+"name": "Taunton",
+"modes": [
+"rail",
+"rail(main map)"
+]
+},
+{
+"name": "Terminal A",
+"modes": [
+"subway:silver"
+]
+},
+{
+"name": "Terminal B",
+"modes": [
+"subway:silver"
+]
+},
+{
+"name": "Terminal C",
+"modes": [
+"subway:silver"
+]
+},
+{
+"name": "Terminal D",
+"modes": [
+"subway:silver"
+]
+},
+{
+"name": "Terminal E",
+"modes": [
+"subway:silver"
+]
+},
+{
+"name": "Terminal F",
+"modes": [
+"subway:silver"
+]
+},
+{
+"name": "Terminals",
+"modes": [
+"subway:silver",
+"subway:yellow"
+]
+},
+{
+"name": "Thompson Island",
+"modes": [
+"ferry:qb"
+]
+},
+{
+"name": "Thompson Sq",
+"modes": [
+"subway:cyan"
+]
+},
+{
+"name": "Thumpertown",
+"modes": [
+"ferry:sse"
+]
+},
+{
+"name": "Tuckernuck Is.",
+"modes": [
+"ferry:isl"
+]
+},
+{
+"name": "Tufts Medical Ctr",
+"modes": [
+"subway:orange"
+]
+},
+{
+"name": "UMass Boston",
+"modes": [
+"ferry:sse",
+"ferry:ssi"
+]
+},
+{
+"name": "Union Sq",
+"modes": [
+"subway:green"
+]
+},
+{
+"name": "Uphams Corner",
+"modes": [
+"subway:indigo"
+]
+},
+{
+"name": "VFW Parkway",
+"modes": [
+"subway:green",
+"subway:orange"
+]
+},
+{
+"name": "Valley Rd",
+"modes": [
+"subway:red"
+]
+},
+{
+"name": "Vertex Tower",
+"modes": [
+"subway:cyan"
+]
+},
+{
+"name": "Vineyard Haven",
+"modes": [
+"ferry:isl"
+]
+},
+{
+"name": "Waban",
+"modes": [
+"subway:green"
+]
+},
+{
+"name": "Wachusett",
+"modes": [
+"rail"
+]
+},
+{
+"name": "Wakefield",
+"modes": [
+"subway:orange"
+]
+},
+{
+"name": "Walpole",
+"modes": [
+"rail",
+"rail(main map)"
+]
+},
+{
+"name": "Waltham",
+"modes": [
+"rail",
+"subway:red"
+]
+},
+{
+"name": "Wareham",
+"modes": [
+"ferry:sse"
+]
+},
+{
+"name": "Warren St",
+"modes": [
+"subway:green"
+]
+},
+{
+"name": "Washington Sq",
+"modes": [
+"subway:green"
+]
+},
+{
+"name": "Washington St",
+"modes": [
+"subway:green"
+]
+},
+{
+"name": "Watertown",
+"modes": [
+"subway:green"
+]
+},
+{
+"name": "Wauwinet",
+"modes": [
+"ferry:isl"
+]
+},
+{
+"name": "Waverley Sq",
+"modes": [
+"subway:red"
+]
+},
+{
+"name": "Wedgemere",
+"modes": [
+"rail"
+]
+},
+{
+"name": "Weld",
+"modes": [
+"ferry:charles"
+]
+},
+{
+"name": "Wellesley",
+"modes": [
+"rail(main map)"
+]
+},
+{
+"name": "Wellesley Farms",
+"modes": [
+"rail"
+]
+},
+{
+"name": "Wellesley Hills",
+"modes": [
+"rail",
+"subway:green"
+]
+},
+{
+"name": "Wellesley Square",
+"modes": [
+"rail"
+]
+},
+{
+"name": "Wellfleet Pier",
+"modes": [
+"ferry:sse"
+]
+},
+{
+"name": "Wellington",
+"modes": [
+"subway:orange"
+]
+},
+{
+"name": "Wellington Hill",
+"modes": [
+"subway:orange"
+]
+},
+{
+"name": "Wessagusset",
+"modes": [
+"ferry:fore"
+]
+},
+{
+"name": "West Broadway",
+"modes": [
+"subway:cyan"
+]
+},
+{
+"name": "West Concord",
+"modes": [
+"rail"
+]
+},
+{
+"name": "West Dennis",
+"modes": [
+"ferry:sse"
+]
+},
+{
+"name": "West Falmouth",
+"modes": [
+"ferry:sse"
+]
+},
+{
+"name": "West Gloucester",
+"modes": [
+"rail"
+]
+},
+{
+"name": "West Island",
+"modes": [
+"ferry:sse"
+]
+},
+{
+"name": "West Medford",
+"modes": [
+"rail",
+"subway:green"
+]
+},
+{
+"name": "West Natick",
+"modes": [
+"rail"
+]
+},
+{
+"name": "West Newton",
+"modes": [
+"rail",
+"rail(main map)"
+]
+},
+{
+"name": "West Roxbury",
+"modes": [
+"subway:orange"
+]
+},
+{
+"name": "West Station",
+"modes": [
+"rail",
+"subway:blue",
+"subway:green",
+"subway:yellow"
+]
+},
+{
+"name": "West Yarmouth",
+"modes": [
+"ferry:sse"
+]
+},
+{
+"name": "Westborough",
+"modes": [
+"rail"
+]
+},
+{
+"name": "Western Ave",
+"modes": [
+"ferry:charles"
+]
+},
+{
+"name": "Weston",
+"modes": [
+"subway:green"
+]
+},
+{
+"name": "Weymouth",
+"modes": [
+"subway:red"
+]
+},
+{
+"name": "Weymouth Landing/East Braintree",
+"modes": [
+"rail"
+]
+},
+{
+"name": "White St",
+"modes": [
+"ferry:eb"
+]
+},
+{
+"name": "Whitman",
+"modes": [
+"rail"
+]
+},
+{
+"name": "Wickford Junction",
+"modes": [
+"rail"
+]
+},
+{
+"name": "Wilbur",
+"modes": [
+"ferry:sse"
+]
+},
+{
+"name": "Wilmington",
+"modes": [
+"rail",
+"rail(main map)"
+]
+},
+{
+"name": "Winchester",
+"modes": [
+"rail",
+"rail(main map)"
+]
+},
+{
+"name": "Windsor Gardens",
+"modes": [
+"rail"
+]
+},
+{
+"name": "Winsor",
+"modes": [
+"ferry:charles"
+]
+},
+{
+"name": "Winthrop Beach",
+"modes": [
+"ferry:nse"
+]
+},
+{
+"name": "Winthrop Center",
+"modes": [
+"subway:blue"
+]
+},
+{
+"name": "Winthrop Landing",
+"modes": [
+"ferry:nse"
+]
+},
+{
+"name": "Wollaston",
+"modes": [
+"subway:red"
+]
+},
+{
+"name": "Wollaston Beach",
+"modes": [
+"ferry:qb"
+]
+},
+{
+"name": "Wonderland",
+"modes": [
+"ferry:nse",
+"subway:blue",
+"subway:orange"
+]
+},
+{
+"name": "Wood Island",
+"modes": [
+"subway:blue"
+]
+},
+{
+"name": "Woodland",
+"modes": [
+"subway:green"
+]
+},
+{
+"name": "Woods Hole",
+"modes": [
+"ferry:isl",
+"ferry:sse"
+]
+},
+{
+"name": "Worcester",
+"modes": [
+"rail"
+]
+},
+{
+"name": "Wrinkle Point",
+"modes": [
+"ferry:sse"
+]
+},
+{
+"name": "Wu Sq",
+"modes": [
+"subway:orange"
+]
+},
+{
+"name": "Wyoma Sq",
+"modes": [
+"subway:blue"
+]
+},
+{
+"name": "Wyoming Hill",
+"modes": [
+"subway:orange"
+]
+},
+{
+"name": "Yarmouth",
+"modes": [
+"ferry:sse"
+]
+}
+]

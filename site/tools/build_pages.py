@@ -1,4 +1,4 @@
-"""Write the plain content pages (alerts, fares, accessibility, about, BIGGER Dig, 404) from one template.
+"""Write the plain content pages (alerts, fares, accessibility, about, 404) from one template.
 
     python site/tools/build_pages.py
 """
@@ -14,6 +14,11 @@ HEAD = """<!doctype html>
 <title>{title} | NERTA</title>
 <meta name="description" content="{desc}">
 <link rel="icon" href="/assets/logo/t.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/icons/t-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/icons/t-180.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="apple-mobile-web-app-title" content="NERTA">
+<meta name="theme-color" content="#16161a">
 <link rel="stylesheet" href="/css/site.css">
 <script src="/js/common.js" defer></script>{script}
 </head>
@@ -32,12 +37,30 @@ HEAD = """<!doctype html>
 
 ALERTS_JS = """
 <script defer>
-document.addEventListener("DOMContentLoaded", () => {
-  const N = window.NERTA;
-  const live = N.ORDER.map(k => [k, N.lineStatus(k)]).filter(([, s]) => s.level !== "ok");
-  document.getElementById("now").innerHTML = live.length ? live.map(([k, s]) =>
-    `<div class="alert-item ${k}">${N.bullet(k)} <span class="tag ${s.level}">${s.label}</span><h3>${N.LINES[k].name}: ${s.detail}</h3><p>Updated ${new Date().toLocaleTimeString("en-US", {hour: "numeric", minute: "2-digit"})}. Allow a few extra minutes.</p></div>`).join("")
-    : `<div class="alert-item"><span class="tag ok">All clear</span><h3>All lines are running normally</h3><p>No delays reported on any line.</p></div>`;
+document.addEventListener("DOMContentLoaded", async () => {
+  const N = window.NERTA, d = await N.network();
+  const link = (k, L) => L.mode === "subway" ? `/line.html?l=${k}` : L.mode === "ferry" ? `/ferry-route.html?r=${k}` : L.mode === "tram" ? `/tram-line.html?l=${k}` : `/rail-line.html?l=${k}`;
+  const groups = [["Subway", l => l.mode === "subway"], ["Regional Rail", l => l.mode === "rail" || l.mode === "hsr"], ["Ferry", l => l.mode === "ferry"], ["Trams", l => l.mode === "tram"]];
+  const time = new Date().toLocaleTimeString("en-US", {hour: "numeric", minute: "2-digit"});
+  let html = "";
+  groups.forEach(([title, test]) => {
+    const live = Object.values(d.lines).filter(test).map(l => [l.key, N.lineStatus(l.key)]).filter(([, st]) => st.level !== "ok");
+    if (!live.length) return;
+    html += `<p class="eyebrow" style="margin:18px 0 8px">${title}</p>` + live.map(([k, st]) => {
+      const L = N.LINES[k];
+      return `<div class="alert-item" style="border-left-color:${L.color}">${N.bullet(k)} <span class="tag ${st.level}">${st.label}</span><h3><a href="${link(k, L)}" style="color:inherit">${N.esc(L.name)}</a></h3><p>${N.esc(st.detail)} Updated ${time}.</p></div>`;
+    }).join("");
+  });
+  const { closed } = N.currentIssues(d);
+  if (closed.length) html = `<p class="eyebrow" style="margin:18px 0 8px">Stations</p>` + closed.map(x => `<div class="alert-item" style="border-left-color:#b0151a"><span class="tag bad">Closed</span><h3><a href="${N.stopLink(x.stop)}" style="color:inherit">${N.esc(x.stop.name)}</a></h3><p>${N.esc(x.st.detail)}</p></div>`).join("") + html;
+  const ev = N.eventNow();
+  if (ev) html = `<p class="eyebrow" style="margin:18px 0 8px">Events</p><div class="alert-item" style="border-left-color:#1f5fae"><span class="tag">Event</span><h3><a href="${N.stopLink(d.byId[ev.at])}" style="color:inherit">${N.esc(d.byId[ev.at].name)}</a></h3><p>${N.esc(ev.text)}</p></div>` + html;
+  const crowd = N.crowdAlerts(d);
+  if (crowd.length) html += `<p class="eyebrow" style="margin:18px 0 8px">Crowding</p>` + crowd.map(c => {
+    const head = c.stop ? `<a href="${N.stopLink(c.stop)}" style="color:inherit">${N.esc(c.stop.name)}</a>` : `<a href="/line.html?l=${c.line}" style="color:inherit">${N.esc(N.LINES[c.line].name)}</a>`;
+    return `<div class="alert-item" style="border-left-color:${c.line ? N.LINES[c.line].color : "#1f5fae"}">${c.line ? N.bullet(c.line) + " " : ""}<span class="tag">${c.level === 3 ? "Very crowded" : "Crowded"}</span><h3>${head}</h3><p>${N.esc(c.text)} Updated ${time}.</p></div>`;
+  }).join("");
+  document.getElementById("now").innerHTML = html || `<div class="alert-item"><span class="tag ok">All clear</span><h3>Everything is running normally</h3><p>No delays reported anywhere on the network.</p></div>`;
   document.getElementById("ok").innerHTML = N.ORDER.filter(k => N.lineStatus(k).level === "ok").map(k => `<li>${N.bullet(k)}<a class="name" href="/line.html?l=${k}">${N.LINES[k].name}</a><span class="state"><i class="dot ok"></i>Normal service</span></li>`).join("");
 });
 </script>"""
@@ -52,34 +75,59 @@ PAGES = {
     <h2 style="margin-top:30px">Planned work</h2>
     <div class="alert-item cyan"><span class="bullet cyan">CL</span> <span class="tag">Weekend</span><h3>Cyan Line: platform tile work at Fort Point</h3><p>Trains run normally. One entrance on Congress St is closed. Use the Summer St entrance.</p></div>
     <div class="alert-item green"><span class="bullet green">GL</span> <span class="tag">Overnight</span><h3>Green Line: rail grinding on the Riverside branch</h3><p>Midnight to 4 AM, trains every 20 minutes between Reservoir and Riverside.</p></div>
-    <div class="alert-item rail"><span class="bullet rail">RR</span> <span class="tag">Notice</span><h3>Regional Rail: new High-Speed Rail platforms at Boston Central</h3><p>Montreal, Albany and Bangor trains now board on Level 4.</p></div>
+    <div class="alert-item rail"><span class="bullet rail">RR</span> <span class="tag">Notice</span><h3>High-Speed Rail: boarding at Boston Central</h3><p>Montreal, Albany and Bangor trains board on Level 4. Allow 5 minutes from the subway platforms.</p></div>
   </div>
-  <div class="card"><h2>Running normally</h2><ul class="status-list" id="ok"></ul></div>
+  <div class="card"><h2>Subway running normally</h2><ul class="status-list" id="ok"></ul></div>
 </div></section>"""),
 
     "fares": dict(
         title="Fares", h1="Fares &amp; Passes", script="",
-        desc="NERTA fares, passes and reduced fares.",
-        lede="One fare goes anywhere on rapid transit, with free transfers for two hours.",
+        desc="NERTA fares and passes in Charlie Points, and who rides free.",
+        lede="Every fare is paid in Charlie Points. One subway fare goes anywhere on rapid transit, with free transfers for two hours.",
         body="""<section class="section"><div class="wrap">
   <div class="grid three">
-    <div class="stat"><div class="k">Rapid transit, any line</div><div class="v">$1.00</div><div class="d muted">Free transfers for 2 hours</div></div>
-    <div class="stat"><div class="k">Regional Rail</div><div class="v">$2.00</div><div class="d muted">Any zone, includes transit</div></div>
-    <div class="stat"><div class="k">Ferry</div><div class="v">$1.00</div><div class="d muted">Express boats $3.00</div></div>
+    <div class="stat"><div class="k">Subway or tram, any line</div><div class="v"><img class="cp-i" src="/assets/logo/cp.svg" alt="" aria-hidden="true">25 CP</div><div class="d muted">Free transfers for 2 hours</div></div>
+    <div class="stat"><div class="k">Regional Rail</div><div class="v"><img class="cp-i" src="/assets/logo/cp.svg" alt="" aria-hidden="true">50 CP</div><div class="d muted">Any zone, includes subway and tram</div></div>
+    <div class="stat"><div class="k">Ferry</div><div class="v"><img class="cp-i" src="/assets/logo/cp.svg" alt="" aria-hidden="true">25 CP</div><div class="d muted">Fast Ferry 75 CP</div></div>
+  </div>
+  <div class="cp-band card" style="margin-top:20px">
+    <div><h2 style="margin:0 0 4px">Your Charlie Points</h2><p class="muted" style="margin:0">Check your balance, see your trips and top up in a few taps.</p></div>
+    <div class="cp-band-btns"><a class="btn" href="/charlie.html#add">Add Charlie Points</a><a class="btn ghost" href="/charlie.html">My Charlie Points</a></div>
   </div>
   <div class="grid two" style="margin-top:20px;align-items:start">
-    <div class="card"><h2>Passes</h2>
-      <table class="data"><thead><tr><th>Pass</th><th class="num">Price</th><th>Covers</th></tr></thead><tbody>
-        <tr><td>Day pass</td><td class="num">$3</td><td>Transit and ferry</td></tr>
-        <tr><td>7-day pass</td><td class="num">$10</td><td>Transit and ferry</td></tr>
-        <tr><td>Monthly pass</td><td class="num">$30</td><td>Transit and ferry</td></tr>
-        <tr><td>Monthly Regional pass</td><td class="num">$55</td><td>Everything, including High-Speed Rail to the region's edge</td></tr>
-      </tbody></table>
+    <div>
+      <div class="card"><h2>Single rides</h2>
+        <div class="table-scroll"><table class="data"><thead><tr><th>Ride</th><th class="num">Fare</th><th>Notes</th></tr></thead><tbody>
+          <tr><td>Subway, any line</td><td class="num"><img class="cp-i" src="/assets/logo/cp.svg" alt="" aria-hidden="true">25 CP</td><td>Free transfers for 2 hours</td></tr>
+          <tr><td>Tram, any route</td><td class="num"><img class="cp-i" src="/assets/logo/cp.svg" alt="" aria-hidden="true">25 CP</td><td>Transfers free to and from the subway</td></tr>
+          <tr><td>Regional Rail</td><td class="num"><img class="cp-i" src="/assets/logo/cp.svg" alt="" aria-hidden="true">50 CP</td><td>Any zone, transfers included</td></tr>
+          <tr><td>High-Speed Rail</td><td class="num"><img class="cp-i" src="/assets/logo/cp.svg" alt="" aria-hidden="true">150 CP</td><td>Each way, to the region's edge</td></tr>
+          <tr><td>Ferry</td><td class="num"><img class="cp-i" src="/assets/logo/cp.svg" alt="" aria-hidden="true">25 CP</td><td>Harbor, river and island boats</td></tr>
+          <tr><td>Fast Ferry</td><td class="num"><img class="cp-i" src="/assets/logo/cp.svg" alt="" aria-hidden="true">75 CP</td><td>Fast Ferry routes and the North and South Shore</td></tr>
+        </tbody></table></div>
+      </div>
+      <div class="card" style="margin-top:20px"><h2>Passes</h2>
+        <div class="table-scroll"><table class="data"><thead><tr><th>Pass</th><th class="num">Price</th><th>Covers</th></tr></thead><tbody>
+          <tr><td>Day pass</td><td class="num"><img class="cp-i" src="/assets/logo/cp.svg" alt="" aria-hidden="true">75 CP</td><td>Subway, tram and ferry</td></tr>
+          <tr><td>7-day pass</td><td class="num"><img class="cp-i" src="/assets/logo/cp.svg" alt="" aria-hidden="true">250 CP</td><td>Subway, tram and ferry</td></tr>
+          <tr><td>Monthly pass</td><td class="num"><img class="cp-i" src="/assets/logo/cp.svg" alt="" aria-hidden="true">900 CP</td><td>Subway, tram and ferry</td></tr>
+          <tr><td>Regional monthly pass</td><td class="num"><img class="cp-i" src="/assets/logo/cp.svg" alt="" aria-hidden="true">1,600 CP</td><td>Everything, including High-Speed Rail to the region's edge</td></tr>
+        </tbody></table></div>
+        <p class="small muted" style="margin:12px 0 0">Buy a pass with your Charlie Points. It starts the moment you buy it.</p>
+      </div>
     </div>
-    <div class="card"><h2>Ride free</h2>
+    <div class="card"><p style="margin:0 0 14px"><img src="/assets/logo/cp.svg" alt="Charlie Points" width="40" height="40" style="vertical-align:middle;margin-right:4px"> <b>Pay with Charlie Points. Monthly passes available.</b></p>
+      <h2>Free rides</h2>
+      <p class="muted" style="margin:0 0 6px"><span class="free-tag">FREE</span> No Charlie Points needed on:</p>
+      <ul><li><a href="/line.html?l=silver">Silver Line</a>, every stop at the airport</li><li><a href="/tram-line.html?l=tram-23">Tram 23</a>, Ashmont to Nubian</li><li><a href="/ferry-route.html?r=ferry-express">Fast Ferry shuttle</a>, Navy Yard, Langone Ferryport and Long Wharf</li><li>Zigzag boats across the Charles, the Mystic and Chelsea Creek</li></ul>
+      <h2 style="margin-top:20px">Ride free</h2>
       <ul><li>Children 12 and under</li><li>Students, with a school ID</li><li>Riders 65 and older</li><li>Riders with disabilities</li><li>Everyone, on New Year's Eve and the day of the Marathon</li></ul>
+      <h2 style="margin-top:20px">Fare capping</h2>
+      <p class="muted">Ride as much as you like. Your Charlie Points stop counting once you reach the price of a day pass, so you never pay more than a day pass in a day: 75 Charlie Points.</p>
       <h2 style="margin-top:20px">How to pay</h2>
-      <p class="muted" style="margin:0">Tap any contactless card or phone at the gate. Fares cap at the price of a day pass, so you never pay more than $3 in a day.</p>
+      <p class="muted">Tap any card, phone or pod at the gate. Your Charlie Points come out of the same account whichever you tap, and a pod ride to the station counts toward your transfer.</p>
+      <p class="muted" style="margin:0">Running low? Turn on auto-reload in <a href="/charlie.html">My Charlie Points</a> and your balance tops itself up.</p>
+      <p style="margin:16px 0 0"><a class="btn" href="/charlie.html#add">Add Charlie Points</a></p>
     </div>
   </div>
 </div></section>"""),
@@ -89,9 +137,9 @@ PAGES = {
         desc="Every NERTA station is step-free.",
         lede="Every station is step-free, from the street to the train.",
         body="""<section class="section"><div class="wrap grid three">
-  <div class="card"><h2>Step-free everywhere</h2><p class="muted">All 222 stations have at least two elevators, and platforms are level with the train floor. No ramps, no gaps.</p></div>
-  <div class="card"><h2>Elevator status</h2><p class="muted">Every station page lists its elevators. If one is out, a pod takes you to the nearest station with working elevators, free.</p></div>
-  <div class="card"><h2>Pods on demand</h2><p class="muted">Pods wait at every station, 24 hours a day, for the rest of your trip.</p></div>
+  <div class="card"><h2>Step-free everywhere</h2><p class="muted">Every station has elevators, and platforms are level with the train floor. No ramps, no gaps.</p></div>
+  <div class="card"><h2>Elevator status</h2><p class="muted">If an elevator is out, a pod takes you to the nearest station with working elevators, free.</p></div>
+  <div class="card"><h2>Pods on demand</h2><p class="muted">Pods on demand at every station, 24 hours a day.</p></div>
 </div></section>"""),
 
     "about": dict(
@@ -101,39 +149,23 @@ PAGES = {
         body="""<section class="section"><div class="wrap grid two" style="align-items:start">
   <div class="prose">
     <h2>Just for fun</h2>
-    <p>This site imagines what Boston's transit could be: extended lines, four new ones, a rail tunnel joining North Station and South Station, regional rail, high-speed rail and five ferry routes. It is drawn to look and feel like the real thing, because that's the fun of it.</p>
+    <p>This site imagines what Boston's transit could be: extended lines, four new ones, a rail tunnel joining North Station and South Station, Regional Rail, High-Speed Rail, ferries to the Cape and the Islands, and a tram network. It is drawn to look and feel like the real thing, because that's the fun of it.</p>
     <p><b>None of it is real.</b> The departures, delays, ridership numbers, fares and news are made up, generated by the site itself. Don't use this site to plan a real trip.</p>
     <p>This site is not affiliated with, endorsed by or connected to any real transit agency or government body.</p>
     <p>Where a line or stop follows a real proposal or plan, the research notes say so. Others are invented.</p>
     <h2 id="credits">Credits</h2>
-    <p>Concept, network and map design: <b>Maxwell Howe</b>. Map-drawing and website scripts: Claude Code.</p>
+    <p>Concept, network and map design: <b>Maxwell Howe</b>.</p>
     <p>The project began as Day 8, Utopia, of the #30DayMapChallenge.</p>
     <p>Coastline: US Census. Today's station order: public transit data.</p>
   </div>
-  <div class="card" style="text-align:center"><img src="/assets/logo/nerta.svg" alt="NERTA logo" style="width:180px;margin:10px auto 18px"><p class="muted small" style="margin:0">Map: Maxwell Howe</p></div>
-</div></section>"""),
-
-    "bigger-dig": dict(
-        title="The BIGGER Dig", h1="The BIGGER Dig", script="",
-        desc="A four-track tunnel joining North Station and South Station, with Boston Central at its heart.",
-        lede="Four tracks under downtown join North Station and South Station, with a new hub station, Boston Central, halfway between.",
-        body="""<section class="section"><div class="wrap grid two" style="align-items:start">
-  <div class="prose">
-    <h2>One city, one network</h2>
-    <p>For a century, trains from the north stopped at North Station and trains from the south stopped at South Station, a mile apart. Riders crossed downtown on the subway to change trains.</p>
-    <p>The BIGGER Dig ends that. A four-track tunnel runs under downtown and joins the two stations. Regional Rail trains now run straight through, from the North Shore to the South Shore, from Lowell to Providence.</p>
-    <h2>Boston Central</h2>
-    <p>Halfway through the tunnel is Boston Central, the new hub. The Orange, Blue and Cyan lines meet here, along with Regional Rail and High-Speed Rail to Montreal, Albany, Concord and Bangor.</p>
-    <p><a class="btn" href="/stop.html?id=boston-central">Visit Boston Central</a> <a class="btn ghost" href="/map.html?stop=boston-central">See it on the map</a></p>
-  </div>
-  <a class="map-card" href="/assets/maps/system_map.webp" data-lightbox data-title="NERTA system map"><div class="thumb" style="aspect-ratio:auto"><img src="/assets/maps/system_map_thumb.webp" alt="System map showing the BIGGER Dig"></div><div class="body"><b>The tunnel on the system map</b><span>The black four-track line through downtown.</span></div></a>
+  <div class="card" style="text-align:center"><img src="/assets/logo/nerta_37.svg" alt="NERTA logo" style="width:180px;margin:10px auto 18px"><p class="muted small" style="margin:0">Map: Maxwell Howe</p></div>
 </div></section>"""),
 
     "404": dict(
         title="Page not found", h1="This stop isn't on the map", script="",
         desc="Page not found.",
         lede="The page you're looking for doesn't exist or has moved.",
-        body="""<section class="section"><div class="wrap"><p><a class="btn" href="/">Go home</a> <a class="btn ghost" href="/stops.html">Find a station</a></p></div></section>"""),
+        body="""<section class="section"><div class="wrap"><img src="/assets/logo/nerta_37.svg" alt="" style="width:120px;margin:0 0 20px"><p><a class="btn" href="/">Go home</a> <a class="btn ghost" href="/stops.html">Find a station</a></p></div></section>"""),
 }
 
 for slug, p in PAGES.items():

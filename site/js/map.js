@@ -1,4 +1,4 @@
-/* Interactive map: the finished system map as a zoomable image, with a clickable spot on every station. */
+/* Interactive map: the finished system map as a zoomable image, with a clickable spot on every stop drawn on it. */
 document.addEventListener("DOMContentLoaded", async () => {
   const N = window.NERTA;
   const d = await N.network();
@@ -14,17 +14,24 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   const markers = {};
   let selected = null;
-  d.stops.filter(s => !s.offmap).forEach(s => {
+  // On a phone a tap counts as hovering, and a finger never "leaves", so the hover ring would stick. Hover only with a mouse.
+  const canHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+  d.stops.filter(s => s.x !== undefined).forEach(s => {
     const m = L.circleMarker(toLL(s), { radius: 10, color: "#00a9c9", weight: 0, fillOpacity: 0, opacity: 1 }).addTo(map);
     m.bindTooltip(s.name, { className: "stop-tip", direction: "top", offset: [0, -8] });
-    m.on("mouseover", () => m.setStyle({ weight: 4 }));
-    m.on("mouseout", () => { if (selected !== s.id && !m.lit) m.setStyle({ weight: 0 }); });
+    if (canHover) {
+      m.on("mouseover", () => m.setStyle({ weight: 4 }));
+      m.on("mouseout", () => { if (selected !== s.id && !m.lit) m.setStyle({ weight: 0 }); });
+    }
     m.on("click", () => select(s.id, false));
     markers[s.id] = m;
   });
 
-  // Line filter
-  const keys = [...N.ORDER.filter(k => k !== "silver"), "rail"];
+  // Tapping empty map clears any stray ring (only the selected stop and a lit line keep theirs)
+  map.on("click", () => Object.entries(markers).forEach(([id, m]) => { if (id !== selected && !m.lit) m.setStyle({ weight: 0 }); }));
+
+  // Light up one line's stops
+  const keys = [...N.ORDER.filter(k => Object.keys(markers).some(id => d.byId[id].lines.includes(k))), "rail"];
   const filters = document.getElementById("filters");
   filters.innerHTML = keys.map(k => `<label><input type="radio" name="line" value="${k}">${N.bullet(k)} ${N.LINES[k].name.replace(" Line", "")}</label>`).join("") +
     `<label><input type="radio" name="line" value="" checked> None</label>`;
@@ -33,7 +40,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     Object.entries(markers).forEach(([id, m]) => {
       const on = k && d.byId[id].lines.includes(k);
       m.lit = on;
-      m.setStyle(on ? { weight: 4, color: N.LINES[k].color, fillOpacity: 0 } : { weight: id === selected ? 4 : 0, color: "#00a9c9" });
+      m.setStyle(on ? { weight: 4, color: N.LINES[k].color } : { weight: id === selected ? 4 : 0, color: "#00a9c9" });
     });
   });
 
@@ -51,25 +58,20 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   function render(s) {
-    const transit = s.lines.filter(l => l !== "rail");
-    const dirs = [];
-    d.segments.forEach(seg => {
-      if (!seg.stops.includes(s.id)) return;
-      [seg.stops[0], seg.stops[seg.stops.length - 1]].forEach(end => {
-        if (end !== s.id && !dirs.some(x => x.line === seg.line && x.to === end)) dirs.push({ line: seg.line, to: end });
-      });
-    });
-    const board = dirs.slice(0, 6).map(x => {
+    const dirs = N.directions(d, s);
+    const shown = dirs.filter(x => N.LINES[x.line].mode === "subway").concat(dirs.filter(x => N.LINES[x.line].mode !== "subway")).slice(0, 7);
+    const board = shown.map(x => {
       const m = N.departures(s.id, x.line, x.to, 2);
-      return `<div class="dir">${N.bullet(x.line)}<div class="to">${N.esc(d.byId[x.to].name)}</div><div class="mins">${m.map(v => `<span>${v === 0 ? "Now" : v}${v ? "<em>min</em>" : ""}</span>`).join("")}</div></div>`;
+      return `<div class="dir">${N.bullet(x.line)}<div class="to">${N.esc(x.to)}${N.crowdNote(s.id, x.line, m, x.to)}</div><div class="mins">${m.map(v => N.crowdTime(s.id, x.line, v, x.to)).join("")}</div></div>`;
     }).join("");
     document.getElementById("panel").innerHTML = `
       <h2 style="margin:6px 0 6px">${N.esc(s.name)}</h2>
-      <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px">${s.lines.map(l => N.bullet(l)).join("")}</div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px">${N.badges(s)}</div>
       ${board ? `<div class="board"><div class="head"><span>Departures</span><span>Live</span></div>${board}</div>` : ""}
+      ${dirs.length > shown.length ? `<p class="small muted" style="margin:6px 0 0">${dirs.length - shown.length} more directions on the station page.</p>` : ""}
       <dl class="kv" style="margin-top:14px">
         <dt>Weekday boardings</dt><dd>${N.fmt(N.ridership(s))}</dd>
-        <dt>Lines</dt><dd>${s.lines.map(l => N.LINES[l].name).join(", ")}</dd>
+        <dt>Lines</dt><dd>${N.servedBy(s).map(l => N.esc(N.LINES[l].name)).join(", ")}</dd>
         <dt>Step-free</dt><dd>Yes</dd>
       </dl>
       <p style="margin-top:14px"><a class="btn small" href="${N.stopLink(s)}">Station details</a></p>`;

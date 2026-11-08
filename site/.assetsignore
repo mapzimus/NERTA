@@ -4,3 +4,6 @@ wrangler.jsonc
 .wrangler
 node_modules
 README.md
+STATUS.md
+data/locations.json
+downloads

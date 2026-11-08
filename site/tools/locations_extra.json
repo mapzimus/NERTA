@@ -1,0 +1,8 @@
+{
+ "North Reading": {"lat": 42.57509, "lon": -71.07867, "verified": true,
+   "sources": ["OpenStreetMap (Nominatim: North Reading, Middlesex County)", "Wikidata Q2427371"],
+   "note": "Town center. OSM 42.57509,-71.07867; Wikidata 42.575,-71.07917; about 45 m apart. New Orange Line terminus (Max, November 8, invented)."},
+ "Market St": {"lat": 42.51613, "lon": -71.03469, "verified": false,
+   "sources": ["OpenStreetMap (MarketStreet, Market Street, Lynnfield)", "Wikidata Q131377536 (MarketStreet Lynnfield)"],
+   "note": "MarketStreet Lynnfield shopping center, 600 Market St, off I-95/Route 128. The two points are 2 m apart, so one likely copies the other: treated as one source, unverified. New Orange Line loop stop (Max, November 8, invented)."}
+}

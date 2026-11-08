@@ -4,8 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Maps | NERTA</title>
-<meta name="description" content="The NERTA rapid transit system map and line posters. View online or download.">
+<meta name="description" content="The NERTA rapid transit system map and line posters. View them online.">
 <link rel="icon" href="/assets/logo/t.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/icons/t-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/icons/t-180.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="apple-mobile-web-app-title" content="NERTA">
+<meta name="theme-color" content="#16161a">
 <link rel="stylesheet" href="/css/site.css">
 <script src="/js/common.js" defer></script>
 <script src="/js/maps.js" defer></script>
@@ -22,14 +27,12 @@
     <div class="grid two">
       <a class="map-card" href="/assets/maps/system_map.webp" data-lightbox data-title="Boston's Rapid Transit: system map">
         <div class="thumb" style="aspect-ratio:auto"><img src="/assets/maps/system_map_thumb.webp" alt="NERTA rapid transit system map" width="900" height="769"></div>
-        <div class="body"><b>System map</b><span>All 222 stations, regional rail, high-speed rail and ferries.</span></div>
+        <div class="body"><b>System map</b><span>Every station, Regional Rail, High-Speed Rail and ferries.</span></div>
       </a>
       <div class="card">
         <h3>Ways to use it</h3>
         <ul>
           <li><a href="/map.html">Interactive map</a>: tap any station for departures.</li>
-          <li><a href="/downloads/system_map.pdf">Download the PDF</a>: vector, prints sharp at any size.</li>
-          <li><a href="/downloads/system_map.png">Download the PNG</a>: 600 dpi, about 18.5 by 15.8 inches.</li>
         </ul>
         <h3 style="margin-top:20px">Reading the map</h3>
         <ul class="small">
@@ -42,14 +45,25 @@
     </div>
   </div></section>
   <section class="section"><div class="wrap">
-    <h2>Ferry and Regional Rail</h2>
+    <h2>Street map</h2>
+    <div class="card">
+      <h3>Street map: every stop at its real location</h3>
+      <p class="muted">Subway, Regional Rail, High-Speed Rail and ferries drawn on real streets and track. Pick a line, find a stop, tap for departures.</p>
+      <p><a class="btn small" href="/explore.html">Open the street map</a></p>
+    </div>
+  </div></section>
+  <section class="section"><div class="wrap">
+    <h2>Ferry, Regional Rail and Trams</h2>
     <div class="grid two">
-      <a class="map-card" href="/assets/maps/ferry_network.webp" data-lightbox data-title="Ferry Network">
-        <div class="thumb" style="aspect-ratio:auto"><img src="/assets/maps/ferry_network_thumb.webp" alt="Ferry network map" loading="lazy"></div>
+      <a class="map-card" data-release="ferry" href="/assets/maps/ferry_network.webp" data-lightbox data-title="Ferry Network">
+        <div class="thumb" style="aspect-ratio:auto"><img data-src="/assets/maps/ferry_network_thumb.webp" alt="Ferry network map" loading="lazy"></div>
         <div class="body"><b><span class="bullet ferry">F</span> Ferry network</b><span>Every route and dock, from the rivers to the Islands.</span></div>
       </a>
-      <div class="card"><h3><span class="bullet rail">RR</span> Regional Rail</h3><p class="muted">All eleven lines and High-Speed Rail, with every station and timetables.</p><p><a class="btn small" href="/rail.html">Regional Rail lines</a></p>
-        <h3 style="margin-top:22px">Downloads</h3><ul class="small"><li><a href="/downloads/ferry_network.pdf">Ferry network (PDF)</a></li><li><a href="/downloads/system_map.pdf">System map (PDF)</a></li></ul></div>
+      <a class="map-card" data-release="tram" href="/assets/maps/tram_map.webp" data-lightbox data-title="Tram map">
+        <div class="thumb" style="aspect-ratio:auto"><img data-src="/assets/maps/tram_map_thumb.webp" alt="Tram map" loading="lazy"></div>
+        <div class="body"><b><span class="bullet tram">T</span> Tram map</b><span>Every route and stop, on one map.</span></div>
+      </a>
+      <div class="card"><h3><span class="bullet rail">RR</span> Regional Rail</h3><p class="muted">All eleven lines and High-Speed Rail, with every station and timetables.</p><p><a class="btn small" href="/rail.html">Regional Rail lines</a></p></div>
     </div>
   </div></section>
   <section class="section wash"><div class="wrap">

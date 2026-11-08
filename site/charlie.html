@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My Charlie Points | NERTA</title>
+<meta name="description" content="Your Charlie Points balance, recent trips, passes and auto-reload.">
+<link rel="icon" href="/assets/logo/t.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/icons/t-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/icons/t-180.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="apple-mobile-web-app-title" content="NERTA">
+<meta name="theme-color" content="#16161a">
+<link rel="stylesheet" href="/css/site.css">
+<script src="/js/common.js" defer></script>
+<script src="/js/charlie.js" defer></script>
+</head>
+<body>
+<header class="page-head"><div class="wrap">
+  <div class="crumbs"><a href="/">Home</a> / <a href="/fares.html">Fares</a> / My Charlie Points</div>
+  <h1>My Charlie Points</h1>
+  <p class="lede">Your balance, your trips and your passes. Tap any card, phone or pod at the gate and the fare comes out of your Charlie.</p>
+</div></header>
+<main id="main">
+  <section class="section"><div class="wrap grid two" style="align-items:start">
+    <div>
+      <div class="cp-card" id="cp-card" aria-label="Your Charlie card">
+        <div class="cp-top">
+          <span class="cp-chip"><img src="/assets/logo/nerta.svg" alt="NERTA" width="31" height="40"></span>
+          <span class="cp-word">CHARLIE</span>
+        </div>
+        <div class="cp-bal"><img class="cp-i big" src="/assets/logo/cp.svg" alt=""><span id="cp-balance">&nbsp;</span><small>Charlie Points</small></div>
+        <div class="cp-foot"><span id="cp-number">&nbsp;</span><span id="cp-pass-chip"></span></div>
+        <div class="stripe" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      </div>
+      <div class="row" style="margin-top:14px">
+        <a class="btn" href="#add">Add Charlie Points</a>
+        <a class="btn ghost" href="#pass">Buy a pass</a>
+      </div>
+
+      <div class="card" style="margin-top:20px">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap">
+          <h2 style="margin:0">Recent trips and activity</h2><span class="small muted" id="cp-count"></span>
+        </div>
+        <ul class="cp-activity" id="cp-activity"></ul>
+      </div>
+    </div>
+
+    <div>
+      <div class="card cp-anchor" id="add">
+        <h2>Add Charlie Points</h2>
+        <p class="small muted" style="margin-top:-4px">Pick a pack. Bigger packs come with bonus points.</p>
+        <div class="cp-packs" id="cp-packs"></div>
+        <div class="cp-confirm" id="cp-confirm" hidden></div>
+      </div>
+
+      <div class="card cp-anchor" id="pass" style="margin-top:20px">
+        <h2>Pass</h2>
+        <div id="cp-pass-now"></div>
+        <div class="cp-pass-list" id="cp-pass-list"></div>
+        <p class="small muted" id="cp-pass-msg" aria-live="polite" style="margin:10px 0 0"></p>
+      </div>
+
+      <div class="card cp-anchor" id="settings" style="margin-top:20px">
+        <h2>Settings</h2>
+        <div class="cp-setting">
+          <div><b>Auto-reload</b><span class="small muted">Add 250 points when my balance drops below 50</span></div>
+          <button class="cp-switch" type="button" role="switch" aria-checked="false" id="cp-auto" aria-label="Auto-reload"><i></i></button>
+        </div>
+        <div class="cp-setting">
+          <div><b>Show my balance in pods</b><span class="small muted">Your balance appears on the pod screen when you ride to a station</span></div>
+          <button class="cp-switch" type="button" role="switch" aria-checked="true" id="cp-podshow" aria-label="Show my balance in pods"><i></i></button>
+        </div>
+        <div class="cp-setting">
+          <div><b>Fare capping</b><span class="small muted">Never more than a day pass in a day. Always on.</span></div>
+          <span class="tag ok">On</span>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:20px">
+        <h2>Rider discounts</h2>
+        <p class="muted" style="margin-top:0">These riders ride free, with no Charlie Points taken at the gate:</p>
+        <ul style="margin:0"><li>Children 12 and under</li><li>Students, with a school ID</li><li>Riders 65 and older</li><li>Riders with disabilities</li></ul>
+        <p class="small" style="margin:12px 0 0"><a href="/fares.html">All fares and passes</a></p>
+      </div>
+    </div>
+  </div></section>
+  <div class="wrap"><p class="small" style="margin:0"><a href="#" id="cp-reset" class="muted">Reset</a></p></div>
+</main>
+</body>
+</html>

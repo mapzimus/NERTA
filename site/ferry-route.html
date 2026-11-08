@@ -5,6 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ferry | NERTA</title>
 <link rel="icon" href="/assets/logo/t.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/icons/t-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/icons/t-180.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="apple-mobile-web-app-title" content="NERTA">
+<meta name="theme-color" content="#16161a">
 <link rel="stylesheet" href="/css/site.css">
 <script src="/js/common.js" defer></script>
 <script src="/js/ferry.js" defer></script>
@@ -22,7 +27,8 @@
     <div>
       <div class="board" id="board"></div>
       <div class="card" style="margin-top:20px"><h2>Service</h2><dl class="kv" id="facts"></dl><ul class="small" id="services" style="margin:14px 0 0"></ul></div>
-      <a class="map-card" href="/assets/maps/ferry_network.webp" data-lightbox data-title="Ferry Network" style="margin-top:20px"><div class="thumb" style="aspect-ratio:auto"><img src="/assets/maps/ferry_network_thumb.webp" alt="Ferry network map"></div><div class="body"><b>Ferry network map</b></div></a>
+      <a class="map-card" id="poster" data-lightbox style="margin-top:20px;display:none"><div class="thumb" style="aspect-ratio:auto"><img id="poster-img" alt=""></div><div class="body"><b>Route map</b><span>Every dock on this route. Click to enlarge.</span></div></a>
+      <a class="map-card" data-release="ferry" href="/assets/maps/ferry_network.webp" data-lightbox data-title="Ferry Network" style="margin-top:20px"><div class="thumb" style="aspect-ratio:auto"><img data-src="/assets/maps/ferry_network_thumb.webp" alt="Ferry network map"></div><div class="body"><b>Ferry network map</b></div></a>
     </div>
   </div></section>
 </main>

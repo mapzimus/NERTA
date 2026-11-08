@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trams | NERTA</title>
+<link rel="icon" href="/assets/logo/t.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/icons/t-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/icons/t-180.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="apple-mobile-web-app-title" content="NERTA">
+<meta name="theme-color" content="#16161a">
+<link rel="stylesheet" href="/css/site.css">
+<script src="/js/common.js" defer></script>
+<script src="/js/tram.js" defer></script>
+</head>
+<body>
+<header class="page-head colored" id="head" style="background:#e0457b"><div class="wrap">
+  <div class="crumbs"><a href="/">Home</a> / <a href="/trams.html">Trams</a> / <span id="crumb"></span></div>
+  <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap"><span id="head-bullet"></span><h1 id="title" style="margin:0"></h1></div>
+  <p class="lede" id="blurb" style="margin:8px 0 0"></p>
+</div></header>
+<main id="main">
+  <section class="section tight"><div class="wrap"><div class="alert-item" id="status" style="--c:#e0457b"></div></div></section>
+  <section class="section tight"><div class="wrap grid four" id="stats"></div></section>
+  <section class="section"><div class="wrap grid two" style="align-items:start">
+    <div class="card"><h2>Stops</h2><div id="strip"></div>
+      <p class="small" style="margin:14px 0 0"><a id="street-map" href="/explore.html">Show on the street map</a></p></div>
+    <div>
+      <div class="board" id="board"></div>
+      <div class="card" style="margin-top:20px"><div style="display:flex;justify-content:space-between;gap:10px;align-items:baseline;flex-wrap:wrap"><h2 style="margin:0">Timetable</h2>
+        <div class="row" style="flex:0 0 auto;gap:6px"><button class="btn small" id="dir-out"></button><button class="btn small ghost" id="dir-in"></button></div></div>
+        <p class="small muted" id="tt-note" style="margin:6px 0 10px"></p>
+        <div class="table-scroll"><table class="data" id="timetable"></table></div>
+      </div>
+    </div>
+  </div></section>
+</main>
+</body>
+</html>

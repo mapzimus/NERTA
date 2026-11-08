@@ -6,6 +6,11 @@
 <title>Regional Rail | NERTA</title>
 <meta name="description" content="Regional Rail and High-Speed Rail: every line, every station and timetables. All trains run through Boston Central.">
 <link rel="icon" href="/assets/logo/t.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/icons/t-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/icons/t-180.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="apple-mobile-web-app-title" content="NERTA">
+<meta name="theme-color" content="#16161a">
 <link rel="stylesheet" href="/css/site.css">
 <script src="/js/common.js" defer></script>
 <script src="/js/rail.js" defer></script>
@@ -14,10 +19,15 @@
 <header class="page-head colored" style="background:#80276c"><div class="wrap">
   <div class="crumbs"><a href="/">Home</a> / Regional Rail</div>
   <h1>Regional Rail</h1>
-  <p class="lede">Eleven lines run straight through the BIGGER Dig, stopping at North Station, Boston Central and South Station. High-Speed Rail leaves from the same platforms.</p>
+  <p class="lede">Every line but the Peabody line runs straight through downtown, stopping at North Station, Boston Central and South Station. High-Speed Rail leaves from the same platforms.</p>
 </div></header>
 <main id="main">
   <section class="section"><div class="wrap">
+    <a class="map-card" data-release="rail" href="/assets/maps/rail_map.webp" data-lightbox data-title="Commuter and High-Speed Rail" style="margin-bottom:28px"><div class="thumb" style="aspect-ratio:auto"><img data-src="/assets/maps/rail_map_thumb.webp" alt="Commuter and High-Speed Rail map"></div><div class="body"><b>Commuter and High-Speed Rail map</b><span>Every line and station. Click to enlarge.</span></div></a>
+    <div class="grid two" data-release="rail" style="margin-bottom:28px">
+      <a class="map-card" href="/assets/maps/rail_regional.webp" data-lightbox data-title="Regional Rail, to scale"><div class="thumb" style="aspect-ratio:auto"><img data-src="/assets/maps/rail_regional_thumb.webp" alt="Regional Rail map drawn to scale"></div><div class="body"><b>Regional map</b><span>Every line on its real track, to scale.</span></div></a>
+      <a class="map-card" href="/assets/maps/rail_network.webp" data-lightbox data-title="Commuter Rail Network"><div class="thumb" style="aspect-ratio:auto"><img data-src="/assets/maps/rail_network_thumb.webp" alt="Commuter Rail Network station display"></div><div class="body"><b>Station display</b><span>The network as it appears in every station.</span></div></a>
+    </div>
     <h2>Lines</h2>
     <div class="grid two" id="rail-lines"></div>
   </div></section>

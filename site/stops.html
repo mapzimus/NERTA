@@ -6,20 +6,26 @@
 <title>Stations | NERTA</title>
 <meta name="description" content="Find any NERTA station: lines served, transfers, departures and ridership.">
 <link rel="icon" href="/assets/logo/t.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/icons/t-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/icons/t-180.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="apple-mobile-web-app-title" content="NERTA">
+<meta name="theme-color" content="#16161a">
 <link rel="stylesheet" href="/css/site.css">
 <script src="/js/common.js" defer></script>
 <script defer>
 document.addEventListener("DOMContentLoaded", async () => {
   const N = window.NERTA, d = await N.network();
   const q = document.getElementById("filter"), line = document.getElementById("line"), sort = document.getElementById("sort"), out = document.getElementById("list");
-  line.innerHTML = `<option value="">All lines</option>` + [...N.ORDER, "rail"].map(k => `<option value="${k}">${N.LINES[k].name}</option>`).join("");
+  const group = (t, ks) => `<optgroup label="${t}">${ks.map(k => `<option value="${k}">${N.esc(N.LINES[k].name)}</option>`).join("")}</optgroup>`;
+  line.innerHTML = `<option value="">All lines</option><option value="rail">Any Regional Rail</option><option value="ferry">Any ferry</option>` + group("Subway", N.ORDER) + group("Regional Rail", d.railLines.map(l => l.key)) + group("Ferry", d.ferryLines.map(l => l.key));
   const draw = () => {
     const t = q.value.trim().toLowerCase();
     let rows = d.stops.filter(s => (!t || s.name.toLowerCase().includes(t)) && (!line.value || s.lines.includes(line.value)));
     rows = rows.map(s => [s, N.ridership(s)]);
     if (sort.value === "riders") rows.sort((a, b) => b[1] - a[1]);
-    document.getElementById("count").textContent = rows.length + " stations";
-    out.innerHTML = rows.map(([s, n]) => `<tr><td><a href="${N.stopLink(s)}"><b>${N.esc(s.name)}</b></a></td><td>${s.lines.map(l => N.bullet(l)).join(" ")}</td><td class="num">${N.fmt(n)}</td><td><a href="/map.html?stop=${s.id}">${s.offmap ? "" : "Map"}</a></td></tr>`).join("");
+    document.getElementById("count").textContent = rows.length + (rows.length === 1 ? " stop" : " stations and ferry docks");
+    out.innerHTML = rows.map(([s, n]) => `<tr><td><a href="${N.stopLink(s)}"><b>${N.esc(s.name)}</b></a>${s.kind === "dock" ? ' <span class="tag">Ferry dock</span>' : ""}</td><td>${N.badges(s)}</td><td class="num">${N.fmt(n)}</td><td><a href="/map.html?stop=${s.id}">${s.x === undefined ? "" : "Map"}</a></td></tr>`).join("");
   };
   [q, line, sort].forEach(e => e.addEventListener("input", draw));
   const l = N.qs("line"); if (l) line.value = l;

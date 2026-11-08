@@ -5,10 +5,11 @@ document.addEventListener("DOMContentLoaded", async () => {
   const monthName = last.toLocaleString("en-US", { month: "long", year: "numeric" });
   document.getElementById("period").textContent = "Data for last month";
 
-  const stops = d.stops.filter(s => s.lines.some(l => l !== "rail"));
+  const subwayLines = s => N.servedBy(s).filter(l => N.ORDER.includes(l));
+  const stops = d.stops.filter(s => subwayLines(s).length);
   const byLine = N.ORDER.map(k => {
     // A transfer station's riders are shared among its lines.
-    const n = stops.filter(s => s.lines.includes(k)).reduce((a, s) => a + N.ridership(s) / s.lines.filter(l => l !== "rail").length, 0);
+    const n = stops.filter(s => s.lines.includes(k)).reduce((a, s) => a + N.ridership(s) / subwayLines(s).length, 0);
     return [k, Math.round(n / 100) * 100];
   }).sort((a, b) => b[1] - a[1]);
   const total = byLine.reduce((a, b) => a + b[1], 0);
@@ -50,12 +51,12 @@ document.addEventListener("DOMContentLoaded", async () => {
   const top = stops.map(s => [s, N.ridership(s)]).sort((a, b) => b[1] - a[1]).slice(0, 20);
   document.getElementById("top").innerHTML = top.map(([s, n], i) => {
     const ch = (N.rng("yoy:" + s.id)() * 12 - 3);
-    return `<tr><td>${i + 1}</td><td><a href="${N.stopLink(s)}"><b>${N.esc(s.name)}</b></a></td><td>${s.lines.map(l => N.bullet(l)).join(" ")}</td><td class="num">${N.fmt(n)}</td><td class="num ${ch >= 0 ? "up" : "down"}">${ch >= 0 ? "+" : ""}${ch.toFixed(1)}%</td></tr>`;
+    return `<tr><td>${i + 1}</td><td><a href="${N.stopLink(s)}"><b>${N.esc(s.name)}</b></a></td><td>${N.badges(s)}</td><td class="num">${N.fmt(n)}</td><td class="num ${ch >= 0 ? "up" : "down"}">${ch >= 0 ? "+" : ""}${ch.toFixed(1)}%</td></tr>`;
   }).join("");
 
   document.getElementById("csv").addEventListener("click", () => {
     const rows = [["station_id", "station_name", "lines", "weekday_boardings"]];
-    d.stops.forEach(s => rows.push([s.id, `"${s.name.replace(/"/g, '""')}"`, s.lines.join(";"), N.ridership(s)]));
+    d.stops.forEach(s => rows.push([s.id, `"${s.name.replace(/"/g, '""')}"`, N.servedBy(s).join(";"), N.ridership(s)]));
     const blob = new Blob([rows.map(r => r.join(",")).join("\n")], { type: "text/csv" });
     const a = document.createElement("a");
     a.href = URL.createObjectURL(blob); a.download = "nerta_station_ridership.csv"; a.click();

@@ -1,0 +1,5159 @@
+{
+ "Abington": {
+  "lat": 42.107156,
+  "lon": -70.934405,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 12 m apart (from stations_real.geojson)"
+ },
+ "Acapesket": {
+  "lat": 41.550109,
+  "lon": -70.575862,
+  "sources": [
+   "OpenStreetMap",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "OpenStreetMap and Wikidata agree within 0 m (Acapesket, Teaticket, Falmouth, Barnstable County, Massachusetts, 0254; Acapesket (Q122566655)). Also USGS GNIS 1 m away"
+ },
+ "Addison St": {
+  "lat": 42.386355,
+  "lon": -71.019644,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Addison St, East Boston: dock placed by hand on the East Boston bank of Chelsea Creek near Addison St (street found in OpenStreetMap). Set on the mapped shoreline 41 m from the street's nearest point (OSM street and shoreline geometry)"
+ },
+ "Admirals Hill": {
+  "lat": 42.391525,
+  "lon": -71.049482,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Sourced point (OpenStreetMap, Wikidata, verified) at 42.390097, -71.047551 is over 200 m from mapped water, so the dock is moved 224 m to the nearest mapped shoreline (OSM) and placed by hand there. Sourced: Admirals Hill, Chelsea. OpenStreetMap and Wikidata agree within 0 m (Admirals Hill, Chelsea, Suffolk County, Massachusetts, 02150, United S; Admirals Hill (Q122561578)). Also USGS GNIS 1 m away"
+ },
+ "Agganis": {
+  "lat": 42.353793,
+  "lon": -71.116248,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Sourced point (OpenStreetMap, Wikidata, verified) at 42.352223, -71.11773 is over 200 m from mapped water, so the dock is moved 212 m to the nearest mapped shoreline (OSM) and placed by hand there. Sourced: named for Agganis Arena. OpenStreetMap and Wikidata agree within 6 m (Agganis Arena, 925, Commonwealth Avenue, Allston, Boston, Suffolk Coun; Agganis Arena (Q4692179))"
+ },
+ "Airport": {
+  "lat": 42.374262,
+  "lon": -71.030395,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA API and OpenStreetMap agree within 7 m (stations_real.geojson; Airport Station). Also Wikidata 22 m away"
+ },
+ "Alewife": {
+  "lat": 42.39583,
+  "lon": -71.141287,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 28 m apart (from stations_real.geojson)"
+ },
+ "Alford St": {
+  "lat": 42.388742,
+  "lon": -71.071592,
+  "sources": [
+   "OpenStreetMap",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "Alford Street Bridge (Charlestown to Everett). OpenStreetMap and Wikidata agree within 52 m (Alford Street Bridge, Alford Street, Charlestown, Boston, Suffolk Coun; Alford Street Bridge (Q133853987))"
+ },
+ "Allston": {
+  "lat": 42.353007,
+  "lon": -71.132116,
+  "sources": [
+   "OpenStreetMap",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "OpenStreetMap and Wikidata agree within 12 m (stations_real.geojson; Allston (Q572788)). Also USGS GNIS 790 m away"
+ },
+ "Allston St": {
+  "lat": 42.348701,
+  "lon": -71.137955,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 30 m apart (from stations_real.geojson)"
+ },
+ "Ames St": {
+  "lat": 42.35866,
+  "lon": -71.087473,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Ames St: dock placed by hand on Memorial Dr at the foot of Ames St (street found in OpenStreetMap and Wikidata). Set on the mapped shoreline 51 m from the street's nearest point (OSM street and shoreline geometry)"
+ },
+ "Amory St": {
+  "lat": 42.350992,
+  "lon": -71.114748,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 1 m apart (from stations_real.geojson)"
+ },
+ "Anderson/Woburn": {
+  "lat": 42.516987,
+  "lon": -71.144475,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA API and OpenStreetMap agree within 55 m (stations_real.geojson; Anderson/Woburn, New Boston Street, Woburn, Middlesex County, Massachu). Also Wikidata 60 m away"
+ },
+ "Andover": {
+  "lat": 42.658336,
+  "lon": -71.144502,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA API and OpenStreetMap agree within 49 m (Andover; Andover). Also USGS GNIS 614 m away, Wikidata 49 m away"
+ },
+ "Andrew": {
+  "lat": 42.330154,
+  "lon": -71.057655,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 43 m apart (from stations_real.geojson)"
+ },
+ "Annisquam": {
+  "lat": 42.657018,
+  "lon": -70.675292,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Sourced point (OpenStreetMap, USGS GNIS, verified) at 42.658428, -70.677268 is over 200 m from mapped water, so the dock is moved 225 m to the nearest mapped shoreline (OSM) and placed by hand there. Sourced: OpenStreetMap and USGS GNIS agree within 1 m (Annisquam, Gloucester, Essex County, Massachusetts, 09130, United Stat; Annisquam (Populated Place, Essex Co.)). Also Wikidata 11 m away"
+ },
+ "Aquarium": {
+  "lat": 42.359784,
+  "lon": -71.051652,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 37 m apart (from stations_real.geojson)"
+ },
+ "Aquinnah": {
+  "lat": 41.345,
+  "lon": -70.8,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Sourced point (OpenStreetMap, Wikidata, verified) at 41.343136, -70.813675 is over 200 m from mapped water, so the dock is placed by hand 1161 m away at the waterfront. Sourced: OpenStreetMap and Wikidata agree within 55 m (Aquinnah, Dukes County, Massachusetts, United States; Aquinnah Town Office Building (Q141462346)). CHECK: hand point not confirmed within 200 m of mapped water"
+ },
+ "Arlington": {
+  "lat": 42.351902,
+  "lon": -71.070893,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 37 m apart (from stations_real.geojson)"
+ },
+ "Arlington Ctr": {
+  "lat": 42.412465,
+  "lon": -71.148544,
+  "sources": [
+   "OpenStreetMap"
+  ],
+  "verified": false,
+  "note": "One source (stations_real.geojson). Others disagree: Wikidata 590 m away"
+ },
+ "Arlington Heights": {
+  "lat": 42.4245,
+  "lon": -71.183,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Mass Ave at Park Ave, today's bus terminal (from stations_real.geojson)"
+ },
+ "Arsenal St": {
+  "lat": 42.361786,
+  "lon": -71.147522,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Arsenal St: dock placed by hand on the Charles where Arsenal St meets Greenough Blvd and N Beacon St (street found in OpenStreetMap and Wikidata). Set on the mapped shoreline 0 m from the street's nearest point (OSM street and shoreline geometry)"
+ },
+ "Ashland": {
+  "lat": 42.26149,
+  "lon": -71.482161,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA API and OpenStreetMap agree within 33 m (Ashland; Ashland). Also USGS GNIS 1546 m away, Wikidata 38 m away"
+ },
+ "Ashmont": {
+  "lat": 42.284508,
+  "lon": -71.063833,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA API and OpenStreetMap agree within 2 m (Ashmont; Ashmont/Peabody Square). Also USGS GNIS 437 m away, Wikidata 11 m away"
+ },
+ "Assembly": {
+  "lat": 42.392811,
+  "lon": -71.077257,
+  "sources": [
+   "MBTA API",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "MBTA API and Wikidata agree within 17 m (stations_real.geojson; Assembly station (Q4808672)). Also OpenStreetMap 29 m away"
+ },
+ "Assembly (dock)": {
+  "lat": 42.3955,
+  "lon": -71.079,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Placed by hand on the Mystic riverfront at Assembly Row, about 300 m from the station. Dock for 'Assembly', 330 m from the station entry"
+ },
+ "Attleboro": {
+  "lat": 41.941732,
+  "lon": -71.284214,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA API and OpenStreetMap agree within 10 m (Attleboro; Attleboro). Also USGS GNIS 333 m away, Wikidata 74 m away"
+ },
+ "Auburndale": {
+  "lat": 42.345833,
+  "lon": -71.250373,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 5 m apart (from stations_real.geojson)"
+ },
+ "Ayer": {
+  "lat": 42.559074,
+  "lon": -71.588476,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA API and OpenStreetMap agree within 55 m (stations_real.geojson; Ayer). Also USGS GNIS 260 m away, Wikidata 98 m away"
+ },
+ "BU Bridge": {
+  "lat": 42.352392,
+  "lon": -71.110663,
+  "sources": [
+   "OpenStreetMap",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "OpenStreetMap and Wikidata agree within 3 m (stations_real.geojson; Boston University Bridge (Q894601))"
+ },
+ "BU Bridge (dock)": {
+  "lat": 42.352391,
+  "lon": -71.110661,
+  "sources": [
+   "OpenStreetMap",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "Boston bank at the foot of the BU Bridge. OpenStreetMap and Wikidata agree within 3 m (Boston University Bridge, Allston, Boston, Suffolk County, Massachuset; Boston University Bridge (Q894601)). Dock for 'BU Bridge', 0 m from the station entry"
+ },
+ "BU Central": {
+  "lat": 42.350078,
+  "lon": -71.107186,
+  "sources": [
+   "OpenStreetMap"
+  ],
+  "verified": false,
+  "note": "One source (stations_real.geojson). No second source found"
+ },
+ "BU Docks": {
+  "lat": 42.3522,
+  "lon": -71.1003,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "No place by this name: placed by hand at the Boston University sailing dock on the Boston bank behind Bay State Rd"
+ },
+ "BU East": {
+  "lat": 42.349728,
+  "lon": -71.104313,
+  "sources": [
+   "OpenStreetMap"
+  ],
+  "verified": false,
+  "note": "One source (stations_real.geojson). No second source found"
+ },
+ "Babcock St": {
+  "lat": 42.351616,
+  "lon": -71.119924,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 1 m apart (from stations_real.geojson)"
+ },
+ "Back Bay": {
+  "lat": 42.34759,
+  "lon": -71.075393,
+  "sources": [
+   "MBTA API",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "MBTA API and Wikidata agree within 8 m (Back Bay; Back Bay station (Q3675991)). Also OpenStreetMap 20 m away, USGS GNIS 994 m away"
+ },
+ "Back of the Hill": {
+  "lat": 42.330139,
+  "lon": -71.111313,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 83 m apart (from stations_real.geojson)"
+ },
+ "Ball Sq": {
+  "lat": 42.399889,
+  "lon": -71.111003,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 42 m apart (from stations_real.geojson)"
+ },
+ "Ballardvale": {
+  "lat": 42.627356,
+  "lon": -71.159962,
+  "sources": [
+   "MBTA API",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "MBTA API and Wikidata agree within 38 m (Ballardvale; Ballardvale station (Q4851527)). Also OpenStreetMap 40 m away, USGS GNIS 255 m away"
+ },
+ "Bass River / Rte 28": {
+  "lat": 41.6705,
+  "lon": -70.183,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Placed by hand on Bass River at the Route 28 bridge"
+ },
+ "Battery Wharf": {
+  "lat": 42.36676,
+  "lon": -71.05095,
+  "sources": [
+   "OpenStreetMap",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "OpenStreetMap and Wikidata agree within 13 m (Battery Wharf, North End, Boston, Suffolk County, Massachusetts, 02113; Battery Wharf Hotel, Boston Waterfront (Q111392880))"
+ },
+ "Bay Pointe": {
+  "lat": 42.249811,
+  "lon": -70.975245,
+  "sources": [
+   "OpenStreetMap"
+  ],
+  "verified": false,
+  "note": "Bay Pointe Marina, Quincy. One source (Bay Pointe Marina, Follett Street, Quincy Point, Quincy, Norfolk Count). No second source found"
+ },
+ "Beachmont": {
+  "lat": 42.397542,
+  "lon": -70.992319,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 23 m apart (from stations_real.geojson)"
+ },
+ "Beachmont (dock)": {
+  "lat": 42.3955,
+  "lon": -70.986,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Placed by hand on the Short Beach shore east of Beachmont station. CHECK: hand point not confirmed within 200 m of mapped water. Dock for 'Beachmont', 566 m from the station entry"
+ },
+ "Beaconsfield": {
+  "lat": 42.335765,
+  "lon": -71.140455,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 4 m apart (from stations_real.geojson)"
+ },
+ "Bellevue": {
+  "lat": 42.286588,
+  "lon": -71.145557,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 6 m apart (from stations_real.geojson)"
+ },
+ "Bellingham Sq": {
+  "lat": 42.395438,
+  "lon": -71.033884,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA API and OpenStreetMap agree within 4 m (stations_real.geojson; Bellingham Square Station). Also Wikidata 39 m away"
+ },
+ "Belmont Ctr": {
+  "lat": 42.395896,
+  "lon": -71.17619,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 11 m apart (from stations_real.geojson)"
+ },
+ "Belmont Hill": {
+  "lat": 42.3729,
+  "lon": -71.1372,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Belmont Hill and Winsor share a boathouse on Greenough Blvd by the Eliot Bridge (Wikipedia list of Charles River boathouses): placed by hand there, just upstream of Winsor. CHECK: hand point not confirmed within 200 m of mapped water"
+ },
+ "Bennington St": {
+  "lat": 42.374209,
+  "lon": -71.041189,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Bennington St starts at Central Sq, East Boston: dock placed by hand on the inner harbor below Central Sq (by Lewis Mall) (street found in OpenStreetMap). Set on the mapped shoreline 212 m from the street's nearest point (OSM street and shoreline geometry)"
+ },
+ "Beverly": {
+  "lat": 42.547276,
+  "lon": -70.885432,
+  "sources": [
+   "MBTA API"
+  ],
+  "verified": false,
+  "note": "One source (stations_real.geojson). Others disagree: OpenStreetMap 623 m away, USGS GNIS 1311 m away, Wikidata 1301 m away"
+ },
+ "Beverly (dock)": {
+  "lat": 42.541,
+  "lon": -70.878,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Glover Wharf, Beverly. No source found: placed by hand. Dock for 'Beverly', 924 m from the station entry"
+ },
+ "Beverly Farms": {
+  "lat": 42.561651,
+  "lon": -70.811405,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA API and OpenStreetMap agree within 12 m (Beverly Farms; Beverly Farms). Also USGS GNIS 267 m away, Wikidata 14 m away"
+ },
+ "Beverly Farms (dock)": {
+  "lat": 42.5585,
+  "lon": -70.808,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Placed by hand at West Beach, Beverly Farms, about 450 m from the station. Dock for 'Beverly Farms', 446 m from the station entry"
+ },
+ "Binney": {
+  "lat": 42.366044,
+  "lon": -71.084729,
+  "sources": [
+   "OpenStreetMap"
+  ],
+  "verified": false,
+  "note": "One source (stations_real.geojson). No second source found"
+ },
+ "Blandford St": {
+  "lat": 42.349293,
+  "lon": -71.100258,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 15 m apart (from stations_real.geojson)"
+ },
+ "Blue Hill Ave": {
+  "lat": 42.271466,
+  "lon": -71.095782,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA API and OpenStreetMap agree within 3 m (stations_real.geojson; Blue Hill Avenue). Also Wikidata 12 m away"
+ },
+ "Boston Bay": {
+  "lat": 42.383,
+  "lon": -71.037,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Not found as a place: placed by hand on the East Boston bank of Chelsea Creek west of Condor St, near the Meridian St bridge"
+ },
+ "Boston Central": {
+  "lat": 42.3594,
+  "lon": -71.052,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Atlantic Ave at State St, the BIGGER Dig's midpoint (NERTA station) (from stations_real.geojson)"
+ },
+ "Boston College": {
+  "lat": 42.340081,
+  "lon": -71.166769,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 7 m apart (from stations_real.geojson)"
+ },
+ "Boston Landing": {
+  "lat": 42.357293,
+  "lon": -71.139883,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 60 m apart (from stations_real.geojson)"
+ },
+ "Boston Medical": {
+  "lat": 42.333815,
+  "lon": -71.07135,
+  "sources": [
+   "OpenStreetMap",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "OpenStreetMap and Wikidata agree within 20 m (Boston Medical Center Heliport, South Bay Harbor Trail, South End, Bos; Boston Medical Center Hospital heliport (Q61672779))"
+ },
+ "Boylston": {
+  "lat": 42.35302,
+  "lon": -71.06459,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 22 m apart (from stations_real.geojson)"
+ },
+ "Bradford": {
+  "lat": 42.766912,
+  "lon": -71.088411,
+  "sources": [
+   "MBTA API",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "MBTA API and Wikidata agree within 7 m (Bradford; Bradford station (Q4954571)). Also OpenStreetMap 8 m away, USGS GNIS 1064 m away"
+ },
+ "Braintree": {
+  "lat": 42.207854,
+  "lon": -71.001138,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 51 m apart (from stations_real.geojson)"
+ },
+ "Brandeis/Roberts": {
+  "lat": 42.361898,
+  "lon": -71.260065,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA API and OpenStreetMap agree within 8 m (Brandeis/Roberts; Brandeis/Roberts). Also Wikidata 29 m away"
+ },
+ "Brandon Hall": {
+  "lat": 42.340023,
+  "lon": -71.129082,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 7 m apart (from stations_real.geojson)"
+ },
+ "Brant Point": {
+  "lat": 41.29005,
+  "lon": -70.090472,
+  "sources": [
+   "OpenStreetMap",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "OpenStreetMap and Wikidata agree within 21 m (Brant Point, Nantucket, Massachusetts, 02554, United States; Brant Point Light (Q4957614)). Also USGS GNIS 56 m away"
+ },
+ "Brant Rock / Green Harbor": {
+  "lat": 42.086214,
+  "lon": -70.641148,
+  "sources": [
+   "OpenStreetMap",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "Green Harbor and Brant Rock, Marshfield. OpenStreetMap and Wikidata agree within 0 m (Brant Rock, Ocean Bluff, Marshfield, Plymouth County, Massachusetts, U; Brant Rock (Q135683552)). Also USGS GNIS 1 m away"
+ },
+ "Bridgewater": {
+  "lat": 41.984916,
+  "lon": -70.96537,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA API and OpenStreetMap agree within 4 m (stations_real.geojson; Bridgewater). Also USGS GNIS 1003 m away, Wikidata 55 m away"
+ },
+ "Brier Neck": {
+  "lat": 42.605,
+  "lon": -70.634,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "No source found: placed by hand"
+ },
+ "Brigham Circle": {
+  "lat": 42.334229,
+  "lon": -71.104609,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 86 m apart (from stations_real.geojson)"
+ },
+ "Brighton Center": {
+  "lat": 42.349108,
+  "lon": -71.153425,
+  "sources": [
+   "OpenStreetMap",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "OpenStreetMap and Wikidata agree within 105 m (stations_real.geojson; Brighton Center Historic District (Q4967615))"
+ },
+ "Broad Canal": {
+  "lat": 42.362606,
+  "lon": -71.078941,
+  "sources": [
+   "USGS GNIS",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "Broad Canal, Kendall Sq. USGS GNIS and Wikidata agree within 24 m (Broad Canal (Canal, Middlesex Co.); Broad Canal (Q4971853)). Also OpenStreetMap 78 m away"
+ },
+ "Broadway": {
+  "lat": 42.342622,
+  "lon": -71.056967,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 46 m apart (from stations_real.geojson)"
+ },
+ "Brockton": {
+  "lat": 42.084659,
+  "lon": -71.016534,
+  "sources": [
+   "MBTA API",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "MBTA API and Wikidata agree within 5 m (stations_real.geojson; Brockton station (Q4972865)). Also OpenStreetMap 5 m away, USGS GNIS 203 m away"
+ },
+ "Brookline Hills": {
+  "lat": 42.331316,
+  "lon": -71.126683,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 7 m apart (from stations_real.geojson)"
+ },
+ "Brookline Village": {
+  "lat": 42.332608,
+  "lon": -71.116857,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 14 m apart (from stations_real.geojson)"
+ },
+ "Butler": {
+  "lat": 42.272429,
+  "lon": -71.062519,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 0 m apart (from stations_real.geojson)"
+ },
+ "Buzzards Bay": {
+  "lat": 41.744861,
+  "lon": -70.615763,
+  "sources": [
+   "OpenStreetMap",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "Buzzards Bay village at the canal's west end. OpenStreetMap and Wikidata agree within 16 m (Buzzards Bay, Main Street, Bourne Corners, Buzzards Bay, Bourne, Barns; Buzzards Bay station (Q5003575)). Also USGS GNIS 202 m away"
+ },
+ "Campello": {
+  "lat": 42.060951,
+  "lon": -71.011004,
+  "sources": [
+   "MBTA API",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "MBTA API and Wikidata agree within 6 m (Campello; Campello station (Q5028255)). Also OpenStreetMap 10 m away, USGS GNIS 1067 m away"
+ },
+ "Canton Center": {
+  "lat": 42.157095,
+  "lon": -71.14628,
+  "sources": [
+   "MBTA API",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "MBTA API and Wikidata agree within 2 m (Canton Center; Canton Center station (Q5033881)). Also OpenStreetMap 4 m away"
+ },
+ "Canton Junction": {
+  "lat": 42.163204,
+  "lon": -71.15376,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA API and OpenStreetMap agree within 8 m (Canton Junction; Canton Junction). Also USGS GNIS 683 m away, Wikidata 45 m away"
+ },
+ "Capen St": {
+  "lat": 42.267563,
+  "lon": -71.087338,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 9 m apart (from stations_real.geojson)"
+ },
+ "Carson Beach": {
+  "lat": 42.326648,
+  "lon": -71.04778,
+  "sources": [
+   "OpenStreetMap",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "OpenStreetMap and Wikidata agree within 56 m (Carson Beach, South Boston, Boston, Suffolk County, Massachusetts, Uni; Carson Beach, South Boston (Q5046907)). Also USGS GNIS 173 m away"
+ },
+ "Castle Island": {
+  "lat": 42.337607,
+  "lon": -71.010606,
+  "sources": [
+   "USGS GNIS",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "USGS GNIS and Wikidata agree within 65 m (Castle Island (Cape, Suffolk Co.); Castle Island (Q1049440)). Also OpenStreetMap 66 m away"
+ },
+ "Cedar Grove": {
+  "lat": 42.279629,
+  "lon": -71.060394,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 7 m apart (from stations_real.geojson)"
+ },
+ "Central": {
+  "lat": 42.365486,
+  "lon": -71.103802,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 27 m apart (from stations_real.geojson)"
+ },
+ "Central Ave": {
+  "lat": 42.270027,
+  "lon": -71.073444,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 8 m apart (from stations_real.geojson)"
+ },
+ "Central Sq": {
+  "lat": 42.463879,
+  "lon": -70.944226,
+  "sources": [
+   "OpenStreetMap",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "OpenStreetMap and Wikidata agree within 52 m (Central Square, Central Square Historic District, Lynn, Essex County, ; Central Square Historic District (Q5061837))"
+ },
+ "Central Wharf": {
+  "lat": 42.35886,
+  "lon": -71.0486,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "Central Wharf (the New England Aquarium's wharf). MBTA API and OpenStreetMap agree within 61 m (Central Wharf (Aquarium); New England Aquarium, 1, Boston HarborWalk, Waterfront, Downtown, Bost). Also Wikidata 142 m away"
+ },
+ "Chappaquiddick": {
+  "lat": 41.387339,
+  "lon": -70.504471,
+  "sources": [
+   "OpenStreetMap",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "Chappy ferry landing. OpenStreetMap and Wikidata agree within 0 m (Chappaquiddick, Edgartown, Dukes County, Massachusetts, 02539, United ; Chappaquiddick (Q122565571)). Also USGS GNIS 1 m away"
+ },
+ "Charles/MGH": {
+  "lat": 42.361166,
+  "lon": -71.070628,
+  "sources": [
+   "MBTA API",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "MBTA API and Wikidata agree within 31 m (stations_real.geojson; Charles/MGH station (Q584412)). Also OpenStreetMap 37 m away"
+ },
+ "Charlesgate": {
+  "lat": 42.349013,
+  "lon": -71.092195,
+  "sources": [
+   "OpenStreetMap",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "Real Charlesgate is on the Boston bank where the Muddy River meets the Charles; Max lists it on the Cambridge bank. OpenStreetMap and Wikidata agree within 140 m (Charlesgate Park, Fenway-Kenmore, Boston, Suffolk County, Massachusett; Charlesgate Hotel (Q131829553))"
+ },
+ "Chatham": {
+  "lat": 41.688,
+  "lon": -69.951,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Sourced point (OpenStreetMap, USGS GNIS, verified) at 41.682275, -69.959516 is over 200 m from mapped water, so the dock is placed by hand 950 m away at the waterfront. Sourced: Chatham Fish Pier. OpenStreetMap and USGS GNIS agree within 30 m (Chatham, Barnstable County, Massachusetts, United States; Chatham (Populated Place, Barnstable Co.)). Also Wikidata 73 m away"
+ },
+ "Chelsea": {
+  "lat": 42.397024,
+  "lon": -71.041314,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 99 m apart (from stations_real.geojson)"
+ },
+ "Chelsea St": {
+  "lat": 42.386306,
+  "lon": -71.022705,
+  "sources": [
+   "OpenStreetMap",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "Chelsea Street Bridge, Chelsea bank. OpenStreetMap and Wikidata agree within 1 m (Chelsea Street Bridge, Chelsea Street, Bellingham Hill, East Boston, C; Chelsea Street Bridge (Q5090136))"
+ },
+ "Chestnut Hill": {
+  "lat": 42.326753,
+  "lon": -71.164699,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 5 m apart (from stations_real.geojson)"
+ },
+ "Chestnut Hill Ave": {
+  "lat": 42.338169,
+  "lon": -71.15316,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 30 m apart (from stations_real.geojson)"
+ },
+ "Chilmark": {
+  "lat": 41.351779,
+  "lon": -70.764195,
+  "sources": [
+   "OpenStreetMap",
+   "USGS GNIS"
+  ],
+  "verified": true,
+  "note": "Menemsha harbor, Chilmark. OpenStreetMap and USGS GNIS agree within 1 m (Menemsha, Chilmark, Dukes County, Massachusetts, 02552, United States; Menemsha (Populated Place, Dukes Co.)). Also Wikidata 122 m away"
+ },
+ "Chinatown": {
+  "lat": 42.352547,
+  "lon": -71.062752,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 38 m apart (from stations_real.geojson)"
+ },
+ "Chiswick Rd": {
+  "lat": 42.340805,
+  "lon": -71.150711,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 25 m apart (from stations_real.geojson)"
+ },
+ "Church St": {
+  "lat": 41.67433,
+  "lon": -70.939126,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA API and OpenStreetMap agree within 64 m (Church Street; Church Street). Also Wikidata 79 m away"
+ },
+ "Cisco": {
+  "lat": 41.254291,
+  "lon": -70.153628,
+  "sources": [
+   "OpenStreetMap",
+   "USGS GNIS"
+  ],
+  "verified": true,
+  "note": "OpenStreetMap and USGS GNIS agree within 1 m (Cisco, Nantucket, Massachusetts, 02554, United States; Cisco (Populated Place, Nantucket Co.)). Also Wikidata 416 m away"
+ },
+ "City Point": {
+  "lat": 42.336209,
+  "lon": -71.028661,
+  "sources": [
+   "OpenStreetMap",
+   "USGS GNIS"
+  ],
+  "verified": true,
+  "note": "OpenStreetMap and USGS GNIS agree within 1 m (stations_real.geojson; City Point (Populated Place, Suffolk Co.))"
+ },
+ "City Square": {
+  "lat": 42.371968,
+  "lon": -71.062175,
+  "sources": [
+   "OpenStreetMap",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "OpenStreetMap and Wikidata agree within 27 m (City Square, Charlestown, Boston, Suffolk County, Massachusetts, 02129; City Square (Q49478297))"
+ },
+ "Cleveland Circle": {
+  "lat": 42.336142,
+  "lon": -71.149326,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 28 m apart (from stations_real.geojson)"
+ },
+ "Clifton": {
+  "lat": 42.4926,
+  "lon": -70.8876,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Invented stop at the real Clifton neighborhood of Marblehead: placed by hand on the old Marblehead branch right-of-way (now a rail trail) at Clifton Ave"
+ },
+ "Clifton (dock)": {
+  "lat": 42.4877,
+  "lon": -70.8805,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Placed by hand on the Clifton shore of Marblehead at Preston Beach, about 700 m from the station. CHECK: hand point not confirmed within 200 m of mapped water. Dock for 'Clifton', 796 m from the station entry"
+ },
+ "Cliftondale": {
+  "lat": 42.4505,
+  "lon": -71.0174,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Cliftondale Sq, Saugus (from stations_real.geojson)"
+ },
+ "Coast Guard Beach": {
+  "lat": 41.843298,
+  "lon": -69.948257,
+  "sources": [
+   "OpenStreetMap",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "OpenStreetMap and Wikidata agree within 246 m (Coast Guard Beach, Doane Road, Eastham, Barnstable County, Massachuset; Coast Guard Beach (Q49320412)). Also USGS GNIS 246 m away"
+ },
+ "Cohasset": {
+  "lat": 42.24421,
+  "lon": -70.837529,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 5 m apart (from stations_real.geojson)"
+ },
+ "Community College": {
+  "lat": 42.373622,
+  "lon": -71.069533,
+  "sources": [
+   "MBTA API",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "MBTA API and Wikidata agree within 53 m (stations_real.geojson; Community College station (Q3562508)). Also OpenStreetMap 81 m away"
+ },
+ "Concord": {
+  "lat": 42.456565,
+  "lon": -71.357677,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 12 m apart (from stations_real.geojson)"
+ },
+ "Condor St": {
+  "lat": 42.382595,
+  "lon": -71.033462,
+  "sources": [
+   "OpenStreetMap"
+  ],
+  "verified": false,
+  "note": "Condor Street Urban Wild on Chelsea Creek. One source (Condor Street, Eagle Hill, East Boston, Boston, Suffolk County, Massac). Others disagree: Wikidata 437 m away"
+ },
+ "Convention Center": {
+  "lat": 42.3453,
+  "lon": -71.045,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Boston Convention and Exhibition Center, Summer St (from stations_real.geojson)"
+ },
+ "Coolidge Corner": {
+  "lat": 42.342116,
+  "lon": -71.121263,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 5 m apart (from stations_real.geojson)"
+ },
+ "Copley": {
+  "lat": 42.349974,
+  "lon": -71.077447,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 16 m apart (from stations_real.geojson)"
+ },
+ "Coskata": {
+  "lat": 41.36,
+  "lon": -70.025,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Sourced point (OpenStreetMap, USGS GNIS, verified) at 41.354287, -70.020292 is over 200 m from mapped water, so the dock is placed by hand 744 m away at the waterfront. Sourced: OpenStreetMap and USGS GNIS agree within 1 m (Coskata, Nantucket, Massachusetts, United States; Coskata (Populated Place, Nantucket Co.)). Also Wikidata 10 m away"
+ },
+ "Courthouse": {
+  "lat": 42.35245,
+  "lon": -71.04685,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 7 m apart (from stations_real.geojson)"
+ },
+ "Crane Beach": {
+  "lat": 42.686214,
+  "lon": -70.76616,
+  "sources": [
+   "USGS GNIS",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "USGS GNIS and Wikidata agree within 311 m (Crane Beach (Beach, Essex Co.); Crane Beach (Q5181997)). Also OpenStreetMap 2198 m away"
+ },
+ "Cumnock": {
+  "lat": 42.370694,
+  "lon": -71.128658,
+  "sources": [
+   "OpenStreetMap"
+  ],
+  "verified": false,
+  "note": "Harvard's Cumnock Field, Allston. One source (Cumnock Field II, Soldiers Field Road, Barry's Corner, Allston, Boston). No second source found"
+ },
+ "Cuttyhunk": {
+  "lat": 41.42733,
+  "lon": -70.911979,
+  "sources": [
+   "OpenStreetMap",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "OpenStreetMap and Wikidata agree within 12 m (Cuttyhunk Harbor, Gosnold, Dukes County, Massachusetts, 02713, United ; Cuttyhunk Harbor (Q49375841)). Also USGS GNIS 1601 m away"
+ },
+ "Danvers": {
+  "lat": 42.575103,
+  "lon": -70.930051,
+  "sources": [
+   "USGS GNIS",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "USGS GNIS and Wikidata agree within 43 m (Danvers (Populated Place, Essex Co.); Danvers (Q1066487)). Also OpenStreetMap 1080 m away"
+ },
+ "Danversport": {
+  "lat": 42.551266,
+  "lon": -70.923688,
+  "sources": [
+   "OpenStreetMap"
+  ],
+  "verified": false,
+  "note": "One source (stations_real.geojson). Others disagree: USGS GNIS 417 m away, Wikidata 418 m away"
+ },
+ "David Ortiz": {
+  "lat": 42.347581,
+  "lon": -71.099974,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA API and OpenStreetMap agree within 42 m (stations_real.geojson; David Ortiz Drive, Audubon Circle, Fenway-Kenmore, Boston, Suffolk Cou)"
+ },
+ "Davis": {
+  "lat": 42.39674,
+  "lon": -71.121815,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 72 m apart (from stations_real.geojson)"
+ },
+ "Day Sq": {
+  "lat": 42.379421,
+  "lon": -71.0275,
+  "sources": [
+   "OpenStreetMap",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "OpenStreetMap and Wikidata agree within 99 m (stations_real.geojson; Day Square Theatre (Q42713969))"
+ },
+ "DeWolfe": {
+  "lat": 42.35325,
+  "lon": -71.10777,
+  "sources": [
+   "OpenStreetMap"
+  ],
+  "verified": false,
+  "note": "BU's DeWolfe Boathouse, Memorial Dr. One source (DeWolfe Boathouse, 619, Memorial Drive, MIT, Cambridge, Middlesex Coun). No second source found"
+ },
+ "Dean Rd": {
+  "lat": 42.337656,
+  "lon": -71.142156,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 25 m apart (from stations_real.geojson)"
+ },
+ "Dedham Corporate Center": {
+  "lat": 42.227079,
+  "lon": -71.174254,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA API and OpenStreetMap agree within 13 m (Dedham Corporate Center; Dedham Corporate Center). Also Wikidata 16 m away"
+ },
+ "Deer Island": {
+  "lat": 42.351897,
+  "lon": -70.955149,
+  "sources": [
+   "OpenStreetMap",
+   "USGS GNIS"
+  ],
+  "verified": true,
+  "note": "OpenStreetMap and USGS GNIS agree within 225 m (Deer Island Road, Harbor Islands, Boston, Suffolk County, Massachusett; Deer Island (Cape, Suffolk Co.))"
+ },
+ "Dennis Port": {
+  "lat": 41.655523,
+  "lon": -70.124272,
+  "sources": [
+   "OpenStreetMap"
+  ],
+  "verified": false,
+  "note": "One source (Dennisport, Dennis, Barnstable County, Massachusetts, 02639, United St). Others disagree: USGS GNIS 486 m away, Wikidata 1340 m away"
+ },
+ "Dorchester Ave": {
+  "lat": 42.34553,
+  "lon": -71.057209,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Dorchester Ave: dock placed by hand on Fort Point Channel by South Station, where Dorchester Ave runs along the water (street found in OpenStreetMap). Set on the mapped shoreline 8 m from the street's nearest point (OSM street and shoreline geometry)"
+ },
+ "Dorchester Shores": {
+  "lat": 42.306732,
+  "lon": -71.047243,
+  "sources": [
+   "OpenStreetMap"
+  ],
+  "verified": false,
+  "note": "Dorchester Shores Reservation (Savin Hill, Malibu and Tenean beaches). One source (Dorchester Shores Reservation, Dorchester, Boston, Suffolk County, Mas). Others disagree: USGS GNIS 1993 m away, Wikidata 1063 m away"
+ },
+ "Dover": {
+  "lat": 42.3446,
+  "lon": -71.064,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Washington St at E Berkeley St, the old Dover el stop (from stations_real.geojson)"
+ },
+ "Downtown Crossing": {
+  "lat": 42.355518,
+  "lon": -71.060225,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 18 m apart (from stations_real.geojson)"
+ },
+ "Duck Tours": {
+  "lat": 42.3698,
+  "lon": -71.0674,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Named for the duck boats that enter the river by the Museum of Science: placed by hand on the river between North Point Park and Paul Revere Park (no real dock)"
+ },
+ "Duxbury": {
+  "lat": 42.04177,
+  "lon": -70.672259,
+  "sources": [
+   "OpenStreetMap",
+   "USGS GNIS"
+  ],
+  "verified": true,
+  "note": "Powder Point Footbridge, Duxbury. OpenStreetMap and USGS GNIS agree within 1 m (Duxbury, Plymouth County, Massachusetts, United States; Duxbury (Populated Place, Plymouth Co.)). Also Wikidata 44 m away"
+ },
+ "East Arlington": {
+  "lat": 42.404263,
+  "lon": -71.14672,
+  "sources": [
+   "OpenStreetMap",
+   "USGS GNIS"
+  ],
+  "verified": true,
+  "note": "OpenStreetMap and USGS GNIS agree within 1 m (stations_real.geojson; East Arlington (Populated Place, Middlesex Co.))"
+ },
+ "East Somerville": {
+  "lat": 42.379467,
+  "lon": -71.086625,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 40 m apart (from stations_real.geojson)"
+ },
+ "East Taunton": {
+  "lat": 41.868197,
+  "lon": -71.061694,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA API and OpenStreetMap agree within 2 m (East Taunton; East Taunton). Also USGS GNIS 3216 m away, Wikidata 29 m away"
+ },
+ "East Weymouth": {
+  "lat": 42.2191,
+  "lon": -70.9214,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 81 m apart (from stations_real.geojson)"
+ },
+ "Eastern Ave": {
+  "lat": 42.387194,
+  "lon": -71.022756,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Eastern Ave, Chelsea: dock placed by hand on the upper Chelsea Creek near Eastern Ave (street found in OpenStreetMap and Wikidata). Set on the mapped shoreline 89 m from the street's nearest point (OSM street and shoreline geometry)"
+ },
+ "Easton Village": {
+  "lat": 42.047322,
+  "lon": -71.081436,
+  "sources": [
+   "OpenStreetMap",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "South Coast Rail phase 2 site, Easton Village. OpenStreetMap and Wikidata agree within 0 m (South Easton, Easton, Bristol County, Massachusetts, 02357, United Sta; South Easton (Q135683760)). Also USGS GNIS 1 m away"
+ },
+ "Edgartown": {
+  "lat": 41.389014,
+  "lon": -70.51336,
+  "sources": [
+   "USGS GNIS",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "USGS GNIS and Wikidata agree within 46 m (Edgartown (Populated Place, Dukes Co.); Edgartown (Q985233)). Also OpenStreetMap 56 m away"
+ },
+ "Eliot": {
+  "lat": 42.319045,
+  "lon": -71.216684,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 24 m apart (from stations_real.geojson)"
+ },
+ "Eliot (dock)": {
+  "lat": 42.371734,
+  "lon": -71.132928,
+  "sources": [
+   "OpenStreetMap",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "Charles River dock at the Eliot Bridge, Cambridge bank. OpenStreetMap and Wikidata agree within 13 m (Eliot Bridge, Dr. Paul Dudley White Path, Allston, Boston, Suffolk Cou; Eliot Bridge (Q1329590)). Dock for 'Eliot', 9024 m from the station entry"
+ },
+ "Encore": {
+  "lat": 42.395528,
+  "lon": -71.069256,
+  "sources": [
+   "OpenStreetMap"
+  ],
+  "verified": false,
+  "note": "One source (stations_real.geojson). No second source found"
+ },
+ "Encore (dock)": {
+  "lat": 42.3938,
+  "lon": -71.0688,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Placed by hand at the Encore Boston Harbor harborwalk on the Mystic, about 200 m from the station point. Dock for 'Encore', 195 m from the station entry"
+ },
+ "Endicott": {
+  "lat": 42.233249,
+  "lon": -71.158647,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 15 m apart (from stations_real.geojson)"
+ },
+ "Englewood Ave": {
+  "lat": 42.337104,
+  "lon": -71.144852,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 15 m apart (from stations_real.geojson)"
+ },
+ "Esplanade": {
+  "lat": 42.355887,
+  "lon": -71.075117,
+  "sources": [
+   "OpenStreetMap",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "OpenStreetMap and Wikidata agree within 80 m (Esplanade Playspace, Storrow Drive, Beacon Hill, Boston, Suffolk Count; Charles River Esplanade (Q5082074))"
+ },
+ "Everett Sq": {
+  "lat": 42.4084,
+  "lon": -71.0536,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Broadway, Everett (from stations_real.geojson)"
+ },
+ "Fairbanks St": {
+  "lat": 42.339644,
+  "lon": -71.131078,
+  "sources": [
+   "MBTA API",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "MBTA API and Wikidata agree within 3 m (Fairbanks Street; Fairbanks Street station (Q5430010)). Also OpenStreetMap 83 m away"
+ },
+ "Fairhaven": {
+  "lat": 41.636,
+  "lon": -70.903,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Sourced point (OpenStreetMap, USGS GNIS, verified) at 41.637604, -70.903649 is over 200 m from mapped water, so the dock is placed by hand 185 m away at the waterfront. Sourced: OpenStreetMap and USGS GNIS agree within 1 m (Fairhaven, Bristol County, Massachusetts, 02719, United States; Fairhaven (Populated Place, Bristol Co.)). Also Wikidata 45 m away. CHECK: hand point not confirmed within 200 m of mapped water"
+ },
+ "Fairmount": {
+  "lat": 42.253638,
+  "lon": -71.11927,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 27 m apart (from stations_real.geojson)"
+ },
+ "Fall River": {
+  "lat": 41.706213,
+  "lon": -71.16199,
+  "sources": [
+   "OpenStreetMap",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "Fall River waterfront. OpenStreetMap and Wikidata agree within 0 m (Battleship Cove, Fall River Station, Fall River, Bristol County, Massa; Battleship Cove (Q4873227)). Also USGS GNIS 778 m away"
+ },
+ "Fall River Depot": {
+  "lat": 41.713982,
+  "lon": -71.154182,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA API and OpenStreetMap agree within 2 m (Fall River Depot; Fall River Depot). Also Wikidata 21 m away"
+ },
+ "Falmouth": {
+  "lat": 41.551498,
+  "lon": -70.614752,
+  "sources": [
+   "OpenStreetMap",
+   "USGS GNIS"
+  ],
+  "verified": true,
+  "note": "Falmouth Inner Harbor. OpenStreetMap and USGS GNIS agree within 1 m (Falmouth, Barnstable County, Massachusetts, United States; Falmouth (Populated Place, Barnstable Co.)). Also Wikidata 45 m away"
+ },
+ "Fan Pier": {
+  "lat": 42.354138,
+  "lon": -71.043021,
+  "sources": [
+   "OpenStreetMap"
+  ],
+  "verified": false,
+  "note": "One source (Fan Pier Marina, Marina Park Drive, Seaport, Boston, Suffolk County, M). No second source found"
+ },
+ "Fenway": {
+  "lat": 42.345403,
+  "lon": -71.104213,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 40 m apart (from stations_real.geojson)"
+ },
+ "Fenwood Rd": {
+  "lat": 42.333706,
+  "lon": -71.105728,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 17 m apart (from stations_real.geojson)"
+ },
+ "Fields Corner": {
+  "lat": 42.299993,
+  "lon": -71.062021,
+  "sources": [
+   "MBTA API",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "MBTA API and Wikidata agree within 2 m (Fields Corner; Fields Corner station (Q5447200)). Also OpenStreetMap 3 m away, USGS GNIS 345 m away"
+ },
+ "Finigan": {
+  "lat": 42.288187,
+  "lon": -71.038233,
+  "sources": [
+   "OpenStreetMap"
+  ],
+  "verified": false,
+  "note": "Probably Senator Joseph Finnegan Park, Port Norfolk (Max's spelling kept). One source (Senator Joseph Finnegan Park (Neponset River Reservation), Dorchester,). No second source found"
+ },
+ "First St": {
+  "lat": 42.338442,
+  "lon": -71.039913,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "E First St, South Boston: dock placed by hand on the Reserved Channel near the east end of First St (street found in OpenStreetMap). Set on the mapped shoreline 40 m from the street's nearest point (OSM street and shoreline geometry)"
+ },
+ "Fitchburg": {
+  "lat": 42.58072,
+  "lon": -71.792611,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA API and OpenStreetMap agree within 12 m (Fitchburg; Fitchburg). Also USGS GNIS 849 m away, Wikidata 882 m away"
+ },
+ "Forest Hills": {
+  "lat": 42.300713,
+  "lon": -71.113943,
+  "sources": [
+   "MBTA API",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "MBTA API and Wikidata agree within 5 m (stations_real.geojson; Forest Hills station (Q2947194)). Also OpenStreetMap 29 m away, USGS GNIS 464 m away"
+ },
+ "Forge Park/495": {
+  "lat": 42.089941,
+  "lon": -71.43902,
+  "sources": [
+   "MBTA API",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "MBTA API and Wikidata agree within 5 m (Forge Park/495; Forge Park/495 station (Q5469587)). Also OpenStreetMap 7 m away"
+ },
+ "Fort Point": {
+  "lat": 42.350952,
+  "lon": -71.051821,
+  "sources": [
+   "OpenStreetMap"
+  ],
+  "verified": false,
+  "note": "One source (stations_real.geojson). Others disagree: Wikidata 295 m away"
+ },
+ "Four Corners": {
+  "lat": 42.305037,
+  "lon": -71.076833,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 8 m apart (from stations_real.geojson)"
+ },
+ "Fox Point": {
+  "lat": 42.311338,
+  "lon": -71.039985,
+  "sources": [
+   "OpenStreetMap",
+   "USGS GNIS"
+  ],
+  "verified": true,
+  "note": "Fox Point, Savin Hill Cove (UMass Boston marine dock). OpenStreetMap and USGS GNIS agree within 236 m (Fox Point, Boston HarborWalk, Dorchester, Boston, Suffolk County, Mass; Fox Point (Cape, Suffolk Co.))"
+ },
+ "Foxboro": {
+  "lat": 42.0951,
+  "lon": -71.26151,
+  "sources": [
+   "MBTA API",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "MBTA API and Wikidata agree within 11 m (stations_real.geojson; Foxboro station (Q5477081)). Also OpenStreetMap 30 m away"
+ },
+ "Framingham": {
+  "lat": 42.276108,
+  "lon": -71.420055,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA API and OpenStreetMap agree within 1 m (Framingham; Framingham). Also USGS GNIS 474 m away, Wikidata 39 m away"
+ },
+ "Franklin": {
+  "lat": 42.083071,
+  "lon": -71.396375,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA API and OpenStreetMap agree within 30 m (Franklin; Franklin/Dean). Also USGS GNIS 50 m away, Wikidata 34 m away"
+ },
+ "Freetown": {
+  "lat": 41.773482,
+  "lon": -71.091052,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA API and OpenStreetMap agree within 56 m (Freetown; Freetown). Also Wikidata 60 m away"
+ },
+ "Georges Island": {
+  "lat": 42.32073,
+  "lon": -70.929238,
+  "sources": [
+   "OpenStreetMap",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "OpenStreetMap and Wikidata agree within 92 m (Georges Island, Harbor Islands, Boston, Suffolk County, Massachusetts,; Georges Island (Q5546831)). Also USGS GNIS 1079 m away"
+ },
+ "Gilman Sq": {
+  "lat": 42.387928,
+  "lon": -71.096766,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 2 m apart (from stations_real.geojson)"
+ },
+ "Gloucester": {
+  "lat": 42.616799,
+  "lon": -70.668345,
+  "sources": [
+   "MBTA API",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "MBTA API and Wikidata agree within 12 m (Gloucester; Gloucester station (Q5572006)). Also OpenStreetMap 101 m away, USGS GNIS 529 m away"
+ },
+ "Gloucester (dock)": {
+  "lat": 42.6105,
+  "lon": -70.6625,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Placed by hand on the downtown Gloucester waterfront (Harbor Loop), about 800 m from the station. Dock for 'Gloucester', 845 m from the station entry"
+ },
+ "Gloucester St": {
+  "lat": 42.353004,
+  "lon": -71.086119,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Back Bay street: dock placed by hand on the Esplanade at the foot of Gloucester St (street found in OpenStreetMap). Set on the mapped shoreline 68 m from the street's nearest point (OSM street and shoreline geometry)"
+ },
+ "Gov't Center": {
+  "lat": 42.359705,
+  "lon": -71.059215,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 10 m apart (from stations_real.geojson)"
+ },
+ "Grafton": {
+  "lat": 42.2466,
+  "lon": -71.685325,
+  "sources": [
+   "MBTA API",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "MBTA API and Wikidata agree within 30 m (Grafton; Grafton station (Q5592515)). Also OpenStreetMap 93 m away, USGS GNIS 4374 m away"
+ },
+ "Green St": {
+  "lat": 42.310525,
+  "lon": -71.107414,
+  "sources": [
+   "MBTA API"
+  ],
+  "verified": false,
+  "note": "One source (stations_real.geojson). Others disagree: OpenStreetMap 385 m away"
+ },
+ "Greenbush": {
+  "lat": 42.178776,
+  "lon": -70.746641,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA API and OpenStreetMap agree within 20 m (stations_real.geojson; Greenbush). Also USGS GNIS 241 m away, Wikidata 21 m away"
+ },
+ "Greenwood": {
+  "lat": 42.483005,
+  "lon": -71.067247,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 10 m apart (from stations_real.geojson)"
+ },
+ "Griggs St": {
+  "lat": 42.348545,
+  "lon": -71.134949,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 58 m apart (from stations_real.geojson)"
+ },
+ "Gronk": {
+  "lat": 42.3617,
+  "lon": -71.0722,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Placeholder name (label reads 'Gronk (rename)'), no real place: placed by hand on the Boston bank between Nashua St and the Hatch Shell, at the Esplanade by the Longfellow Bridge"
+ },
+ "Grove Hall": {
+  "lat": 42.311209,
+  "lon": -71.074495,
+  "sources": [
+   "OpenStreetMap",
+   "USGS GNIS"
+  ],
+  "verified": true,
+  "note": "OpenStreetMap and USGS GNIS agree within 1 m (stations_real.geojson; Grove Hall (Populated Place, Suffolk Co.)). Also Wikidata 644 m away"
+ },
+ "Halifax": {
+  "lat": 42.014739,
+  "lon": -70.824263,
+  "sources": [
+   "MBTA API",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "MBTA API and Wikidata agree within 20 m (Halifax; Halifax station (Q5642109)). Also OpenStreetMap 28 m away, USGS GNIS 4062 m away"
+ },
+ "Hamilton/Wenham": {
+  "lat": 42.609212,
+  "lon": -70.874801,
+  "sources": [
+   "MBTA API",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "MBTA API and Wikidata agree within 36 m (Hamilton/Wenham; Hamilton/Wenham station (Q5644813)). Also OpenStreetMap 38 m away"
+ },
+ "Hanson": {
+  "lat": 42.043967,
+  "lon": -70.882438,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA API and OpenStreetMap agree within 39 m (stations_real.geojson; Hanson). Also Wikidata 41 m away"
+ },
+ "Harvard": {
+  "lat": 42.373362,
+  "lon": -71.118956,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 1 m apart (from stations_real.geojson)"
+ },
+ "Harvard Ave": {
+  "lat": 42.350243,
+  "lon": -71.131355,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 34 m apart (from stations_real.geojson)"
+ },
+ "Harwich Point": {
+  "lat": 41.666,
+  "lon": -70.07,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Sourced point (OpenStreetMap, Wikidata, verified) at 41.667979, -70.074043 is over 200 m from mapped water, so the dock is placed by hand 401 m away at the waterfront. Sourced: No 'Harwich Point' found; taken as Harwich Port. OpenStreetMap and Wikidata agree within 216 m (Harwich Port, Harwich, Barnstable County, Massachusetts, 02646, United; Harwich Port Library Assoc. (Q69863707)). Also USGS GNIS 403 m away. CHECK: hand point not confirmed within 200 m of mapped water"
+ },
+ "Hatch Shell": {
+  "lat": 42.357299,
+  "lon": -71.073701,
+  "sources": [
+   "OpenStreetMap",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "at the Hatch Memorial Shell. OpenStreetMap and Wikidata agree within 0 m (Edward A. Hatch Memorial Shell, 47, David G. Mugar Way, Beacon Hill, B; Hatch Memorial Shell (Q5681035))"
+ },
+ "Haverhill": {
+  "lat": 42.773474,
+  "lon": -71.086237,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA API and OpenStreetMap agree within 10 m (Haverhill; Haverhill). Also USGS GNIS 792 m away, Wikidata 14 m away"
+ },
+ "Hawes St": {
+  "lat": 42.344906,
+  "lon": -71.111145,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 28 m apart (from stations_real.geojson)"
+ },
+ "Haymarket": {
+  "lat": 42.363021,
+  "lon": -71.05829,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 107 m apart (from stations_real.geojson)"
+ },
+ "Heath St": {
+  "lat": 42.328316,
+  "lon": -71.110252,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 8 m apart (from stations_real.geojson)"
+ },
+ "Hersey": {
+  "lat": 42.275648,
+  "lon": -71.215528,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 5 m apart (from stations_real.geojson)"
+ },
+ "Herter": {
+  "lat": 42.367656,
+  "lon": -71.132325,
+  "sources": [
+   "OpenStreetMap"
+  ],
+  "verified": false,
+  "note": "Christian Herter Park. One source (Herter Park, Allston, Boston, Suffolk County, Massachusetts, 02134, Un). No second source found"
+ },
+ "Highland": {
+  "lat": 42.284969,
+  "lon": -71.153937,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 6 m apart (from stations_real.geojson)"
+ },
+ "Highlands Beach": {
+  "lat": 42.387,
+  "lon": -70.97,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Winthrop Highlands (Homes.com guide) has no mapped 'Highlands Beach': placed by hand on the Winthrop Highlands shore north of Winthrop Beach"
+ },
+ "Hingham": {
+  "lat": 42.241767,
+  "lon": -70.889768,
+  "sources": [
+   "OpenStreetMap",
+   "USGS GNIS"
+  ],
+  "verified": true,
+  "note": "OpenStreetMap and USGS GNIS agree within 1 m (stations_real.geojson; Hingham (Populated Place, Plymouth Co.)). Also Wikidata 43 m away"
+ },
+ "Hingham (dock)": {
+  "lat": 42.25415,
+  "lon": -70.91985,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "Hingham Shipyard ferry terminal. MBTA API and OpenStreetMap agree within 176 m (Hingham (Hewitts Cove); Shipyard Drive, The Launch at Hingham Shipyard, Old Spain, Hingham, Pl). Also Wikidata 514 m away. Dock for 'Hingham', 2832 m from the station entry"
+ },
+ "Holbrook/Randolph": {
+  "lat": 42.156343,
+  "lon": -71.027371,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA API and OpenStreetMap agree within 20 m (Holbrook/Randolph; Holbrook/Randolph). Also Wikidata 112 m away"
+ },
+ "Hough's Neck": {
+  "lat": 42.264,
+  "lon": -70.962,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Sourced point (OpenStreetMap, Wikidata, verified) at 42.266653, -70.958004 is over 200 m from mapped water, so the dock is placed by hand 441 m away at the waterfront. Sourced: OpenStreetMap and Wikidata agree within 18 m (Houghs Neck, Quincy, Norfolk County, Massachusetts, 02169, United Stat; Hough's Neck (Q5912837)). Also USGS GNIS 20 m away"
+ },
+ "Hudson": {
+  "lat": 42.3917,
+  "lon": -71.5664,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Invented stop on the South Acton to Marlborough branch: placed by hand in downtown Hudson on the old branch (now the Assabet River Rail Trail) near Main St"
+ },
+ "Hull": {
+  "lat": 42.3027,
+  "lon": -70.91996,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "Hull ferry dock, Pemberton Point. MBTA API and OpenStreetMap agree within 7 m (Hull (Pemberton Point); Hull). Also USGS GNIS 1002 m away, Wikidata 228 m away"
+ },
+ "Humarock": {
+  "lat": 42.136222,
+  "lon": -70.690039,
+  "sources": [
+   "USGS GNIS",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "USGS GNIS and Wikidata agree within 48 m (Humarock (Populated Place, Plymouth Co.); Humarock (Q5939685)). Also OpenStreetMap 234 m away"
+ },
+ "Hyannis": {
+  "lat": 41.652,
+  "lon": -70.279,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Sourced point (OpenStreetMap, Wikidata, verified) at 41.655777, -70.279854 is over 200 m from mapped water, so the dock is placed by hand 424 m away at the waterfront. Sourced: Hyannis ferry terminal. OpenStreetMap and Wikidata agree within 38 m (Hyannis; Hyannis Transportation Center (Q14715607)). Also USGS GNIS 402 m away"
+ },
+ "Hyannisport": {
+  "lat": 41.633445,
+  "lon": -70.298355,
+  "sources": [
+   "OpenStreetMap",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "OpenStreetMap and Wikidata agree within 12 m (Hyannis Port Beach, Hyannis, Barnstable, Barnstable County, Massachuse; Hyannis Port Beach (Q49321258)). Also USGS GNIS 263 m away"
+ },
+ "Hyde Park": {
+  "lat": 42.25503,
+  "lon": -71.125526,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 47 m apart (from stations_real.geojson)"
+ },
+ "Hyde Sq": {
+  "lat": 42.3218,
+  "lon": -71.1101,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Centre St, Jamaica Plain (from stations_real.geojson)"
+ },
+ "Hynes": {
+  "lat": 42.347871,
+  "lon": -71.08784,
+  "sources": [
+   "OpenStreetMap",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "OpenStreetMap and Wikidata agree within 24 m (stations_real.geojson; Hynes Convention Center station (Q11221237))"
+ },
+ "Inman Sq": {
+  "lat": 42.37365,
+  "lon": -71.100632,
+  "sources": [
+   "OpenStreetMap",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "OpenStreetMap and Wikidata agree within 3 m (stations_real.geojson; Inman Square Theatre (Q42712393))"
+ },
+ "Inner Belt": {
+  "lat": 42.377904,
+  "lon": -71.081262,
+  "sources": [
+   "OpenStreetMap",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "OpenStreetMap and Wikidata agree within 59 m (stations_real.geojson; Inner Belt District (Q6035330))"
+ },
+ "Ipswich": {
+  "lat": 42.676921,
+  "lon": -70.840589,
+  "sources": [
+   "MBTA API",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "MBTA API and Wikidata agree within 24 m (Ipswich; Ipswich station (Q6065500)). Also OpenStreetMap 94 m away, USGS GNIS 264 m away"
+ },
+ "Ipswich (dock)": {
+  "lat": 42.6795,
+  "lon": -70.8262,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Placed by hand at the Ipswich Town Wharf on the Ipswich River, about 1.2 km from the station. Dock for 'Ipswich', 1212 m from the station entry"
+ },
+ "Islington": {
+  "lat": 42.22105,
+  "lon": -71.183961,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 1 m apart (from stations_real.geojson)"
+ },
+ "JFK/UMass": {
+  "lat": 42.320434,
+  "lon": -71.052215,
+  "sources": [
+   "MBTA API",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "MBTA API and Wikidata agree within 13 m (JFK/UMass; JFK/UMass station (Q5691944)). Also OpenStreetMap 16 m away"
+ },
+ "Jackson Sq": {
+  "lat": 42.323132,
+  "lon": -71.099592,
+  "sources": [
+   "MBTA API",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "MBTA API and Wikidata agree within 17 m (stations_real.geojson; Jackson Square station (Q3736887)). Also OpenStreetMap 34 m away"
+ },
+ "John W. Weeks": {
+  "lat": 42.368492,
+  "lon": -71.118125,
+  "sources": [
+   "OpenStreetMap",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "John W. Weeks footbridge. OpenStreetMap and Wikidata agree within 2 m (John W. Weeks Memorial Bridge, Weeks Footbridge, Allston, Boston, Suff; John W. Weeks Bridge (Q14629066))"
+ },
+ "Katama Beach": {
+  "lat": 41.358451,
+  "lon": -70.50697,
+  "sources": [
+   "OpenStreetMap",
+   "USGS GNIS"
+  ],
+  "verified": true,
+  "note": "OpenStreetMap and USGS GNIS agree within 1 m (Katama, Edgartown, Dukes County, Massachusetts, 02539, United States; Katama (Populated Place, Dukes Co.))"
+ },
+ "Kendal Green": {
+  "lat": 42.37897,
+  "lon": -71.282411,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA API and OpenStreetMap agree within 21 m (Kendal Green; Kendal Green). Also USGS GNIS 110 m away, Wikidata 23 m away"
+ },
+ "Kendall/MIT": {
+  "lat": 42.362491,
+  "lon": -71.086176,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 38 m apart (from stations_real.geojson)"
+ },
+ "Kenmore": {
+  "lat": 42.348949,
+  "lon": -71.095169,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 41 m apart (from stations_real.geojson)"
+ },
+ "Kent St": {
+  "lat": 42.344074,
+  "lon": -71.114197,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 14 m apart (from stations_real.geojson)"
+ },
+ "King's Cove": {
+  "lat": 42.244544,
+  "lon": -70.960047,
+  "sources": [
+   "OpenStreetMap",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "King's Cove, North Weymouth. OpenStreetMap and Wikidata agree within 12 m (Kings Cove, Weymouth, Norfolk County, Massachusetts, 02191, United Sta; Kings Cove (Q49381700))"
+ },
+ "Kingston": {
+  "lat": 41.97762,
+  "lon": -70.721709,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA API and OpenStreetMap agree within 7 m (stations_real.geojson; Kingston). Also Wikidata 160 m away"
+ },
+ "L Street": {
+  "lat": 42.329034,
+  "lon": -71.034288,
+  "sources": [
+   "OpenStreetMap",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "OpenStreetMap and Wikidata agree within 105 m (stations_real.geojson; L Street Beach (Q49321691))"
+ },
+ "Lagoon Pond": {
+  "lat": 41.444,
+  "lon": -70.585,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Sourced point (OpenStreetMap) at 41.444553, -70.592668 is over 200 m from mapped water, so the dock is placed by hand 643 m away at the waterfront. Sourced: One source (Lagoon Pond, Oklahoma Heights, Vineyard Haven, Tisbury, Dukes County, ). No second source found. CHECK: hand point not confirmed within 200 m of mapped water"
+ },
+ "Langone Ferryport": {
+  "lat": 42.368485,
+  "lon": -71.055063,
+  "sources": [
+   "OpenStreetMap",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "Invented NERTA hub at Langone Park, North End (a real waterfront park). OpenStreetMap and Wikidata agree within 70 m (Langone Park, 529-543, North End, Boston, Suffolk County, Massachusett; Langone Park (Q25004829))"
+ },
+ "Langone Ferryport (dock)": {
+  "lat": 42.368485,
+  "lon": -71.055063,
+  "sources": [
+   "OpenStreetMap",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "Same spot as the station: the ferry hub is at the Langone Park waterfront. OpenStreetMap and Wikidata agree within 70 m (Langone Park, 529-543, North End, Boston, Suffolk County, Massachusett; Langone Park (Q25004829)). Dock for 'Langone Ferryport', 0 m from the station entry"
+ },
+ "Lawrence": {
+  "lat": 42.701806,
+  "lon": -71.15198,
+  "sources": [
+   "MBTA API",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "MBTA API and Wikidata agree within 44 m (Lawrence; McGovern Transportation Center (Q6503770)). Also OpenStreetMap 48 m away, USGS GNIS 1079 m away"
+ },
+ "Lechmere": {
+  "lat": 42.371572,
+  "lon": -71.076584,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 48 m apart (from stations_real.geojson)"
+ },
+ "Lexington Ctr": {
+  "lat": 42.4473,
+  "lon": -71.2276,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Lexington Center (from stations_real.geojson)"
+ },
+ "Lexington Route 128": {
+  "lat": 42.4719,
+  "lon": -71.258,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Old Lexington branch at Route 128 (NERTA station) (from stations_real.geojson)"
+ },
+ "Lincoln": {
+  "lat": 42.413641,
+  "lon": -71.325512,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA API and OpenStreetMap agree within 15 m (Lincoln; Lincoln). Also USGS GNIS 2234 m away, Wikidata 53 m away"
+ },
+ "Linden Sq": {
+  "lat": 42.4262,
+  "lon": -71.0295,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Linden, Malden (from stations_real.geojson)"
+ },
+ "Little Mystic": {
+  "lat": 42.380556,
+  "lon": -71.049444,
+  "sources": [
+   "Wikidata"
+  ],
+  "verified": false,
+  "note": "Little Mystic Channel. One source (Little Mystic Channel (Q49111822)). No second source found"
+ },
+ "Littleton/Route 495": {
+  "lat": 42.519236,
+  "lon": -71.502643,
+  "sources": [
+   "MBTA API"
+  ],
+  "verified": false,
+  "note": "One source (Littleton/Route 495). Others disagree: OpenStreetMap 253 m away, Wikidata 256 m away"
+ },
+ "Logan Dock": {
+  "lat": 42.35985,
+  "lon": -71.02767,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "Logan ferry dock on Harborside Dr. MBTA API and OpenStreetMap agree within 37 m (Logan Airport Ferry Terminal; Logan Airport Ferry Terminal)"
+ },
+ "Logan Dock (dock)": {
+  "lat": 42.35985,
+  "lon": -71.02767,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "Same spot as the Silver Line stop: the Logan ferry dock on Harborside Dr. MBTA API and OpenStreetMap agree within 37 m (Logan Airport Ferry Terminal; Logan Airport Ferry Terminal). Dock for 'Logan Dock', 0 m from the station entry"
+ },
+ "Long Island": {
+  "lat": 42.320515,
+  "lon": -70.966072,
+  "sources": [
+   "OpenStreetMap",
+   "USGS GNIS"
+  ],
+  "verified": true,
+  "note": "OpenStreetMap and USGS GNIS agree within 48 m (Long Island, Harbor Islands, Boston, Suffolk County, Massachusetts, Un; Long Island (Island, Suffolk Co.))"
+ },
+ "Long Wharf": {
+  "lat": 42.35945,
+  "lon": -71.05048,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA API and OpenStreetMap agree within 59 m (Long Wharf (South); Long Wharf, Waterfront, Downtown, Boston, Suffolk County, Massachusett). Also Wikidata 95 m away"
+ },
+ "Longwood": {
+  "lat": 42.341702,
+  "lon": -71.109956,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 9 m apart (from stations_real.geojson)"
+ },
+ "Longwood Medical Area": {
+  "lat": 42.33596,
+  "lon": -71.100052,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 48 m apart (from stations_real.geojson)"
+ },
+ "Lovejoy Wharf": {
+  "lat": 42.36748,
+  "lon": -71.06,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA API and OpenStreetMap agree within 9 m (Lovejoy Wharf (North Station); Lovejoy Wharf Ferry Terminal). Also Wikidata 50 m away"
+ },
+ "Lowell": {
+  "lat": 42.63535,
+  "lon": -71.314543,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA API and OpenStreetMap agree within 139 m (Lowell; Lowell). Also USGS GNIS 250 m away, Wikidata 140 m away"
+ },
+ "Lynn Harbor": {
+  "lat": 42.4585,
+  "lon": -70.9525,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "NERTA Blue Line stop at Lynn Harbor: the geojson point was the middle of the harbor (water), so placed by hand on the Lynnway at Blossom St, beside the ferry pier"
+ },
+ "Lynn Harbor (dock)": {
+  "lat": 42.45485,
+  "lon": -70.9479,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "Lynn ferry at Blossom St Pier. MBTA API and OpenStreetMap agree within 3 m (Lynn (Blossom Street Pier); Blossom Street Pier Ferry Terminal). Also USGS GNIS 1325 m away, Wikidata 1318 m away. Dock for 'Lynn Harbor', 553 m from the station entry"
+ },
+ "M St": {
+  "lat": 42.330193,
+  "lon": -71.031451,
+  "sources": [
+   "OpenStreetMap"
+  ],
+  "verified": false,
+  "note": "M Street Beach. One source (M Street Beach, South Boston, Boston, Suffolk County, Massachusetts, U). No second source found"
+ },
+ "MVY Connection": {
+  "lat": 41.356,
+  "lon": -70.63,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Label 'MVY Connection via Scrubby Neck': placed by hand on the south shore at Scrubby Neck, West Tisbury, the closest shore to Martha's Vineyard Airport"
+ },
+ "Magazine Beach": {
+  "lat": 42.355657,
+  "lon": -71.114588,
+  "sources": [
+   "OpenStreetMap",
+   "USGS GNIS"
+  ],
+  "verified": true,
+  "note": "OpenStreetMap and USGS GNIS agree within 281 m (Magazine Beach, Cambridgeport, Cambridge, Middlesex County, Massachuse; Magazine Beach (Beach, Middlesex Co.)). Also Wikidata 292 m away"
+ },
+ "Magnolia": {
+  "lat": 42.573707,
+  "lon": -70.7106,
+  "sources": [
+   "OpenStreetMap",
+   "USGS GNIS"
+  ],
+  "verified": true,
+  "note": "OpenStreetMap and USGS GNIS agree within 1 m (Magnolia, Gloucester, Essex County, Massachusetts, United States; Magnolia (Populated Place, Essex Co.))"
+ },
+ "Magoun Sq": {
+  "lat": 42.393682,
+  "lon": -71.106388,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 67 m apart (from stations_real.geojson)"
+ },
+ "Malden Center": {
+  "lat": 42.426662,
+  "lon": -71.074314,
+  "sources": [
+   "MBTA API",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "MBTA API and Wikidata agree within 4 m (Malden Center; Malden Center station (Q2819672)). Also OpenStreetMap 12 m away"
+ },
+ "Manchester": {
+  "lat": 42.573687,
+  "lon": -70.77009,
+  "sources": [
+   "MBTA API",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "MBTA API and Wikidata agree within 88 m (Manchester; Manchester station (Q6747241)). Also OpenStreetMap 163 m away"
+ },
+ "Manchester-by-the-Sea": {
+  "lat": 42.5745,
+  "lon": -70.7685,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Sourced point (USGS GNIS, Wikidata, verified) at 42.577882, -70.768936 is over 200 m from mapped water, so the dock is placed by hand 376 m away at the waterfront. Sourced: Manchester Harbor town wharf. USGS GNIS and Wikidata agree within 43 m (Manchester-by-the-Sea (Populated Place, Essex Co.); Manchester-by-the-Sea (Q657748)). Also OpenStreetMap 425 m away"
+ },
+ "Mansfield": {
+  "lat": 42.032787,
+  "lon": -71.219917,
+  "sources": [
+   "MBTA API",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "MBTA API and Wikidata agree within 33 m (stations_real.geojson; Mansfield station (Q6751617)). Also OpenStreetMap 34 m away, USGS GNIS 108 m away"
+ },
+ "Marblehead": {
+  "lat": 42.500096,
+  "lon": -70.857825,
+  "sources": [
+   "OpenStreetMap",
+   "USGS GNIS"
+  ],
+  "verified": true,
+  "note": "OpenStreetMap and USGS GNIS agree within 1 m (stations_real.geojson; Marblehead (Populated Place, Essex Co.)). Also Wikidata 43 m away"
+ },
+ "Marblehead (dock)": {
+  "lat": 42.504,
+  "lon": -70.849,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Placed by hand at the State St town landing on Marblehead Harbor. Dock for 'Marblehead', 843 m from the station entry"
+ },
+ "Marconi Beach": {
+  "lat": 41.891782,
+  "lon": -69.961131,
+  "sources": [
+   "USGS GNIS",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "USGS GNIS and Wikidata agree within 76 m (Marconi Beach (Beach, Barnstable Co.); Marconi Beach (Q14715696)). Also OpenStreetMap 84 m away"
+ },
+ "Marion": {
+  "lat": 41.702,
+  "lon": -70.762,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Sourced point (OpenStreetMap, USGS GNIS, verified) at 41.700104, -70.762813 is over 200 m from mapped water, so the dock is placed by hand 220 m away at the waterfront. Sourced: OpenStreetMap and USGS GNIS agree within 1 m (Marion, Plymouth County, Massachusetts, 02738, United States; Marion (Populated Place, Plymouth Co.)). CHECK: hand point not confirmed within 200 m of mapped water"
+ },
+ "Marlborough": {
+  "lat": 42.3466,
+  "lon": -71.5508,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "No station today: placed by hand in downtown Marlborough by the old branch terminal near Main St"
+ },
+ "Martins Park": {
+  "lat": 42.352741,
+  "lon": -71.049141,
+  "sources": [
+   "OpenStreetMap"
+  ],
+  "verified": false,
+  "note": "Martin's Park, Fort Point Channel. One source (Martin's Park, 66, Sleeper Street, Seaport, Boston, Suffolk County, Ma). No second source found"
+ },
+ "Mass Ave": {
+  "lat": 42.358253,
+  "lon": -71.096627,
+  "sources": [
+   "OpenStreetMap"
+  ],
+  "verified": false,
+  "note": "One source (stations_real.geojson). No second source found"
+ },
+ "Mass. Ave": {
+  "lat": 42.341512,
+  "lon": -71.083423,
+  "sources": [
+   "MBTA API"
+  ],
+  "verified": false,
+  "note": "One source (stations_real.geojson). Others disagree: OpenStreetMap 764 m away"
+ },
+ "Mattapan": {
+  "lat": 42.26762,
+  "lon": -71.092486,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 18 m apart (from stations_real.geojson)"
+ },
+ "Mattapoisett": {
+  "lat": 41.658447,
+  "lon": -70.816147,
+  "sources": [
+   "USGS GNIS",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "USGS GNIS and Wikidata agree within 45 m (Mattapoisett (Populated Place, Plymouth Co.); Mattapoisett (Q282802)). Also OpenStreetMap 223 m away"
+ },
+ "Maverick": {
+  "lat": 42.369119,
+  "lon": -71.03953,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA API and OpenStreetMap agree within 1 m (stations_real.geojson; Maverick). Also Wikidata 6 m away"
+ },
+ "Medford Hillside": {
+  "lat": 42.412596,
+  "lon": -71.125331,
+  "sources": [
+   "OpenStreetMap",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "OpenStreetMap and Wikidata agree within 0 m (stations_real.geojson; Medford Hillside (Q122590720)). Also USGS GNIS 1 m away"
+ },
+ "Medford St": {
+  "lat": 42.379937,
+  "lon": -71.054232,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Medford St, Charlestown: dock placed by hand on the Little Mystic side near Medford St and Terminal St (street found in OpenStreetMap). Set on the mapped shoreline 95 m from the street's nearest point (OSM street and shoreline geometry)"
+ },
+ "Medford/Tufts": {
+  "lat": 42.407975,
+  "lon": -71.117044,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 41 m apart (from stations_real.geojson)"
+ },
+ "Melnea Cass": {
+  "lat": 42.333607,
+  "lon": -71.081934,
+  "sources": [
+   "OpenStreetMap",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "OpenStreetMap and Wikidata agree within 33 m (Melnea Cass Greenway, Roxbury, Boston, Suffolk County, Massachusetts, ; Melnea Cass Boulevard (Q14715707))"
+ },
+ "Melrose Highlands": {
+  "lat": 42.469464,
+  "lon": -71.068297,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 6 m apart (from stations_real.geojson)"
+ },
+ "Melrose/Cedar Park": {
+  "lat": 42.458768,
+  "lon": -71.069789,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 1 m apart (from stations_real.geojson)"
+ },
+ "Menino": {
+  "lat": 42.377885,
+  "lon": -71.048396,
+  "sources": [
+   "OpenStreetMap"
+  ],
+  "verified": false,
+  "note": "Menino Park, Charlestown Navy Yard. One source (Mayor Thomas M. Menino Park, Charlestown, Boston, Suffolk County, Mass). No second source found"
+ },
+ "Middleborough": {
+  "lat": 41.887,
+  "lon": -70.923209,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA API and OpenStreetMap agree within 13 m (Middleborough; Middleborough). Also Wikidata 29 m away"
+ },
+ "Middleton": {
+  "lat": 42.595101,
+  "lon": -71.015915,
+  "sources": [
+   "OpenStreetMap",
+   "USGS GNIS"
+  ],
+  "verified": true,
+  "note": "OpenStreetMap and USGS GNIS agree within 21 m (stations_real.geojson; Middleton (Populated Place, Essex Co.))"
+ },
+ "Mill Wharf": {
+  "lat": 42.195692,
+  "lon": -70.724429,
+  "sources": [
+   "OpenStreetMap",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "Mill Wharf, Scituate Harbor. OpenStreetMap and Wikidata agree within 122 m (Mill Wharf Plaza, Second Cliff, Scituate, Plymouth County, Massachuset; Mill Wharf Cinemas (Q42715565))"
+ },
+ "Milton": {
+  "lat": 42.270349,
+  "lon": -71.067266,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 9 m apart (from stations_real.geojson)"
+ },
+ "Minot (Scituate)": {
+  "lat": 42.240379,
+  "lon": -70.761987,
+  "sources": [
+   "OpenStreetMap",
+   "USGS GNIS"
+  ],
+  "verified": true,
+  "note": "Minot, North Scituate. OpenStreetMap and USGS GNIS agree within 1 m (Minot, Scituate, Plymouth County, Massachusetts, 02060, United States; Minot (Populated Place, Plymouth Co.))"
+ },
+ "Mission Park": {
+  "lat": 42.333195,
+  "lon": -71.109756,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 23 m apart (from stations_real.geojson)"
+ },
+ "Moakley Park": {
+  "lat": 42.326017,
+  "lon": -71.050514,
+  "sources": [
+   "OpenStreetMap"
+  ],
+  "verified": false,
+  "note": "One source (stations_real.geojson). No second source found"
+ },
+ "Montello": {
+  "lat": 42.106555,
+  "lon": -71.022001,
+  "sources": [
+   "MBTA API",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "MBTA API and Wikidata agree within 24 m (Montello; Montello station (Q6905117)). Also OpenStreetMap 26 m away, USGS GNIS 526 m away"
+ },
+ "Montserrat": {
+  "lat": 42.562171,
+  "lon": -70.869254,
+  "sources": [
+   "MBTA API",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "MBTA API and Wikidata agree within 4 m (Montserrat; Montserrat station (Q6906570)). Also OpenStreetMap 13 m away, USGS GNIS 258 m away"
+ },
+ "Moon Island": {
+  "lat": 42.305614,
+  "lon": -70.990713,
+  "sources": [
+   "OpenStreetMap",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "OpenStreetMap and Wikidata agree within 18 m (Moon Island, Quincy, Norfolk County, Massachusetts, United States; Moon Island (Q15255939)). Also USGS GNIS 37 m away"
+ },
+ "Morton St": {
+  "lat": 42.280994,
+  "lon": -71.085475,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 92 m apart (from stations_real.geojson)"
+ },
+ "Museum of Fine Arts": {
+  "lat": 42.337711,
+  "lon": -71.095512,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 46 m apart (from stations_real.geojson)"
+ },
+ "Museum of Science": {
+  "lat": 42.367411,
+  "lon": -71.071109,
+  "sources": [
+   "OpenStreetMap",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "OpenStreetMap and Wikidata agree within 10 m (Museum of Science, 1, Science Park, West End, Boston, Suffolk County, ; Museum of Science (Q1139748))"
+ },
+ "N. Barnstable / Sandy Neck": {
+  "lat": 41.739552,
+  "lon": -70.378636,
+  "sources": [
+   "OpenStreetMap",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "Sandy Neck, Barnstable. OpenStreetMap and Wikidata agree within 12 m (Sandy Neck Beach, West Barnstable, Barnstable, Barnstable County, Mass; Sandy Neck Beach (Q49324621))"
+ },
+ "Nahant Harbor": {
+  "lat": 42.4255,
+  "lon": -70.93,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Sourced point (OpenStreetMap, Wikidata, verified) at 42.418986, -70.921715 is over 200 m from mapped water, so the dock is placed by hand 991 m away at the waterfront. Sourced: OpenStreetMap and Wikidata agree within 11 m (Nahant Harbor, Nahant, Essex County, Massachusetts, 01908, United Stat; Nahant Harbor (Q49386040)). CHECK: hand point not confirmed within 200 m of mapped water"
+ },
+ "Namskaket": {
+  "lat": 41.793,
+  "lon": -70.015,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Sourced point (OpenStreetMap, USGS GNIS, verified) at 41.791776, -70.016129 is over 200 m from mapped water, so the dock is placed by hand 165 m away at the waterfront. Sourced: OpenStreetMap and USGS GNIS agree within 1 m (Namskaket, Orleans, Barnstable County, Massachusetts, 02653, United St; Namskaket (Populated Place, Barnstable Co.)). Also Wikidata 4 m away. CHECK: hand point not confirmed within 200 m of mapped water"
+ },
+ "Nantasket": {
+  "lat": 42.291766,
+  "lon": -70.87449,
+  "sources": [
+   "OpenStreetMap",
+   "USGS GNIS"
+  ],
+  "verified": true,
+  "note": "OpenStreetMap and USGS GNIS agree within 1 m (Nantasket Beach, Waveland, Nantasket Beach, Hull, Plymouth County, Mas; Nantasket Beach (Beach, Plymouth Co.)). Also Wikidata 12 m away"
+ },
+ "Nantasket Junction": {
+  "lat": 42.244959,
+  "lon": -70.869205,
+  "sources": [
+   "MBTA API",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "MBTA API and Wikidata agree within 71 m (Nantasket Junction; Nantasket Junction (Q122595682)). Also OpenStreetMap 74 m away, USGS GNIS 71 m away"
+ },
+ "Nantucket Downtown": {
+  "lat": 41.286,
+  "lon": -70.095,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Sourced point (USGS GNIS, Wikidata, verified) at 41.283465, -70.099461 is over 200 m from mapped water, so the dock is placed by hand 467 m away at the waterfront. Sourced: Nantucket ferry wharves, downtown. USGS GNIS and Wikidata agree within 49 m (Nantucket (Populated Place, Nantucket Co.); Nantucket (Q18372627)). Also OpenStreetMap 139 m away"
+ },
+ "Nashua St": {
+  "lat": 42.367521,
+  "lon": -71.067262,
+  "sources": [
+   "OpenStreetMap",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "at Nashua Street Park. OpenStreetMap and Wikidata agree within 50 m (Nashua Street Park, West End, Boston, Suffolk County, Massachusetts, U; Nashua Street Park (Q78354334))"
+ },
+ "Natick Center": {
+  "lat": 42.285719,
+  "lon": -71.347133,
+  "sources": [
+   "MBTA API",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "MBTA API and Wikidata agree within 6 m (Natick Center; Natick Center station (Q135566253)). Also OpenStreetMap 10 m away"
+ },
+ "Nauset Beach": {
+  "lat": 41.787783,
+  "lon": -69.936072,
+  "sources": [
+   "OpenStreetMap"
+  ],
+  "verified": false,
+  "note": "One source (Nauset Beach, Nauset Heights, Orleans, Barnstable County, Massachusett). No second source found"
+ },
+ "Navy Yard": {
+  "lat": 42.374846,
+  "lon": -71.055786,
+  "sources": [
+   "OpenStreetMap"
+  ],
+  "verified": false,
+  "note": "One source (stations_real.geojson). No second source found"
+ },
+ "Navy Yard (dock)": {
+  "lat": 42.3726,
+  "lon": -71.05234,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "Navy Yard Pier 4 ferry dock. MBTA API and OpenStreetMap agree within 24 m (Charlestown (Navy Yard); Charlestown Navy Yard Ferry Terminal). Also Wikidata 388 m away. Dock for 'Navy Yard', 377 m from the station entry"
+ },
+ "Needham Crossing": {
+  "lat": 42.300401,
+  "lon": -71.217707,
+  "sources": [
+   "OpenStreetMap"
+  ],
+  "verified": false,
+  "note": "One source (stations_real.geojson). No second source found"
+ },
+ "Needham Heights": {
+  "lat": 42.293444,
+  "lon": -71.236027,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 5 m apart (from stations_real.geojson)"
+ },
+ "Needham Junction": {
+  "lat": 42.273187,
+  "lon": -71.235559,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 10 m apart (from stations_real.geojson)"
+ },
+ "New Bedford": {
+  "lat": 41.644306,
+  "lon": -70.925211,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA API and OpenStreetMap agree within 100 m (New Bedford; New Bedford). Also USGS GNIS 1166 m away, Wikidata 101 m away"
+ },
+ "New Bedford (dock)": {
+  "lat": 41.634,
+  "lon": -70.9215,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Sourced point (OpenStreetMap, USGS GNIS, verified) at 41.636215, -70.934205 is over 200 m from mapped water, so the dock is placed by hand 1085 m away at the waterfront. Sourced: New Bedford State Pier ferry dock. OpenStreetMap and USGS GNIS agree within 1 m (New Bedford, Bristol County, Massachusetts, United States; New Bedford (Populated Place, Bristol Co.)). Also Wikidata 45 m away. Dock for 'New Bedford', 1181 m from the station entry"
+ },
+ "New Silver Beach": {
+  "lat": 41.622,
+  "lon": -70.633,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "No source found: placed by hand"
+ },
+ "Newburyport": {
+  "lat": 42.797837,
+  "lon": -70.87797,
+  "sources": [
+   "MBTA API",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "MBTA API and Wikidata agree within 35 m (Newburyport; Newburyport station (Q7017266)). Also OpenStreetMap 94 m away, USGS GNIS 1633 m away"
+ },
+ "Newburyport (dock)": {
+  "lat": 42.8128,
+  "lon": -70.8705,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Placed by hand at the Newburyport waterfront on the Merrimack, about 1.7 km from the station. Dock for 'Newburyport', 1763 m from the station entry"
+ },
+ "Newell": {
+  "lat": 42.3697,
+  "lon": -71.1258,
+  "sources": [
+   "Wikidata"
+  ],
+  "verified": false,
+  "note": "Newell Boathouse, Allston. One source (Newell Boathouse (Q28403719)). No second source found"
+ },
+ "Newmarket": {
+  "lat": 42.327415,
+  "lon": -71.065674,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 18 m apart (from stations_real.geojson)"
+ },
+ "Newport": {
+  "lat": 41.489005,
+  "lon": -71.317107,
+  "sources": [
+   "OpenStreetMap",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "Newport, RI ferry landing. OpenStreetMap and Wikidata agree within 44 m (Perrotti Park, Newport, Newport County, Rhode Island, United States; Newport Ferry Terminal (Q113369311)). Also USGS GNIS 377 m away"
+ },
+ "Newton Centre": {
+  "lat": 42.329443,
+  "lon": -71.192414,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 2 m apart (from stations_real.geojson)"
+ },
+ "Newton City Hall": {
+  "lat": 42.337384,
+  "lon": -71.208733,
+  "sources": [
+   "OpenStreetMap",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "OpenStreetMap and Wikidata agree within 6 m (stations_real.geojson; Newton City Hall and War Memorial (Q16895835))"
+ },
+ "Newton Corner": {
+  "lat": 42.357549,
+  "lon": -71.184535,
+  "sources": [
+   "OpenStreetMap",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "OpenStreetMap and Wikidata agree within 12 m (stations_real.geojson; Newton Corner station (Q7020183)). Also USGS GNIS 976 m away"
+ },
+ "Newton Highlands": {
+  "lat": 42.322381,
+  "lon": -71.205509,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 28 m apart (from stations_real.geojson)"
+ },
+ "Newton Upper Falls": {
+  "lat": 42.309451,
+  "lon": -71.220526,
+  "sources": [
+   "OpenStreetMap",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "OpenStreetMap and Wikidata agree within 24 m (stations_real.geojson; Newton Upper Falls station (Q133520813)). Also USGS GNIS 510 m away"
+ },
+ "Newtonville": {
+  "lat": 42.351702,
+  "lon": -71.205408,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 26 m apart (from stations_real.geojson)"
+ },
+ "Nickerson": {
+  "lat": 42.301918,
+  "lon": -71.013209,
+  "sources": [
+   "OpenStreetMap",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "Nickerson Beach, Squantum. OpenStreetMap and Wikidata agree within 11 m (Nickerson Beach, Quincy, Norfolk County, Massachusetts, United States; Nickerson Beach (Q49322231)). Also USGS GNIS 21 m away"
+ },
+ "Nobadeer": {
+  "lat": 41.243179,
+  "lon": -70.05946,
+  "sources": [
+   "OpenStreetMap",
+   "USGS GNIS"
+  ],
+  "verified": true,
+  "note": "Nobadeer Beach by Nantucket Memorial Airport. OpenStreetMap and USGS GNIS agree within 1 m (Nobadeer Beach, Nantucket, Massachusetts, 02554, United States; Nobadeer Beach (Beach, Nantucket Co.)). Also Wikidata 14 m away"
+ },
+ "Noman's Land": {
+  "lat": 41.255678,
+  "lon": -70.81614,
+  "sources": [
+   "USGS GNIS",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "USGS GNIS and Wikidata agree within 121 m (Nomans Land (Island, Dukes Co.); Nomans Land Island National Wildlife Refuge (Q7048466)). Also OpenStreetMap 167 m away"
+ },
+ "Norfolk": {
+  "lat": 42.120694,
+  "lon": -71.325217,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA API and OpenStreetMap agree within 40 m (Norfolk; Norfolk). Also USGS GNIS 127 m away, Wikidata 128 m away"
+ },
+ "North Beverly": {
+  "lat": 42.583779,
+  "lon": -70.883851,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA API and OpenStreetMap agree within 21 m (North Beverly; North Beverly). Also USGS GNIS 431 m away, Wikidata 25 m away"
+ },
+ "North Billerica": {
+  "lat": 42.593248,
+  "lon": -71.280995,
+  "sources": [
+   "MBTA API",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "MBTA API and Wikidata agree within 5 m (North Billerica; North Billerica station (Q14715782)). Also OpenStreetMap 17 m away, USGS GNIS 1123 m away"
+ },
+ "North Cambridge": {
+  "lat": 42.395938,
+  "lon": -71.130054,
+  "sources": [
+   "USGS GNIS",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "USGS GNIS and Wikidata agree within 164 m (North Cambridge (Populated Place, Middlesex Co.); North Cambridge Carhouse (Q18155111)). Also OpenStreetMap 459 m away"
+ },
+ "North Easton": {
+  "lat": 42.069283,
+  "lon": -71.103318,
+  "sources": [
+   "OpenStreetMap",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "South Coast Rail phase 2 site (historic North Easton depot). OpenStreetMap and Wikidata agree within 76 m (North Easton Station, 80, Mechanic Street, North Easton, Easton, Brist; North Easton station (MBTA) (Q5330832)). Also USGS GNIS 279 m away"
+ },
+ "North Leominster": {
+  "lat": 42.539017,
+  "lon": -71.739186,
+  "sources": [
+   "MBTA API",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "MBTA API and Wikidata agree within 22 m (North Leominster; North Leominster station (Q7055942)). Also OpenStreetMap 109 m away, USGS GNIS 352 m away"
+ },
+ "North Point": {
+  "lat": 42.36893,
+  "lon": -71.069218,
+  "sources": [
+   "OpenStreetMap",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "North Point Park. OpenStreetMap and Wikidata agree within 221 m (Richard McKinnon State Park, West End, Cambridge, Suffolk County, Mass; Richard McKinnon State Park (Q7056381))"
+ },
+ "North Quincy": {
+  "lat": 42.275275,
+  "lon": -71.029583,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 85 m apart (from stations_real.geojson)"
+ },
+ "North Scituate": {
+  "lat": 42.219528,
+  "lon": -70.788602,
+  "sources": [
+   "MBTA API",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "MBTA API and Wikidata agree within 46 m (stations_real.geojson; North Scituate station (Q12064420)). Also OpenStreetMap 46 m away, USGS GNIS 254 m away"
+ },
+ "North Station": {
+  "lat": 42.365577,
+  "lon": -71.06129,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 95 m apart (from stations_real.geojson)"
+ },
+ "North Wilmington": {
+  "lat": 42.571073,
+  "lon": -71.160939,
+  "sources": [
+   "MBTA API",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "MBTA API and Wikidata agree within 3 m (North Wilmington; North Wilmington station (Q7057397)). Also OpenStreetMap 187 m away, USGS GNIS 405 m away"
+ },
+ "Northampton": {
+  "lat": 42.336656,
+  "lon": -71.07842,
+  "sources": [
+   "OpenStreetMap",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "OpenStreetMap and Wikidata agree within 108 m (Northampton Street, Roxbury, Boston, Suffolk County, Massachusetts, 02; Northampton station (Q60552139))"
+ },
+ "Northeastern": {
+  "lat": 42.340054,
+  "lon": -71.089696,
+  "sources": [
+   "OpenStreetMap",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "OpenStreetMap and Wikidata agree within 4 m (stations_real.geojson; Northeastern University station (Q9091588))"
+ },
+ "Northeastern (dock)": {
+  "lat": 42.364101,
+  "lon": -71.141547,
+  "sources": [
+   "OpenStreetMap"
+  ],
+  "verified": false,
+  "note": "Northeastern's Henderson Boathouse on Soldiers Field Rd; the Green Line station is 5 km away in the Fenway. One source (Henderson Boathouse, 1345, Soldiers Field Road, North Brighton, Bright). No second source found. Dock for 'Northeastern', 5027 m from the station entry"
+ },
+ "Norwood": {
+  "lat": 42.194543,
+  "lon": -71.199498,
+  "sources": [
+   "OpenStreetMap",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "OpenStreetMap and Wikidata agree within 0 m (stations_real.geojson; Norwood (Q2415892)). Also USGS GNIS 1 m away"
+ },
+ "Norwood Central": {
+  "lat": 42.188775,
+  "lon": -71.199665,
+  "sources": [
+   "MBTA API",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "MBTA API and Wikidata agree within 20 m (Norwood Central; Norwood Central station (Q7061612)). Also OpenStreetMap 20 m away"
+ },
+ "Norwood Depot": {
+  "lat": 42.196857,
+  "lon": -71.196688,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA API and OpenStreetMap agree within 12 m (Norwood Depot; Norwood Depot). Also Wikidata 59 m away"
+ },
+ "Nubian": {
+  "lat": 42.329544,
+  "lon": -71.083982,
+  "sources": [
+   "MBTA API",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "MBTA API and Wikidata agree within 5 m (stations_real.geojson; Nubian station (Q537041)). Also OpenStreetMap 21 m away"
+ },
+ "Nut Island": {
+  "lat": 42.279266,
+  "lon": -70.953936,
+  "sources": [
+   "OpenStreetMap",
+   "USGS GNIS"
+  ],
+  "verified": true,
+  "note": "OpenStreetMap and USGS GNIS agree within 1 m (Nut Island, Quincy, Norfolk County, Massachusetts, 02191, United State; Nut Island (Cape, Norfolk Co.)). Also Wikidata 165 m away"
+ },
+ "Oak Bluffs": {
+  "lat": 41.458,
+  "lon": -70.556,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Sourced point (USGS GNIS, Wikidata, verified) at 41.454288, -70.561973 is over 200 m from mapped water, so the dock is placed by hand 646 m away at the waterfront. Sourced: Oak Bluffs ferry terminal. USGS GNIS and Wikidata agree within 46 m (Oak Bluffs (Populated Place, Dukes Co.); Oak Bluffs (Q2418436)). Also OpenStreetMap 544 m away"
+ },
+ "Oak Grove": {
+  "lat": 42.43668,
+  "lon": -71.071097,
+  "sources": [
+   "MBTA API",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "MBTA API and Wikidata agree within 29 m (stations_real.geojson; Oak Grove station (Q3467065)). Also OpenStreetMap 68 m away, USGS GNIS 346 m away"
+ },
+ "Oak Sq": {
+  "lat": 42.350878,
+  "lon": -71.168078,
+  "sources": [
+   "OpenStreetMap",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "OpenStreetMap and Wikidata agree within 7 m (stations_real.geojson; Oak Square (Q124742385))"
+ },
+ "Office Center": {
+  "lat": 42.363441,
+  "lon": -71.025749,
+  "sources": [
+   "OpenStreetMap"
+  ],
+  "verified": false,
+  "note": "Logan Office Center, Harborside Dr. One source (Logan Office Center, 1, Harborside Drive, East Boston, Boston, Suffolk). No second source found"
+ },
+ "Old Harbor": {
+  "lat": 42.3215,
+  "lon": -71.042,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Sourced point (OpenStreetMap, Wikidata, verified) at 42.324604, -71.038072 is over 200 m from mapped water, so the dock is placed by hand 472 m away at the waterfront. Sourced: Old Harbor, Dorchester. OpenStreetMap and Wikidata agree within 340 m (Old Harbor, Boston, Suffolk County, Massachusetts, 02127, United State; Old Harbor (Q49386974))"
+ },
+ "Old Wharf": {
+  "lat": 41.650779,
+  "lon": -70.145781,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Old Wharf Rd, Dennis Port: dock placed by hand on the Nantucket Sound shore at its foot (street found in OpenStreetMap). Set on the mapped shoreline 43 m from the street's nearest point (OSM street and shoreline geometry)"
+ },
+ "Onset": {
+  "lat": 41.742032,
+  "lon": -70.659657,
+  "sources": [
+   "OpenStreetMap",
+   "USGS GNIS"
+  ],
+  "verified": true,
+  "note": "OpenStreetMap and USGS GNIS agree within 156 m (Onset, Wareham, Plymouth County, Massachusetts, 02538, United States; Onset (Populated Place, Plymouth Co.)). Also Wikidata 570 m away"
+ },
+ "Orient Heights": {
+  "lat": 42.386909,
+  "lon": -71.004809,
+  "sources": [
+   "MBTA API",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "MBTA API and Wikidata agree within 1 m (Orient Heights; Orient Heights station (Q4163495)). Also OpenStreetMap 14 m away, USGS GNIS 122 m away"
+ },
+ "Osterville": {
+  "lat": 41.627,
+  "lon": -70.387,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Sourced point (OpenStreetMap, USGS GNIS, verified) at 41.628756, -70.386887 is over 200 m from mapped water, so the dock is placed by hand 194 m away at the waterfront. Sourced: OpenStreetMap and USGS GNIS agree within 34 m (Osterville, Barnstable, Barnstable County, Massachusetts, 02655, Unite; Osterville (Populated Place, Barnstable Co.)). Also Wikidata 47 m away. CHECK: hand point not confirmed within 200 m of mapped water"
+ },
+ "Packard's Corner": {
+  "lat": 42.351967,
+  "lon": -71.125031,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 34 m apart (from stations_real.geojson)"
+ },
+ "Park Street": {
+  "lat": 42.356395,
+  "lon": -71.062424,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 7 m apart (from stations_real.geojson)"
+ },
+ "Parking": {
+  "lat": 42.3658,
+  "lon": -71.0186,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Logan central parking garage; line_audit.md calls the position schematic. Placed by hand at the Central Garage"
+ },
+ "Paul Revere Park": {
+  "lat": 42.37012,
+  "lon": -71.062327,
+  "sources": [
+   "OpenStreetMap",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "OpenStreetMap and Wikidata agree within 19 m (Paul Revere Park, Charlestown, Boston, Suffolk County, Massachusetts, ; Paul Revere Park (Q17063141))"
+ },
+ "Pavilion": {
+  "lat": 42.348503,
+  "lon": -71.035935,
+  "sources": [
+   "OpenStreetMap",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "Leader Bank Pavilion. OpenStreetMap and Wikidata agree within 80 m (Leader Bank Pavilion, 290, Northern Avenue, Seaport, Boston, Suffolk C; Leader Bank Pavilion (Q4856037))"
+ },
+ "Pawtucket/Central Falls": {
+  "lat": 41.878804,
+  "lon": -71.392048,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA API and OpenStreetMap agree within 6 m (Pawtucket/Central Falls; Pawtucket/Central Falls). Also Wikidata 17 m away"
+ },
+ "Peabody": {
+  "lat": 42.527882,
+  "lon": -70.928661,
+  "sources": [
+   "USGS GNIS",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "USGS GNIS and Wikidata agree within 43 m (Peabody (Populated Place, Essex Co.); Peabody (Q54136)). Also OpenStreetMap 248 m away"
+ },
+ "Pearl St": {
+  "lat": 42.386782,
+  "lon": -71.039268,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Not found as a waterfront place: placed by hand on the Chelsea bank of the Mystic east of Admirals Hill, near the Tobin Bridge (street found in OpenStreetMap). Set on the mapped shoreline 1 m from the street's nearest point (OSM street and shoreline geometry)"
+ },
+ "Piers Park": {
+  "lat": 42.364537,
+  "lon": -71.03598,
+  "sources": [
+   "OpenStreetMap",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "OpenStreetMap and Wikidata agree within 50 m (Piers Park, East Boston, Boston, Suffolk County, Massachusetts, United; Piers Park (Q96399348))"
+ },
+ "Plum Island Central": {
+  "lat": 42.75,
+  "lon": -70.799,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Invented dock: placed by hand at mid-island on the Plum Island River side"
+ },
+ "Plum Island North": {
+  "lat": 42.8075,
+  "lon": -70.817,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Invented dock: placed by hand near the Plum Island bridge at the north end"
+ },
+ "Plum Island South": {
+  "lat": 42.696,
+  "lon": -70.78,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Invented dock: placed by hand at the south end of Plum Island near Sandy Point. CHECK: hand point not confirmed within 200 m of mapped water"
+ },
+ "Plymouth": {
+  "lat": 41.98123,
+  "lon": -70.690447,
+  "sources": [
+   "OpenStreetMap",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "Closed since 2021, Cordage Park. OpenStreetMap and Wikidata agree within 13 m (Plymouth; Plymouth station (Q7205757))"
+ },
+ "Plymouth Rock": {
+  "lat": 41.958087,
+  "lon": -70.662112,
+  "sources": [
+   "OpenStreetMap",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "OpenStreetMap and Wikidata agree within 24 m (Plymouth Rock, Water Street, Plymouth Village Historic District, North; Plymouth Rock (Q1072391)). Also USGS GNIS 41 m away"
+ },
+ "Pocasset": {
+  "lat": 41.686217,
+  "lon": -70.616142,
+  "sources": [
+   "OpenStreetMap",
+   "USGS GNIS"
+  ],
+  "verified": true,
+  "note": "OpenStreetMap and USGS GNIS agree within 1 m (Pocasset, Barnstable County, Massachusetts, United States; Pocasset (Populated Place, Barnstable Co.)). Also Wikidata 509 m away"
+ },
+ "Poormans": {
+  "lat": 42.365,
+  "lon": -71.0752,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Not found as a real place: placed by hand on the Cambridge bank between Broad Canal and the Museum of Science, on Cambridge Pkwy near the Lechmere Canal"
+ },
+ "Popponesset": {
+  "lat": 41.567,
+  "lon": -70.458,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Sourced point (OpenStreetMap, USGS GNIS, verified) at 41.573444, -70.463082 is over 200 m from mapped water, so the dock is placed by hand 829 m away at the waterfront. Sourced: OpenStreetMap and USGS GNIS agree within 1 m (Popponesset, Mashpee, Barnstable County, Massachusetts, 02365, United ; Popponesset (Populated Place, Barnstable Co.)). Also Wikidata 94 m away. CHECK: hand point not confirmed within 200 m of mapped water"
+ },
+ "Porter": {
+  "lat": 42.3884,
+  "lon": -71.119149,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 39 m apart (from stations_real.geojson)"
+ },
+ "Porzio": {
+  "lat": 42.364507,
+  "lon": -71.028637,
+  "sources": [
+   "OpenStreetMap"
+  ],
+  "verified": false,
+  "note": "Porzio Park, Jeffries Point. One source (Joseph Porzio Memorial Park, East Boston, Boston, Suffolk County, Mass). No second source found"
+ },
+ "Prides Crossing": {
+  "lat": 42.5575,
+  "lon": -70.832,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Real village with a closed commuter stop; dock placed by hand on the shore below Prides Crossing. CHECK: hand point not confirmed within 200 m of mapped water"
+ },
+ "Providence": {
+  "lat": 41.829293,
+  "lon": -71.413301,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA API and OpenStreetMap agree within 8 m (Providence; Providence). Also USGS GNIS 587 m away, Wikidata 21 m away"
+ },
+ "Provincetown": {
+  "lat": 42.05,
+  "lon": -70.183,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Sourced point (USGS GNIS, Wikidata, verified) at 42.058445, -70.178638 is over 200 m from mapped water, so the dock is placed by hand 1001 m away at the waterfront. Sourced: MacMillan Pier, Provincetown. USGS GNIS and Wikidata agree within 45 m (Provincetown (Populated Place, Barnstable Co.); Provincetown (Q49154)). Also OpenStreetMap 883 m away"
+ },
+ "Prudential": {
+  "lat": 42.34557,
+  "lon": -71.081696,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 30 m apart (from stations_real.geojson)"
+ },
+ "Quigley": {
+  "lat": 42.388,
+  "lon": -71.034,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Only an inland Quigley Park was found (Essex St, Chelsea): placed by hand on the Chelsea bank of Chelsea Creek at Marginal St, west of the Chelsea Street Bridge. CHECK: hand point not confirmed within 200 m of mapped water"
+ },
+ "Quincy": {
+  "lat": 42.2452,
+  "lon": -70.9965,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "line_audit.md: Max's invented Town River dock. Placed by hand on the Town River near Quincy Center. CHECK: hand point not confirmed within 200 m of mapped water"
+ },
+ "Quincy Adams": {
+  "lat": 42.233391,
+  "lon": -71.007153,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 25 m apart (from stations_real.geojson)"
+ },
+ "Quincy Center": {
+  "lat": 42.251809,
+  "lon": -71.005409,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 18 m apart (from stations_real.geojson)"
+ },
+ "Quincy Point": {
+  "lat": 42.2445,
+  "lon": -70.969,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Sourced point (OpenStreetMap, USGS GNIS, verified) at 42.245933, -70.982825 is over 200 m from mapped water, so the dock is placed by hand 1150 m away at the waterfront. Sourced: Former Quincy ferry at the Fore River Shipyard (1996 to 2013). OpenStreetMap and USGS GNIS agree within 1 m (Quincy Point, Quincy, Norfolk County, Massachusetts, 02169, United Sta; Quincy Point (Populated Place, Norfolk Co.)). Also Wikidata 468 m away"
+ },
+ "Race Point": {
+  "lat": 42.061752,
+  "lon": -70.244801,
+  "sources": [
+   "OpenStreetMap",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "Race Point (label: Race Point / P-Town Airport). OpenStreetMap and Wikidata agree within 65 m (Race Point, Provincetown, Barnstable County, Massachusetts, 02657, Uni; Race Point Light (Q7278912)). Also USGS GNIS 3201 m away"
+ },
+ "Raynham Place": {
+  "lat": 41.924189,
+  "lon": -71.02163,
+  "sources": [
+   "OpenStreetMap"
+  ],
+  "verified": false,
+  "note": "South Coast Rail phase 2 site at Raynham Place. One source (Gallagher Place, Raynham, Bristol County, Massachusetts, 02767, United). No second source found"
+ },
+ "Reading": {
+  "lat": 42.52221,
+  "lon": -71.108294,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 99 m apart (from stations_real.geojson)"
+ },
+ "Readville": {
+  "lat": 42.238405,
+  "lon": -71.133246,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 60 m apart (from stations_real.geojson)"
+ },
+ "Rental Cars": {
+  "lat": 42.368511,
+  "lon": -71.029175,
+  "sources": [
+   "OpenStreetMap"
+  ],
+  "verified": false,
+  "note": "Logan Rental Car Center. One source (Rental Car Center, 101, Harborside Drive, East Boston, Boston, Suffolk). No second source found"
+ },
+ "Resch": {
+  "lat": 42.355311,
+  "lon": -71.096818,
+  "sources": [
+   "OpenStreetMap"
+  ],
+  "verified": false,
+  "note": "MIT's Resch (old Pierce) Boathouse. One source (W8 Resch Boathouse, 409, Memorial Drive, MIT, Cambridge, Middlesex Cou). No second source found"
+ },
+ "Reservoir": {
+  "lat": 42.335088,
+  "lon": -71.148758,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 44 m apart (from stations_real.geojson)"
+ },
+ "Revere Beach": {
+  "lat": 42.407843,
+  "lon": -70.992533,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 3 m apart (from stations_real.geojson)"
+ },
+ "Revere Beach (dock)": {
+  "lat": 42.4083,
+  "lon": -70.9897,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Placed by hand on Revere Beach opposite Revere Beach station, about 250 m east. Dock for 'Revere Beach', 238 m from the station entry"
+ },
+ "Riverside": {
+  "lat": 42.337352,
+  "lon": -71.252685,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA API and OpenStreetMap agree within 11 m (stations_real.geojson; Riverside). Also Wikidata 24 m away"
+ },
+ "Riverside (dock)": {
+  "lat": 42.358051,
+  "lon": -71.115894,
+  "sources": [
+   "OpenStreetMap",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "Riverside Boat Club, Memorial Dr. OpenStreetMap and Wikidata agree within 5 m (Riverside Boat Club, 769, Memorial Drive, Cambridgeport, Cambridge, Mi; Riverside Boat Club (Q7338432)). Dock for 'Riverside', 11485 m from the station entry"
+ },
+ "Riverway": {
+  "lat": 42.331684,
+  "lon": -71.111931,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 7 m apart (from stations_real.geojson)"
+ },
+ "Rockport": {
+  "lat": 42.655491,
+  "lon": -70.627055,
+  "sources": [
+   "MBTA API",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "MBTA API and Wikidata agree within 54 m (Rockport; Rockport station (Q7355536)). Also OpenStreetMap 67 m away, USGS GNIS 552 m away"
+ },
+ "Rockport (dock)": {
+  "lat": 42.6585,
+  "lon": -70.6155,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Placed by hand at T Wharf on Rockport Harbor, about 900 m from the station. Dock for 'Rockport', 1003 m from the station entry"
+ },
+ "Roslindale Village": {
+  "lat": 42.287442,
+  "lon": -71.130283,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 6 m apart (from stations_real.geojson)"
+ },
+ "Route 128": {
+  "lat": 42.210308,
+  "lon": -71.147134,
+  "sources": [
+   "MBTA API",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "MBTA API and Wikidata agree within 13 m (Route 128; Route 128 station (Q7371370)). Also OpenStreetMap 40 m away"
+ },
+ "Rowes Wharf": {
+  "lat": 42.35558,
+  "lon": -71.04902,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA API and OpenStreetMap agree within 55 m (Rowes Wharf; Rowes Wharf Ferry Terminal). Also Wikidata 94 m away"
+ },
+ "Rowley": {
+  "lat": 42.726845,
+  "lon": -70.859034,
+  "sources": [
+   "MBTA API",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "MBTA API and Wikidata agree within 8 m (Rowley; Rowley station (Q7372223)). Also OpenStreetMap 36 m away, USGS GNIS 1954 m away"
+ },
+ "Roxbury Crossing": {
+  "lat": 42.330671,
+  "lon": -71.096121,
+  "sources": [
+   "MBTA API",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "MBTA API and Wikidata agree within 17 m (Roxbury Crossing; Roxbury Crossing station (Q3736876)). Also OpenStreetMap 47 m away, USGS GNIS 408 m away"
+ },
+ "Ruggles": {
+  "lat": 42.336608,
+  "lon": -71.089208,
+  "sources": [
+   "MBTA API",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "MBTA API and Wikidata agree within 1 m (Ruggles; Ruggles station (Q3736904)). Also OpenStreetMap 21 m away"
+ },
+ "Salem": {
+  "lat": 42.524792,
+  "lon": -70.895876,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 49 m apart (from stations_real.geojson)"
+ },
+ "Salem Wharf": {
+  "lat": 42.5215,
+  "lon": -70.8835,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Sourced point (OpenStreetMap, USGS GNIS, verified) at 42.521444, -70.895674 is over 200 m from mapped water, so the dock is placed by hand 999 m away at the waterfront. Sourced: Salem ferry, Blaney St. OpenStreetMap and USGS GNIS agree within 226 m (Salem, Essex County, Massachusetts, 01970, United States; Salem (Populated Place, Essex Co.)). Also Wikidata 559 m away"
+ },
+ "Salisbury": {
+  "lat": 42.8195,
+  "lon": -70.856,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Placed by hand on the Salisbury bank of the Merrimack opposite Newburyport (the town center is inland)"
+ },
+ "Sandwich Boardwalk": {
+  "lat": 41.765258,
+  "lon": -70.484392,
+  "sources": [
+   "OpenStreetMap"
+  ],
+  "verified": false,
+  "note": "One source (Sandwich Boardwalk, Sandwich, Barnstable County, Massachusetts, 02563,). No second source found"
+ },
+ "Sargent's Wharf": {
+  "lat": 42.364497,
+  "lon": -71.050181,
+  "sources": [
+   "OpenStreetMap"
+  ],
+  "verified": false,
+  "note": "One source (ABM Sargent's Wharf Parking, 269, Commercial Street, North End, Boston). No second source found"
+ },
+ "Saugus Center": {
+  "lat": 42.4646,
+  "lon": -71.011,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Saugus Center (from stations_real.geojson)"
+ },
+ "Savin Hill": {
+  "lat": 42.310591,
+  "lon": -71.053612,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA API and OpenStreetMap agree within 7 m (Savin Hill; Savin Hill). Also USGS GNIS 335 m away, Wikidata 35 m away"
+ },
+ "Science Park": {
+  "lat": 42.366664,
+  "lon": -71.067666,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA API and OpenStreetMap agree within 7 m (stations_real.geojson; Science Park/West End). Also Wikidata 19 m away"
+ },
+ "Seaport": {
+  "lat": 42.346265,
+  "lon": -71.042158,
+  "sources": [
+   "OpenStreetMap"
+  ],
+  "verified": false,
+  "note": "One source (stations_real.geojson). No second source found"
+ },
+ "Seaport (dock)": {
+  "lat": 42.3497,
+  "lon": -71.0393,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Placed by hand at Commonwealth Pier (Seaport World Trade Center), between Fan Pier and the Pavilion; the station point is about 500 m inland. Dock for 'Seaport', 447 m from the station entry"
+ },
+ "Seaver St": {
+  "lat": 42.311749,
+  "lon": -71.093502,
+  "sources": [
+   "OpenStreetMap"
+  ],
+  "verified": false,
+  "note": "One source (stations_real.geojson). No second source found"
+ },
+ "Sesuit": {
+  "lat": 41.745665,
+  "lon": -70.162242,
+  "sources": [
+   "OpenStreetMap",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "Sesuit Harbor, Dennis. OpenStreetMap and Wikidata agree within 1 m (Sesuit Creek Marshes, East Dennis, Dennis, Barnstable County, Massachu; Sesuit Creek Marshes (Q49222454))"
+ },
+ "Shad Hole Rd": {
+  "lat": 41.652247,
+  "lon": -70.133055,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Shad Hole Rd, Dennis Port: dock placed by hand where it reaches Nantucket Sound (street found in OpenStreetMap). Set on the mapped shoreline 126 m from the street's nearest point (OSM street and shoreline geometry)"
+ },
+ "Sharon": {
+  "lat": 42.124553,
+  "lon": -71.184468,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA API and OpenStreetMap agree within 8 m (Sharon; Sharon). Also USGS GNIS 488 m away, Wikidata 42 m away"
+ },
+ "Shawmut": {
+  "lat": 42.293126,
+  "lon": -71.065738,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA API and OpenStreetMap agree within 6 m (stations_real.geojson; Shawmut). Also Wikidata 6 m away"
+ },
+ "Shirley": {
+  "lat": 42.545089,
+  "lon": -71.648004,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA API and OpenStreetMap agree within 11 m (Shirley; Shirley). Also USGS GNIS 196 m away, Wikidata 13 m away"
+ },
+ "Siasconset": {
+  "lat": 41.263,
+  "lon": -69.962,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Sourced point (OpenStreetMap, USGS GNIS, verified) at 41.262623, -69.966125 is over 200 m from mapped water, so the dock is placed by hand 348 m away at the waterfront. Sourced: OpenStreetMap and USGS GNIS agree within 1 m (Siasconset, Nantucket, Massachusetts, 02564, United States; Siasconset (Populated Place, Nantucket Co.)). Also Wikidata 14 m away"
+ },
+ "Smith Point": {
+  "lat": 41.274664,
+  "lon": -70.212746,
+  "sources": [
+   "OpenStreetMap",
+   "USGS GNIS"
+  ],
+  "verified": true,
+  "note": "OpenStreetMap and USGS GNIS agree within 340 m (Smith's Point Wildlife Sanctuary, Madaket, Nantucket, Massachusetts, U; Smiths Point (Cape, Nantucket Co.))"
+ },
+ "South Acton": {
+  "lat": 42.460375,
+  "lon": -71.457744,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA API and OpenStreetMap agree within 1 m (stations_real.geojson; South Acton). Also USGS GNIS 397 m away, Wikidata 136 m away"
+ },
+ "South Dartmouth": {
+  "lat": 41.587,
+  "lon": -70.945,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Sourced point (OpenStreetMap, Wikidata, verified) at 41.574123, -70.939272 is over 200 m from mapped water, so the dock is placed by hand 1502 m away at the waterfront. Sourced: Padanaram, South Dartmouth. OpenStreetMap and Wikidata agree within 68 m (Padanaram Breakwater, Elm Street, Bayview, South Dartmouth, Dartmouth,; Padanaram Breakwater (Q48995261)). Also USGS GNIS 1959 m away"
+ },
+ "South Salem": {
+  "lat": 42.511207,
+  "lon": -70.892549,
+  "sources": [
+   "OpenStreetMap",
+   "USGS GNIS"
+  ],
+  "verified": true,
+  "note": "OpenStreetMap and USGS GNIS agree within 1 m (stations_real.geojson; South Salem (Populated Place, Essex Co.)). Also Wikidata 602 m away"
+ },
+ "South Shore": {
+  "lat": 41.2425,
+  "lon": -70.1,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Nantucket's south shore, no single place: placed by hand at Surfside Beach between Nobadeer and Cisco. Not the South Shore of Massachusetts. CHECK: hand point not confirmed within 200 m of mapped water"
+ },
+ "South St": {
+  "lat": 42.3396,
+  "lon": -71.157661,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 37 m apart (from stations_real.geojson)"
+ },
+ "South Station": {
+  "lat": 42.351497,
+  "lon": -71.055059,
+  "sources": [
+   "MBTA API",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "MBTA API and Wikidata agree within 19 m (South Station; South Station Tower (Q7568549)). Also OpenStreetMap 92 m away"
+ },
+ "South Weymouth": {
+  "lat": 42.155025,
+  "lon": -70.953302,
+  "sources": [
+   "MBTA API",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "MBTA API and Wikidata agree within 25 m (South Weymouth; South Weymouth station (Q7568926)). Also OpenStreetMap 32 m away, USGS GNIS 2243 m away"
+ },
+ "South Yarmouth": {
+  "lat": 41.667,
+  "lon": -70.185,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Sourced point (OpenStreetMap, USGS GNIS, verified) at 41.666912, -70.185223 is over 200 m from mapped water, so the dock is placed by hand 21 m away at the waterfront. Sourced: OpenStreetMap and USGS GNIS agree within 42 m (South Yarmouth, Yarmouth, Barnstable County, Massachusetts, 02664, Uni; South Yarmouth (Populated Place, Barnstable Co.)). Also Wikidata 79 m away"
+ },
+ "Southborough": {
+  "lat": 42.267024,
+  "lon": -71.524371,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA API and OpenStreetMap agree within 47 m (Southborough; Southborough). Also USGS GNIS 4272 m away, Wikidata 54 m away"
+ },
+ "Spectacle Island": {
+  "lat": 42.325331,
+  "lon": -70.987038,
+  "sources": [
+   "OpenStreetMap",
+   "USGS GNIS"
+  ],
+  "verified": true,
+  "note": "OpenStreetMap and USGS GNIS agree within 25 m (Spectacle Island, Harbor Islands, Boston, Suffolk County, Massachusett; Spectacle Island (Island, Suffolk Co.)). Also Wikidata 26 m away"
+ },
+ "Squantum": {
+  "lat": 42.296,
+  "lon": -71.014,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Sourced point (OpenStreetMap, USGS GNIS, verified) at 42.295932, -71.011994 is over 200 m from mapped water, so the dock is placed by hand 165 m away at the waterfront. Sourced: OpenStreetMap and USGS GNIS agree within 1 m (Squantum, North Quincy, Quincy, Norfolk County, Massachusetts, 02171, ; Squantum (Populated Place, Norfolk Co.)). Also Wikidata 8 m away"
+ },
+ "Squantum Point": {
+  "lat": 42.30188,
+  "lon": -71.03187,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "Marina Bay / Squantum Point ferry dock. MBTA API and OpenStreetMap agree within 14 m (Quincy (Squantum Point); Quincy/Squantum Point Park). Also USGS GNIS 614 m away, Wikidata 261 m away"
+ },
+ "St. Mary's St": {
+  "lat": 42.345974,
+  "lon": -71.107353,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 7 m apart (from stations_real.geojson)"
+ },
+ "St. Paul St": {
+  "lat": 42.343327,
+  "lon": -71.116997,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 22 m apart (from stations_real.geojson)"
+ },
+ "Stadium": {
+  "lat": 42.3895,
+  "lon": -71.066,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Former Mystic power plant site, Everett: the proposed soccer stadium (from stations_real.geojson)"
+ },
+ "Stadium (dock)": {
+  "lat": 42.388,
+  "lon": -71.065,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Placed by hand on the Mystic shore of the former Mystic power plant site in Everett, next to the station. Dock for 'Stadium', 185 m from the station entry"
+ },
+ "State": {
+  "lat": 42.358978,
+  "lon": -71.057598,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 24 m apart (from stations_real.geojson)"
+ },
+ "Stony Brook": {
+  "lat": 42.317062,
+  "lon": -71.104248,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA API and OpenStreetMap agree within 20 m (stations_real.geojson; Stony Brook). Also Wikidata 27 m away"
+ },
+ "Stoughton": {
+  "lat": 42.124084,
+  "lon": -71.103627,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 102 m apart (from stations_real.geojson)"
+ },
+ "Suffolk Downs": {
+  "lat": 42.390501,
+  "lon": -70.997123,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 5 m apart (from stations_real.geojson)"
+ },
+ "Suffolk Downs (dock)": {
+  "lat": 42.3895,
+  "lon": -70.9955,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Placed by hand on Belle Isle Inlet beside Suffolk Downs station; the North Shore boats come up the inlet. The Chelsea Creek loop also lists it. Dock for 'Suffolk Downs', 173 m from the station entry"
+ },
+ "Sullivan Sq": {
+  "lat": 42.383975,
+  "lon": -71.076994,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA API and OpenStreetMap agree within 38 m (stations_real.geojson; Sullivan Square). Also Wikidata 40 m away"
+ },
+ "Summit Ave": {
+  "lat": 42.34111,
+  "lon": -71.12561,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 49 m apart (from stations_real.geojson)"
+ },
+ "Sutherland Rd": {
+  "lat": 42.341614,
+  "lon": -71.146202,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 9 m apart (from stations_real.geojson)"
+ },
+ "Swampscott": {
+  "lat": 42.473743,
+  "lon": -70.922537,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 10 m apart (from stations_real.geojson)"
+ },
+ "Swampscott (dock)": {
+  "lat": 42.47,
+  "lon": -70.915,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Placed by hand at the Swampscott town pier (Fish House) on Humphrey St, about 1.3 km from the station. CHECK: hand point not confirmed within 200 m of mapped water. Dock for 'Swampscott', 745 m from the station entry"
+ },
+ "Symphony": {
+  "lat": 42.342687,
+  "lon": -71.085056,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 13 m apart (from stations_real.geojson)"
+ },
+ "TF Green Airport": {
+  "lat": 41.726599,
+  "lon": -71.442453,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA API and OpenStreetMap agree within 89 m (TF Green Airport; T. F. Green Airport)"
+ },
+ "Talbot Ave": {
+  "lat": 42.292246,
+  "lon": -71.07814,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 144 m apart (from stations_real.geojson)"
+ },
+ "Tappan St": {
+  "lat": 42.338459,
+  "lon": -71.138702,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 22 m apart (from stations_real.geojson)"
+ },
+ "Taunton": {
+  "lat": 41.882144,
+  "lon": -71.096817,
+  "sources": [
+   "OpenStreetMap"
+  ],
+  "verified": false,
+  "note": "South Coast Rail phase 2 Taunton (Dean St) site. One source (Taunton Fire Department - Weir Station - New, Weir Village, Taunton, B). Others disagree: Wikidata 2124 m away"
+ },
+ "Terminal A": {
+  "lat": 42.364612,
+  "lon": -71.020862,
+  "sources": [
+   "MBTA API",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "MBTA API and Wikidata agree within 57 m (Terminal A; Terminal A (Q6142737)). Also OpenStreetMap 62 m away"
+ },
+ "Terminal B": {
+  "lat": 42.362722,
+  "lon": -71.018808,
+  "sources": [
+   "OpenStreetMap",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "OpenStreetMap and Wikidata agree within 121 m (Terminal B; Q6142740 (Q6142740))"
+ },
+ "Terminal C": {
+  "lat": 42.366761,
+  "lon": -71.016081,
+  "sources": [
+   "OpenStreetMap"
+  ],
+  "verified": false,
+  "note": "One source (Terminal C). No second source found"
+ },
+ "Terminal D": {
+  "lat": 42.3676,
+  "lon": -71.0168,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Terminal D was folded into Terminal C in 2006 and returns here as a what-if: placed by hand on the Terminal C to E connector where it used to be"
+ },
+ "Terminal E": {
+  "lat": 42.369529,
+  "lon": -71.021812,
+  "sources": [
+   "OpenStreetMap"
+  ],
+  "verified": false,
+  "note": "One source (Terminal E). No second source found"
+ },
+ "Terminal F": {
+  "lat": 42.3713,
+  "lon": -71.0178,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Invented on purpose (no real Terminal F): placed by hand on the apron north of Terminal E"
+ },
+ "Terminals": {
+  "lat": 42.363177,
+  "lon": -71.01364,
+  "sources": [
+   "OpenStreetMap"
+  ],
+  "verified": false,
+  "note": "One source (stations_real.geojson). No second source found"
+ },
+ "Thompson Island": {
+  "lat": 42.315216,
+  "lon": -71.010068,
+  "sources": [
+   "OpenStreetMap",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "OpenStreetMap and Wikidata agree within 23 m (Thompson Island, Harbor Islands, Boston, Suffolk County, Massachusetts; Thompson Island (Q204813)). Also USGS GNIS 140 m away"
+ },
+ "Thompson Sq": {
+  "lat": 42.375049,
+  "lon": -71.063847,
+  "sources": [
+   "OpenStreetMap",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "OpenStreetMap and Wikidata agree within 15 m (Thompson Square, Charlestown, Boston, Suffolk County, Massachusetts, 0; Thompson Square station (Q20715100))"
+ },
+ "Thumpertown": {
+  "lat": 41.843719,
+  "lon": -70.00363,
+  "sources": [
+   "OpenStreetMap",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "OpenStreetMap and Wikidata agree within 0 m (Thumpertown Beach, Eastham, Barnstable County, Massachusetts, 02651, U; Thumpertown Beach (Q42377541)). Also USGS GNIS 1 m away"
+ },
+ "Tuckernuck Is.": {
+  "lat": 41.30029,
+  "lon": -70.254197,
+  "sources": [
+   "OpenStreetMap",
+   "USGS GNIS"
+  ],
+  "verified": true,
+  "note": "OpenStreetMap and USGS GNIS agree within 302 m (Tuckernuck Island, Nantucket, Massachusetts, United States; Tuckernuck Island (Island, Nantucket Co.)). Also Wikidata 302 m away"
+ },
+ "Tufts Medical Ctr": {
+  "lat": 42.349662,
+  "lon": -71.063917,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 6 m apart (from stations_real.geojson)"
+ },
+ "UMass Boston": {
+  "lat": 42.317,
+  "lon": -71.033,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Placed by hand at Fallon Pier beside the JFK Library on Columbia Point, the old 'Columbia Point' dock (research/ferry-network-audit.md); the campus center is about 500 m inland"
+ },
+ "Union Sq": {
+  "lat": 42.377359,
+  "lon": -71.094761,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 79 m apart (from stations_real.geojson)"
+ },
+ "Uphams Corner": {
+  "lat": 42.319125,
+  "lon": -71.068627,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 2 m apart (from stations_real.geojson)"
+ },
+ "VFW Parkway": {
+  "lat": 42.293611,
+  "lon": -71.162334,
+  "sources": [
+   "OpenStreetMap"
+  ],
+  "verified": false,
+  "note": "One source (stations_real.geojson). Others disagree: Wikidata 884 m away"
+ },
+ "Valley Rd": {
+  "lat": 42.268347,
+  "lon": -71.081343,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 7 m apart (from stations_real.geojson)"
+ },
+ "Vertex Tower": {
+  "lat": 42.354793,
+  "lon": -71.044905,
+  "sources": [
+   "OpenStreetMap"
+  ],
+  "verified": false,
+  "note": "One source (stations_real.geojson). No second source found"
+ },
+ "Vineyard Haven": {
+  "lat": 41.456,
+  "lon": -70.6,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Sourced point (OpenStreetMap, USGS GNIS, verified) at 41.454291, -70.603803 is over 200 m from mapped water, so the dock is placed by hand 369 m away at the waterfront. Sourced: Vineyard Haven ferry terminal. OpenStreetMap and USGS GNIS agree within 14 m (Vineyard Haven, Tisbury, Dukes County, Massachusetts, 02568, United St; Vineyard Haven (Populated Place, Dukes Co.)). Also Wikidata 330 m away"
+ },
+ "Waban": {
+  "lat": 42.325845,
+  "lon": -71.230609,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 3 m apart (from stations_real.geojson)"
+ },
+ "Wachusett": {
+  "lat": 42.553477,
+  "lon": -71.848488,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA API and OpenStreetMap agree within 52 m (Wachusett; Wachusett). Also USGS GNIS 2422 m away, Wikidata 65 m away"
+ },
+ "Wakefield": {
+  "lat": 42.502126,
+  "lon": -71.075566,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 6 m apart (from stations_real.geojson)"
+ },
+ "Walpole": {
+  "lat": 42.145477,
+  "lon": -71.25779,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA API and OpenStreetMap agree within 21 m (stations_real.geojson; Walpole). Also USGS GNIS 797 m away, Wikidata 24 m away"
+ },
+ "Waltham": {
+  "lat": 42.374296,
+  "lon": -71.235615,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 48 m apart (from stations_real.geojson)"
+ },
+ "Wareham": {
+  "lat": 41.762604,
+  "lon": -70.721702,
+  "sources": [
+   "OpenStreetMap",
+   "USGS GNIS"
+  ],
+  "verified": true,
+  "note": "OpenStreetMap and USGS GNIS agree within 1 m (Wareham, Plymouth County, Massachusetts, United States; Wareham (Populated Place, Plymouth Co.)). Also Wikidata 45 m away"
+ },
+ "Warren St": {
+  "lat": 42.348343,
+  "lon": -71.140457,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 38 m apart (from stations_real.geojson)"
+ },
+ "Washington Sq": {
+  "lat": 42.339394,
+  "lon": -71.13533,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 39 m apart (from stations_real.geojson)"
+ },
+ "Washington St": {
+  "lat": 42.343864,
+  "lon": -71.142853,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 28 m apart (from stations_real.geojson)"
+ },
+ "Watertown": {
+  "lat": 42.3653,
+  "lon": -71.1857,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Watertown Sq (from stations_real.geojson)"
+ },
+ "Wauwinet": {
+  "lat": 41.329288,
+  "lon": -69.996125,
+  "sources": [
+   "OpenStreetMap",
+   "USGS GNIS"
+  ],
+  "verified": true,
+  "note": "OpenStreetMap and USGS GNIS agree within 1 m (Wauwinet, Squam, Nantucket, Massachusetts, United States; Wauwinet (Populated Place, Nantucket Co.)). Also Wikidata 13 m away"
+ },
+ "Waverley Sq": {
+  "lat": 42.3876,
+  "lon": -71.190744,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 3 m apart (from stations_real.geojson)"
+ },
+ "Wedgemere": {
+  "lat": 42.444948,
+  "lon": -71.140169,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA API and OpenStreetMap agree within 44 m (Wedgemere; Wedgemere). Also USGS GNIS 55 m away, Wikidata 55 m away"
+ },
+ "Weld": {
+  "lat": 42.369424,
+  "lon": -71.12212,
+  "sources": [
+   "OpenStreetMap",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "Weld Boathouse. OpenStreetMap and Wikidata agree within 3 m (Weld Boathouse, 971, Memorial Drive, Riverside, Cambridge, Middlesex C; Weld Boathouse (Q7980854))"
+ },
+ "Wellesley": {
+  "lat": 42.296486,
+  "lon": -71.292557,
+  "sources": [
+   "OpenStreetMap",
+   "USGS GNIS"
+  ],
+  "verified": true,
+  "note": "OpenStreetMap and USGS GNIS agree within 1 m (stations_real.geojson; Wellesley (Populated Place, Norfolk Co.)). Also Wikidata 42 m away"
+ },
+ "Wellesley Farms": {
+  "lat": 42.323608,
+  "lon": -71.272288,
+  "sources": [
+   "MBTA API",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "MBTA API and Wikidata agree within 54 m (Wellesley Farms; Wellesley Farms station (Q7981244)). Also OpenStreetMap 172 m away, USGS GNIS 526 m away"
+ },
+ "Wellesley Hills": {
+  "lat": 42.31037,
+  "lon": -71.277044,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 20 m apart (from stations_real.geojson)"
+ },
+ "Wellesley Square": {
+  "lat": 42.296963,
+  "lon": -71.295709,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA API and OpenStreetMap agree within 84 m (Wellesley Square; Wellesley Square). Also Wikidata 180 m away"
+ },
+ "Wellfleet Pier": {
+  "lat": 41.929554,
+  "lon": -70.025578,
+  "sources": [
+   "OpenStreetMap"
+  ],
+  "verified": false,
+  "note": "One source (Wellfleet Town Pier, Kendrick Avenue, Mayo Beach, Wellfleet, Barnstabl). No second source found"
+ },
+ "Wellington": {
+  "lat": 42.401507,
+  "lon": -71.07715,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA API and OpenStreetMap agree within 18 m (Wellington; Wellington). Also USGS GNIS 1171 m away, Wikidata 44 m away"
+ },
+ "Wellington Hill": {
+  "lat": 42.282321,
+  "lon": -71.095051,
+  "sources": [
+   "OpenStreetMap",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "OpenStreetMap and Wikidata agree within 12 m (stations_real.geojson; Wellington Hill (Q49088083)). Also USGS GNIS 43 m away"
+ },
+ "Wessagusset": {
+  "lat": 42.249884,
+  "lon": -70.947762,
+  "sources": [
+   "OpenStreetMap",
+   "USGS GNIS"
+  ],
+  "verified": true,
+  "note": "OpenStreetMap and USGS GNIS agree within 238 m (Wessagusset Yacht Club, Pilgrim Road, Weymouth, Norfolk County, Massac; Wessagusset Beach (Beach, Norfolk Co.)). Also Wikidata 245 m away"
+ },
+ "West Broadway": {
+  "lat": 42.340914,
+  "lon": -71.05409,
+  "sources": [
+   "OpenStreetMap"
+  ],
+  "verified": false,
+  "note": "One source (stations_real.geojson). No second source found"
+ },
+ "West Concord": {
+  "lat": 42.457043,
+  "lon": -71.392892,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA API and OpenStreetMap agree within 15 m (West Concord; West Concord). Also USGS GNIS 253 m away, Wikidata 86 m away"
+ },
+ "West Dennis": {
+  "lat": 41.656,
+  "lon": -70.17,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Sourced point (OpenStreetMap, Wikidata, verified) at 41.664353, -70.169602 is over 200 m from mapped water, so the dock is placed by hand 924 m away at the waterfront. Sourced: OpenStreetMap and Wikidata agree within 90 m (West Dennis, Dennis, Barnstable County, Massachusetts, 02670, United S; West Dennis Methodist Meeting House (Q133867412)). Also USGS GNIS 267 m away"
+ },
+ "West Falmouth": {
+  "lat": 41.604,
+  "lon": -70.643,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Sourced point (OpenStreetMap, USGS GNIS, verified) at 41.604239, -70.634803 is over 200 m from mapped water, so the dock is placed by hand 683 m away at the waterfront. Sourced: OpenStreetMap and USGS GNIS agree within 28 m (West Falmouth, Falmouth, Barnstable County, Massachusetts, 02574, Unit; West Falmouth (Populated Place, Barnstable Co.)). Also Wikidata 165 m away"
+ },
+ "West Gloucester": {
+  "lat": 42.611933,
+  "lon": -70.705417,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA API and OpenStreetMap agree within 5 m (West Gloucester; West Gloucester). Also USGS GNIS 456 m away, Wikidata 8 m away"
+ },
+ "West Island": {
+  "lat": 41.593,
+  "lon": -70.83,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Sourced point (OpenStreetMap) at 41.596421, -70.831865 is over 200 m from mapped water, so the dock is placed by hand 409 m away at the waterfront. Sourced: One source (West Island, Fairhaven, Bristol County, Massachusetts, 02741, United S). Others disagree: USGS GNIS 1085 m away, Wikidata 1084 m away. CHECK: hand point not confirmed within 200 m of mapped water"
+ },
+ "West Medford": {
+  "lat": 42.421776,
+  "lon": -71.133342,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 12 m apart (from stations_real.geojson)"
+ },
+ "West Natick": {
+  "lat": 42.283064,
+  "lon": -71.391797,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA API and OpenStreetMap agree within 4 m (West Natick; West Natick). Also USGS GNIS 1223 m away, Wikidata 4 m away"
+ },
+ "West Newton": {
+  "lat": 42.347878,
+  "lon": -71.230528,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 5 m apart (from stations_real.geojson)"
+ },
+ "West Roxbury": {
+  "lat": 42.281358,
+  "lon": -71.160065,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 7 m apart (from stations_real.geojson)"
+ },
+ "West Station": {
+  "lat": 42.356,
+  "lon": -71.126,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Beacon Park Yard, Allston (from stations_real.geojson)"
+ },
+ "West Yarmouth": {
+  "lat": 41.649,
+  "lon": -70.245,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Sourced point (OpenStreetMap, USGS GNIS, verified) at 41.650756, -70.242265 is over 200 m from mapped water, so the dock is placed by hand 299 m away at the waterfront. Sourced: OpenStreetMap and USGS GNIS agree within 118 m (West Yarmouth, Yarmouth, Barnstable County, Massachusetts, 02673, Unit; West Yarmouth (Populated Place, Barnstable Co.)). Also Wikidata 235 m away. CHECK: hand point not confirmed within 200 m of mapped water"
+ },
+ "Westborough": {
+  "lat": 42.269644,
+  "lon": -71.647076,
+  "sources": [
+   "MBTA API",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "MBTA API and Wikidata agree within 19 m (Westborough; Westborough station (Q7987128)). Also OpenStreetMap 37 m away, USGS GNIS 2545 m away"
+ },
+ "Western Ave": {
+  "lat": 42.36439,
+  "lon": -71.116261,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Western Ave bridge: dock placed by hand on the Allston bank at the bridge (street found in OpenStreetMap and Wikidata). Set on the mapped shoreline 10 m from the street's nearest point (OSM street and shoreline geometry)"
+ },
+ "Weston": {
+  "lat": 42.366763,
+  "lon": -71.303113,
+  "sources": [
+   "OpenStreetMap",
+   "USGS GNIS"
+  ],
+  "verified": true,
+  "note": "OpenStreetMap and USGS GNIS agree within 1 m (stations_real.geojson; Weston (Populated Place, Middlesex Co.)). Also Wikidata 943 m away"
+ },
+ "Weymouth": {
+  "lat": 42.224222,
+  "lon": -70.962684,
+  "sources": [
+   "OpenStreetMap"
+  ],
+  "verified": false,
+  "note": "One source (stations_real.geojson). No second source found"
+ },
+ "Weymouth Landing/East Braintree": {
+  "lat": 42.221503,
+  "lon": -70.968152,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA API and OpenStreetMap agree within 6 m (Weymouth Landing/East Braintree; Weymouth Landing/East Braintree). Also Wikidata 117 m away"
+ },
+ "White St": {
+  "lat": 42.38051,
+  "lon": -71.041821,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "White St, East Boston: dock placed by hand where Eagle Hill meets the harbor at the mouth of Chelsea Creek (street found in OpenStreetMap and Wikidata). Set on the mapped shoreline 133 m from the street's nearest point (OSM street and shoreline geometry)"
+ },
+ "Whitman": {
+  "lat": 42.082749,
+  "lon": -70.923411,
+  "sources": [
+   "MBTA API",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "MBTA API and Wikidata agree within 17 m (Whitman; Whitman station (Q7996606)). Also OpenStreetMap 27 m away, USGS GNIS 1033 m away"
+ },
+ "Wickford Junction": {
+  "lat": 41.581289,
+  "lon": -71.491147,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA API and OpenStreetMap agree within 36 m (Wickford Junction; Wickford Junction). Also USGS GNIS 224 m away, Wikidata 58 m away"
+ },
+ "Wilbur": {
+  "lat": 41.674,
+  "lon": -70.18,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Not identified as a place: placed by hand on Bass River between South Yarmouth and the Route 28 bridge. CHECK: hand point not confirmed within 200 m of mapped water"
+ },
+ "Wilmington": {
+  "lat": 42.546624,
+  "lon": -71.174334,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 25 m apart (from stations_real.geojson)"
+ },
+ "Winchester": {
+  "lat": 42.452318,
+  "lon": -71.136998,
+  "sources": [
+   "OpenStreetMap",
+   "USGS GNIS"
+  ],
+  "verified": true,
+  "note": "OpenStreetMap and USGS GNIS agree within 1 m (stations_real.geojson; Winchester (Populated Place, Middlesex Co.)). Also Wikidata 43 m away"
+ },
+ "Windsor Gardens": {
+  "lat": 42.172127,
+  "lon": -71.219366,
+  "sources": [
+   "MBTA API",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "MBTA API and Wikidata agree within 40 m (Windsor Gardens; Windsor Gardens station (Q8024608)). Also OpenStreetMap 50 m away"
+ },
+ "Winsor": {
+  "lat": 42.3727,
+  "lon": -71.1356,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Shared Belmont Hill and Winsor boathouse on Greenough Blvd: placed by hand just downstream of Belmont Hill"
+ },
+ "Winthrop Beach": {
+  "lat": 42.377875,
+  "lon": -70.973105,
+  "sources": [
+   "OpenStreetMap",
+   "USGS GNIS"
+  ],
+  "verified": true,
+  "note": "OpenStreetMap and USGS GNIS agree within 1 m (Winthrop Beach, Winthrop, Suffolk County, Massachusetts, 02152, United; Winthrop Beach (Populated Place, Suffolk Co.)). Also Wikidata 393 m away"
+ },
+ "Winthrop Center": {
+  "lat": 42.3762,
+  "lon": -70.9864,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Winthrop (from stations_real.geojson)"
+ },
+ "Winthrop Landing": {
+  "lat": 42.36669,
+  "lon": -70.97384,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "Winthrop ferry landing. MBTA API and OpenStreetMap agree within 6 m (Winthrop (Winthrop Landing); Winthrop Landing). Also USGS GNIS 1188 m away, Wikidata 1206 m away"
+ },
+ "Wollaston": {
+  "lat": 42.266514,
+  "lon": -71.020337,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 30 m apart (from stations_real.geojson)"
+ },
+ "Wollaston Beach": {
+  "lat": 42.272,
+  "lon": -71.023,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Sourced point (OpenStreetMap, Wikidata, verified) at 42.280654, -71.011993 is over 200 m from mapped water, so the dock is placed by hand 1318 m away at the waterfront. Sourced: OpenStreetMap and Wikidata agree within 1 m (Wollaston Beach, North Quincy, Quincy, Norfolk County, Massachusetts, ; Wollaston Beach (Q8030314)). Also USGS GNIS 1 m away. CHECK: hand point not confirmed within 200 m of mapped water"
+ },
+ "Wonderland": {
+  "lat": 42.41342,
+  "lon": -70.991648,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 7 m apart (from stations_real.geojson)"
+ },
+ "Wonderland (dock)": {
+  "lat": 42.415,
+  "lon": -70.9875,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Placed by hand at the north end of Revere Beach, east of Wonderland station. Dock for 'Wonderland', 383 m from the station entry"
+ },
+ "Wood Island": {
+  "lat": 42.37964,
+  "lon": -71.022865,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 8 m apart (from stations_real.geojson)"
+ },
+ "Woodland": {
+  "lat": 42.332902,
+  "lon": -71.243362,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 3 m apart (from stations_real.geojson)"
+ },
+ "Woods Hole": {
+  "lat": 41.522631,
+  "lon": -70.670356,
+  "sources": [
+   "OpenStreetMap",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "Woods Hole ferry terminal. OpenStreetMap and Wikidata agree within 1 m (Woods Hole; Woods Hole Ferry Terminal (Q113368841)). Also USGS GNIS 485 m away"
+ },
+ "Worcester": {
+  "lat": 42.261056,
+  "lon": -71.794428,
+  "sources": [
+   "MBTA API",
+   "Wikidata"
+  ],
+  "verified": true,
+  "note": "MBTA API and Wikidata agree within 42 m (Worcester; Union Station (Q7886112)). Also OpenStreetMap 53 m away, USGS GNIS 670 m away"
+ },
+ "Wrinkle Point": {
+  "lat": 41.656231,
+  "lon": -70.188353,
+  "sources": [
+   "USGS GNIS"
+  ],
+  "verified": false,
+  "note": "One source (Wrinkle Point (Cape, Barnstable Co.)). No second source found"
+ },
+ "Wu Sq": {
+  "lat": 42.2861,
+  "lon": -71.1385,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Invented NERTA stop, midway Roslindale Village to Bellevue (from stations_real.geojson)"
+ },
+ "Wyoma Sq": {
+  "lat": 42.479,
+  "lon": -70.966,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Wyoma Sq, Lynn (from stations_real.geojson)"
+ },
+ "Wyoming Hill": {
+  "lat": 42.451731,
+  "lon": -71.069379,
+  "sources": [
+   "MBTA API",
+   "OpenStreetMap"
+  ],
+  "verified": true,
+  "note": "MBTA and OSM 25 m apart (from stations_real.geojson)"
+ },
+ "Yarmouth": {
+  "lat": 41.653,
+  "lon": -70.1855,
+  "sources": [
+   "placed by hand"
+  ],
+  "verified": false,
+  "note": "Yarmouth's GNIS point is Yarmouth Port on the north shore; this stop is on the Nantucket Sound side where the Bass River loop starts, so it is placed by hand at the mouth of Bass River"
+ },
+ "Bleachery": {
+  "lat": 42.369078,
+  "lon": -71.223026,
+  "sources": [
+   "OpenStreetMap"
+  ],
+  "verified": false,
+  "note": "NERTA Red and Green terminus named for the real Bleachery neighborhood of Waltham (Moody St and Pine St, by the Charles); placed at the neighborhood point. One source (Bleachery Dam, Waltham, Middlesex County, Massachusetts, 02454, United). No second source found"
+ }
+}

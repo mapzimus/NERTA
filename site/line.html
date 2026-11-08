@@ -5,6 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Line | NERTA</title>
 <link rel="icon" href="/assets/logo/t.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/icons/t-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/icons/t-180.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="apple-mobile-web-app-title" content="NERTA">
+<meta name="theme-color" content="#16161a">
 <link rel="stylesheet" href="/css/site.css">
 <script src="/js/common.js" defer></script>
 <script src="/js/line.js" defer></script>
@@ -22,7 +27,6 @@
     <div class="card"><h2>Stations</h2><div id="strip"></div></div>
     <div>
       <a class="map-card" id="poster" data-lightbox><div class="thumb" style="aspect-ratio:auto"><img id="poster-img" alt=""></div><div class="body"><b>Line map</b><span>Click to enlarge.</span></div></a>
-      <p class="small" style="margin:8px 0 0"><a id="pdf">Download the PDF</a></p>
       <div class="card" style="margin-top:20px"><h2>How often trains run</h2>
         <table class="data"><thead><tr><th>Time</th><th class="num">Weekdays</th><th class="num">Weekends</th></tr></thead><tbody id="headways"></tbody></table>
         <p class="small muted" style="margin:10px 0 0">Service runs 24 hours. Overnight trains are driverless and stop at every station.</p>

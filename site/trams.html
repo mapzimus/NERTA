@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trams | NERTA</title>
+<meta name="description" content="Every NERTA tram route: where it runs, the stops it serves, and current service.">
+<link rel="icon" href="/assets/logo/t.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/icons/t-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/icons/t-180.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="apple-mobile-web-app-title" content="NERTA">
+<meta name="theme-color" content="#16161a">
+<link rel="stylesheet" href="/css/site.css">
+<script src="/js/common.js" defer></script>
+<script src="/js/tram.js" defer></script>
+</head>
+<body>
+<header class="page-head colored" style="background:#e0457b"><div class="wrap">
+  <div class="crumbs"><a href="/">Home</a> / Trams</div>
+  <h1>Trams</h1>
+  <p class="lede" id="tram-lede"></p>
+</div></header>
+<main id="main">
+  <section class="section"><div class="wrap">
+    <div data-release="tram" style="margin-bottom:28px">
+      <a class="map-card" href="/assets/maps/tram_map.webp" data-lightbox data-title="Tram map"><div class="thumb" style="aspect-ratio:auto"><img data-src="/assets/maps/tram_map_thumb.webp" alt="Tram map"></div><div class="body"><b>Tram map</b><span>Every route and stop. Click to enlarge.</span></div></a>
+      <div class="grid two" style="margin-top:20px">
+        <a class="map-card" href="/assets/maps/tram_network.webp" data-lightbox data-title="Tram network"><div class="thumb" style="aspect-ratio:auto"><img data-src="/assets/maps/tram_network_thumb.webp" alt="Tram network map"></div><div class="body"><b>Tram network</b><span>Every route over the subway and rail network.</span></div></a>
+        <a class="map-card" href="/assets/maps/tram_display.webp" data-lightbox data-title="Station display"><div class="thumb" style="aspect-ratio:auto"><img data-src="/assets/maps/tram_display_thumb.webp" alt="Tram network station display"></div><div class="body"><b>Station display</b><span>The tram network as it appears in every station.</span></div></a>
+      </div>
+    </div>
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;gap:10px;align-items:baseline;flex-wrap:wrap"><h2 style="margin:0">Routes</h2><span class="small muted" id="tram-count"></span></div>
+      <div class="grid two" style="margin-top:12px;align-items:end">
+        <label class="field" style="margin:0">Find a route<input id="tram-q" type="search" placeholder="Route number, street or stop" autocomplete="off"></label>
+        <label class="field" style="margin:0">Sort by<select id="tram-sort"><option value="number">Route number</option><option value="name">Street name</option><option value="stops">Most stops</option></select></label>
+      </div>
+      <ul class="status-list" id="tram-lines" style="margin-top:10px"></ul>
+    </div>
+  </div></section>
+</main>
+</body>
+</html>

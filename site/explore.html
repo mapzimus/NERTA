@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Street Map | NERTA</title>
+<meta name="description" content="Every NERTA subway station, Regional Rail stop and ferry dock at its real location on a street map.">
+<link rel="icon" href="/assets/logo/t.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/icons/t-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/icons/t-180.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="apple-mobile-web-app-title" content="NERTA">
+<meta name="theme-color" content="#16161a">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link rel="stylesheet" href="/css/site.css">
+<style>
+  .explore-find { position: relative; margin: 6px 0 12px; }
+  .explore-find input, .explore-pick { width: 100%; font: inherit; font-size: .92rem; padding: 8px 10px; border: 1px solid var(--rule); border-radius: 8px; background: #fff; color: var(--ink); }
+  .explore-find .suggest { position: absolute; left: 0; right: 0; top: 100%; z-index: 1000; background: #fff; border: 1px solid var(--rule); border-radius: 8px; margin-top: 4px; display: none; max-height: 280px; overflow-y: auto; box-shadow: 0 8px 22px rgba(0,0,0,.12); }
+  .explore-find .suggest.open { display: block; }
+  .explore-find .suggest button { display: flex; align-items: center; gap: 6px; width: 100%; text-align: left; font: inherit; font-size: .9rem; background: none; border: 0; padding: 7px 10px; cursor: pointer; color: var(--ink); }
+  .explore-find .suggest button:hover, .explore-find .suggest button.active { background: var(--wash); }
+  .explore-label { display: block; font-size: .78rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin-top: 10px; }
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" defer></script>
+<script src="/js/common.js" defer></script>
+<script src="/js/explore.js" defer></script>
+</head>
+<body>
+<main id="main" class="map-shell">
+  <div id="map" aria-label="Street map of the NERTA network"></div>
+  <aside class="map-side" id="side">
+    <p class="eyebrow">Street map</p>
+    <h1 style="font-size:1.5rem">Every stop, on the street</h1>
+    <p class="small muted">Each station and ferry dock at its real location. Tap a stop for departures, or pick a line to follow it across the region.</p>
+    <span class="explore-label">Show</span>
+    <div class="layer-toggles" id="modes"></div>
+    <label class="explore-label" for="pick">Line</label>
+    <select class="explore-pick" id="pick"></select>
+    <label class="explore-label" for="find">Find a stop</label>
+    <div class="explore-find">
+      <input id="find" type="search" placeholder="Station or dock name" autocomplete="off">
+      <div class="suggest" id="find-list"></div>
+    </div>
+    <div id="panel"><p class="muted small">No stop selected.</p></div>
+    <p class="small" style="margin-top:20px"><a href="/map.html">Diagram map</a> &middot; <a href="/maps.html">All maps</a></p>
+  </aside>
+</main>
+</body>
+</html>

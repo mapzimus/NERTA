@@ -6,15 +6,38 @@
 <title>Service Alerts | NERTA</title>
 <meta name="description" content="Current delays and planned work on NERTA lines.">
 <link rel="icon" href="/assets/logo/t.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/icons/t-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/icons/t-180.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="apple-mobile-web-app-title" content="NERTA">
+<meta name="theme-color" content="#16161a">
 <link rel="stylesheet" href="/css/site.css">
 <script src="/js/common.js" defer></script>
 <script defer>
-document.addEventListener("DOMContentLoaded", () => {
-  const N = window.NERTA;
-  const live = N.ORDER.map(k => [k, N.lineStatus(k)]).filter(([, s]) => s.level !== "ok");
-  document.getElementById("now").innerHTML = live.length ? live.map(([k, s]) =>
-    `<div class="alert-item ${k}">${N.bullet(k)} <span class="tag ${s.level}">${s.label}</span><h3>${N.LINES[k].name}: ${s.detail}</h3><p>Updated ${new Date().toLocaleTimeString("en-US", {hour: "numeric", minute: "2-digit"})}. Allow a few extra minutes.</p></div>`).join("")
-    : `<div class="alert-item"><span class="tag ok">All clear</span><h3>All lines are running normally</h3><p>No delays reported on any line.</p></div>`;
+document.addEventListener("DOMContentLoaded", async () => {
+  const N = window.NERTA, d = await N.network();
+  const link = (k, L) => L.mode === "subway" ? `/line.html?l=${k}` : L.mode === "ferry" ? `/ferry-route.html?r=${k}` : L.mode === "tram" ? `/tram-line.html?l=${k}` : `/rail-line.html?l=${k}`;
+  const groups = [["Subway", l => l.mode === "subway"], ["Regional Rail", l => l.mode === "rail" || l.mode === "hsr"], ["Ferry", l => l.mode === "ferry"], ["Trams", l => l.mode === "tram"]];
+  const time = new Date().toLocaleTimeString("en-US", {hour: "numeric", minute: "2-digit"});
+  let html = "";
+  groups.forEach(([title, test]) => {
+    const live = Object.values(d.lines).filter(test).map(l => [l.key, N.lineStatus(l.key)]).filter(([, st]) => st.level !== "ok");
+    if (!live.length) return;
+    html += `<p class="eyebrow" style="margin:18px 0 8px">${title}</p>` + live.map(([k, st]) => {
+      const L = N.LINES[k];
+      return `<div class="alert-item" style="border-left-color:${L.color}">${N.bullet(k)} <span class="tag ${st.level}">${st.label}</span><h3><a href="${link(k, L)}" style="color:inherit">${N.esc(L.name)}</a></h3><p>${N.esc(st.detail)} Updated ${time}.</p></div>`;
+    }).join("");
+  });
+  const { closed } = N.currentIssues(d);
+  if (closed.length) html = `<p class="eyebrow" style="margin:18px 0 8px">Stations</p>` + closed.map(x => `<div class="alert-item" style="border-left-color:#b0151a"><span class="tag bad">Closed</span><h3><a href="${N.stopLink(x.stop)}" style="color:inherit">${N.esc(x.stop.name)}</a></h3><p>${N.esc(x.st.detail)}</p></div>`).join("") + html;
+  const ev = N.eventNow();
+  if (ev) html = `<p class="eyebrow" style="margin:18px 0 8px">Events</p><div class="alert-item" style="border-left-color:#1f5fae"><span class="tag">Event</span><h3><a href="${N.stopLink(d.byId[ev.at])}" style="color:inherit">${N.esc(d.byId[ev.at].name)}</a></h3><p>${N.esc(ev.text)}</p></div>` + html;
+  const crowd = N.crowdAlerts(d);
+  if (crowd.length) html += `<p class="eyebrow" style="margin:18px 0 8px">Crowding</p>` + crowd.map(c => {
+    const head = c.stop ? `<a href="${N.stopLink(c.stop)}" style="color:inherit">${N.esc(c.stop.name)}</a>` : `<a href="/line.html?l=${c.line}" style="color:inherit">${N.esc(N.LINES[c.line].name)}</a>`;
+    return `<div class="alert-item" style="border-left-color:${c.line ? N.LINES[c.line].color : "#1f5fae"}">${c.line ? N.bullet(c.line) + " " : ""}<span class="tag">${c.level === 3 ? "Very crowded" : "Crowded"}</span><h3>${head}</h3><p>${N.esc(c.text)} Updated ${time}.</p></div>`;
+  }).join("");
+  document.getElementById("now").innerHTML = html || `<div class="alert-item"><span class="tag ok">All clear</span><h3>Everything is running normally</h3><p>No delays reported anywhere on the network.</p></div>`;
   document.getElementById("ok").innerHTML = N.ORDER.filter(k => N.lineStatus(k).level === "ok").map(k => `<li>${N.bullet(k)}<a class="name" href="/line.html?l=${k}">${N.LINES[k].name}</a><span class="state"><i class="dot ok"></i>Normal service</span></li>`).join("");
 });
 </script>
@@ -31,9 +54,9 @@ document.addEventListener("DOMContentLoaded", () => {
     <h2 style="margin-top:30px">Planned work</h2>
     <div class="alert-item cyan"><span class="bullet cyan">CL</span> <span class="tag">Weekend</span><h3>Cyan Line: platform tile work at Fort Point</h3><p>Trains run normally. One entrance on Congress St is closed. Use the Summer St entrance.</p></div>
     <div class="alert-item green"><span class="bullet green">GL</span> <span class="tag">Overnight</span><h3>Green Line: rail grinding on the Riverside branch</h3><p>Midnight to 4 AM, trains every 20 minutes between Reservoir and Riverside.</p></div>
-    <div class="alert-item rail"><span class="bullet rail">RR</span> <span class="tag">Notice</span><h3>Regional Rail: new High-Speed Rail platforms at Boston Central</h3><p>Montreal, Albany and Bangor trains now board on Level 4.</p></div>
+    <div class="alert-item rail"><span class="bullet rail">RR</span> <span class="tag">Notice</span><h3>High-Speed Rail: boarding at Boston Central</h3><p>Montreal, Albany and Bangor trains board on Level 4. Allow 5 minutes from the subway platforms.</p></div>
   </div>
-  <div class="card"><h2>Running normally</h2><ul class="status-list" id="ok"></ul></div>
+  <div class="card"><h2>Subway running normally</h2><ul class="status-list" id="ok"></ul></div>
 </div></section>
 </main>
 </body>

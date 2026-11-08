@@ -6,6 +6,11 @@
 <title>Subway | NERTA</title>
 <meta name="description" content="Every NERTA rapid transit line: stations, how often trains run, and current service.">
 <link rel="icon" href="/assets/logo/t.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/icons/t-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/icons/t-180.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="apple-mobile-web-app-title" content="NERTA">
+<meta name="theme-color" content="#16161a">
 <link rel="stylesheet" href="/css/site.css">
 <script src="/js/common.js" defer></script>
 <script defer>
@@ -13,12 +18,14 @@ document.addEventListener("DOMContentLoaded", async () => {
   const N = window.NERTA, d = await N.network();
   document.getElementById("lines").innerHTML = N.ORDER.map(k => {
     const s = N.lineStatus(k), L = N.LINES[k];
-    const n = d.stops.filter(x => x.lines.includes(k)).length;
+    const n = new Set(L.legs.flat()).size;
     return `<a class="card ${k}" href="/line.html?l=${k}" style="text-decoration:none;color:inherit;border-top:6px solid var(--c);display:flex;gap:16px;align-items:flex-start">
       <img src="/assets/logo/t_${k}.svg" alt="" width="54" height="54" style="flex-shrink:0">
-      <div><h2 style="margin:0 0 4px">${L.name}</h2><p class="small muted" style="margin:0 0 10px">${N.BLURB[k]}</p>
+      <div><h2 style="margin:0 0 4px">${L.name}</h2><p class="small muted" style="margin:0 0 10px">To ${L.terminals.map(t => N.esc(d.byId[t].name)).join(", ")}</p>
       <span class="small"><b>${n}</b> stations &middot; every <b>${L.headway}</b> min at peak &middot; <span class="tag ${s.level}">${s.label}</span></span></div></a>`;
   }).join("");
+  const nt = Object.values(d.lines).filter(l => l.mode === "tram").length;
+  if (nt) document.getElementById("tram-card").textContent = `${nt} routes on every major street, 24 hours a day.`;
 });
 </script>
 </head>
@@ -32,8 +39,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   <div class="grid two" id="lines"></div>
   <div class="grid three" style="margin-top:20px">
     <a class="card" href="/rail.html" style="text-decoration:none;color:inherit;border-top:6px solid #80276c"><h2>Regional Rail</h2><p class="muted" style="margin:0">Eleven lines and High-Speed Rail, all through Boston Central.</p></a>
-    <a class="card" href="/ferry.html" style="text-decoration:none;color:inherit;border-top:6px solid #00796d"><h2>Ferry</h2><p class="muted" style="margin:0">Fifteen routes on the rivers, the harbor and the coast.</p></a>
-    <div class="card" style="border-top:6px solid #00843d"><h2>Trams</h2><p class="muted" style="margin:0">A new tram network is on the way. Maps coming soon.</p></div>
+    <a class="card" href="/ferry.html" style="text-decoration:none;color:inherit;border-top:6px solid #00796d"><h2>Ferry</h2><p class="muted" style="margin:0">Routes on the rivers, the harbor and the coast.</p></a>
+    <a class="card" href="/trams.html" style="text-decoration:none;color:inherit;border-top:6px solid #e0457b"><h2>Trams</h2><p class="muted" style="margin:0" id="tram-card">Trams on every major street.</p></a>
   </div>
 </div></section></main>
 </body>
