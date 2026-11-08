@@ -153,7 +153,7 @@ def build():
     P["hmai"] = par(cut(N_SPINE, (-9, 62)), 0)
     P["hav"] = par(cut(N_SPINE, (-9, 20 + STEP * (len(HAVERHILL) - 1))), -2)
     P["pea"] = join(par(cut(NE_SPINE, (SS_X + 8, 11)), -4), walk((SS_X + 8, 7), ("N", 25)))
-    P["nbp"] = join(par(cut(NE_SPINE, (SS_X + 52, 11)), -6), walk((SS_X + 52, 5), ("NE", 21)))
+    P["nbp"] = join(par(cut(NE_SPINE, (SS_X + 58, 11)), -6), walk((SS_X + 58, 5), ("NE", 21)))
     # South side
     P["wor"] = cut(par(A_W, -4), (-125.1, -113.4))
     P["halb"] = cut(par(A_W, -2), (-133.8, -125.0))
@@ -225,11 +225,11 @@ def stations():
     BRANCHES.append(("nbp", walk(nb, ("SE", 10))))
     st("Clifton", ["nbp"], (nb[0] + 5, nb[1] - 5), "r")
     st("Marblehead", ["nbp"], (nb[0] + 10, nb[1] - 10), "r", "end")
-    st("Salem", ["nbp"], (SS_X + 22, 5), "b")
-    bev = st("Beverly", ["nbp"], (SS_X + 38, 5), "b")[0][1]
+    st("Salem", ["nbp"], (SS_X + 28, 5), "b")
+    bev = st("Beverly", ["nbp"], (SS_X + 44, 5), "b")[0][1]
     BRANCHES.append(("nbp", walk(bev, ("NE", 4), ("N", 20.6))))
-    col_stops("nbp", ["North Beverly", "Hamilton/Wenham", "Ipswich", "Rowley", "Newburyport"], SS_X + 42, 12.0, "l", ends=("Newburyport",))
-    diag_stops("nbp", ["Montserrat", "Beverly Farms", "Manchester", "West Gloucester", "Gloucester", "Rockport"], (SS_X + 52, 5), "NE", 3.0, "r",
+    col_stops("nbp", ["North Beverly", "Hamilton/Wenham", "Ipswich", "Rowley", "Newburyport"], SS_X + 48, 12.0, "l", ends=("Newburyport",))
+    diag_stops("nbp", ["Montserrat", "Beverly Farms", "Manchester", "West Gloucester", "Gloucester", "Rockport"], (SS_X + 58, 5), "NE", 3.0, "r",
                ends=("Rockport",), lp="nbp")
 
     # Worcester Line, with the Albany high-speed line on its inner side
@@ -287,6 +287,27 @@ SIDE_FIX = {"Middleborough": "l", "South Acton": "r"}
 
 
 # ---------------------------------------------------------------------------------------------------------------
+# Ferry docks at commuter stations, and where the high-speed boats stop. Docks inside the main map match the main map and the
+# line posters. The coastal docks past its edge come from the ferry network poster, which gives them commuter rail pills.
+# High-speed stops are the ferry poster's major ports plus Max's Langone Ferryport spec (November 7): Langone Ferryport, Salem,
+# Gloucester, Rockport, Quincy and New Bedford. A white ring inside the pill marks them, after the ferry poster's bullseye docks.
+FERRY_ROUTES = {"hw": ("Harbor West ferry", "#00796d", WHITE), "ns": ("North Shore ferry", "#9eb000", INK),
+                "sse": ("South Shore Express ferry", "#611824", WHITE)}
+FERRY = {  # station: (dock, route, high-speed boats stop)
+    "North Station": ("Langone Ferryport", "hw", True), "Boston Central": ("Rowes Wharf", "hw", False),
+    "South Station": ("Dorchester Ave", "hw", False), "Swampscott": ("Swampscott", "ns", False), "Clifton": ("Clifton", "ns", False),
+    "Marblehead": ("Marblehead", "ns", False), "Salem": ("Salem Wharf", "ns", True), "Beverly": ("Beverly", "ns", False),
+    "Beverly Farms": ("Beverly Farms", "ns", False), "Manchester": ("Manchester-by-the-Sea", "ns", False),
+    "Gloucester": ("Gloucester", "ns", True), "Rockport": ("Rockport", "ns", True),
+    "Quincy Center": ("Quincy", "sse", True), "New Bedford": ("New Bedford", "sse", True), "Fall River Depot": ("Fall River", "sse", False)}
+
+
+def same_place(station, dock):
+    """A dock named for its station's own town needs no "via": Salem Wharf at Salem, Quincy at Quincy Center."""
+    a, b = station.lower(), dock.lower()
+    return a.startswith(b) or b.startswith(a)
+
+
 # Transfers: the same tables the line posters use, so a pill here matches the pill there.
 def t_codes():
     out = {}
@@ -300,7 +321,7 @@ def t_codes():
     for n, extra in LP.EXTRA_TRANSFERS.items():
         out.setdefault(n, [])
         out[n] += [c for c in extra if c not in out[n]]
-    for n in LP.FERRY_COLOR:
+    for n in list(LP.FERRY_COLOR) + list(FERRY):
         out.setdefault(n, [])
         if "F" not in out[n]:
             out[n].append("F")
@@ -358,14 +379,18 @@ def head(ax, xy, z=4.6, half=1.6):
     return tip
 
 
-def pill(ax, x0, y, text, fill, fg=WHITE, h=2.9, z=7, ring=None, fs=8.4, gold=False):
-    """A rounded pill from x0 to the right. ring: a second color just inside the edge, as on the NERTA mark."""
-    w = 6.6 if len(text) <= 3 else width(text, fs, "bold") + 2.8
+EXPRESS_PAD = 1.6   # a high-speed ferry pill is this much wider, so its letters clear the white ring
+
+
+def pill(ax, x0, y, text, fill, fg=WHITE, h=2.9, z=7, ring=None, fs=8.4, gold=False, express=False):
+    """A rounded pill from x0 to the right. ring: a second color just inside the edge, as on the NERTA mark.
+    express: a thin white ring inside the edge, where high-speed boats stop (the ferry poster's bullseye docks)."""
+    w = (6.6 if len(text) <= 3 else width(text, fs, "bold") + 2.8) + (EXPRESS_PAD if express else 0)
     ax.add_patch(FancyBboxPatch((x0, y - h / 2), w, h, boxstyle=f"round,pad=0,rounding_size={h / 2}", fc=fill, ec=PAPER, lw=1.0, zorder=z))
-    if ring:
-        k = 0.36
-        ax.add_patch(FancyBboxPatch((x0 + k, y - h / 2 + k), w - 2 * k, h - 2 * k, boxstyle=f"round,pad=0,rounding_size={h / 2 - k}", fc=ring, ec="none", zorder=z + 0.01))
-        k2 = k + 0.42
+    if ring or express:
+        k, t = (0.3, 0.26) if express else (0.36, 0.42)
+        ax.add_patch(FancyBboxPatch((x0 + k, y - h / 2 + k), w - 2 * k, h - 2 * k, boxstyle=f"round,pad=0,rounding_size={h / 2 - k}", fc=WHITE if express else ring, ec="none", zorder=z + 0.01))
+        k2 = k + t
         ax.add_patch(FancyBboxPatch((x0 + k2, y - h / 2 + k2), w - 2 * k2, h - 2 * k2, boxstyle=f"round,pad=0,rounding_size={h / 2 - k2}", fc=fill, ec="none", zorder=z + 0.02))
     if gold:
         k = 0.55
@@ -376,19 +401,33 @@ def pill(ax, x0, y, text, fill, fg=WHITE, h=2.9, z=7, ring=None, fs=8.4, gold=Fa
 
 
 def code_text(code, station):
+    if code == "F" and station in FERRY:
+        dock = FERRY[station][0]
+        return "F" if same_place(station, dock) else f"F via {dock}"
     return LP.pill_text(code, station) if code == "F" else code
 
 
 def code_w(code, station):
     t = code_text(code, station)
-    return 6.6 if len(t) <= 3 else width(t, 8.2, "bold") + 2.8
+    return (6.6 if len(t) <= 3 else width(t, 8.2, "bold") + 2.8) + (EXPRESS_PAD if code == "F" and ferry_look(station)[3] else 0)
+
+
+def ferry_look(station):
+    """Fill, text color, Key name and high-speed flag of a station's ferry pill."""
+    if station in FERRY:
+        _dock, route, fast = FERRY[station]
+        name, fill, fg = FERRY_ROUTES[route]
+        return fill, fg, name, fast
+    fill = LP.FERRY_COLOR.get(station, M.FERRY)
+    return fill, INK if fill == M.ROUTE_COLOR.get("north-shore") else WHITE, LP.ferry_name(fill), False
 
 
 def t_pill(ax, x0, y, code, station):
     text = code_text(code, station)
-    fill = LP.FERRY_COLOR.get(station, M.FERRY) if code == "F" else LP.PILL[code]
-    fg = INK if code == "YL" or (code == "F" and fill == M.ROUTE_COLOR.get("north-shore")) else WHITE
-    return pill(ax, x0, y, text, fill, fg, fs=8.6 if len(text) <= 3 else 8.2)
+    if code == "F":
+        fill, fg, _name, fast = ferry_look(station)
+        return pill(ax, x0, y, text, fill, fg, fs=8.6 if len(text) <= 3 else 8.2, express=fast)
+    return pill(ax, x0, y, text, LP.PILL[code], INK if code == "YL" else WHITE, fs=8.6 if len(text) <= 3 else 8.2)
 
 
 def pills_w(codes, station):
@@ -508,7 +547,7 @@ def draw_arrow(ax, key, pts, rows, where):
         line_pill(ax, tip[0] - w / 2, tip[1] + 1.0 + 2.6 + 1.9, key, 1)
     elif where == "sw":    # Albany: rows to the right of the tip
         for i, r in enumerate(rows):
-            txt(ax, tip[0] + 1.6, tip[1] - lead * i, r, fs, "bold", "left", "center", color=PURPLE)
+            txt(ax, tip[0] + 3.4, tip[1] - 0.8 - lead * i, r, fs, "bold", "left", "center", color=PURPLE)
     elif where == "s":     # NYC: rows under the tip, centered
         for i, r in enumerate(rows):
             txt(ax, tip[0], tip[1] - 1.2 - lead * i, r, fs, "bold", "center", "top", color=PURPLE)
@@ -599,21 +638,26 @@ def key(ax, kx0, ky1, used):
     # Transfer pills, in house order, one ferry row per ferry color on this poster
     cx = kx0 + 72
     y = ky1 - 9.4
-    fills = []
+    boats, fast_any = [], False   # one row per ferry route on this poster, then the high-speed ring
     for code, station in used:
         if code == "F":
-            f = LP.FERRY_COLOR.get(station, M.FERRY)
-            if f not in fills:
-                fills.append(f)
+            fill, fg, name, fast = ferry_look(station)
+            fast_any |= fast
+            if (fill, fg, name) not in boats:
+                boats.append((fill, fg, name))
+    order = [v[1] for v in FERRY_ROUTES.values()]
+    boats.sort(key=lambda b: order.index(b[0]) if b[0] in order else 99)
     codes = sorted({c for c, _ in used}, key=LP.ORDER.index)
+    names = []
     for c in codes:
-        entries = [(f, LP.ferry_name(f)) for f in fills] if c == "F" else [(LP.PILL[c], LP.NAMES[c])]
-        for fill, name in entries:
-            fg = INK if c == "YL" or (c == "F" and fill == M.ROUTE_COLOR.get("north-shore")) else WHITE
-            pill(ax, cx - 3.3, y, c, fill, fg, fs=8.6, z=12)
+        entries = [(f, fg, n, None) for f, fg, n in boats] + ([(boats[0][0], boats[0][1], "High-speed boats stop here", WHITE)] if fast_any else []) \
+            if c == "F" else [(LP.PILL[c], INK if c == "YL" else WHITE, LP.NAMES[c], None)]
+        for fill, fg, name, ring in entries:
+            pill(ax, cx - 3.3 - (EXPRESS_PAD / 2 if ring else 0), y, c, fill, fg, fs=8.6, z=12, express=bool(ring))
             txt(ax, cx + 4.8, y - 0.05, name, 8.8)
+            names.append(name)
             y -= 4.4
-    return min(y_left_end, y + 4.4) - 4.0, cx + 4.8 + max(width(LP.ferry_name(f), 8.8) for f in fills) + 4.0
+    return min(y_left_end, y + 4.4) - 4.0, cx + 4.8 + max(width(n, 8.8) for n in names) + 4.0
 
 
 # ---------------------------------------------------------------------------------------------------------------
@@ -637,7 +681,7 @@ def check(fig, ax):
             elif sa.distance(sb) < 0.6:
                 bad.append(f"text close: {a} | {b} ({sa.distance(sb):.2f})")
         for key_, ln in REG["line"]:
-            if sa.intersection(ln).area > 0.02:
+            if sa.intersection(ln).area > 0.005 or (key_ == "arrowhead" and sa.distance(ln) < 0.4):
                 bad.append(f"text/line: {a} | {key_}")
         for n, d in REG["dot"]:
             if sa.intersection(d).area > 0.02:
@@ -750,7 +794,7 @@ def main():
 
 
 FRAME = (-220, 260, -200, 140)  # working sheet; main() trims it to the drawing
-KEY_AT = (76, -10)              # left, top
+KEY_AT = (84, -10)              # left, top
 
 
 if __name__ == "__main__":

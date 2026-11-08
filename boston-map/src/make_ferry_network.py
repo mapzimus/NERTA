@@ -47,6 +47,7 @@ ZLW = 2.2          # river zigzag boat, points
 XLW = 7.6          # the Express spine, points
 RR = 2.4           # corner rounding, units
 LOOP_ARROW = 1.1   # river loop arrow size, units
+HUB_T = 3.4        # Langone Ferryport terminal bar thickness, units
 D2 = 0.62          # half the gap between a river loop's two tracks, units
 
 # Copied here on purpose: the main map's ferry layer is being rebuilt, so nothing below reads make_tmap's ferry data.
@@ -75,7 +76,6 @@ R = {
     "ssi": dict(name="South Shore", fam="south", color="#b5652a"),
     "qb": dict(name="Quincy Bay", fam="south", color="#4a2a14"),
     "fore": dict(name="Fore River", fam="south", color="#a07a52", text="#7d5a35"),
-    "wr": dict(name="Winthrop and Revere", fam="north", color="#6f7c00"),
     "nse": dict(name="North Shore Express", fam="north", color="#9eb000", text="#6f7c00", fast=True),
     "sse": dict(name="South Shore Express", fam="sse", color="#611824", fast=True),
     "isl": dict(name="Nantucket and Martha's Vineyard", fam="islands", color="#0277bd", fast=True),
@@ -98,8 +98,9 @@ def G(x, r):
 # Stops. at = grid spot (column, row; rows run down the sheet). side = label side. pills after the name.
 # kind: stop, xfer (routes meet), end, hub. major = express stop. span = shared dock drawn as a bar across two tracks.
 S = {}
-MAJOR = {"Long Wharf", "Navy Yard", "Quincy", "Hull", "Salem Wharf", "Gloucester",
-         "Plymouth Rock", "Provincetown", "Hyannis", "Woods Hole", "New Bedford", "Vineyard Haven", "Nantucket Downtown"}
+MAJOR = {"Langone Ferryport", "Long Wharf", "Navy Yard", "Quincy", "Hull", "Lynn Harbor", "Salem Wharf", "Gloucester", "Rockport",
+         "Newburyport", "Salisbury", "Plymouth Rock", "Provincetown", "Hyannis", "Woods Hole", "New Bedford", "Newport", "Vineyard Haven",
+         "Nantucket Downtown"}
 EVENT = ["Hatch Shell", "Agganis", "Lovejoy Wharf", "Stadium", "Encore", "Pavilion"]
 
 
@@ -132,49 +133,55 @@ for n, x in MY_T:
     stop(n, x, 17, "t", MYP.get(n, ()), route="mystic")
 for n, x in MY_B:
     stop(n, x, 19.6, "b", MYP.get(n, ()), route="mystic")
-stop("Menino", 4.3, 18.3, "l", route="mystic")   # on the slanted end of the loop, Charlestown side
+stop("Menino", 4.3, 18.3, "r", route="mystic")   # on the slanted end of the loop, Charlestown side; name inside the loop end
+S["Menino"]["nudge"] = (0, -0.7)
 
 # --- Chelsea Creek: Chelsea bank on top (read right), East Boston bank below (read left)
 CC_T = [("Quigley", 30.4), ("Chelsea St", 34.2), ("Eastern Ave", 38.0)]
-CC_B = [("Boston Bay", 28.5), ("Condor St", 32.3), ("Addison St", 36.1), ("Suffolk Downs", 39.9)]
+CC_B = [("Boston Bay", 28.5), ("Condor St", 32.3), ("Addison St", 36.1)]
 for n, x in CC_T:
     stop(n, x, 17, "t", route="chelsea")
 for n, x in CC_B:
-    stop(n, x, 19.6, "b", ["BL"] if n == "Suffolk Downs" else (), route="chelsea")
+    stop(n, x, 19.6, "b", route="chelsea")
+stop("Suffolk Downs", 41.4, 18.3, "r", ["BL"], route="chelsea")   # the loop's east end; its bar runs on across the North Shore line
 
-# --- Harbor West, down the downtown waterfront from Lovejoy Wharf
-for n, r, pl in (("Langone", 17.75, ["CL"]), ("Battery Wharf", 18.5, []), ("Sargent's Wharf", 19.25, [])):
+# --- Langone Ferryport, the hub (Max, November 7): one long terminal bar. Every major route leaves from its own berth on the bar
+# and returns there; spurs excepted. Walkway to North Station.
+LFY = 20
+stop("Langone Ferryport", 1.8, LFY, "l", ["OL", "GL", "CL", "CR"], "hub", text="Langone\nFerryport", span=((0, LFY), (3.6, LFY)))
+# --- Harbor West, down the downtown waterfront from Langone Ferryport
+for n, r, pl in (("Battery Wharf", 20.95, []), ("Sargent's Wharf", 21.6, [])):
     stop(n, 0, r, "l", pl, route="hw")
-stop("Long Wharf", 0, 20, "l", ["BL", "CL"], "hub")
-stop("Central Wharf", 0, 21, "l", ["BL", "CL"], route="hw")
-stop("Rowes Wharf", 0, 22, "l", ["CL", "CR"], route="hw")
-stop("Dorchester Ave", 0, 23, "l", ["RL", "IL", "CR"], "end", route="hw")
+stop("Long Wharf", 0, 22.3, "l", ["BL", "CL"], "xfer", route="hw")
+stop("Central Wharf", 0, 22.95, "l", ["BL", "CL"], route="hw")
+stop("Rowes Wharf", 0, 23.6, "l", ["CL", "CR"], route="hw")
+stop("Dorchester Ave", 0, 24.25, "l", ["RL", "IL", "CR"], "end", route="hw")
 
 # --- Seaport and East Boston, either side of the harbor
-for n, x, pl, k in (("Martins Park", 12.6, [], "end"), ("Fan Pier", 16.2, ["CL"], "stop"), ("Seaport", 19.8, ["CL", "YL"], "stop"),
+for n, x, pl, k in (("Martins Park", 12.6, [], "stop"), ("Fan Pier", 16.2, ["CL"], "stop"), ("Seaport", 19.8, ["CL", "YL"], "stop"),
                     ("Pavilion", 23.4, [], "end")):
     stop(n, x, 23.6, "t", pl, k, route="seaport", pm="o")
-for n, x, pl, k in (("White St", 27.4, [], "end"), ("Bennington St", 31.0, [], "stop"), ("Piers Park", 34.6, ["BL"], "stop"),
+for n, x, pl, k in (("White St", 27.4, [], "stop"), ("Bennington St", 31.0, [], "stop"), ("Piers Park", 34.6, ["BL"], "stop"),
                     ("Porzio", 38.2, [], "stop"), ("Logan Dock", 41.6, ["SL"], "end")):
     stop(n, x, 23.6, "t", pl, k, route="eb", pm="o")
 
-# --- Winthrop and Revere; Harbor Islands
-for n, r, pl, k in (("Winthrop Beach", 25.2, [], "end"), ("Highlands Beach", 26.2, [], "stop"), ("Revere Beach", 27.2, ["BL"], "stop"),
-                    ("Beachmont", 28.2, ["BL"], "end")):
-    stop(n, 45, r, "r", pl, k, route="wr", pm="o")   # BL pills in a column on the open side, names clean
-for n, r, k in (("Deer Island", 26.4, "end"), ("Spectacle Island", 27.4, "stop"), ("Georges Island", 28.4, "stop"), ("Long Island", 29.4, "end")):
-    stop(n, 31, r, "r", (), k, route="hi")
+# --- Harbor Islands, branching down between Bennington St and Piers Park
+HX = 32.9
+for n, r, k in (("Deer Island", 26.4, "stop"), ("Spectacle Island", 27.4, "stop"), ("Georges Island", 28.4, "stop"), ("Long Island", 29.4, "end")):
+    stop(n, HX, r, "r", (), k, route="hi")
 
 # --- South Shore trunk at x = 10 (South Shore Express), local routes beside it at x = 9
 TX, LX = 10, 9
-for n, r, pl, k in (("First St", 25, [], "end"), ("Castle Island", 26, [], "stop"), ("M St", 27, ["CL"], "stop"),
-                    ("Dorchester Shores", 29, [], "stop"), ("Old Harbor", 30, [], "stop"), ("Fox Point", 32, [], "stop"),
+QX, FX = 10.7, 11.4   # Quincy Bay and Fore River boats run down beside the South Shore Express
+CBR = 28.45           # Carson Beach row
+for n, r, pl, k in (("First St", 25.9, [], "stop"), ("Castle Island", 26.75, [], "stop"), ("M St", 27.6, ["CL"], "stop"),
+                    ("Dorchester Shores", 29.3, [], "stop"), ("Old Harbor", 30.15, [], "stop"), ("Fox Point", 32, [], "stop"),
                     ("Finigan", 33, [], "end")):
     stop(n, LX, r, "l", pl, k, route="ssi")
-stop("Carson Beach", LX + 0.5, 28, "l", ["CL"], "xfer", span=((LX, 28), (TX, 28)))
+stop("Carson Beach", LX + 0.5, CBR, "l", ["CL"], "xfer", span=((LX, CBR), (TX, CBR)))
 stop("UMass Boston", LX + 0.5, 31, "l", [], "xfer", span=((LX, 31), (TX, 31)))
-stop("Squantum Point", TX, 34.5, "l", [], "xfer")
-for n, r, pl, k in (("Bay Pointe", 35.5, [], "end"), ("King's Cove", 36.5, [], "stop"), ("Wessagusset", 37.5, [], "stop"),
+stop("Squantum Point", TX + 0.35, 34.5, "l", [], "xfer", span=((TX, 34.5), (QX, 34.5)))
+for n, r, pl, k in (("Bay Pointe", 35.5, [], "stop"), ("King's Cove", 36.5, [], "stop"), ("Wessagusset", 37.5, [], "stop"),
                     ("Nantasket", 39.5, [], "stop")):
     stop(n, LX, r, "l", pl, k, route="fore")
 stop("Hingham", LX + 0.5, 38.5, "l", [], "xfer", span=((LX, 38.5), (TX, 38.5)))
@@ -226,7 +233,7 @@ for i, n in enumerate(("Wareham", "Marion", "Mattapoisett", "West Island", "Fair
     stop(n, -2, 49.6 + i * 0.92, "l")
 stop("New Bedford", -2, 54, "l", ["CR"], "xfer")
 stop("South Dartmouth", -2, 55.5, "l")
-stop("Newport", -2, 57, "l")
+stop("Newport", -2, 57, "l")   # major port (Max)
 stop("Fall River", -2, 58.5, "l", ["CR"], "end", route="sse")
 stop("Cuttyhunk", 2, 58, "bl", kind="xfer")
 # Nantucket, from Chatham round to Oak Bluffs
@@ -248,14 +255,20 @@ stop("Vineyard Haven", 10, 60, "br", kind="xfer")
 stop("Lagoon Pond", 16.5, 60, "b")
 stop("Noman's Land", 10, 68.6, "b", kind="end", route="isl")
 
-# --- North Shore Express, up the right side from Winthrop
-NSX = 47
-NS = [("Winthrop Landing", []), ("Lynn Harbor", ["BL"]), ("Nahant Harbor", []), ("Swampscott", ["CR"]), ("Marblehead", ["CR"]),
+# --- North Shore Express: Winthrop and Revere folded in (Max), coastal order heading north from Langone. The first stretch runs up
+# beside Chelsea Creek at x = NLX, sharing Suffolk Downs with the creek loop; from Lynn Harbor it runs up the right side at x = NSX.
+NSX, NLX = 47, 43
+NS_LOW = [("Winthrop Landing", 20.55, []), ("Winthrop Beach", 19.85, []), ("Highlands Beach", 19.1, []), ("Beachmont", 17.5, ["BL"]),
+          ("Revere Beach", 16.7, ["BL"]), ("Wonderland", 15.9, ["BL"])]
+for n, r, pl in NS_LOW:
+    stop(n, NLX, r, "r", pl, route="nse")
+NS = [("Lynn Harbor", ["BL"]), ("Nahant Harbor", []), ("Swampscott", ["CR"]), ("Clifton", ["CR"]), ("Marblehead", ["CR"]),
       ("Salem Wharf", ["CR"]), ("Beverly", ["CR"]), ("Prides Crossing", []), ("Beverly Farms", ["CR"]), ("Manchester-by-the-Sea", ["CR"]),
       ("Magnolia", []), ("Gloucester", ["CR"]), ("Brier Neck", []), ("Rockport", ["CR"]), ("Annisquam", []), ("Crane Beach", []),
       ("Ipswich", []), ("Plum Island South", []), ("Plum Island Central", []), ("Plum Island North", []), ("Newburyport", []), ("Salisbury", [])]
 for i, (n, pl) in enumerate(NS):
-    stop(n, NSX, 19 - i, "r", pl, "end" if n == "Salisbury" else "stop", route="nse")
+    stop(n, NSX, 13.9 - i * 0.8, "r", pl, "end" if n == "Salisbury" else "stop", route="nse")
+NSE_STOPS = ["Winthrop Landing", "Winthrop Beach", "Highlands Beach", "Suffolk Downs", "Beachmont", "Revere Beach", "Wonderland"] + [n for n, _ in NS]
 for n in S:
     if S[n]["pills"] and S[n]["kind"] == "stop":
         S[n]["kind"] = "xfer"
@@ -275,9 +288,9 @@ LOOPS = [
          zig=["Menino", "Little Mystic", "Pearl St", "Medford St", "Admirals Hill", "Alford St", "Stadium", "Assembly", "Encore"],
          arrows=[((11.3, 17), "o"), ((15.0, 17), "i"), ((13.2, 19.6), "i"), ((16.9, 19.6), "o"), ((25.2, 18.3), "o"), ((9.4, 19.6), "i")]),
     dict(key="chelsea", verts=[(27, 17), (41.4, 17), (41.4, 19.6), (27, 19.6)], radii=[6.5, 6.5, 6.5, 6.5],
-         stops=[n for n, _ in CC_T] + [n for n, _ in CC_B],
+         stops=[n for n, _ in CC_T] + [n for n, _ in CC_B] + ["Suffolk Downs"],
          zig=["Boston Bay", "Quigley", "Condor St", "Chelsea St", "Addison St", "Eastern Ave", "Suffolk Downs"],
-         arrows=[((32.3, 17), "o"), ((36.1, 17), "i"), ((30.4, 19.6), "i"), ((34.2, 19.6), "o"), ((26.8, 18.3), "o"), ((41.6, 18.3), "i")]),
+         arrows=[((32.3, 17), "o"), ((36.1, 17), "i"), ((30.4, 19.6), "i"), ((34.2, 19.6), "o"), ((38.4, 19.6), "i")]),
 ]
 LOOP_OF = {n: L["key"] for L in LOOPS for n in L["stops"]}
 
@@ -296,27 +309,36 @@ def offset_path(pts, off):
     return [(x / P, -y / P) for x, y in ls.coords]
 
 
-track("express", ["Navy Yard", "Long Wharf"], XLW, 0)
-track("hw", ["Lovejoy Wharf", "Langone", "Battery Wharf", "Sargent's Wharf", "Long Wharf", "Central Wharf", "Rowes Wharf", "Dorchester Ave"])
-NS_OUT = offset_path([(0, 20), (1.5, 21.5), (NSX, 21.5)], 1.25)
-SS_OUT = offset_path([(0, 20), (1.5, 21.5), (TX, 21.5)], -1.25)
-track("nse", NS_OUT + [n for n, _ in NS])
+# The shared path out of Langone Ferryport. Each route leaves from its own berth on the terminal bar (column x), runs beside the
+# others, and branches off where its boat leaves the main path. Berths right to left, routes top to bottom, so no two cross.
+def berth(x, row):
+    return [(x, LFY), (x, row)]
+
+
+track("charles", ["Lovejoy Wharf", (0, LFY)], RLW)                      # the Charles loop meets it at its downstream end
+track("mystic", ["Navy Yard", (3.0, LFY)], RLW, 0)                       # the Mystic loop reaches it from Navy Yard
+track("express", ["Navy Yard", (2.4, 17.9), (2.4, LFY)], XLW)            # the Express: Navy Yard, Langone Ferryport, Long Wharf
+track("express", [(0.5, LFY), (0.5, 21.85), "Long Wharf"], XLW)
+track("hw", [(0, LFY), "Battery Wharf", "Sargent's Wharf", "Long Wharf", "Central Wharf", "Rowes Wharf", "Dorchester Ave"])
+track("chelsea", berth(3.5, 21.0) + [(26.0, 21.0), (26.0, 18.3), (27.0, 18.3)], RLW)   # into Chelsea Creek past East Boston
+track("nse", berth(3.2, 21.3) + [(NLX, 21.3), "Winthrop Landing", "Winthrop Beach", "Highlands Beach", (NLX, 18.3), "Beachmont",
+                                 "Revere Beach", "Wonderland", (NLX, 15.3), (NSX, 14.6)] + [n for n, _ in NS])
+track("hi", berth(2.9, 21.6) + [(HX, 21.6), "Deer Island", "Spectacle Island", "Georges Island", "Long Island"])
+track("eb", berth(2.6, 21.9) + [(25.4, 21.9), (25.4, 23.6), "White St", "Bennington St", "Piers Park", "Porzio", "Logan Dock"])
+track("seaport", berth(2.15, 23.6) + ["Martins Park", "Fan Pier", "Seaport", "Pavilion"])
+track("fore", berth(1.85, 23.9) + [(FX, 23.9), (FX, 34.9), "Bay Pointe", "King's Cove", "Wessagusset", (LX, 38.5), "Nantasket", (LX, 40.5)])
+track("qb", berth(1.55, 24.2) + [(QX, 24.2), (QX, 34.5), (16, 34.5)] + QB)
+track("ssi", berth(0.95, 24.8) + [(LX, 24.8), "First St", "Castle Island", "M St", (LX, CBR), "Dorchester Shores", "Old Harbor", (LX, 31),
+                                  "Fox Point", "Finigan"])
 # Split at the corner stops (Sandwich Boardwalk, Chatham, New Bedford, Buzzards Bay, Cuttyhunk, Coskata, Smith Point, Oak Bluffs,
 # Aquinnah, Vineyard Haven): each piece
 # runs straight into the dot's center, so a rounded corner never hooks past the dot.
-track("sse", SS_OUT + [(TX, 28), (TX, 31), "Squantum Point", "Quincy", "Quincy Point", (TX, 38.5), (TX, 40.5)]
+track("sse", berth(1.25, 24.5) + [(TX, 24.5), (TX, CBR), (TX, 31), (TX, 34.5), "Quincy", "Quincy Point", (TX, 38.5), (TX, 40.5)]
       + ["Minot (Scituate)", "Mill Wharf", "Humarock", "Brant Rock / Green Harbor", "Duxbury", "Plymouth Rock", "Sandwich Boardwalk"])
 track("sse", ["Sandwich Boardwalk", "N. Barnstable / Sandy Neck", "Sesuit", "Namskaket", "Thumpertown", "Wellfleet Pier", (PX, 47), "Provincetown",
               "Race Point", (PX, 42.5), (OX, 42.5), "Marconi Beach", "Coast Guard Beach", "Nauset Beach", "Chatham"])
 track("sse", ["Chatham"] + [n for n, _ in SOUTH] + ["Woods Hole", "New Bedford"])
 track("sse", ["New Bedford", "South Dartmouth", "Newport", "Fall River"])
-track("seaport", ["Martins Park", "Fan Pier", "Seaport", "Pavilion"])
-track("eb", ["White St", "Bennington St", "Piers Park", "Porzio", "Logan Dock"])
-track("wr", ["Winthrop Beach", "Highlands Beach", "Revere Beach", "Beachmont"])
-track("hi", ["Long Island", "Georges Island", "Spectacle Island", "Deer Island"])
-track("ssi", ["First St", "Castle Island", "M St", (LX, 28), "Dorchester Shores", "Old Harbor", (LX, 31), "Fox Point", "Finigan"])
-track("qb", ["Squantum Point", (16, 34.5)] + QB)
-track("fore", ["Bay Pointe", "King's Cove", "Wessagusset", (LX, 38.5), "Nantasket", (LX, 40.5)])
 # Canal Pass: the shortcut through the Cape Cod Canal
 track("sse", ["Sandwich Boardwalk", "Buzzards Bay"])
 # Buzzards Bay leg, Woods Hole up to the canal and round the mainland shore to New Bedford
@@ -444,7 +466,7 @@ def circle_sym(ax, n, x, y, kind, major, edge=INK):
     REG["dot"].append((n, shp))
 
 
-def bar_sym(ax, n, a, b, thick, lw, major=False, z=9):
+def bar_sym(ax, n, a, b, thick, lw, major=False, z=9, dot=4.6):
     """A white bar with round ends from a to b (drawing units): one dock served by two tracks."""
     (x0, y0), (x1, y1) = a, b
     if abs(y1 - y0) > 1e-6 and abs(x1 - x0) > 1e-6:   # a slanted bar: drawn flat, then turned about its middle
@@ -467,7 +489,7 @@ def bar_sym(ax, n, a, b, thick, lw, major=False, z=9):
                                 fc=WHITE, ec=INK, lw=lw, zorder=z))
     if major:
         cx, cy = (bb[0] + bb[2]) / 2, (bb[1] + bb[3]) / 2
-        ax.scatter([cx], [cy], s=4.6 ** 2, color=INK, lw=0, zorder=z + 0.2)
+        ax.scatter([cx], [cy], s=dot ** 2, color=INK, lw=0, zorder=z + 0.2)
     shp = box(*bb)
     SYM[n] = (shp, bb)
     REG["dot"].append((n, shp))
@@ -507,6 +529,8 @@ def draw_loop(ax, L):
         if s["major"] or n in ("Lovejoy Wharf", "Navy Yard"):
             if n not in SYM:
                 circle_sym(ax, n, x, y, "xfer", s["major"])
+        elif n == "Suffolk Downs":   # one dock for the creek loop and the North Shore boat
+            bar_sym(ax, n, (x - hl, y), (G(NLX, 0)[0], y), 2.1, 2.0)
         else:
             lw = 1.7 if s["pills"] else 1.0
             bar_sym(ax, n, (x - nrm[0] * hl, y - nrm[1] * hl), (x + nrm[0] * hl, y + nrm[1] * hl), 1.25, lw)
@@ -644,7 +668,10 @@ def draw_stops(ax):
         x, y = G(*s["at"])
         if s["span"]:
             a, b = G(*s["span"][0]), G(*s["span"][1])
-            bar_sym(ax, n, a, b, 2.1, 2.0, s["major"])
+            if s["kind"] == "hub":   # Langone Ferryport: the terminal bar every route leaves from
+                bar_sym(ax, n, a, b, HUB_T, 3.2, True, dot=7.4)
+            else:
+                bar_sym(ax, n, a, b, 2.1, 2.0, s["major"])
             continue
         key = s["route"]
         edge = col(key) if s["kind"] == "end" and key else INK
@@ -738,14 +765,15 @@ def express_explainer(ax, x0, y1, w):
     txt(ax, (xs[3] + xs[6]) / 2, y - 3.2, "local trip: every dock", 8.8, "normal", "center", "top")
     body = ("On the North Shore Express, the South Shore Express and the Islands boats, express trips stop only at the major "
             "ports, drawn as a dot inside a ring. Local trips stop at every dock. "
-            "The Express shuttle runs nonstop between Navy Yard and Long Wharf at all times.")
+            "The Express shuttle runs Navy Yard, Langone Ferryport, Long Wharf, nonstop between them, at all times.")
     t = txt(ax, x0, y - 9.5, wrap(body, 50), 9.8, "normal", "left", "top", ls=1.25)
     ports = ("Major ports: " + ", ".join(sorted(MAJOR, key=lambda n: ORDER_PORTS.index(n))) + ".")
     txt(ax, x0, y - 27.5, wrap(ports, 50), 9.8, "normal", "left", "top", ls=1.25)
 
 
-ORDER_PORTS = ["Long Wharf", "Navy Yard", "Quincy", "Hull", "Salem Wharf", "Gloucester", "Plymouth Rock",
-               "Provincetown", "Hyannis", "Woods Hole", "New Bedford", "Vineyard Haven", "Nantucket Downtown"]
+ORDER_PORTS = ["Langone Ferryport", "Long Wharf", "Navy Yard", "Quincy", "Hull", "Lynn Harbor", "Salem Wharf", "Gloucester", "Rockport",
+               "Newburyport", "Salisbury", "Plymouth Rock", "Provincetown", "Hyannis", "Woods Hole", "New Bedford", "Newport",
+               "Vineyard Haven", "Nantucket Downtown"]
 
 
 def notice(ax, x0, y0, x1, y1):
@@ -755,6 +783,7 @@ def notice(ax, x0, y0, x1, y1):
     ax.add_patch(FancyBboxPatch((x0, y1 - 6.6), x1 - x0, 3.0, boxstyle="square,pad=0", fc=INK, ec="none", zorder=1.35))
     txt(ax, x0 + 3.5, y1 - 3.3, "PASSENGER NOTICE", 11.4, "bold", "left", "center", color=WHITE)
     paras = [("Boats run 24 hours a day, 7 days a week.", "bold"),
+             ("Every major route starts and ends at Langone Ferryport.", "normal"),
              ("Every boat is automated. There is no crew on board.", "normal"),
              ("Special-event boats: extra boats run to the event docks before and after games, concerts and shows.", "normal"),
              ("Event docks: Hatch Shell, Agganis, Lovejoy Wharf, Stadium, Encore and Pavilion.", "normal"),
@@ -794,7 +823,7 @@ def key_symbols(ax, x0, y1):
     c = col("charles")
     boats = [("dots", "Harbor and river boats: round dots"),
              ("streak", "High-speed boats: streaks, on the coast and to the Islands"),
-             ("express", "The Express: Navy Yard to Long Wharf, nonstop, at all times"),
+             ("express", "The Express: Navy Yard, Langone Ferryport, Long Wharf, at all times"),
              ("cw", "River loop, outer track: boats run clockwise"),
              ("ccw", "River loop, inner track: boats run counterclockwise"),
              ("zig", "River zigzag: crosses bank to bank at every dock"),
@@ -820,12 +849,16 @@ def key_symbols(ax, x0, y1):
         txt(ax, x0 + 12.5, yy - 0.05, t, 9.6, "normal", "left", "center")
     x2 = x0 + 90
     docks = [("stop", "Dock"), ("xfer", "Transfer, or where routes meet"), ("major", "Major port: express trips stop here"),
-             ("hub", "Main hub: Long Wharf"), ("end", "End of the route"), ("bar", "Dock shared by two routes side by side"),
+             ("hub", "Main hub: Langone Ferryport, where every major route starts"), ("end", "End of the route"), ("bar", "Dock shared by two routes side by side"),
              ("cap", "River dock: one bar across both tracks"), ("acc", "All docks accessible")]
     for i, (k, t) in enumerate(docks):
         yy = y - i * row
         cx = x2 + 4.5
-        if k in ("stop", "xfer", "end", "major", "hub"):
+        if k == "hub":
+            ax.add_patch(FancyBboxPatch((cx - 2.6 - HUB_T / 2, yy - HUB_T / 2), 5.2 + HUB_T, HUB_T,
+                                        boxstyle=f"round,pad=0,rounding_size={HUB_T / 2}", fc=WHITE, ec=INK, lw=3.2, zorder=12))
+            ax.scatter([cx], [yy], s=7.4 ** 2, color=INK, lw=0, zorder=12.2)
+        elif k in ("stop", "xfer", "end", "major"):
             d, lw = DOT[k]
             ax.scatter([cx], [yy], s=d ** 2, color=WHITE, edgecolor=col("sse") if k == "end" else INK, lw=lw, zorder=12)
             if k in ("major", "hub"):
@@ -905,22 +938,24 @@ def check(fig, ax):
 
 # ---------------------------------------------------------------------------------------------------------------
 ROUTE_STOPS = {
-    "charles": {"loop": True, "banks": {"Boston bank, upstream": ["Lovejoy Wharf"] + BB, "Cambridge bank, inbound": CB + ["Navy Yard"]}},
-    "mystic": {"loop": True, "banks": {"West bank": ["Menino", "Navy Yard", "Little Mystic", "Medford St", "Alford St", "Assembly"],
-                                       "East bank": ["Encore", "Stadium", "Admirals Hill", "Pearl St"]}},
-    "chelsea": {"loop": True, "banks": {"North bank": ["Quigley", "Chelsea St", "Eastern Ave"],
-                                        "South bank": ["Suffolk Downs", "Addison St", "Condor St", "Boston Bay"]}},
-    "hw": {"stops": ["Lovejoy Wharf", "Langone", "Battery Wharf", "Sargent's Wharf", "Long Wharf", "Central Wharf", "Rowes Wharf", "Dorchester Ave"]},
-    "express": {"stops": ["Navy Yard", "Long Wharf"], "note": "At all times"},
-    "eb": {"stops": ["White St", "Bennington St", "Piers Park", "Porzio", "Logan Dock"]},
-    "hi": {"stops": ["Long Island", "Georges Island", "Spectacle Island", "Deer Island"]},
-    "seaport": {"stops": ["Martins Park", "Fan Pier", "Seaport", "Pavilion"]},
-    "ssi": {"stops": ["First St", "Castle Island", "M St", "Carson Beach", "Dorchester Shores", "Old Harbor", "UMass Boston", "Fox Point", "Finigan"]},
-    "qb": {"stops": ["Squantum Point"] + QB},
-    "fore": {"stops": ["Bay Pointe", "King's Cove", "Wessagusset", "Hingham", "Nantasket", "Hull"]},
-    "wr": {"stops": ["Winthrop Beach", "Highlands Beach", "Revere Beach", "Beachmont"]},
-    "nse": {"stops": ["Long Wharf"] + [n for n, _ in NS]},
-    "sse": {"stops": ["Long Wharf", "Carson Beach", "UMass Boston", "Squantum Point", "Quincy", "Quincy Point", "Hingham", "Hull", "Minot (Scituate)",
+    "charles": {"loop": True, "link": ["Langone Ferryport", "Lovejoy Wharf"],
+                "banks": {"Boston bank, upstream": ["Lovejoy Wharf"] + BB, "Cambridge bank, inbound": CB + ["Navy Yard"]}},
+    "mystic": {"loop": True, "link": ["Langone Ferryport", "Navy Yard"],
+               "banks": {"West bank": ["Menino", "Navy Yard", "Little Mystic", "Medford St", "Alford St", "Assembly"],
+                         "East bank": ["Encore", "Stadium", "Admirals Hill", "Pearl St"]}},
+    "chelsea": {"loop": True, "link": ["Langone Ferryport", "Boston Bay"],
+                "banks": {"North bank": ["Quigley", "Chelsea St", "Eastern Ave"], "South bank": ["Suffolk Downs", "Addison St", "Condor St", "Boston Bay"]}},
+    "hw": {"stops": ["Langone Ferryport", "Battery Wharf", "Sargent's Wharf", "Long Wharf", "Central Wharf", "Rowes Wharf", "Dorchester Ave"]},
+    "express": {"stops": ["Navy Yard", "Langone Ferryport", "Long Wharf"], "note": "At all times, nonstop between the three"},
+    "eb": {"stops": ["Langone Ferryport", "White St", "Bennington St", "Piers Park", "Porzio", "Logan Dock"]},
+    "hi": {"stops": ["Langone Ferryport", "Deer Island", "Spectacle Island", "Georges Island", "Long Island"]},
+    "seaport": {"stops": ["Langone Ferryport", "Martins Park", "Fan Pier", "Seaport", "Pavilion"]},
+    "ssi": {"stops": ["Langone Ferryport", "First St", "Castle Island", "M St", "Carson Beach", "Dorchester Shores", "Old Harbor", "UMass Boston",
+                      "Fox Point", "Finigan"]},
+    "qb": {"stops": ["Langone Ferryport", "Squantum Point"] + QB},
+    "fore": {"stops": ["Langone Ferryport", "Bay Pointe", "King's Cove", "Wessagusset", "Hingham", "Nantasket", "Hull"]},
+    "nse": {"stops": ["Langone Ferryport"] + NSE_STOPS},
+    "sse": {"stops": ["Langone Ferryport", "Carson Beach", "UMass Boston", "Squantum Point", "Quincy", "Quincy Point", "Hingham", "Hull", "Minot (Scituate)",
                       "Mill Wharf", "Humarock", "Brant Rock / Green Harbor", "Duxbury", "Plymouth Rock", "Sandwich Boardwalk", "N. Barnstable / Sandy Neck",
                       "Sesuit", "Namskaket", "Thumpertown", "Wellfleet Pier", "Provincetown", "Race Point", "Marconi Beach", "Coast Guard Beach",
                       "Nauset Beach", "Chatham"] + [n for n, _ in SOUTH] + ["Woods Hole", "New Bedford", "South Dartmouth", "Newport", "Fall River"],
@@ -943,10 +978,10 @@ def write_routes(path):
     out = []
     for k, d in ROUTE_STOPS.items():
         names = []
-        for part in ([d.get("stops", [])] + list(d.get("banks", {}).values()) + list(d.get("branches", {}).values())):
+        for part in ([d.get("stops", [])] + [d.get("link", [])] + list(d.get("banks", {}).values()) + list(d.get("branches", {}).values())):
             names += [n for n in part if n not in names]
         e = dict(key=k, name=R[k]["name"], family=dict(FAMILIES)[R[k]["fam"]], color=col(k), style="streak" if R[k].get("fast") else "dots")
-        for f in ("stops", "banks", "branches", "note", "loop"):
+        for f in ("stops", "link", "banks", "branches", "note", "loop"):
             if f in d:
                 e[f] = d[f]
         e["major_ports"] = [n for n in names if S[n]["major"]]
@@ -957,9 +992,10 @@ def write_routes(path):
         out.append(e)
     doc = {"source": "boston-map/src/make_ferry_network.py",
            "families": [{"key": k, "name": n, "routes": [r for r, d in R.items() if d["fam"] == k]} for k, n in FAMILIES],
-           "major_ports": ORDER_PORTS, "event_docks": EVENT,
-           "service": "Boats run 24/7 and are automated. Express trips on the North Shore Express, South Shore Express and Islands boats stop only "
-                      "at major ports. The Express shuttle runs nonstop between Navy Yard and Long Wharf at all times.",
+           "hub": "Langone Ferryport", "hub_walkway": "North Station", "major_ports": ORDER_PORTS, "event_docks": EVENT,
+           "service": "Boats run 24/7 and are automated. Every major route starts and ends at Langone Ferryport (spurs excepted). Express "
+                      "trips on the North Shore Express, South Shore Express and Islands boats stop only at major ports. The Express shuttle "
+                      "runs Navy Yard, Langone Ferryport, Long Wharf, nonstop between them, at all times.",
            "routes": out}
     Path(path).write_text(json.dumps(doc, indent=1), encoding="utf-8")
     print("wrote", path)
@@ -1018,19 +1054,19 @@ def main():
     sub(14.0, 15.5, "Charlestown and Somerville bank on top, Everett and Chelsea bank below")
     cap(34.2, 14.85, "CHELSEA CREEK", "chelsea", "center")
     sub(34.2, 15.5, "Chelsea bank on top, East Boston bank below")
-    cap(2.4, 19.35, "EXPRESS", "express", "center", 8.6)
-    sub(2.4, 19.9, "at all times", "center", 7.6)
-    cap(NSX, -4.6, "NORTH SHORE EXPRESS", "nse", "center")
-    sub(NSX, -3.75, "to Salisbury via Gloucester", "center", 8.4)
-    cap(-0.6, 24.2, "HARBOR WEST", "hw", "right")
+    cap(1.15, 18.3, "EXPRESS", "express", "center", 8.6)
+    sub(1.15, 18.85, "at all times", "center", 7.6)
+    sub(-0.6, 19.05, "Walkway to North Station", "right", 7.8)
+    cap(NSX, -4.7, "NORTH SHORE EXPRESS", "nse", "center")
+    sub(NSX, -3.85, "to Salisbury via Gloucester, Newburyport", "center", 8.4)
+    cap(-0.6, 24.95, "HARBOR WEST", "hw", "right", 9.4)
     cap(18.0, 25.4, "SEAPORT", "seaport", "center")
     cap(38.6, 25.0, "EAST BOSTON", "eb", "center")
-    cap(44.6, 24.0, "WINTHROP AND REVERE", "wr", "left", 9.4)
-    cap(31.4, 25.3, "HARBOR ISLANDS", "hi", "left", 9.4)
-    cap(LX - 0.6, 23.9, "SOUTH SHORE", "ssi", "right", 9.4)
+    cap(HX - 0.6, 26.4, "HARBOR ISLANDS", "hi", "right", 9.4)
+    cap(LX - 0.6, 25.35, "SOUTH SHORE", "ssi", "right", 9.4)
     cap(16.5, 33.3, "QUINCY BAY", "qb", "left", 9.4)
     cap(LX - 0.4, 41.45, "FORE RIVER", "fore", "right", 9.4)
-    cap(TX + 0.6, 26.5, "SOUTH SHORE\nEXPRESS", "sse", "left", 9.4)
+    cap(FX + 0.5, 26.6, "SOUTH SHORE\nEXPRESS", "sse", "left", 9.4)
     cap(20.8, 46.4, "Cape Cod Bay run", "sse", "center", 9.4, wt="normal")
     cap(7.0, 46.0, "Canal Pass", "sse", "center", 9.4, wt="normal")
     sub(7.0, 46.6, "shortcut through the canal", "center", 8.0)
@@ -1076,7 +1112,7 @@ def main():
     used = sorted({c for s in S.values() for c in s["pills"]}, key=ORDER.index)
     key_transfers(ax, tx0 + 3.5, ty1 - 3.2, used)
     nx0, ny1 = G(-10.2, 60.4)
-    nx1, ny0 = G(1.2, 69.8)
+    nx1, ny0 = G(1.2, 70.95)
     notice(ax, nx0, ny0, nx1, ny1)
     ax.text(x1 - 5, y0 + 4, "Not to scale. Not affiliated with the MBTA.", fontsize=7.6, color=INK, ha="right", va="bottom", zorder=13)
 

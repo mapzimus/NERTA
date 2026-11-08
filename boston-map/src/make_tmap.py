@@ -336,7 +336,9 @@ SIDE["Vertex Tower"] = "t"
 SIDE["Wu Sq"] = "tl"  # a hero square in Roslindale, where the mayor lives: a quiet nod to Mayor Wu
 NUDGE["Vertex Tower"] = (3.2, 0)  # over open water, clear of the Courthouse dock and Yellow
 CAPSULES.append(((59, 84), (61.7, 86.3)))  # David Ortiz commuter stop and Hynes, one transfer station
-CAPSULES.append(((110, 182), (114, 182)))  # Oak Grove: Orange and the Haverhill Line, like Malden Center (Max, November 7)
+CAPSULES.append(((110, 182), (114, 182)))
+A["Langone Ferryport"] = (118, 114)
+CAPSULES.append(((118, 114), (118, 120)))  # Langone Ferryport joins North Station as one complex (Max: "it also connects to north station")  # Oak Grove: Orange and the Haverhill Line, like Malden Center (Max, November 7)
 
 # Real shoreline points (lon, lat) and where each sits on the diagram. The real coast and islands are bent through these.
 SHORE = {(-71.0475, 42.3595): (120.4, 106), (-71.0505, 42.3665): (120.6, 116), (-71.0600, 42.3725): (121, 124), (-71.0480, 42.3750): (127, 130), (-71.0390, 42.3690): (126.6, 119),
@@ -505,7 +507,7 @@ FERRY_LEGS = [{"key": r["key"], "title": r["title"], "kind": "strip", "outline":
 KEEP_OUT = [(156.2, 222, -20, 60.6), (121.5, 138.2, 93.3, 101.8), (120.0, 137.5, 80.6, 86.4), (152.5, 166.0, 68.6, 72.2), (145.6, 154.0, 77.0, 80.4),
             (192.6, 230.0, 79.4, 145.0)]  # last one is the BIGGER Dig panel
 LOOP_LW, LOOP_GAP = 2.4, 0.42
-WATERMARKS = [(184.5, 95.0), (188.5, 110.0), (213.0, 75.0), (186.0, 84.5), (162.5, 101.0)]  # river loops: two rows of small dots, 2 x 0.42 units apart
+WATERMARKS = [(184.5, 95.0), (188.5, 110.0), (213.0, 75.0), (186.0, 84.5), (225.5, 76.0)]  # river loops: two rows of small dots, 2 x 0.42 units apart
 
 
 def ferry_track(ax, xy, color, lw=3.4, z=2.6, phase=0.0, casing=True, fast=False):
@@ -964,8 +966,8 @@ def main():
     tx_ = DX + 2.2
     ax.text(tx_, DY - 2.0, "The BIGGER Dig", fontsize=17, fontweight="bold", color=RED, zorder=12, va="top")
     ax.text(tx_, DY - 6.8, chr(10).join(("Four tracks under Atlantic Ave join", "North and South Stations through", "Boston Central. Every commuter rail",
-                                          "line runs straight through: Lowell to", "Providence is one seat. Walkways reach",
-                                          "Downtown Crossing and Park St.")), fontsize=7.4, color=INK, zorder=12, va="top", linespacing=1.2)
+                                          "line runs straight through: Lowell to", "Providence is one seat. Underground",
+                                          "walkways reach Downtown Crossing", "and Park St.")), fontsize=7.4, color=INK, zorder=12, va="top", linespacing=1.2)
     ax.plot([tx_, DX + 33.2], [DY - 19.0, DY - 19.0], color=INK, lw=0.7, zorder=12)
     rapid = len({c for c, *_ in lines()}) + 1  # the Silver Line is drawn on its own
     cr_lines = sum(" LINE" in t for t, *_ in CR_TEXT)
