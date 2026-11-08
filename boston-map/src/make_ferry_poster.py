@@ -64,6 +64,10 @@ def credit(ax, x0, y0, y1, title, outline, used):
     key = "   ".join(f"{c}  {NAMES[c]}" for c in used)
     if key:
         ax.text(x0, y0 + 1.7, key, fontsize=7, color=INK, va="bottom")
+    if M.WEB:  # nerta.fun: name only, @mapzimus faint
+        ax.text(x0, y0 + 0.85, "Maxwell Howe", fontsize=7.5, color=INK, va="bottom")
+        ax.text(x0, y0, "@mapzimus", fontsize=7.5, fontweight="bold", color="#b9b9b4", va="bottom")
+        return
     ax.text(x0, y0 + 0.85, "Map: Maxwell Howe", fontsize=7.5, color=INK, va="bottom")
     ax.text(x0, y0, "NOT A REAL MBTA MAP", fontsize=7.5, fontweight="bold", color=M.RED, va="bottom")
 

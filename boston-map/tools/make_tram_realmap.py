@@ -126,8 +126,10 @@ def nerta_links(stations):
 PAGE = """<!doctype html>
 <html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>NERTA Trams, Real Map</title>
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <style>
 :root { --ink:#16161a; --paper:#fcfcfa; --pink:%(TRAM)s; --mute:#5b616b; --panel:#ffffffee; }
 html,body { margin:0; height:100%%; background:var(--paper); font-family: Arial, Helvetica, sans-serif; color:var(--ink); }
@@ -167,8 +169,11 @@ html,body { margin:0; height:100%%; background:var(--paper); font-family: Arial,
 const DATA = %(DATA)s;
 const PILL = %(PILL)s;
 const map = L.map('map', {zoomControl:true, preferCanvas:false}).setView([42.355, -71.07], 12);
-L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {maxZoom:19, subdomains:'abcd',
-  attribution:'&copy; OpenStreetMap contributors &copy; CARTO'}).addTo(map);
+const ESRI = 'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/';
+L.tileLayer(ESRI + 'World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {maxZoom:19, maxNativeZoom:16,
+  attribution:'Esri, HERE, Garmin, &copy; OpenStreetMap contributors'}).addTo(map);
+map.createPane('labels'); map.getPane('labels').style.zIndex = 450; map.getPane('labels').style.pointerEvents = 'none';
+L.tileLayer(ESRI + 'World_Light_Gray_Reference/MapServer/tile/{z}/{y}/{x}', {maxZoom:19, maxNativeZoom:16, pane:'labels'}).addTo(map);
 const gNerta = L.layerGroup().addTo(map), gBus = L.layerGroup().addTo(map), gTram = L.layerGroup().addTo(map), gSta = L.layerGroup().addTo(map);
 const pills = codes => codes.map(c => `<span class="pill" style="background:${PILL[c]||'#888'};${c==='YL'?'color:#16161a':''}">${c}</span>`).join('');
 DATA.nerta.forEach(f => L.polyline(f.geometry.coordinates.map(c => [c[1], c[0]]), {color:f.properties.color, weight:4, opacity:0.45,
@@ -194,7 +199,7 @@ DATA.trams.forEach(r => {
   const el = document.createElement('div');
   el.className = 'route';
   el.innerHTML = `<span class="badge">${r.id}</span><div><b>${r.name}</b><small>${r.via}. ${r.stops.length} stops</small></div>`;
-  el.onclick = () => map.fitBounds(line.getBounds(), {padding:[40,40]});
+  el.onclick = () => map.fitBounds(line.getBounds(), {paddingTopLeft:[200,40], paddingBottomRight:[350,40]});
   document.getElementById('routes').appendChild(el);
 });
 L.control.layers(null, {'Draft trams': gTram, 'Frequent buses today': gBus, 'NERTA lines': gNerta, 'NERTA stations': gSta},

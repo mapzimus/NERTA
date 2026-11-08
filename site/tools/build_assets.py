@@ -19,8 +19,7 @@ from PIL import Image
 SITE = Path(__file__).resolve().parents[1]
 REPO = SITE.parent
 SRC = REPO / "boston-map" / "src"
-RELEASE = REPO / "boston-map" / "output" / "copies" / "release_2026-11-08"
-FERRY = REPO / "boston-map" / "output" / "copies" / "hq_2026-11-07"
+RELEASE = REPO / "boston-map" / "output" / "copies" / "web"  # web versions, from site/tools/render_web_maps.py
 sys.path.insert(0, str(SRC))
 
 import make_tmap as M  # noqa: E402  (import only; main() is never called, so nothing is drawn or saved)
@@ -141,15 +140,12 @@ def web_image(src, dst, width, quality=82):
 
 def maps():
     sizes = {}
-    full, web = web_image(RELEASE / "current_map.png", OUT / "maps" / "system_map.webp", 6000, 80)
-    web_image(RELEASE / "current_map.png", OUT / "maps" / "system_map_thumb.webp", 900)
+    full, web = web_image(RELEASE / "system_map.png", OUT / "maps" / "system_map.webp", 6000, 80)
+    web_image(RELEASE / "system_map.png", OUT / "maps" / "system_map_thumb.webp", 900)
     sizes["system"] = {"width": web[0], "height": web[1]}
     for key in LINE_KEY.values():
         web_image(RELEASE / f"line_{key}.png", OUT / "maps" / f"line_{key}.webp", 2400)
         web_image(RELEASE / f"line_{key}.png", OUT / "maps" / f"line_{key}_thumb.webp", 700)
-    for f in sorted(FERRY.glob("ferry5_*.png")):
-        web_image(f, OUT / "maps" / f"{f.stem}.webp", 2400)
-        web_image(f, OUT / "maps" / f"{f.stem}_thumb.webp", 700)
     return sizes
 
 
@@ -158,8 +154,8 @@ def downloads():
     import shutil
     dl = SITE / "downloads"
     dl.mkdir(exist_ok=True)
-    shutil.copyfile(RELEASE / "current_map.pdf", dl / "system_map.pdf")
-    shutil.copyfile(RELEASE / "current_map.png", dl / "system_map.png")
+    shutil.copyfile(RELEASE / "system_map.pdf", dl / "system_map.pdf")
+    shutil.copyfile(RELEASE / "system_map.png", dl / "system_map.png")
     for key in LINE_KEY.values():
         shutil.copyfile(RELEASE / f"line_{key}.pdf", dl / f"line_{key}.pdf")
 

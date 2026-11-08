@@ -5,6 +5,7 @@ Stop order for today's lines comes from the MBTA V3 data (data/mbta_stops.gpkg).
 on a 45-degree grid. Fan map, no official logo. Silver Line and buses left off.
 """
 from pathlib import Path
+import os
 import geopandas as gpd
 import csv
 import matplotlib.pyplot as plt
@@ -29,6 +30,7 @@ DAY = Path(__file__).resolve().parents[1]
 REPO = DAY.parent
 RED, ORANGE, BLUE, GREEN, YELLOW, PURPLE = "#da291c", "#ed8b00", "#003da5", "#00843d", "#f5c400", "#a98aa8"
 CR_TEXT_COLOR = "#80276c"
+WEB = os.environ.get("NERTA_WEB") == "1"  # nerta.fun version (Max): no hashtag, Day 8, disclaimer or sources; name under NERTA, @mapzimus in the water
 BUILT = True  # Max, November 7: drawn as built and real. lines() and CR_STOPS keep each piece's status (solid today, stripe real proposal,
               # dash invented) for line_audit.md; the drawing ignores it. Set False to show status again.
 CYAN, INDIGO = "#00a9c9", "#3f3fb5"
@@ -912,18 +914,21 @@ def main():
     NERTA_COLORS = (RED, ORANGE, YELLOW, BLUE, ROUTE_COLOR["inner-harbor"], CYAN, SILVER, HSR, INDIGO, CR_TEXT_COLOR, GREEN)
     draw_t(ax, tx, ty, tr, NERTA_COLORS)  # Max's order: Red, Orange, Yellow, Blue, ferry teal, Cyan, Silver, high-speed gold, Indigo, commuter rail purple, tram (Green)
     ro = tr + 4.5 / 4.836 / 2  # outer edge of the ring
-    draw_nerta(ax, tx, ty - ro - 1.0, 2 * ro, "B", colors=NERTA_COLORS)  # NERTA wordmark, slotted under the T
+    nb = draw_nerta(ax, tx, ty - ro - 1.0, 2 * ro, "B", colors=NERTA_COLORS)  # NERTA wordmark, slotted under the T
+    if WEB:
+        ax.text(tx, nb - 1.0, "Maxwell Howe", fontsize=11, color=INK, ha="center", va="top", zorder=12)
+        ax.text(205, 124, "@mapzimus", fontsize=13, fontweight="bold", color=COAST, ha="center", va="center", zorder=2.9)  # watermark, open water east of Deer Island
     # Title block, matched to Max's Illustrator layout
     ax.text(-25.5, 200.87 + UP, "Boston\u2019s", fontsize=34, fontweight="bold", color=INK, va="baseline", zorder=12)
     bold = FontProperties(family="Arial", weight="bold")
     tw = TextPath((0, 0), "Rapid T", size=34, prop=bold).get_extents().x1 / 4.836
     ax.text(-25.5, 192.43 + UP, "Rapid T", fontsize=34, fontweight="bold", color=INK, va="baseline", zorder=12)
     ax.text(-25.5 + tw - 0.054 * 34 / 4.836 + 0.15, 192.43 + UP, "ransit", fontsize=34, fontweight="bold", color=INK, va="baseline", zorder=12)
-    for t, y in (("Map: Maxwell Howe", 188.04), ("#30DayMapChallenge", 185.17), ("Day 8 \u2022 Utopia", 182.3)):  # tag kept for the release (Max)
+    for t, y in () if WEB else (("Map: Maxwell Howe", 188.04), ("#30DayMapChallenge", 185.17), ("Day 8 \u2022 Utopia", 182.3)):  # tag kept for the release (Max)
         ax.text(-43.72, y, t, fontsize=11, color=INK, va="baseline", zorder=12)
     narrow = FontProperties(fname=r"C:\Windows\Fonts\ARIALNI.TTF")
     narrow_bold = FontProperties(fname=r"C:\Windows\Fonts\ARIALNBI.TTF")
-    for k, t in enumerate(("This is a futuristic concept map", "and is not affiliated with the MBTA", "in any way. MOST of the map decisions",
+    for k, t in enumerate(() if WEB else ("This is a futuristic concept map", "and is not affiliated with the MBTA", "in any way. MOST of the map decisions",
                            "are grounded in real data & studies,", "proposals made, or projections for", "future projects or development.")):
         yk, x = 188.5 + UP - k * 2.978, -18.75
         for part in t.replace("MOST", "|MOST|").split("|"):  # MOST in bold (Max, November 7)
@@ -1040,7 +1045,7 @@ def main():
     ax.text(tx, y, "Driverless maglev, 24 hours a day", fontsize=7.6, va="center", color=INK, zorder=12)
     y -= 2.6
     ax.text(tx, y, "Replacement shuttle buses: none", fontsize=7.6, va="center", color=INK, zorder=12)
-    ax.text(219, -17.8, "Map not to scale. Pods on demand at every station. Map data: MBTA. Coastline: US Census.",
+    ax.text(219, -17.8, "Map not to scale. Pods on demand at every station." if WEB else "Map not to scale. Pods on demand at every station. Map data: MBTA. Coastline: US Census.",
             fontsize=7.2, color=INK, ha="right", va="top", zorder=12)
     (DAY / "output").mkdir(exist_ok=True)
     fig.savefig(DAY / "output/t_map.png", dpi=200, facecolor=PAPER)

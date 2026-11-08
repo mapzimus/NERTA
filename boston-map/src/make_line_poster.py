@@ -657,8 +657,12 @@ def main(key):
         elif st != "text":
             stroke(ax, np.array([(s0, cy), (s0 + 8, cy)]), color, LWP * 0.62, st, z=12)
         ax.text(kx + note_lead(st), cy - 0.05, t, fontsize=8.8, color=INK, ha="left", va="center", zorder=13)
-    ax.text(x1 - 5, hy + 2.2, "Map: Maxwell Howe", fontsize=9.6, color=INK, ha="right", va="center", zorder=13)
-    ax.text(x1 - 5, hy - 2.2, "#30DayMapChallenge Day 8 \u2022 Utopia", fontsize=9.6, color=INK, ha="right", va="center", zorder=13)  # kept for the release (Max)
+    if M.WEB:  # nerta.fun: name under NERTA, @mapzimus faint top right (no water on a line poster)
+        ax.text(x0 + 10, nb - 1.0, "Maxwell Howe", fontsize=8.4, color=INK, ha="center", va="top", zorder=13)
+        ax.text(x1 - 5, hy, "@mapzimus", fontsize=9.6, fontweight="bold", color="#b9b9b4", ha="right", va="center", zorder=13)
+    else:
+        ax.text(x1 - 5, hy + 2.2, "Map: Maxwell Howe", fontsize=9.6, color=INK, ha="right", va="center", zorder=13)
+        ax.text(x1 - 5, hy - 2.2, "#30DayMapChallenge Day 8 \u2022 Utopia", fontsize=9.6, color=INK, ha="right", va="center", zorder=13)  # kept for the release (Max)
 
     plt.rcParams["pdf.fonttype"] = 42
     fig.savefig(OUT / f"line_{key}.png", dpi=600, facecolor=M.PAPER)
