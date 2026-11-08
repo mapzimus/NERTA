@@ -420,7 +420,7 @@ FERRY_ROUTES = [
      "stops": ["Langone Ferryport", "Quigley", "Chelsea St", "Eastern Ave", "Suffolk Downs", "Addison St", "Condor St", "Boston Bay"]},
     {"key": "hw", "title": "Harbor West", "color": "#00796d",
      "stops": ["Langone Ferryport", "Lovejoy Wharf", "Battery Wharf", "Sargent's Wharf", "Long Wharf", "Central Wharf", "Rowes Wharf", "Dorchester Ave"]},
-    {"key": "express", "title": "Express", "color": "#003d36", "stops": ["Navy Yard", "Langone Ferryport", "Long Wharf"]},  # nonstop between them, at all times
+    {"key": "express", "title": "Fast Ferry", "color": "#003d36", "stops": ["Navy Yard", "Langone Ferryport", "Long Wharf"]},  # nonstop between them, at all times
     {"key": "eb", "title": "East Boston", "color": "#26a69a", "stops": ["Langone Ferryport", "White St", "Bennington St", "Piers Park", "Porzio", "Logan Dock"]},
     {"key": "hi", "title": "Harbor Islands", "color": "#005f73", "stops": ["Langone Ferryport", "Long Island", "Georges Island", "Spectacle Island", "Deer Island"]},
     {"key": "seaport", "title": "Seaport", "color": "#8a4b1c", "stops": ["Langone Ferryport", "Martins Park", "Fan Pier", "Seaport", "Pavilion"]},
@@ -761,10 +761,10 @@ def ferries(ax):
         ax.text(x, y, text, fontsize=7.0, fontweight="bold", color=color, ha=ha, va="bottom", zorder=6.6,
                 path_effects=[pe.withStroke(linewidth=2.4, foreground=WHITE)])
 
-    title(188.0, 149.7, "NORTH SHORE EXPRESS", "#6f7c00", ha="left")  # open water east of the route
+    title(188.0, 149.7, "NORTH SHORE FAST FERRY", "#6f7c00", ha="left")  # open water east of the route
     title(188.0, 147.5, "TO SALISBURY VIA GLOUCESTER, NEWBURYPORT", "#6f7c00", ha="left")
     title(188.0, 145.3, "HIGH-SPEED TRIPS: LANGONE, LYNN, SALEM", "#6f7c00", ha="left")
-    title(147.0, 21.5, "SOUTH SHORE EXPRESS", ROUTE_COLOR["sse"])
+    title(147.0, 21.5, "SOUTH SHORE FAST FERRY", ROUTE_COLOR["sse"])
     title(147.0, 19.3, "ON TO CAPE COD & THE ISLANDS", ROUTE_COLOR["sse"])  # the full run is on the Ferry Map
     title(184, 77.6, "HARBOR ISLANDS FERRY", ROUTE_COLOR["hi"], ha="left")
     ferry_track(ax, [GLOUCESTER_OUT, (227.6, 212.2)], ROUTE_COLOR["nse"], z=2.62, casing=True, fast=True)
@@ -774,7 +774,7 @@ def ferries(ax):
             zorder=6.6, path_effects=[pe.withStroke(linewidth=2.4, foreground=WHITE)])  # along the top edge, clear of the Salem docks
     for x_, y_ in WATERMARKS:  # Max's handle, very light, in open water
         ax.text(x_, y_, "@mapzimus", fontsize=6.0, color=WATERMARK, ha="center", va="center", zorder=1.5)
-    ax.text(198, 67, "The Express from Navy Yard follows\na crossing chartered in 1631", fontsize=7.4, color=ROUTE_COLOR["express"],
+    ax.text(198, 67, "The Fast Ferry from Navy Yard follows\na crossing chartered in 1631", fontsize=7.4, color=ROUTE_COLOR["express"],
             ha="left", va="bottom", zorder=3)
 
 
@@ -1041,7 +1041,7 @@ def main():
     y -= step
     for k, key in enumerate(("nse", "sse")):
         ferry_track(ax, [(lx + k * 6.0, y), (lx + 4.6 + k * 6.0, y)], fam[key], z=12, casing=False, fast=True)
-    row("Express ferry: North and South Shore", y)
+    row("Fast Ferry (FF): North and South Shore", y)
     y -= step
     ferry_track(ax, [(lx + 0.3, y), (lx + 10.4, y)], fam["hw"], z=12, casing=False)
     ferry_stop(ax, (lx + 5.4, y), z=12.2)

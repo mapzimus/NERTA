@@ -69,15 +69,15 @@ R = {
     "mystic": dict(name="Mystic River", fam="river", color="#cf8bff", text="#8a3fd1"),
     "chelsea": dict(name="Chelsea Creek", fam="river", color="#c74ae6", text="#a62cc4"),
     "hw": dict(name="Harbor West", fam="harbor", color="#00796d"),
-    "express": dict(name="Express", fam="harbor", color="#003d36"),
+    "express": dict(name="Fast Ferry", fam="harbor", color="#003d36"),
     "eb": dict(name="East Boston", fam="harbor", color="#26a69a", text="#1a7d73"),
     "hi": dict(name="Harbor Islands", fam="harbor", color="#005f73"),
     "seaport": dict(name="Seaport", fam="south", color="#8a4b1c"),
     "ssi": dict(name="South Shore", fam="south", color="#b5652a"),
     "qb": dict(name="Quincy Bay", fam="south", color="#4a2a14"),
     "fore": dict(name="Fore River", fam="south", color="#a07a52", text="#7d5a35"),
-    "nse": dict(name="North Shore Express", fam="north", color="#9eb000", text="#6f7c00", fast=True),
-    "sse": dict(name="South Shore Express", fam="sse", color="#611824", fast=True),
+    "nse": dict(name="North Shore Fast Ferry", fam="north", color="#9eb000", text="#6f7c00", fast=True),
+    "sse": dict(name="South Shore Fast Ferry", fam="sse", color="#611824", fast=True),
     "isl": dict(name="Nantucket and Martha's Vineyard", fam="islands", color="#0277bd", fast=True),
 }
 
@@ -120,7 +120,7 @@ CHP = {"Weld": ["RL", "GL"], "DeWolfe": ["YL"], "Ames St": ["RL", "YL"], "Broad 
 for i, n in enumerate(CB):
     stop(n, 3, i, "r", CHP.get(n, ()), route="charles")
 for i, n in enumerate(BB):
-    stop(n, 0, 14.5 - i, "l", CHP.get(n, ()), route="charles", text="Gronk (rename)" if n == "Gronk" else None)
+    stop(n, 0, 14.5 - i, "l", CHP.get(n, ()), route="charles", text=None)
 stop("Lovejoy Wharf", 0, 17, "l", ["GL", "OL", "CL", "CR"], "xfer")
 stop("Navy Yard", 3, 17, "tr", ["CL"], "xfer")
 S["Navy Yard"]["nudge"] = (0, 0.7)
@@ -744,7 +744,7 @@ def river_explainer(ax, x0, y1):
 
 
 def express_explainer(ax, x0, y1, w):
-    txt(ax, x0, y1, "EXPRESS BOATS AND MAJOR PORTS", 11.0, "bold", "left", "top")
+    txt(ax, x0, y1, "FAST FERRIES AND MAJOR PORTS", 11.0, "bold", "left", "top")
     y = y1 - 19.0
     xs = np.linspace(x0 + 3.5, x0 + w - 3.5, 7)
     big = [0, 3, 6]
@@ -761,11 +761,11 @@ def express_explainer(ax, x0, y1, w):
             ax.scatter([xx], [y], s=(12.8 * 0.36) ** 2, color=INK, lw=0, zorder=9.2)
         else:
             ax.scatter([xx], [y], s=7.0 ** 2, color=WHITE, edgecolor=INK, lw=1.0, zorder=9)
-    txt(ax, (xs[0] + xs[3]) / 2, y + 11.4, "express trip: major ports only", 8.8, "normal", "center", "bottom")
+    txt(ax, (xs[0] + xs[3]) / 2, y + 11.4, "fast ferry trip: major ports only", 8.8, "normal", "center", "bottom")
     txt(ax, (xs[3] + xs[6]) / 2, y - 3.2, "local trip: every dock", 8.8, "normal", "center", "top")
-    body = ("On the North Shore Express, the South Shore Express and the Islands boats, express trips stop only at the major "
+    body = ("On the North Shore Fast Ferry, the South Shore Fast Ferry and the Islands boats, fast ferry trips stop only at the major "
             "ports, drawn as a dot inside a ring. Local trips stop at every dock. "
-            "The Express shuttle runs Navy Yard, Langone Ferryport, Long Wharf, nonstop between them, at all times.")
+            "The Fast Ferry (FF) shuttle runs Navy Yard, Langone Ferryport, Long Wharf, nonstop between them, at all times.")
     t = txt(ax, x0, y - 9.5, wrap(body, 50), 9.8, "normal", "left", "top", ls=1.25)
     ports = ("Major ports: " + ", ".join(sorted(MAJOR, key=lambda n: ORDER_PORTS.index(n))) + ".")
     txt(ax, x0, y - 27.5, wrap(ports, 50), 9.8, "normal", "left", "top", ls=1.25)
@@ -823,7 +823,7 @@ def key_symbols(ax, x0, y1):
     c = col("charles")
     boats = [("dots", "Harbor and river boats: round dots"),
              ("streak", "High-speed boats: streaks, on the coast and to the Islands"),
-             ("express", "The Express: Navy Yard, Langone Ferryport, Long Wharf, at all times"),
+             ("express", "Fast Ferry (FF): Navy Yard, Langone Ferryport, Long Wharf, at all times"),
              ("cw", "River loop, outer track: boats run clockwise"),
              ("ccw", "River loop, inner track: boats run counterclockwise"),
              ("zig", "River zigzag: crosses bank to bank at every dock"),
@@ -848,7 +848,7 @@ def key_symbols(ax, x0, y1):
             arrow(ax, (xa + xb) / 2, yy, 0, INK, 1.4, 12.5)
         txt(ax, x0 + 12.5, yy - 0.05, t, 9.6, "normal", "left", "center")
     x2 = x0 + 90
-    docks = [("stop", "Dock"), ("xfer", "Transfer, or where routes meet"), ("major", "Major port: express trips stop here"),
+    docks = [("stop", "Dock"), ("xfer", "Transfer, or where routes meet"), ("major", "Major port: fast ferries stop here"),
              ("hub", "Main hub: Langone Ferryport, where every major route starts"), ("end", "End of the route"), ("bar", "Dock shared by two routes side by side"),
              ("cap", "River dock: one bar across both tracks"), ("acc", "All docks accessible")]
     for i, (k, t) in enumerate(docks):
@@ -993,8 +993,8 @@ def write_routes(path):
     doc = {"source": "boston-map/src/make_ferry_network.py",
            "families": [{"key": k, "name": n, "routes": [r for r, d in R.items() if d["fam"] == k]} for k, n in FAMILIES],
            "hub": "Langone Ferryport", "hub_walkway": "North Station", "major_ports": ORDER_PORTS, "event_docks": EVENT,
-           "service": "Boats run 24/7 and are automated. Every major route starts and ends at Langone Ferryport (spurs excepted). Express "
-                      "trips on the North Shore Express, South Shore Express and Islands boats stop only at major ports. The Express shuttle "
+           "service": "Boats run 24/7 and are automated. Every major route starts and ends at Langone Ferryport (spurs excepted). Fast "
+                      "Ferry trips on the North Shore Fast Ferry, South Shore Fast Ferry and Islands boats stop only at major ports. The Fast Ferry (FF) shuttle "
                       "runs Navy Yard, Langone Ferryport, Long Wharf, nonstop between them, at all times.",
            "routes": out}
     Path(path).write_text(json.dumps(doc, indent=1), encoding="utf-8")
@@ -1054,10 +1054,10 @@ def main():
     sub(14.0, 15.5, "Charlestown and Somerville bank on top, Everett and Chelsea bank below")
     cap(34.2, 14.85, "CHELSEA CREEK", "chelsea", "center")
     sub(34.2, 15.5, "Chelsea bank on top, East Boston bank below")
-    cap(1.15, 18.3, "EXPRESS", "express", "center", 8.6)
+    cap(1.15, 18.3, "FAST FERRY", "express", "center", 8.6)
     sub(1.15, 18.85, "at all times", "center", 7.6)
     sub(-0.6, 19.05, "Walkway to North Station", "right", 7.8)
-    cap(NSX, -4.7, "NORTH SHORE EXPRESS", "nse", "center")
+    cap(NSX, -4.7, "NORTH SHORE FAST FERRY", "nse", "center")
     sub(NSX, -3.85, "to Salisbury via Gloucester, Newburyport", "center", 8.4)
     cap(-0.6, 24.95, "HARBOR WEST", "hw", "right", 9.4)
     cap(18.0, 25.4, "SEAPORT", "seaport", "center")
@@ -1066,7 +1066,7 @@ def main():
     cap(LX - 0.6, 25.35, "SOUTH SHORE", "ssi", "right", 9.4)
     cap(16.5, 33.3, "QUINCY BAY", "qb", "left", 9.4)
     cap(LX - 0.4, 41.45, "FORE RIVER", "fore", "right", 9.4)
-    cap(FX + 0.5, 26.6, "SOUTH SHORE\nEXPRESS", "sse", "left", 9.4)
+    cap(FX + 0.5, 26.6, "SOUTH SHORE\nFAST FERRY", "sse", "left", 9.4)
     cap(20.8, 46.4, "Cape Cod Bay run", "sse", "center", 9.4, wt="normal")
     cap(7.0, 46.0, "Canal Pass", "sse", "center", 9.4, wt="normal")
     sub(7.0, 46.6, "shortcut through the canal", "center", 8.0)

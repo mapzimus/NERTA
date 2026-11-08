@@ -200,10 +200,10 @@ AFTER_NAME = {"Kenmore", "Lechmere"}  # a Green branch runs where the pill would
 BRANCH = {"Watertown": "A", "Weston": "B", "Cleveland Circle": "C", "Wellesley Hills": "D", "Harvard": "D", "West Medford": "E", "Forest Hills": "E", "VFW Parkway": "N"}
 BRANCH_BELOW = {"Cleveland Circle"}  # the Needham line runs just past the name, so the letter sits under it
 # Rider service notes in the Key's last column (Max, November 7). Every poster: the first two. An event line only where the line serves a venue.
-SERVICE = [("icon", "Every station is accessible"), ("text", "Driverless maglev, 24 hours a day")]
+SERVICE = [("icon", "Every station is accessible"), ("text", "Driverless maglev, 24 hours a day"), ("text", "Pods on demand at every station")]
 EVENTS = {"orange": "Extra trains for TD Garden events", "green": "Extra trains for Fenway and TD Garden events",
           "yellow": "Extra trains for Stadium and Fenway events", "cyan": "Extra trains and boats for Stadium, Encore and TD Garden events"}
-EXPRESS = "Express ferries stop at major ports only"  # on any poster with an express ferry pill
+EXPRESS = "Fast ferries stop at major ports only"  # on any poster with an express ferry pill
 CAP = LWP * 0.62 / 2 / PPU  # the round cap a Key line sample grows at each end
 NOTE_X = -3.3 + 0.85        # the notes column starts where the next pill column would: the icon's left edge on a pill's left edge
 LAYOUTS = {"red": (M.RED, "RL", "Red" + chr(10) + "Line", red_layout, {"Mattapan", "Weymouth", "Waltham", "Lexington Route 128"}),
@@ -482,7 +482,7 @@ def ferry_name(fill):
     for rt in M.FERRY_ROUTES:
         if rt["color"] == fill:
             head, _, tail = rt["title"].partition(", ")
-            return f"{head} {'express ' if rt.get('fast') else ''}ferry" + (f", {tail}" if tail else "")
+            return (f"{head} Fast Ferry (FF)" if rt.get("fast") else f"{head} ferry") + (f", {tail}" if tail else "")
     return "Ferry"
 
 
