@@ -12,6 +12,7 @@ from shapely.geometry import LineString, Point
 
 plt.rcParams.update({"font.family": "Arial", "pdf.fonttype": 42, "svg.fonttype": "none"})
 INK, WHITE = "#16161a", "#ffffff"
+PAPER_HALO = "#fcfcfa"
 MEDIUM = [pe.withStroke(linewidth=1.9, foreground="#fcfcfa"), pe.withStroke(linewidth=0.28, foreground=INK)]  # small white halo, then Arial thickened to a medium weight
 BOLD = [pe.withStroke(linewidth=1.9, foreground="#fcfcfa"), pe.Normal()]  # same halo for bold names
 HALO = [pe.withStroke(linewidth=2.6, foreground="#fcfcfa"), pe.withStroke(linewidth=0.28, foreground=INK)]  # for labels that must cross a thin line
@@ -100,7 +101,7 @@ def bullet(ax, x, y, text, color, h=3.7, fs=9, z=12, fg=WHITE):
     """Rounded line pill, e.g. RL or GL B."""
     w = h * (0.75 + 0.5 * len(text))
     ax.add_patch(FancyBboxPatch((x - w / 2, y - h / 2), w, h, boxstyle=f"round,pad=0,rounding_size={h / 2}", fc=color, ec="none", zorder=z))
-    ax.text(x, y - 0.1, text, color=fg, fontsize=fs, fontweight="bold", ha="center", va="center", zorder=z + 0.1)
+    ax.text(x, y - 0.19, text, color=fg, fontsize=fs, fontweight="bold", ha="center", va="center", zorder=z + 0.1)  # optical center
 
 
 def label(ax, xy, text, side="r", gap=2.6, fs=9.0, weight="normal", color=INK, z=11, rot=0, style="normal", halo=False):
@@ -122,5 +123,12 @@ def label(ax, xy, text, side="r", gap=2.6, fs=9.0, weight="normal", color=INK, z
     dx, dy, ha, va = {"r": (gap, 0, "left", "center"), "l": (-gap, 0, "right", "center"), "t": (0, gap, "center", "bottom"),
                       "b": (0, -gap, "center", "top"), "tr": (gap * .8, gap * .8, "left", "bottom"), "tl": (-gap * .8, gap * .8, "right", "bottom"),
                       "br": (gap * .8, -gap * .8, "left", "top"), "bl": (-gap * .8, -gap * .8, "right", "top")}[side]
-    ax.text(xy[0] + dx, xy[1] + dy, text, fontsize=fs, fontweight=weight, color=color, ha=ha, va=va, zorder=z, rotation=rot, style=style,
-            rotation_mode="anchor", linespacing=0.95, path_effects=(HALO if halo else MEDIUM) if weight == "normal" else BOLD)
+    kw = dict(fontsize=fs, fontweight=weight, ha=ha, va=va, rotation=rot, style=style, rotation_mode="anchor", linespacing=0.95)
+    if "\n" in text:  # halo for every line first, so a lower line's halo can't cut the descenders above it
+        ax.text(xy[0] + dx, xy[1] + dy, text, color=PAPER_HALO, zorder=z - 0.01, gid="halo",
+                path_effects=[pe.withStroke(linewidth=2.6 if halo else 1.9, foreground=PAPER_HALO)], **kw)
+        effects = [pe.withStroke(linewidth=0.28, foreground=color)] if weight == "normal" else [pe.Normal()]
+    else:
+        effects = ([p if color == INK or i == 0 else pe.withStroke(linewidth=0.28, foreground=color) for i, p in enumerate(HALO if halo else MEDIUM)]
+                   if weight == "normal" else BOLD)
+    ax.text(xy[0] + dx, xy[1] + dy, text, color=color, zorder=z, path_effects=effects, **kw)

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Service Alerts | NERTA</title>
+<meta name="description" content="Current delays and planned work on NERTA lines.">
+<link rel="icon" href="/assets/logo/t.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/css/site.css">
+<script src="/js/common.js" defer></script>
+<script defer>
+document.addEventListener("DOMContentLoaded", () => {
+  const N = window.NERTA;
+  const live = N.ORDER.map(k => [k, N.lineStatus(k)]).filter(([, s]) => s.level !== "ok");
+  document.getElementById("now").innerHTML = live.length ? live.map(([k, s]) =>
+    `<div class="alert-item ${k}">${N.bullet(k)} <span class="tag ${s.level}">${s.label}</span><h3>${N.LINES[k].name}: ${s.detail}</h3><p>Updated ${new Date().toLocaleTimeString("en-US", {hour: "numeric", minute: "2-digit"})}. Allow a few extra minutes.</p></div>`).join("")
+    : `<div class="alert-item"><span class="tag ok">All clear</span><h3>All lines are running normally</h3><p>No delays reported on any line.</p></div>`;
+  document.getElementById("ok").innerHTML = N.ORDER.filter(k => N.lineStatus(k).level === "ok").map(k => `<li>${N.bullet(k)}<a class="name" href="/line.html?l=${k}">${N.LINES[k].name}</a><span class="state"><i class="dot ok"></i>Normal service</span></li>`).join("");
+});
+</script>
+</head>
+<body>
+<header class="page-head"><div class="wrap">
+  <div class="crumbs"><a href="/">Home</a> / Service Alerts</div>
+  <h1>Service Alerts</h1>
+  <p class="lede">Delays, detours and planned work. This page updates on its own.</p>
+</div></header>
+<main id="main">
+<section class="section"><div class="wrap grid two" style="align-items:start">
+  <div><h2>Right now</h2><div id="now"></div>
+    <h2 style="margin-top:30px">Planned work</h2>
+    <div class="alert-item cyan"><span class="bullet cyan">CL</span> <span class="tag">Weekend</span><h3>Cyan Line: platform tile work at Fort Point</h3><p>Trains run normally. One entrance on Congress St is closed. Use the Summer St entrance.</p></div>
+    <div class="alert-item green"><span class="bullet green">GL</span> <span class="tag">Overnight</span><h3>Green Line: rail grinding on the Riverside branch</h3><p>Midnight to 4 AM, trains every 20 minutes between Reservoir and Riverside.</p></div>
+    <div class="alert-item rail"><span class="bullet rail">RR</span> <span class="tag">Notice</span><h3>Regional Rail: new High-Speed Rail platforms at Boston Central</h3><p>Montreal, Albany and Bangor trains now board on Level 4.</p></div>
+  </div>
+  <div class="card"><h2>Running normally</h2><ul class="status-list" id="ok"></ul></div>
+</div></section>
+</main>
+</body>
+</html>

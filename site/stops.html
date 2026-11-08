@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stations | NERTA</title>
+<meta name="description" content="Find any NERTA station: lines served, transfers, departures and ridership.">
+<link rel="icon" href="/assets/logo/t.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/css/site.css">
+<script src="/js/common.js" defer></script>
+<script defer>
+document.addEventListener("DOMContentLoaded", async () => {
+  const N = window.NERTA, d = await N.network();
+  const q = document.getElementById("filter"), line = document.getElementById("line"), sort = document.getElementById("sort"), out = document.getElementById("list");
+  line.innerHTML = `<option value="">All lines</option>` + [...N.ORDER, "rail"].map(k => `<option value="${k}">${N.LINES[k].name}</option>`).join("");
+  const draw = () => {
+    const t = q.value.trim().toLowerCase();
+    let rows = d.stops.filter(s => (!t || s.name.toLowerCase().includes(t)) && (!line.value || s.lines.includes(line.value)));
+    rows = rows.map(s => [s, N.ridership(s)]);
+    if (sort.value === "riders") rows.sort((a, b) => b[1] - a[1]);
+    document.getElementById("count").textContent = rows.length + " stations";
+    out.innerHTML = rows.map(([s, n]) => `<tr><td><a href="${N.stopLink(s)}"><b>${N.esc(s.name)}</b></a></td><td>${s.lines.map(l => N.bullet(l)).join(" ")}</td><td class="num">${N.fmt(n)}</td><td><a href="/map.html?stop=${s.id}">${s.offmap ? "" : "Map"}</a></td></tr>`).join("");
+  };
+  [q, line, sort].forEach(e => e.addEventListener("input", draw));
+  const l = N.qs("line"); if (l) line.value = l;
+  draw();
+});
+</script>
+</head>
+<body>
+<header class="page-head"><div class="wrap">
+  <div class="crumbs"><a href="/">Home</a> / Stations</div>
+  <h1>Stations</h1>
+  <p class="lede">Every station is step-free, staffed around the clock and served by on-demand pods.</p>
+</div></header>
+<main id="main"><section class="section"><div class="wrap">
+  <div class="card">
+    <div class="row">
+      <label class="field">Station name<input id="filter" type="search" placeholder="Start typing"></label>
+      <label class="field">Line<select id="line"></select></label>
+      <label class="field">Sort<select id="sort"><option value="name">A to Z</option><option value="riders">Busiest first</option></select></label>
+    </div>
+    <p class="small muted" id="count"></p>
+    <div class="table-scroll"><table class="data"><thead><tr><th>Station</th><th>Lines</th><th class="num">Weekday boardings</th><th></th></tr></thead><tbody id="list"></tbody></table></div>
+  </div>
+</div></section></main>
+</body>
+</html>

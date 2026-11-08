@@ -1,0 +1,15 @@
+{
+  // NERTA website: static files served by Cloudflare Workers, on nerta.fun.
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "nerta",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": ".",
+    "not_found_handling": "404-page",
+    "html_handling": "auto-trailing-slash"
+  },
+  "routes": [
+    { "pattern": "nerta.fun", "custom_domain": true },
+    { "pattern": "www.nerta.fun", "custom_domain": true }
+  ]
+}

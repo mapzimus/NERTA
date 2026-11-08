@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maps | NERTA</title>
+<meta name="description" content="The NERTA rapid transit system map, line posters and ferry route maps. View online or download.">
+<link rel="icon" href="/assets/logo/t.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/css/site.css">
+<script src="/js/common.js" defer></script>
+<script src="/js/maps.js" defer></script>
+</head>
+<body>
+<header class="page-head"><div class="wrap">
+  <div class="crumbs"><a href="/">Home</a> / Maps</div>
+  <h1>Maps</h1>
+  <p class="lede">The system map, a poster for every line, and the ferry routes. Click any map to view it full size, then click again to zoom.</p>
+</div></header>
+<main id="main">
+  <section class="section"><div class="wrap">
+    <h2>Rapid Transit system map</h2>
+    <div class="grid two">
+      <a class="map-card" href="/assets/maps/system_map.webp" data-lightbox data-title="Boston's Rapid Transit: system map">
+        <div class="thumb" style="aspect-ratio:auto"><img src="/assets/maps/system_map_thumb.webp" alt="NERTA rapid transit system map" width="900" height="769"></div>
+        <div class="body"><b>System map</b><span>All 222 stations, regional rail, high-speed rail and ferries.</span></div>
+      </a>
+      <div class="card">
+        <h3>Ways to use it</h3>
+        <ul>
+          <li><a href="/map.html">Interactive map</a>: tap any station for departures.</li>
+          <li><a href="/downloads/system_map.pdf">Download the PDF</a>: vector, prints sharp at any size.</li>
+          <li><a href="/downloads/system_map.png">Download the PNG</a>: 600 dpi, about 18.5 by 15.8 inches.</li>
+        </ul>
+        <h3 style="margin-top:20px">Reading the map</h3>
+        <ul class="small">
+          <li>A ring on a station means you can change lines without leaving the platform area.</li>
+          <li>White capsules join stations a short walk apart.</li>
+          <li>Thin purple lines are Regional Rail. Gold inside purple is High-Speed Rail.</li>
+          <li>Dotted colored lines are ferry routes.</li>
+        </ul>
+      </div>
+    </div>
+  </div></section>
+  <section class="section wash"><div class="wrap">
+    <h2>Line maps</h2>
+    <p class="muted">Every station on the line, with each transfer marked beside it.</p>
+    <div class="grid four" id="line-grid"></div>
+  </div></section>
+  <section class="section" id="ferry"><div class="wrap">
+    <h2>Ferry route maps</h2>
+    <div class="grid four" id="ferry-grid"></div>
+  </div></section>
+</main>
+</body>
+</html>

@@ -71,7 +71,7 @@ r = fig.canvas.get_renderer()
 inv = ax.transData.inverted()
 for tx in ax.texts:
     w = tx.get_text()
-    if not w.strip() or len(w) < 2:
+    if not w.strip() or len(w) < 2 or tx.get_gid() == "halo":  # skip halo-only copies of two-line labels
         continue
     b = tx.get_window_extent(r)
     (x0, y0), (x1, y1) = inv.transform([(b.x0, b.y0), (b.x1, b.y1)])

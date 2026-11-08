@@ -16,7 +16,7 @@ inv = ax.transData.inverted()
 items = []
 for t in ax.texts:
     s = t.get_text()
-    if not s.strip() or t.get_rotation() != 0 or s == chr(0x267F):
+    if not s.strip() or t.get_rotation() != 0 or s == chr(0x267F) or t.get_gid() == "halo":  # skip halo-only copies of two-line labels
         continue
     b = t.get_window_extent(r)
     (x0, y0), (x1, y1) = inv.transform([(b.x0, b.y0), (b.x1, b.y1)])

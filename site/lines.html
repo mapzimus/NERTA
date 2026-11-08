@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lines &amp; Schedules | NERTA</title>
+<meta name="description" content="Every NERTA rapid transit line: stations, how often trains run, and current service.">
+<link rel="icon" href="/assets/logo/t.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/css/site.css">
+<script src="/js/common.js" defer></script>
+<script defer>
+document.addEventListener("DOMContentLoaded", async () => {
+  const N = window.NERTA, d = await N.network();
+  document.getElementById("lines").innerHTML = N.ORDER.map(k => {
+    const s = N.lineStatus(k), L = N.LINES[k];
+    const n = d.stops.filter(x => x.lines.includes(k)).length;
+    return `<a class="card ${k}" href="/line.html?l=${k}" style="text-decoration:none;color:inherit;border-top:6px solid var(--c);display:flex;gap:16px;align-items:flex-start">
+      <img src="/assets/logo/t_${k}.svg" alt="" width="54" height="54" style="flex-shrink:0">
+      <div><h2 style="margin:0 0 4px">${L.name}</h2><p class="small muted" style="margin:0 0 10px">${N.BLURB[k]}</p>
+      <span class="small"><b>${n}</b> stations &middot; every <b>${L.headway}</b> min at peak &middot; <span class="tag ${s.level}">${s.label}</span></span></div></a>`;
+  }).join("");
+});
+</script>
+</head>
+<body>
+<header class="page-head"><div class="wrap">
+  <div class="crumbs"><a href="/">Home</a> / Lines &amp; Schedules</div>
+  <h1>Lines &amp; Schedules</h1>
+  <p class="lede">Rapid transit runs 24 hours a day, every day. Trains come often enough that you never need a timetable.</p>
+</div></header>
+<main id="main"><section class="section"><div class="wrap">
+  <div class="grid two" id="lines"></div>
+  <div class="card" style="margin-top:20px"><h2>Regional Rail and ferries</h2><p class="muted" style="margin:0">All 13 Regional Rail lines and High-Speed Rail meet the subway at Boston Central, North Station and South Station. Ferries leave Long Wharf for five routes around the harbor. See the <a href="/maps.html">maps</a>.</p></div>
+</div></section></main>
+</body>
+</html>

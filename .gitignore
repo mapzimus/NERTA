@@ -6,3 +6,5 @@ Thumbs.db
 reference/private/
 *Recovered*1111.ai
 .env
+.wrangler/
+node_modules/

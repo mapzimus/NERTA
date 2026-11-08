@@ -24,5 +24,6 @@ These are at `D:/REPOS/NERTA/reference/private/` on Max's machine. Max decided t
 | `chat_01.png` | Photo of an older MBTA commuter rail map, "Going Your Way" |
 | `chat_02.png` | Max's photo of an older Green Line station map |
 | `chat_03.jpg` | Official MBTA Red Line poster, © MBTA, November 2024 |
+| `future_regional_rail_reference_2026-11-07.png` | A third-party future regional rail diagram (color-coded lines through North, Central and South Stations). Max's reference for the commuter rail and high-speed rail map: compare, never copy |
 
 The official poster set the look of the line posters: T roundel, line pill and title in the header, one line with pills on one side and names on the other, and the Key along the bottom.

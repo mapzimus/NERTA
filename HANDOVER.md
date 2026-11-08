@@ -1,6 +1,6 @@
 # Handover
 
-Last updated November 6, 2026. This assumes you've never seen the project.
+Last updated November 7, 2026 (final audit pass). This assumes you've never seen the project.
 
 ## What this is
 
@@ -30,7 +30,7 @@ It is a fan work. It is **not a real MBTA map**, and nothing here is an actual p
 **Done and checked:**
 
 - The main map and all eight posters are final unless Max changes something.
-- Every stop on the main map is on its line's poster, and no poster has an extra stop. `boston-map/tools/poster_audit.py` checks this and every shared-stop pill. The map shows 215 T stops.
+- Every stop on the main map is on its line's poster, and no poster has an extra stop. `boston-map/tools/poster_audit.py` checks this and every shared-stop pill. The map shows 222 T stops.
 - The label overlap checks pass. `labels.py` always flags "Rapid T | ransit", which is deliberate: the title is drawn in two pieces to tighten the T. `marks.py` always flags "Lynn Harbor" against its own dot.
 - High-resolution files are in `boston-map/output/`. The posting set is the `day08-*` files there.
 
@@ -39,7 +39,15 @@ It is a fan work. It is **not a real MBTA map**, and nothing here is an actual p
 - **Publish the existing Day 8 map on Sunday, November 8, 2026.** Use the files already in `boston-map/output/`. Do not redraw them for the post. Draft text is in `docs/history/day08_social_posts.md`. Max needs to review it first.
 - After Sunday, the project continues for fun. Buses are part of that later work, not the post.
 
-## Ferry pass, November 7, 2026 (branch `ferry-pass`, uncommitted)
+## Release pass, November 7, 2026 (branch `ferry-pass`, uncommitted)
+
+- **Post this set:** `boston-map/output/copies/release_2026-11-08/`. It has `current_map.png` (600 dpi), `current_map.pdf` (vector), and the eight `line_*` posters as PNG and PDF. Ferry route posters are held back.
+- Done: NERTA wordmark under the T, a new Key, teal water and rounded panels, the commuter rail fixes, ferry label cleanup, and ferry pills on the posters matching the map and colored by route. `docs/DECISIONS.md` lists them all.
+- The real-geography pass is done. `docs/DECISIONS.md` lists what moved and what was left schematic on purpose: West Station, the B/C/D fan, Everett Sq, the Worcester row.
+- Open for Max: the surface map vehicle, and "Gov't Center" against the naming rule.
+- Bus advice and data: `research/bus-plan-draft.md`. Recommendation: no buses on this release.
+
+## Ferry pass, November 7, 2026 (branch `ferry-pass`)
 
 - Cursor's 12 ferry legs are merged into 5 routes with their own colors. `docs/DECISIONS.md` and `boston-map/data/line_audit.md` have the details.
 - Newest main map copy: `boston-map/output/copies/ferry5_final_lbl.png`. Posters: `copies/ferry5_<route>.png`. Nothing in `output/` itself was touched.
@@ -59,10 +67,10 @@ It is a fan work. It is **not a real MBTA map**, and nothing here is an actual p
 
 ## Open questions for Max
 
-1. **Green Line letters.** The proposal is A for Watertown and F or N for Needham. The A branch history is from memory, so check it with 2 sources first.
+1. **Green Line letters.** Done November 7: A (Watertown), D (also Union Sq) and N (Needham) are on the map with B, C, D and E. Sources are in `line_audit.md`.
 2. **Shoreline and Charles River.** Marblehead, the Neck and Salem Harbor are done. The rest could be improved.
 3. **Langone.** Max named the North End ferry dock Langone. A ferry there was not found in two sources, so it stays unverified.
-4. **Smaller calls:** the North End ferry label, a darker purple so gold reads better, renaming Seaver St for White Stadium, a second sports name (Pierce or Bergeron), and striping Orange to Reading.
+4. **Smaller calls:** the North End ferry label, a darker purple so gold reads better, renaming Seaver St for White Stadium, and a second sports name (Pierce or Bergeron). Orange to Reading is striped (done November 7).
 
 ## Known problems
 
@@ -134,7 +142,7 @@ Copy nothing to `Desktop\30daymap\` until Max says the work is completely finish
 
 - **Hand edits vanish.** Any edit made only in Illustrator is lost at the next rebuild. Move it into the code.
 - **Font path.** The disclaimer loads Arial Narrow Italic from `C:\Windows\Fonts\ARIALNI.TTF`. Change the path on another machine.
-- **Stop count.** The panel's 215 is typed by hand. It's `audit.py`'s count plus the 10 stops only the Logan Silver Line uses. Update it when stops change.
+- **Stop count.** The panel's 224 is typed by hand. It's `audit.py`'s count plus the 10 stops only the Logan Silver Line uses. Update it when stops change.
 - **Hidden second stops.** Fenway appears twice in `lines()`, once as `Fenway+`. That's the same station where two lines run side by side.
 
 ## Reference material
@@ -147,7 +155,7 @@ Three reference images, including an official MBTA poster and a station photo, a
 
 - **Old Day 8 working copy:** `D:\REPOS\30dmc-day08`, branch `day-08-utopia`. It's out of date, so don't work there.
 - **Full session transcript:** `C:\Users\mhowe\.claude\projects\D--REPOS-30-day-map-challenge-2026\6191c34a-246f-4fb5-a839-115daa477823.jsonl`.
-- **Recovered Illustrator file:** `boston-map/output/day08_rapid_transit [Recovered]1111.ai` is an old crash recovery on Max's machine. It has no hand edits worth keeping and isn't in git.
+- **Recovered Illustrator file:** `boston-map/output/archive/day08_rapid_transit [Recovered]1111.ai` is an old crash recovery on Max's machine. It has no hand edits worth keeping and isn't in git.
 
 ## Starting a new Claude session
 

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Station | NERTA</title>
+<link rel="icon" href="/assets/logo/t.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/css/site.css">
+<script src="/js/common.js" defer></script>
+<script src="/js/stop.js" defer></script>
+</head>
+<body>
+<header class="page-head"><div class="wrap">
+  <div class="crumbs"><a href="/">Home</a> / <a href="/stops.html">Stations</a> / <span id="crumb"></span></div>
+  <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap"><h1 id="title" style="margin:0"></h1><div id="bullets" style="display:flex;gap:6px"></div></div>
+  <p class="lede" id="sub" style="margin-top:8px"></p>
+</div></header>
+<main id="main">
+  <section class="section"><div class="wrap grid two" style="align-items:start">
+    <div>
+      <div class="board" id="board"></div>
+      <p class="small muted" id="board-note" style="margin:8px 0 0"></p>
+      <div class="card" style="margin-top:20px"><h2>Riders by hour</h2><p class="small muted" style="margin-top:-4px">Average weekday boardings, last 4 weeks</p><div id="hourly"></div></div>
+      <div class="card" style="margin-top:20px"><h2>Monthly boardings</h2><div id="monthly"></div></div>
+    </div>
+    <div>
+      <div class="card flush">
+        <a id="area" href="#" style="display:block;height:300px;background-repeat:no-repeat;background-color:#fcfcfa;border-bottom:1px solid var(--rule)" aria-label="Open on the interactive map"></a>
+        <div style="padding:14px 18px"><a id="area-link" href="#">Open on the interactive map</a></div>
+      </div>
+      <div class="card" style="margin-top:20px"><h2>At this station</h2><dl class="kv" id="facts"></dl></div>
+      <div class="card" style="margin-top:20px"><h2>Nearby stations</h2><ul class="status-list" id="nearby"></ul></div>
+    </div>
+  </div></section>
+</main>
+</body>
+</html>

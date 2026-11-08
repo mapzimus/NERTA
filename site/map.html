@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Interactive System Map | NERTA</title>
+<meta name="description" content="Zoom the NERTA rapid transit map and tap any station for departures, transfers and ridership.">
+<link rel="icon" href="/assets/logo/t.svg" type="image/svg+xml">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link rel="stylesheet" href="/css/site.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" defer></script>
+<script src="/js/common.js" defer></script>
+<script src="/js/map.js" defer></script>
+</head>
+<body>
+<main id="main" class="map-shell">
+  <div id="map" aria-label="Interactive system map"></div>
+  <aside class="map-side" id="side">
+    <p class="eyebrow">System map</p>
+    <h1 style="font-size:1.5rem">Interactive map</h1>
+    <p class="small muted">Drag and zoom like any map. Tap a station dot for live departures. Pick a line to light up its stations.</p>
+    <div class="layer-toggles" id="filters"></div>
+    <div id="panel"><p class="muted small">No station selected.</p></div>
+    <p class="small" style="margin-top:20px"><a href="/assets/maps/system_map.webp" data-lightbox data-title="NERTA system map">Open the full map image</a> &middot; <a href="/maps.html">Printable PDF</a></p>
+  </aside>
+</main>
+</body>
+</html>

@@ -1,0 +1,3484 @@
+{
+ "extent": {
+  "x": [
+   -46,
+   229.4
+  ],
+  "y": [
+   -20,
+   215.4
+  ]
+ },
+ "image": {
+  "width": 6000,
+  "height": 5128
+ },
+ "lineColors": {
+  "red": "#da291c",
+  "orange": "#ed8b00",
+  "blue": "#003da5",
+  "green": "#00843d",
+  "yellow": "#f5c400",
+  "cyan": "#00a9c9",
+  "indigo": "#3f3fb5",
+  "silver": "#7c878e"
+ },
+ "stops": [
+  {
+   "id": "abington",
+   "name": "Abington",
+   "x": 127.6,
+   "y": 2,
+   "lines": [
+    "rail"
+   ],
+   "mode": "rail",
+   "status": "solid"
+  },
+  {
+   "id": "airport",
+   "name": "Airport",
+   "x": 135.0,
+   "y": 125.0,
+   "lines": [
+    "blue",
+    "yellow"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "alewife",
+   "name": "Alewife",
+   "x": 44.0,
+   "y": 146.0,
+   "lines": [
+    "red"
+   ],
+   "mode": "subway",
+   "status": "stripe"
+  },
+  {
+   "id": "allston",
+   "name": "Allston",
+   "x": 43.5,
+   "y": 111.0,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "stripe"
+  },
+  {
+   "id": "allston-st",
+   "name": "Allston St",
+   "x": 10.31,
+   "y": 98.31,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "amory-st",
+   "name": "Amory St",
+   "x": 29.73,
+   "y": 98.27,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "anderson-woburn",
+   "name": "Anderson/Woburn",
+   "x": 53,
+   "y": 189,
+   "lines": [
+    "rail"
+   ],
+   "mode": "rail",
+   "status": "solid"
+  },
+  {
+   "id": "andrew",
+   "name": "Andrew",
+   "x": 118.0,
+   "y": 58.0,
+   "lines": [
+    "red"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "aquarium",
+   "name": "Aquarium",
+   "x": 118.0,
+   "y": 108.0,
+   "lines": [
+    "cyan",
+    "blue"
+   ],
+   "mode": "subway",
+   "status": "dash",
+   "ferry": "Long Wharf"
+  },
+  {
+   "id": "arlington",
+   "name": "Arlington",
+   "x": 81.0,
+   "y": 84.0,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "arlington-ctr",
+   "name": "Arlington Ctr",
+   "x": 30.0,
+   "y": 160.0,
+   "lines": [
+    "red"
+   ],
+   "mode": "subway",
+   "status": "stripe"
+  },
+  {
+   "id": "arlington-heights",
+   "name": "Arlington Heights",
+   "x": 20.0,
+   "y": 170.0,
+   "lines": [
+    "red"
+   ],
+   "mode": "subway",
+   "status": "stripe"
+  },
+  {
+   "id": "ashmont",
+   "name": "Ashmont",
+   "x": 94.0,
+   "y": 26.0,
+   "lines": [
+    "red"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "assembly",
+   "name": "Assembly",
+   "x": 110.0,
+   "y": 157.0,
+   "lines": [
+    "orange",
+    "cyan"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "auburndale",
+   "name": "Auburndale",
+   "x": -28.0,
+   "y": 60.0,
+   "lines": [
+    "green",
+    "rail"
+   ],
+   "mode": "subway",
+   "status": "dash"
+  },
+  {
+   "id": "ayer",
+   "name": "Ayer",
+   "x": -38,
+   "y": 160,
+   "lines": [
+    "rail"
+   ],
+   "mode": "rail",
+   "status": "solid"
+  },
+  {
+   "id": "bu-bridge",
+   "name": "BU Bridge",
+   "x": 66.0,
+   "y": 96.0,
+   "lines": [
+    "yellow"
+   ],
+   "mode": "subway",
+   "status": "stripe",
+   "ferry": "BU Bridge"
+  },
+  {
+   "id": "bu-central",
+   "name": "BU Central",
+   "x": 32.82,
+   "y": 95.18,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "bu-east",
+   "name": "BU East",
+   "x": 35.91,
+   "y": 92.09,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "babcock-st",
+   "name": "Babcock St",
+   "x": 26.64,
+   "y": 101.36,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "back-bay",
+   "name": "Back Bay",
+   "x": 82.0,
+   "y": 66.0,
+   "lines": [
+    "orange",
+    "rail"
+   ],
+   "mode": "subway",
+   "status": "solid",
+   "hsr": true
+  },
+  {
+   "id": "back-of-the-hill",
+   "name": "Back of the Hill",
+   "x": 43.17,
+   "y": 40.17,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "ball-sq",
+   "name": "Ball Sq",
+   "x": 68.4,
+   "y": 159.6,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "beachmont",
+   "name": "Beachmont",
+   "x": 162.5,
+   "y": 152.5,
+   "lines": [
+    "blue"
+   ],
+   "mode": "subway",
+   "status": "solid",
+   "ferry": "Beachmont"
+  },
+  {
+   "id": "beaconsfield",
+   "name": "Beaconsfield",
+   "x": 29.0,
+   "y": 59.0,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "bellevue",
+   "name": "Bellevue",
+   "x": 27.5,
+   "y": 11.5,
+   "lines": [
+    "orange"
+   ],
+   "mode": "subway",
+   "status": "stripe"
+  },
+  {
+   "id": "bellingham-sq",
+   "name": "Bellingham Sq",
+   "x": 135.0,
+   "y": 137.0,
+   "lines": [
+    "yellow"
+   ],
+   "mode": "subway",
+   "status": "dash"
+  },
+  {
+   "id": "belmont-ctr",
+   "name": "Belmont Ctr",
+   "x": 19.33,
+   "y": 146.0,
+   "lines": [
+    "red"
+   ],
+   "mode": "subway",
+   "status": "stripe"
+  },
+  {
+   "id": "beverly",
+   "name": "Beverly",
+   "x": 212,
+   "y": 211.6,
+   "lines": [
+    "rail"
+   ],
+   "mode": "rail",
+   "status": "solid"
+  },
+  {
+   "id": "binney",
+   "name": "Binney",
+   "x": 89.9,
+   "y": 122.11,
+   "lines": [
+    "yellow"
+   ],
+   "mode": "subway",
+   "status": "stripe"
+  },
+  {
+   "id": "blandford-st",
+   "name": "Blandford St",
+   "x": 39.0,
+   "y": 89.0,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "blue-hill-ave",
+   "name": "Blue Hill Ave",
+   "x": 66.0,
+   "y": 22.0,
+   "lines": [
+    "orange",
+    "indigo"
+   ],
+   "mode": "subway",
+   "status": "dash"
+  },
+  {
+   "id": "boston-central",
+   "name": "Boston Central",
+   "x": 110.0,
+   "y": 100.0,
+   "lines": [
+    "orange",
+    "cyan",
+    "blue",
+    "rail"
+   ],
+   "mode": "subway",
+   "status": "solid",
+   "hsr": true
+  },
+  {
+   "id": "boston-college",
+   "name": "Boston College",
+   "x": -22.0,
+   "y": 66.0,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "boston-landing",
+   "name": "Boston Landing",
+   "x": 15,
+   "y": 122,
+   "lines": [
+    "rail"
+   ],
+   "mode": "rail",
+   "status": "solid"
+  },
+  {
+   "id": "boston-medical",
+   "name": "Boston Medical",
+   "x": 94.5,
+   "y": 56.0,
+   "lines": [
+    "yellow"
+   ],
+   "mode": "subway",
+   "status": "dash"
+  },
+  {
+   "id": "boylston",
+   "name": "Boylston",
+   "x": 90.0,
+   "y": 88.0,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "braintree",
+   "name": "Braintree",
+   "x": 118.0,
+   "y": 8.0,
+   "lines": [
+    "red",
+    "rail"
+   ],
+   "mode": "subway",
+   "status": "dash"
+  },
+  {
+   "id": "brandon-hall",
+   "name": "Brandon Hall",
+   "x": 11.48,
+   "y": 73.48,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "bridgewater",
+   "name": "Bridgewater",
+   "x": 121.6,
+   "y": -8,
+   "lines": [
+    "rail"
+   ],
+   "mode": "rail",
+   "status": "solid"
+  },
+  {
+   "id": "brigham-circle",
+   "name": "Brigham Circle",
+   "x": 55.83,
+   "y": 52.83,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "brighton-center",
+   "name": "Brighton Center",
+   "x": 20.0,
+   "y": 111.0,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "stripe"
+  },
+  {
+   "id": "broadway",
+   "name": "Broadway",
+   "x": 118.0,
+   "y": 64.0,
+   "lines": [
+    "red",
+    "cyan"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "brockton",
+   "name": "Brockton",
+   "x": 121.6,
+   "y": -2,
+   "lines": [
+    "rail"
+   ],
+   "mode": "rail",
+   "status": "solid"
+  },
+  {
+   "id": "brookline-hills",
+   "name": "Brookline Hills",
+   "x": 33.25,
+   "y": 63.25,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "brookline-village",
+   "name": "Brookline Village",
+   "x": 37.5,
+   "y": 67.5,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "butler",
+   "name": "Butler",
+   "x": 91.96,
+   "y": 15.96,
+   "lines": [
+    "red"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "capen-st",
+   "name": "Capen St",
+   "x": 71.3,
+   "y": 14.0,
+   "lines": [
+    "red"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "cedar-grove",
+   "name": "Cedar Grove",
+   "x": 93.99,
+   "y": 20.7,
+   "lines": [
+    "red"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "central",
+   "name": "Central",
+   "x": 73.0,
+   "y": 117.0,
+   "lines": [
+    "red"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "central-ave",
+   "name": "Central Ave",
+   "x": 81.89,
+   "y": 14.0,
+   "lines": [
+    "red"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "central-sq",
+   "name": "Central Sq",
+   "x": 195.0,
+   "y": 185.0,
+   "lines": [
+    "blue",
+    "rail"
+   ],
+   "mode": "subway",
+   "status": "stripe"
+  },
+  {
+   "id": "charles-mgh",
+   "name": "Charles/MGH",
+   "x": 90.0,
+   "y": 100.0,
+   "lines": [
+    "red",
+    "blue"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "chelsea",
+   "name": "Chelsea",
+   "x": 134.14,
+   "y": 149.14,
+   "lines": [
+    "yellow",
+    "rail"
+   ],
+   "mode": "subway",
+   "status": "dash"
+  },
+  {
+   "id": "chestnut-hill",
+   "name": "Chestnut Hill",
+   "x": 20.5,
+   "y": 50.5,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "chestnut-hill-ave",
+   "name": "Chestnut Hill Ave",
+   "x": -12.77,
+   "y": 75.23,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "chinatown",
+   "name": "Chinatown",
+   "x": 97.5,
+   "y": 81.5,
+   "lines": [
+    "orange"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "chiswick-rd",
+   "name": "Chiswick Rd",
+   "x": -8.15,
+   "y": 79.85,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "city-point",
+   "name": "City Point",
+   "x": 152.0,
+   "y": 70.0,
+   "lines": [
+    "cyan"
+   ],
+   "mode": "subway",
+   "status": "dash"
+  },
+  {
+   "id": "city-square",
+   "name": "City Square",
+   "x": 121.98,
+   "y": 132.02,
+   "lines": [
+    "cyan"
+   ],
+   "mode": "subway",
+   "status": "dash"
+  },
+  {
+   "id": "cleveland-circle",
+   "name": "Cleveland Circle",
+   "x": -14.0,
+   "y": 48.0,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "cliftondale",
+   "name": "Cliftondale",
+   "x": 131.0,
+   "y": 181.0,
+   "lines": [
+    "orange"
+   ],
+   "mode": "subway",
+   "status": "dash"
+  },
+  {
+   "id": "cohasset",
+   "name": "Cohasset",
+   "x": 146.5,
+   "y": -0.5,
+   "lines": [
+    "rail"
+   ],
+   "mode": "rail",
+   "status": "solid"
+  },
+  {
+   "id": "community-college",
+   "name": "Community College",
+   "x": 110.0,
+   "y": 136.0,
+   "lines": [
+    "orange"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "concord",
+   "name": "Concord",
+   "x": -15,
+   "y": 137,
+   "lines": [
+    "rail"
+   ],
+   "mode": "rail",
+   "status": "solid"
+  },
+  {
+   "id": "convention-center",
+   "name": "Convention Center",
+   "x": 130.0,
+   "y": 64.0,
+   "lines": [
+    "cyan",
+    "yellow"
+   ],
+   "mode": "subway",
+   "status": "dash"
+  },
+  {
+   "id": "coolidge-corner",
+   "name": "Coolidge Corner",
+   "x": 19.98,
+   "y": 81.98,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "copley",
+   "name": "Copley",
+   "x": 75.0,
+   "y": 84.0,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "courthouse",
+   "name": "Courthouse",
+   "x": 133.0,
+   "y": 76.0,
+   "lines": [
+    "cyan"
+   ],
+   "mode": "subway",
+   "status": "dash",
+   "ferry": "Fan Pier"
+  },
+  {
+   "id": "danvers",
+   "name": "Danvers",
+   "x": 181,
+   "y": 198.5,
+   "lines": [
+    "rail"
+   ],
+   "mode": "rail",
+   "status": "dash"
+  },
+  {
+   "id": "danversport",
+   "name": "Danversport",
+   "x": 187.5,
+   "y": 198.5,
+   "lines": [
+    "rail"
+   ],
+   "mode": "rail",
+   "status": "dash"
+  },
+  {
+   "id": "david-ortiz",
+   "name": "David Ortiz",
+   "x": 61.7,
+   "y": 86.3,
+   "lines": [
+    "rail"
+   ],
+   "mode": "rail",
+   "status": "solid"
+  },
+  {
+   "id": "davis",
+   "name": "Davis",
+   "x": 53.33,
+   "y": 136.67,
+   "lines": [
+    "red"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "day-sq",
+   "name": "Day Sq",
+   "x": 135.0,
+   "y": 133.6,
+   "lines": [
+    "yellow"
+   ],
+   "mode": "subway",
+   "status": "dash"
+  },
+  {
+   "id": "dean-rd",
+   "name": "Dean Rd",
+   "x": -5.51,
+   "y": 56.49,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "dover",
+   "name": "Dover",
+   "x": 92.0,
+   "y": 71.0,
+   "lines": [
+    "orange"
+   ],
+   "mode": "subway",
+   "status": "dash"
+  },
+  {
+   "id": "downtown-crossing",
+   "name": "Downtown Crossing",
+   "x": 103.0,
+   "y": 87.0,
+   "lines": [
+    "red",
+    "orange"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "east-arlington",
+   "name": "East Arlington",
+   "x": 38.0,
+   "y": 152.0,
+   "lines": [
+    "red"
+   ],
+   "mode": "subway",
+   "status": "stripe"
+  },
+  {
+   "id": "east-somerville",
+   "name": "East Somerville",
+   "x": 84.6,
+   "y": 143.4,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "east-weymouth",
+   "name": "East Weymouth",
+   "x": 130,
+   "y": 8,
+   "lines": [
+    "rail"
+   ],
+   "mode": "rail",
+   "status": "solid"
+  },
+  {
+   "id": "easton-village",
+   "name": "Easton Village",
+   "x": 64,
+   "y": -7,
+   "lines": [
+    "rail"
+   ],
+   "mode": "rail",
+   "status": "dash"
+  },
+  {
+   "id": "eliot",
+   "name": "Eliot",
+   "x": 8.0,
+   "y": 38.0,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "encore",
+   "name": "Encore",
+   "x": 116.0,
+   "y": 157.0,
+   "lines": [
+    "cyan"
+   ],
+   "mode": "subway",
+   "status": "dash",
+   "ferry": "Encore"
+  },
+  {
+   "id": "endicott",
+   "name": "Endicott",
+   "x": 43.5,
+   "y": -3.5,
+   "lines": [
+    "rail"
+   ],
+   "mode": "rail",
+   "status": "solid"
+  },
+  {
+   "id": "englewood-ave",
+   "name": "Englewood Ave",
+   "x": -9.75,
+   "y": 52.25,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "everett-sq",
+   "name": "Everett Sq",
+   "x": 130.0,
+   "y": 150.0,
+   "lines": [
+    "yellow"
+   ],
+   "mode": "subway",
+   "status": "dash"
+  },
+  {
+   "id": "fairbanks-st",
+   "name": "Fairbanks St",
+   "x": 7.24,
+   "y": 69.24,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "fairmount",
+   "name": "Fairmount",
+   "x": 50.5,
+   "y": 6.5,
+   "lines": [
+    "indigo"
+   ],
+   "mode": "subway",
+   "status": "stripe"
+  },
+  {
+   "id": "fenway",
+   "name": "Fenway",
+   "x": 46.0,
+   "y": 76.0,
+   "lines": [
+    "green",
+    "yellow"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "fenwood-rd",
+   "name": "Fenwood Rd",
+   "x": 52.67,
+   "y": 49.67,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "fields-corner",
+   "name": "Fields Corner",
+   "x": 105.33,
+   "y": 39.33,
+   "lines": [
+    "red"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "forest-hills",
+   "name": "Forest Hills",
+   "x": 43.0,
+   "y": 27.0,
+   "lines": [
+    "orange",
+    "green"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "fort-point",
+   "name": "Fort Point",
+   "x": 125.0,
+   "y": 76.0,
+   "lines": [
+    "cyan"
+   ],
+   "mode": "subway",
+   "status": "dash"
+  },
+  {
+   "id": "four-corners",
+   "name": "Four Corners",
+   "x": 92.0,
+   "y": 48.0,
+   "lines": [
+    "indigo"
+   ],
+   "mode": "subway",
+   "status": "stripe"
+  },
+  {
+   "id": "foxboro",
+   "name": "Foxboro",
+   "x": 34,
+   "y": -16,
+   "lines": [
+    "rail"
+   ],
+   "mode": "rail",
+   "status": "solid"
+  },
+  {
+   "id": "gilman-sq",
+   "name": "Gilman Sq",
+   "x": 79.2,
+   "y": 148.8,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "govt-center",
+   "name": "Gov't Center",
+   "x": 102.0,
+   "y": 100.0,
+   "lines": [
+    "blue",
+    "green"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "green-st",
+   "name": "Green St",
+   "x": 48.8,
+   "y": 32.8,
+   "lines": [
+    "orange"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "greenbush",
+   "name": "Greenbush",
+   "x": 153,
+   "y": -7,
+   "lines": [
+    "rail"
+   ],
+   "mode": "rail",
+   "status": "solid"
+  },
+  {
+   "id": "greenwood",
+   "name": "Greenwood",
+   "x": 110.0,
+   "y": 195.33,
+   "lines": [
+    "orange"
+   ],
+   "mode": "subway",
+   "status": "stripe"
+  },
+  {
+   "id": "griggs-st",
+   "name": "Griggs St",
+   "x": 14.93,
+   "y": 102.93,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "grove-hall",
+   "name": "Grove Hall",
+   "x": 83.46,
+   "y": 50.22,
+   "lines": [
+    "orange"
+   ],
+   "mode": "subway",
+   "status": "dash"
+  },
+  {
+   "id": "hanson",
+   "name": "Hanson",
+   "x": 133,
+   "y": -3.4,
+   "lines": [
+    "rail"
+   ],
+   "mode": "rail",
+   "status": "solid"
+  },
+  {
+   "id": "harvard",
+   "name": "Harvard",
+   "x": 66.0,
+   "y": 124.0,
+   "lines": [
+    "red",
+    "green"
+   ],
+   "mode": "subway",
+   "status": "solid",
+   "ferry": "Weld"
+  },
+  {
+   "id": "harvard-ave",
+   "name": "Harvard Ave",
+   "x": 20.0,
+   "y": 106.78,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "hawes-st",
+   "name": "Hawes St",
+   "x": 33.63,
+   "y": 86.37,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "haymarket",
+   "name": "Haymarket",
+   "x": 110.0,
+   "y": 112.0,
+   "lines": [
+    "orange",
+    "green"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "heath-st",
+   "name": "Heath St",
+   "x": 40.0,
+   "y": 37.0,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "hersey",
+   "name": "Hersey",
+   "x": 8.46,
+   "y": 2.2,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "stripe"
+  },
+  {
+   "id": "highland",
+   "name": "Highland",
+   "x": 22.33,
+   "y": 6.33,
+   "lines": [
+    "orange"
+   ],
+   "mode": "subway",
+   "status": "stripe"
+  },
+  {
+   "id": "hingham",
+   "name": "Hingham",
+   "x": 142,
+   "y": 4,
+   "lines": [
+    "rail"
+   ],
+   "mode": "rail",
+   "status": "solid"
+  },
+  {
+   "id": "hudson",
+   "name": "Hudson",
+   "x": -29,
+   "y": 140,
+   "lines": [
+    "rail"
+   ],
+   "mode": "rail",
+   "status": "dash"
+  },
+  {
+   "id": "hyde-park",
+   "name": "Hyde Park",
+   "x": 43.0,
+   "y": 14.0,
+   "lines": [
+    "orange",
+    "rail"
+   ],
+   "mode": "subway",
+   "status": "stripe"
+  },
+  {
+   "id": "hyde-sq",
+   "name": "Hyde Sq",
+   "x": 40.0,
+   "y": 32.0,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "stripe"
+  },
+  {
+   "id": "hynes",
+   "name": "Hynes",
+   "x": 59.0,
+   "y": 84.0,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "inman-sq",
+   "name": "Inman Sq",
+   "x": 74.5,
+   "y": 124.0,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "dash"
+  },
+  {
+   "id": "inner-belt",
+   "name": "Inner Belt",
+   "x": 94.0,
+   "y": 142.0,
+   "lines": [
+    "yellow"
+   ],
+   "mode": "subway",
+   "status": "dash"
+  },
+  {
+   "id": "islington",
+   "name": "Islington",
+   "x": 40.5,
+   "y": -6.5,
+   "lines": [
+    "rail"
+   ],
+   "mode": "rail",
+   "status": "solid"
+  },
+  {
+   "id": "jfk-umass",
+   "name": "JFK/UMass",
+   "x": 118.0,
+   "y": 52.0,
+   "lines": [
+    "red",
+    "yellow",
+    "rail"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "jackson-sq",
+   "name": "Jackson Sq",
+   "x": 60.4,
+   "y": 44.4,
+   "lines": [
+    "orange"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "kendall-mit",
+   "name": "Kendall/MIT",
+   "x": 80.0,
+   "y": 110.0,
+   "lines": [
+    "red",
+    "yellow"
+   ],
+   "mode": "subway",
+   "status": "solid",
+   "ferry": "Ames St"
+  },
+  {
+   "id": "kenmore",
+   "name": "Kenmore",
+   "x": 54.0,
+   "y": 84.0,
+   "lines": [
+    "green",
+    "yellow"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "kent-st",
+   "name": "Kent St",
+   "x": 28.9,
+   "y": 89.78,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "kingston",
+   "name": "Kingston",
+   "x": 138.4,
+   "y": -8.8,
+   "lines": [
+    "rail"
+   ],
+   "mode": "rail",
+   "status": "solid"
+  },
+  {
+   "id": "l-street",
+   "name": "L Street",
+   "x": 145.0,
+   "y": 64.0,
+   "lines": [
+    "cyan"
+   ],
+   "mode": "subway",
+   "status": "dash",
+   "ferry": "Carson Beach"
+  },
+  {
+   "id": "lechmere",
+   "name": "Lechmere",
+   "x": 90.0,
+   "y": 138.0,
+   "lines": [
+    "green",
+    "yellow"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "lexington-ctr",
+   "name": "Lexington Ctr",
+   "x": -3.0,
+   "y": 170.0,
+   "lines": [
+    "red"
+   ],
+   "mode": "subway",
+   "status": "stripe"
+  },
+  {
+   "id": "lexington-route-128",
+   "name": "Lexington Route 128",
+   "x": -26.0,
+   "y": 170.0,
+   "lines": [
+    "red"
+   ],
+   "mode": "subway",
+   "status": "stripe"
+  },
+  {
+   "id": "linden-sq",
+   "name": "Linden Sq",
+   "x": 121.0,
+   "y": 174.02,
+   "lines": [
+    "orange"
+   ],
+   "mode": "subway",
+   "status": "dash"
+  },
+  {
+   "id": "longwood",
+   "name": "Longwood",
+   "x": 41.75,
+   "y": 71.75,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "longwood-medical-area",
+   "name": "Longwood Medical Area",
+   "x": 59.0,
+   "y": 56.0,
+   "lines": [
+    "green",
+    "yellow"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "lynn-harbor",
+   "name": "Lynn Harbor",
+   "x": 188.0,
+   "y": 178.0,
+   "lines": [
+    "blue"
+   ],
+   "mode": "subway",
+   "status": "stripe",
+   "ferry": "Lynn Harbor"
+  },
+  {
+   "id": "mit",
+   "name": "MIT",
+   "x": 75.0,
+   "y": 105.0,
+   "lines": [
+    "blue",
+    "yellow"
+   ],
+   "mode": "subway",
+   "status": "dash"
+  },
+  {
+   "id": "magoun-sq",
+   "name": "Magoun Sq",
+   "x": 73.8,
+   "y": 154.2,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "malden-center",
+   "name": "Malden Center",
+   "x": 110.0,
+   "y": 174.0,
+   "lines": [
+    "orange",
+    "rail"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "mansfield",
+   "name": "Mansfield",
+   "x": 46,
+   "y": -16,
+   "lines": [
+    "rail"
+   ],
+   "mode": "rail",
+   "status": "solid"
+  },
+  {
+   "id": "marblehead",
+   "name": "Marblehead",
+   "x": 214.5,
+   "y": 198.5,
+   "lines": [
+    "rail"
+   ],
+   "mode": "rail",
+   "status": "dash"
+  },
+  {
+   "id": "marlborough",
+   "name": "Marlborough",
+   "x": -40,
+   "y": 140,
+   "lines": [
+    "rail"
+   ],
+   "mode": "rail",
+   "status": "dash"
+  },
+  {
+   "id": "mass-ave",
+   "name": "Mass. Ave",
+   "x": 78.5,
+   "y": 62.5,
+   "lines": [
+    "orange"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "mattapan",
+   "name": "Mattapan",
+   "x": 66.0,
+   "y": 14.0,
+   "lines": [
+    "red",
+    "orange"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "maverick",
+   "name": "Maverick",
+   "x": 127.5,
+   "y": 117.5,
+   "lines": [
+    "blue"
+   ],
+   "mode": "subway",
+   "status": "solid",
+   "ferry": "Piers Park"
+  },
+  {
+   "id": "medford-hillside",
+   "name": "Medford Hillside",
+   "x": 58.0,
+   "y": 170.0,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "stripe"
+  },
+  {
+   "id": "medford-tufts",
+   "name": "Medford/Tufts",
+   "x": 63.0,
+   "y": 165.0,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "melnea-cass",
+   "name": "Melnea Cass",
+   "x": 89.0,
+   "y": 56.0,
+   "lines": [
+    "yellow"
+   ],
+   "mode": "subway",
+   "status": "dash"
+  },
+  {
+   "id": "melrose-highlands",
+   "name": "Melrose Highlands",
+   "x": 110.0,
+   "y": 192.0,
+   "lines": [
+    "orange"
+   ],
+   "mode": "subway",
+   "status": "stripe"
+  },
+  {
+   "id": "melrose-cedar-park",
+   "name": "Melrose/Cedar Park",
+   "x": 110.0,
+   "y": 188.67,
+   "lines": [
+    "orange"
+   ],
+   "mode": "subway",
+   "status": "stripe"
+  },
+  {
+   "id": "middleton",
+   "name": "Middleton",
+   "x": 169,
+   "y": 205.5,
+   "lines": [
+    "rail"
+   ],
+   "mode": "rail",
+   "status": "dash"
+  },
+  {
+   "id": "milton",
+   "name": "Milton",
+   "x": 87.19,
+   "y": 14.0,
+   "lines": [
+    "red"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "mission-park",
+   "name": "Mission Park",
+   "x": 49.5,
+   "y": 46.5,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "moakley-park",
+   "name": "Moakley Park",
+   "x": 124.9,
+   "y": 58.9,
+   "lines": [
+    "yellow"
+   ],
+   "mode": "subway",
+   "status": "dash"
+  },
+  {
+   "id": "morton-st",
+   "name": "Morton St",
+   "x": 71.0,
+   "y": 27.0,
+   "lines": [
+    "indigo"
+   ],
+   "mode": "subway",
+   "status": "stripe"
+  },
+  {
+   "id": "museum-of-fine-arts",
+   "name": "Museum of Fine Arts",
+   "x": 63.65,
+   "y": 60.65,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "navy-yard",
+   "name": "Navy Yard",
+   "x": 123.69,
+   "y": 135.1,
+   "lines": [
+    "cyan"
+   ],
+   "mode": "subway",
+   "status": "dash",
+   "ferry": "Navy Yard"
+  },
+  {
+   "id": "needham-crossing",
+   "name": "Needham Crossing",
+   "x": 8.0,
+   "y": 23.66,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "stripe"
+  },
+  {
+   "id": "needham-heights",
+   "name": "Needham Heights",
+   "x": 8.0,
+   "y": 16.49,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "stripe"
+  },
+  {
+   "id": "needham-junction",
+   "name": "Needham Junction",
+   "x": 8.0,
+   "y": 9.32,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "stripe"
+  },
+  {
+   "id": "newmarket",
+   "name": "Newmarket",
+   "x": 100.0,
+   "y": 56.0,
+   "lines": [
+    "indigo",
+    "yellow"
+   ],
+   "mode": "subway",
+   "status": "stripe"
+  },
+  {
+   "id": "newton-centre",
+   "name": "Newton Centre",
+   "x": 16.25,
+   "y": 46.25,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "newton-city-hall",
+   "name": "Newton City Hall",
+   "x": -25.0,
+   "y": 63.0,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "dash"
+  },
+  {
+   "id": "newton-corner",
+   "name": "Newton Corner",
+   "x": -6.76,
+   "y": 111.0,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "stripe"
+  },
+  {
+   "id": "newton-highlands",
+   "name": "Newton Highlands",
+   "x": 12.0,
+   "y": 42.0,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "newton-upper-falls",
+   "name": "Newton Upper Falls",
+   "x": 8.0,
+   "y": 30.83,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "stripe"
+  },
+  {
+   "id": "newtonville",
+   "name": "Newtonville",
+   "x": 6,
+   "y": 122,
+   "lines": [
+    "rail"
+   ],
+   "mode": "rail",
+   "status": "solid"
+  },
+  {
+   "id": "north-cambridge",
+   "name": "North Cambridge",
+   "x": 48.67,
+   "y": 141.33,
+   "lines": [
+    "red"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "north-easton",
+   "name": "North Easton",
+   "x": 57,
+   "y": -7,
+   "lines": [
+    "rail"
+   ],
+   "mode": "rail",
+   "status": "dash"
+  },
+  {
+   "id": "north-end",
+   "name": "North End",
+   "x": 118.0,
+   "y": 114.0,
+   "lines": [
+    "cyan"
+   ],
+   "mode": "subway",
+   "status": "dash",
+   "ferry": "Langone"
+  },
+  {
+   "id": "north-quincy",
+   "name": "North Quincy",
+   "x": 118.0,
+   "y": 43.2,
+   "lines": [
+    "red"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "north-scituate",
+   "name": "North Scituate",
+   "x": 149.8,
+   "y": -3.8,
+   "lines": [
+    "rail"
+   ],
+   "mode": "rail",
+   "status": "solid"
+  },
+  {
+   "id": "north-station",
+   "name": "North Station",
+   "x": 110.0,
+   "y": 120.0,
+   "lines": [
+    "orange",
+    "cyan",
+    "green",
+    "rail"
+   ],
+   "mode": "subway",
+   "status": "solid",
+   "hsr": true,
+   "ferry": "Lovejoy Wharf"
+  },
+  {
+   "id": "northampton",
+   "name": "Northampton",
+   "x": 92.0,
+   "y": 67.6,
+   "lines": [
+    "orange"
+   ],
+   "mode": "subway",
+   "status": "dash"
+  },
+  {
+   "id": "northeastern",
+   "name": "Northeastern",
+   "x": 68.04,
+   "y": 65.51,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "norwood",
+   "name": "Norwood",
+   "x": 37.5,
+   "y": -9.5,
+   "lines": [
+    "rail"
+   ],
+   "mode": "rail",
+   "status": "solid"
+  },
+  {
+   "id": "nubian",
+   "name": "Nubian",
+   "x": 84.54,
+   "y": 55.78,
+   "lines": [
+    "orange",
+    "yellow"
+   ],
+   "mode": "subway",
+   "status": "dash"
+  },
+  {
+   "id": "oak-grove",
+   "name": "Oak Grove",
+   "x": 110.0,
+   "y": 182.0,
+   "lines": [
+    "orange",
+    "rail"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "oak-sq",
+   "name": "Oak Sq",
+   "x": 6.62,
+   "y": 111.0,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "stripe"
+  },
+  {
+   "id": "orient-heights",
+   "name": "Orient Heights",
+   "x": 149.0,
+   "y": 139.0,
+   "lines": [
+    "blue"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "packards-corner",
+   "name": "Packard's Corner",
+   "x": 23.55,
+   "y": 104.45,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "park-street",
+   "name": "Park Street",
+   "x": 96.0,
+   "y": 94.0,
+   "lines": [
+    "red",
+    "green"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "peabody",
+   "name": "Peabody",
+   "x": 194,
+   "y": 198.5,
+   "lines": [
+    "rail"
+   ],
+   "mode": "rail",
+   "status": "dash"
+  },
+  {
+   "id": "porter",
+   "name": "Porter",
+   "x": 58.0,
+   "y": 132.0,
+   "lines": [
+    "red",
+    "rail"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "prudential",
+   "name": "Prudential",
+   "x": 69.0,
+   "y": 75.0,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "quincy-adams",
+   "name": "Quincy Adams",
+   "x": 118.0,
+   "y": 16.8,
+   "lines": [
+    "red"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "quincy-center",
+   "name": "Quincy Center",
+   "x": 118.0,
+   "y": 25.6,
+   "lines": [
+    "red",
+    "rail"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "raynham-place",
+   "name": "Raynham Place",
+   "x": 71,
+   "y": -7,
+   "lines": [
+    "rail"
+   ],
+   "mode": "rail",
+   "status": "dash"
+  },
+  {
+   "id": "reading",
+   "name": "Reading",
+   "x": 110.0,
+   "y": 202.0,
+   "lines": [
+    "orange",
+    "rail"
+   ],
+   "mode": "subway",
+   "status": "stripe"
+  },
+  {
+   "id": "readville",
+   "name": "Readville",
+   "x": 46.0,
+   "y": 2.0,
+   "lines": [
+    "orange",
+    "indigo",
+    "rail"
+   ],
+   "mode": "subway",
+   "status": "stripe"
+  },
+  {
+   "id": "reservoir",
+   "name": "Reservoir",
+   "x": 24.75,
+   "y": 54.75,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "revere-beach",
+   "name": "Revere Beach",
+   "x": 169.25,
+   "y": 159.25,
+   "lines": [
+    "blue"
+   ],
+   "mode": "subway",
+   "status": "solid",
+   "ferry": "Revere Beach"
+  },
+  {
+   "id": "riverside",
+   "name": "Riverside",
+   "x": -8.0,
+   "y": 22.0,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "riverway",
+   "name": "Riverway",
+   "x": 46.33,
+   "y": 43.33,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "roslindale-village",
+   "name": "Roslindale Village",
+   "x": 37.83,
+   "y": 21.83,
+   "lines": [
+    "orange"
+   ],
+   "mode": "subway",
+   "status": "stripe"
+  },
+  {
+   "id": "roxbury-crossing",
+   "name": "Roxbury Crossing",
+   "x": 66.2,
+   "y": 50.2,
+   "lines": [
+    "orange"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "ruggles",
+   "name": "Ruggles",
+   "x": 72.0,
+   "y": 56.0,
+   "lines": [
+    "orange",
+    "yellow",
+    "rail"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "salem",
+   "name": "Salem",
+   "x": 212,
+   "y": 203.8,
+   "lines": [
+    "rail"
+   ],
+   "mode": "rail",
+   "status": "solid"
+  },
+  {
+   "id": "saugus-center",
+   "name": "Saugus Center",
+   "x": 150.0,
+   "y": 186.0,
+   "lines": [
+    "orange"
+   ],
+   "mode": "subway",
+   "status": "dash"
+  },
+  {
+   "id": "savin-hill",
+   "name": "Savin Hill",
+   "x": 111.66,
+   "y": 45.66,
+   "lines": [
+    "red"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "science-park",
+   "name": "Science Park",
+   "x": 98.76,
+   "y": 129.24,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "seaport",
+   "name": "Seaport",
+   "x": 140.0,
+   "y": 76.0,
+   "lines": [
+    "cyan",
+    "yellow"
+   ],
+   "mode": "subway",
+   "status": "dash"
+  },
+  {
+   "id": "seaver-st",
+   "name": "Seaver St",
+   "x": 78.0,
+   "y": 44.0,
+   "lines": [
+    "orange"
+   ],
+   "mode": "subway",
+   "status": "dash"
+  },
+  {
+   "id": "shawmut",
+   "name": "Shawmut",
+   "x": 98.99,
+   "y": 32.99,
+   "lines": [
+    "red"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "south-acton",
+   "name": "South Acton",
+   "x": -21,
+   "y": 143,
+   "lines": [
+    "rail"
+   ],
+   "mode": "rail",
+   "status": "solid"
+  },
+  {
+   "id": "south-salem",
+   "name": "South Salem",
+   "x": 208.5,
+   "y": 198.5,
+   "lines": [
+    "rail"
+   ],
+   "mode": "rail",
+   "status": "stripe"
+  },
+  {
+   "id": "south-st",
+   "name": "South St",
+   "x": -17.38,
+   "y": 70.62,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "south-station",
+   "name": "South Station",
+   "x": 114.0,
+   "y": 76.0,
+   "lines": [
+    "red",
+    "indigo",
+    "rail"
+   ],
+   "mode": "subway",
+   "status": "solid",
+   "hsr": true,
+   "ferry": "Dorchester Ave"
+  },
+  {
+   "id": "st-marys-st",
+   "name": "St. Mary's St",
+   "x": 39.0,
+   "y": 84.02,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "st-paul-st",
+   "name": "St. Paul St",
+   "x": 24.23,
+   "y": 86.23,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "stadium",
+   "name": "Stadium",
+   "x": 124.0,
+   "y": 150.0,
+   "lines": [
+    "cyan",
+    "yellow"
+   ],
+   "mode": "subway",
+   "status": "dash",
+   "ferry": "Stadium"
+  },
+  {
+   "id": "stony-brook",
+   "name": "Stony Brook",
+   "x": 54.6,
+   "y": 38.6,
+   "lines": [
+    "orange"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "stoughton",
+   "name": "Stoughton",
+   "x": 50,
+   "y": -7,
+   "lines": [
+    "rail"
+   ],
+   "mode": "rail",
+   "status": "solid"
+  },
+  {
+   "id": "suffolk-downs",
+   "name": "Suffolk Downs",
+   "x": 155.75,
+   "y": 145.75,
+   "lines": [
+    "blue"
+   ],
+   "mode": "subway",
+   "status": "solid",
+   "ferry": "Suffolk Downs"
+  },
+  {
+   "id": "sullivan-sq",
+   "name": "Sullivan Sq",
+   "x": 110.0,
+   "y": 150.0,
+   "lines": [
+    "orange",
+    "yellow",
+    "rail"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "summit-ave",
+   "name": "Summit Ave",
+   "x": 15.73,
+   "y": 77.73,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "sutherland-rd",
+   "name": "Sutherland Rd",
+   "x": -3.54,
+   "y": 84.46,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "swampscott",
+   "name": "Swampscott",
+   "x": 204,
+   "y": 194,
+   "lines": [
+    "rail"
+   ],
+   "mode": "rail",
+   "status": "solid"
+  },
+  {
+   "id": "symphony",
+   "name": "Symphony",
+   "x": 68.98,
+   "y": 69.0,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "talbot-ave",
+   "name": "Talbot Ave",
+   "x": 79.0,
+   "y": 35.0,
+   "lines": [
+    "indigo"
+   ],
+   "mode": "subway",
+   "status": "stripe"
+  },
+  {
+   "id": "tappan-st",
+   "name": "Tappan St",
+   "x": -1.26,
+   "y": 60.74,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "taunton",
+   "name": "Taunton",
+   "x": 78,
+   "y": -7,
+   "lines": [
+    "rail"
+   ],
+   "mode": "rail",
+   "status": "dash"
+  },
+  {
+   "id": "terminals",
+   "name": "Terminals",
+   "x": 148.0,
+   "y": 104.0,
+   "lines": [
+    "yellow"
+   ],
+   "mode": "subway",
+   "status": "dash"
+  },
+  {
+   "id": "thompson-sq",
+   "name": "Thompson Sq",
+   "x": 124.0,
+   "y": 141.0,
+   "lines": [
+    "cyan"
+   ],
+   "mode": "subway",
+   "status": "dash"
+  },
+  {
+   "id": "tufts-medical-ctr",
+   "name": "Tufts Medical Ctr",
+   "x": 92.0,
+   "y": 76.0,
+   "lines": [
+    "orange"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "union-sq",
+   "name": "Union Sq",
+   "x": 80.0,
+   "y": 138.0,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "uphams-corner",
+   "name": "Uphams Corner",
+   "x": 98.0,
+   "y": 54.0,
+   "lines": [
+    "indigo"
+   ],
+   "mode": "subway",
+   "status": "stripe"
+  },
+  {
+   "id": "vfw-parkway",
+   "name": "VFW Parkway",
+   "x": 12.0,
+   "y": -4.0,
+   "lines": [
+    "orange",
+    "green"
+   ],
+   "mode": "subway",
+   "status": "stripe"
+  },
+  {
+   "id": "valley-rd",
+   "name": "Valley Rd",
+   "x": 76.6,
+   "y": 14.0,
+   "lines": [
+    "red"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "vertex-tower",
+   "name": "Vertex Tower",
+   "x": 146.5,
+   "y": 76.0,
+   "lines": [
+    "cyan"
+   ],
+   "mode": "subway",
+   "status": "dash"
+  },
+  {
+   "id": "waban",
+   "name": "Waban",
+   "x": 2.67,
+   "y": 32.67,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "wakefield",
+   "name": "Wakefield",
+   "x": 110.0,
+   "y": 198.67,
+   "lines": [
+    "orange"
+   ],
+   "mode": "subway",
+   "status": "stripe"
+  },
+  {
+   "id": "walpole",
+   "name": "Walpole",
+   "x": 34,
+   "y": -13,
+   "lines": [
+    "rail"
+   ],
+   "mode": "rail",
+   "status": "solid"
+  },
+  {
+   "id": "waltham",
+   "name": "Waltham",
+   "x": -30.0,
+   "y": 146.0,
+   "lines": [
+    "red",
+    "rail"
+   ],
+   "mode": "subway",
+   "status": "stripe"
+  },
+  {
+   "id": "warren-st",
+   "name": "Warren St",
+   "x": 5.7,
+   "y": 93.7,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "washington-sq",
+   "name": "Washington Sq",
+   "x": 2.99,
+   "y": 64.99,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "washington-st",
+   "name": "Washington St",
+   "x": 1.08,
+   "y": 89.08,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "watertown",
+   "name": "Watertown",
+   "x": -18.0,
+   "y": 117.0,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "stripe"
+  },
+  {
+   "id": "waverley-sq",
+   "name": "Waverley Sq",
+   "x": -5.33,
+   "y": 146.0,
+   "lines": [
+    "red"
+   ],
+   "mode": "subway",
+   "status": "stripe"
+  },
+  {
+   "id": "wellesley",
+   "name": "Wellesley",
+   "x": -30,
+   "y": 122,
+   "lines": [
+    "rail"
+   ],
+   "mode": "rail",
+   "status": "solid"
+  },
+  {
+   "id": "wellesley-hills",
+   "name": "Wellesley Hills",
+   "x": -14.0,
+   "y": 16.0,
+   "lines": [
+    "green",
+    "rail"
+   ],
+   "mode": "subway",
+   "status": "dash"
+  },
+  {
+   "id": "wellington",
+   "name": "Wellington",
+   "x": 110.0,
+   "y": 165.5,
+   "lines": [
+    "orange"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "wellington-hill",
+   "name": "Wellington Hill",
+   "x": 71.0,
+   "y": 37.0,
+   "lines": [
+    "orange"
+   ],
+   "mode": "subway",
+   "status": "dash"
+  },
+  {
+   "id": "west-broadway",
+   "name": "West Broadway",
+   "x": 124.0,
+   "y": 64.0,
+   "lines": [
+    "cyan"
+   ],
+   "mode": "subway",
+   "status": "dash"
+  },
+  {
+   "id": "west-medford",
+   "name": "West Medford",
+   "x": 53.0,
+   "y": 175.0,
+   "lines": [
+    "green",
+    "rail"
+   ],
+   "mode": "subway",
+   "status": "stripe"
+  },
+  {
+   "id": "west-newton",
+   "name": "West Newton",
+   "x": -3.5,
+   "y": 122,
+   "lines": [
+    "rail"
+   ],
+   "mode": "rail",
+   "status": "solid"
+  },
+  {
+   "id": "west-roxbury",
+   "name": "West Roxbury",
+   "x": 17.17,
+   "y": 1.17,
+   "lines": [
+    "orange"
+   ],
+   "mode": "subway",
+   "status": "stripe"
+  },
+  {
+   "id": "west-station",
+   "name": "West Station",
+   "x": 59.0,
+   "y": 89.0,
+   "lines": [
+    "blue",
+    "green",
+    "yellow",
+    "rail"
+   ],
+   "mode": "subway",
+   "status": "dash",
+   "hsr": true
+  },
+  {
+   "id": "weston",
+   "name": "Weston",
+   "x": -31.0,
+   "y": 57.0,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "dash"
+  },
+  {
+   "id": "weymouth",
+   "name": "Weymouth",
+   "x": 118.0,
+   "y": -7.0,
+   "lines": [
+    "red"
+   ],
+   "mode": "subway",
+   "status": "dash"
+  },
+  {
+   "id": "wilmington",
+   "name": "Wilmington",
+   "x": 53,
+   "y": 194,
+   "lines": [
+    "rail"
+   ],
+   "mode": "rail",
+   "status": "solid"
+  },
+  {
+   "id": "winchester",
+   "name": "Winchester",
+   "x": 53,
+   "y": 184,
+   "lines": [
+    "rail"
+   ],
+   "mode": "rail",
+   "status": "solid"
+  },
+  {
+   "id": "winthrop-center",
+   "name": "Winthrop Center",
+   "x": 164.0,
+   "y": 124.0,
+   "lines": [
+    "blue"
+   ],
+   "mode": "subway",
+   "status": "dash"
+  },
+  {
+   "id": "wollaston",
+   "name": "Wollaston",
+   "x": 118.0,
+   "y": 34.4,
+   "lines": [
+    "red"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "wonderland",
+   "name": "Wonderland",
+   "x": 176.0,
+   "y": 166.0,
+   "lines": [
+    "orange",
+    "blue"
+   ],
+   "mode": "subway",
+   "status": "dash"
+  },
+  {
+   "id": "wood-island",
+   "name": "Wood Island",
+   "x": 142.0,
+   "y": 132.0,
+   "lines": [
+    "blue"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "woodland",
+   "name": "Woodland",
+   "x": -2.67,
+   "y": 27.33,
+   "lines": [
+    "green"
+   ],
+   "mode": "subway",
+   "status": "solid"
+  },
+  {
+   "id": "wu-sq",
+   "name": "Wu Sq",
+   "x": 32.67,
+   "y": 16.67,
+   "lines": [
+    "orange"
+   ],
+   "mode": "subway",
+   "status": "stripe"
+  },
+  {
+   "id": "wyoma-sq",
+   "name": "Wyoma Sq",
+   "x": 188.0,
+   "y": 192.0,
+   "lines": [
+    "blue"
+   ],
+   "mode": "subway",
+   "status": "dash"
+  },
+  {
+   "id": "wyoming-hill",
+   "name": "Wyoming Hill",
+   "x": 110.0,
+   "y": 185.33,
+   "lines": [
+    "orange"
+   ],
+   "mode": "subway",
+   "status": "stripe"
+  }
+ ],
+ "segments": [
+  {
+   "line": "red",
+   "status": "dash",
+   "stops": [
+    "braintree",
+    "weymouth"
+   ]
+  },
+  {
+   "line": "red",
+   "status": "stripe",
+   "stops": [
+    "arlington-heights",
+    "arlington-ctr",
+    "east-arlington",
+    "alewife"
+   ]
+  },
+  {
+   "line": "red",
+   "status": "stripe",
+   "stops": [
+    "arlington-heights",
+    "lexington-ctr",
+    "lexington-route-128"
+   ]
+  },
+  {
+   "line": "red",
+   "status": "stripe",
+   "stops": [
+    "alewife",
+    "belmont-ctr",
+    "waverley-sq",
+    "waltham"
+   ]
+  },
+  {
+   "line": "red",
+   "status": "solid",
+   "stops": [
+    "alewife",
+    "north-cambridge",
+    "davis",
+    "porter",
+    "harvard",
+    "central",
+    "kendall-mit",
+    "charles-mgh",
+    "park-street",
+    "downtown-crossing",
+    "south-station",
+    "broadway",
+    "andrew",
+    "jfk-umass"
+   ]
+  },
+  {
+   "line": "red",
+   "status": "solid",
+   "stops": [
+    "jfk-umass",
+    "savin-hill",
+    "fields-corner",
+    "shawmut",
+    "ashmont"
+   ]
+  },
+  {
+   "line": "red",
+   "status": "solid",
+   "stops": [
+    "jfk-umass",
+    "north-quincy",
+    "wollaston",
+    "quincy-center",
+    "quincy-adams",
+    "braintree"
+   ]
+  },
+  {
+   "line": "red",
+   "status": "solid",
+   "stops": [
+    "ashmont",
+    "cedar-grove",
+    "butler",
+    "milton",
+    "central-ave",
+    "valley-rd",
+    "capen-st",
+    "mattapan"
+   ]
+  },
+  {
+   "line": "orange",
+   "status": "solid",
+   "stops": [
+    "oak-grove",
+    "malden-center",
+    "wellington",
+    "assembly",
+    "sullivan-sq",
+    "community-college",
+    "north-station",
+    "haymarket",
+    "boston-central",
+    "downtown-crossing",
+    "chinatown",
+    "tufts-medical-ctr",
+    "back-bay",
+    "mass-ave",
+    "ruggles",
+    "roxbury-crossing",
+    "jackson-sq",
+    "stony-brook",
+    "green-st",
+    "forest-hills"
+   ]
+  },
+  {
+   "line": "orange",
+   "status": "dash",
+   "stops": [
+    "tufts-medical-ctr",
+    "dover",
+    "northampton",
+    "nubian",
+    "grove-hall",
+    "seaver-st",
+    "wellington-hill",
+    "blue-hill-ave",
+    "mattapan"
+   ]
+  },
+  {
+   "line": "orange",
+   "status": "stripe",
+   "stops": [
+    "reading",
+    "wakefield",
+    "greenwood",
+    "melrose-highlands",
+    "melrose-cedar-park",
+    "wyoming-hill",
+    "oak-grove"
+   ]
+  },
+  {
+   "line": "orange",
+   "status": "dash",
+   "stops": [
+    "malden-center",
+    "linden-sq",
+    "cliftondale",
+    "saugus-center",
+    "wonderland"
+   ]
+  },
+  {
+   "line": "orange",
+   "status": "stripe",
+   "stops": [
+    "forest-hills",
+    "hyde-park",
+    "readville"
+   ]
+  },
+  {
+   "line": "orange",
+   "status": "stripe",
+   "stops": [
+    "forest-hills",
+    "roslindale-village",
+    "wu-sq",
+    "bellevue",
+    "highland",
+    "west-roxbury",
+    "vfw-parkway"
+   ]
+  },
+  {
+   "line": "indigo",
+   "status": "stripe",
+   "stops": [
+    "south-station",
+    "newmarket",
+    "uphams-corner",
+    "four-corners",
+    "talbot-ave",
+    "morton-st",
+    "blue-hill-ave",
+    "fairmount",
+    "readville"
+   ]
+  },
+  {
+   "line": "cyan",
+   "status": "dash",
+   "stops": [
+    "seaport",
+    "courthouse",
+    "fort-point",
+    "boston-central",
+    "aquarium",
+    "north-end",
+    "north-station",
+    "city-square",
+    "navy-yard",
+    "thompson-sq",
+    "stadium",
+    "encore",
+    "assembly"
+   ]
+  },
+  {
+   "line": "cyan",
+   "status": "dash",
+   "stops": [
+    "seaport",
+    "vertex-tower",
+    "city-point",
+    "l-street",
+    "convention-center",
+    "west-broadway",
+    "broadway"
+   ]
+  },
+  {
+   "line": "blue",
+   "status": "solid",
+   "stops": [
+    "govt-center",
+    "boston-central",
+    "aquarium",
+    "maverick",
+    "airport",
+    "wood-island",
+    "orient-heights",
+    "suffolk-downs",
+    "beachmont",
+    "revere-beach",
+    "wonderland"
+   ]
+  },
+  {
+   "line": "blue",
+   "status": "stripe",
+   "stops": [
+    "charles-mgh",
+    "govt-center"
+   ]
+  },
+  {
+   "line": "blue",
+   "status": "dash",
+   "stops": [
+    "charles-mgh",
+    "mit",
+    "west-station"
+   ]
+  },
+  {
+   "line": "blue",
+   "status": "dash",
+   "stops": [
+    "orient-heights",
+    "winthrop-center"
+   ]
+  },
+  {
+   "line": "blue",
+   "status": "stripe",
+   "stops": [
+    "wonderland",
+    "lynn-harbor",
+    "central-sq"
+   ]
+  },
+  {
+   "line": "blue",
+   "status": "dash",
+   "stops": [
+    "central-sq",
+    "wyoma-sq"
+   ]
+  },
+  {
+   "line": "green",
+   "status": "solid",
+   "stops": [
+    "lechmere",
+    "science-park",
+    "north-station",
+    "haymarket",
+    "govt-center",
+    "park-street",
+    "boylston",
+    "arlington",
+    "copley",
+    "hynes",
+    "kenmore"
+   ]
+  },
+  {
+   "line": "green",
+   "status": "solid",
+   "stops": [
+    "medford-tufts",
+    "ball-sq",
+    "magoun-sq",
+    "gilman-sq",
+    "east-somerville",
+    "lechmere"
+   ]
+  },
+  {
+   "line": "green",
+   "status": "stripe",
+   "stops": [
+    "west-medford",
+    "medford-hillside",
+    "medford-tufts"
+   ]
+  },
+  {
+   "line": "green",
+   "status": "stripe",
+   "stops": [
+    "west-station",
+    "hynes"
+   ]
+  },
+  {
+   "line": "green",
+   "status": "stripe",
+   "stops": [
+    "west-station",
+    "allston",
+    "brighton-center",
+    "oak-sq",
+    "newton-corner",
+    "watertown"
+   ]
+  },
+  {
+   "line": "green",
+   "status": "solid",
+   "stops": [
+    "union-sq",
+    "lechmere"
+   ]
+  },
+  {
+   "line": "green",
+   "status": "dash",
+   "stops": [
+    "harvard",
+    "inman-sq",
+    "union-sq"
+   ]
+  },
+  {
+   "line": "green",
+   "status": "solid",
+   "stops": [
+    "kenmore",
+    "blandford-st",
+    "bu-east",
+    "bu-central",
+    "amory-st",
+    "babcock-st",
+    "packards-corner",
+    "harvard-ave",
+    "griggs-st",
+    "allston-st",
+    "warren-st",
+    "washington-st",
+    "sutherland-rd",
+    "chiswick-rd",
+    "chestnut-hill-ave",
+    "south-st",
+    "boston-college"
+   ]
+  },
+  {
+   "line": "green",
+   "status": "solid",
+   "stops": [
+    "st-marys-st",
+    "hawes-st",
+    "kent-st",
+    "st-paul-st",
+    "coolidge-corner",
+    "summit-ave",
+    "brandon-hall",
+    "fairbanks-st",
+    "washington-sq",
+    "tappan-st",
+    "dean-rd",
+    "englewood-ave",
+    "cleveland-circle"
+   ]
+  },
+  {
+   "line": "green",
+   "status": "solid",
+   "stops": [
+    "kenmore",
+    "fenway",
+    "longwood",
+    "brookline-village",
+    "brookline-hills",
+    "beaconsfield",
+    "reservoir",
+    "chestnut-hill",
+    "newton-centre",
+    "newton-highlands",
+    "eliot",
+    "waban",
+    "woodland",
+    "riverside"
+   ]
+  },
+  {
+   "line": "green",
+   "status": "solid",
+   "stops": [
+    "prudential",
+    "symphony",
+    "northeastern",
+    "museum-of-fine-arts",
+    "longwood-medical-area",
+    "brigham-circle",
+    "fenwood-rd",
+    "mission-park",
+    "riverway",
+    "back-of-the-hill",
+    "heath-st"
+   ]
+  },
+  {
+   "line": "green",
+   "status": "stripe",
+   "stops": [
+    "heath-st",
+    "hyde-sq"
+   ]
+  },
+  {
+   "line": "green",
+   "status": "stripe",
+   "stops": [
+    "hyde-sq",
+    "forest-hills"
+   ]
+  },
+  {
+   "line": "green",
+   "status": "stripe",
+   "stops": [
+    "eliot",
+    "newton-upper-falls",
+    "needham-crossing",
+    "needham-heights",
+    "needham-junction",
+    "hersey",
+    "vfw-parkway"
+   ]
+  },
+  {
+   "line": "green",
+   "status": "dash",
+   "stops": [
+    "boston-college",
+    "newton-city-hall",
+    "auburndale",
+    "weston"
+   ]
+  },
+  {
+   "line": "green",
+   "status": "dash",
+   "stops": [
+    "riverside",
+    "wellesley-hills"
+   ]
+  },
+  {
+   "line": "yellow",
+   "status": "dash",
+   "stops": [
+    "terminals",
+    "airport",
+    "day-sq",
+    "bellingham-sq"
+   ]
+  },
+  {
+   "line": "yellow",
+   "status": "dash",
+   "stops": [
+    "bellingham-sq",
+    "chelsea",
+    "everett-sq",
+    "stadium",
+    "sullivan-sq",
+    "inner-belt",
+    "lechmere"
+   ]
+  },
+  {
+   "line": "yellow",
+   "status": "dash",
+   "stops": [
+    "seaport",
+    "terminals"
+   ]
+  },
+  {
+   "line": "yellow",
+   "status": "stripe",
+   "stops": [
+    "lechmere",
+    "binney",
+    "kendall-mit",
+    "mit",
+    "bu-bridge",
+    "west-station"
+   ]
+  },
+  {
+   "line": "yellow",
+   "status": "dash",
+   "stops": [
+    "west-station",
+    "kenmore",
+    "fenway",
+    "longwood-medical-area",
+    "ruggles",
+    "nubian",
+    "melnea-cass",
+    "boston-medical",
+    "newmarket",
+    "jfk-umass"
+   ]
+  },
+  {
+   "line": "yellow",
+   "status": "dash",
+   "stops": [
+    "jfk-umass",
+    "moakley-park",
+    "convention-center",
+    "seaport"
+   ]
+  }
+ ]
+}

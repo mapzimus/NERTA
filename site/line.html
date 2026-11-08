@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Line | NERTA</title>
+<link rel="icon" href="/assets/logo/t.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/css/site.css">
+<script src="/js/common.js" defer></script>
+<script src="/js/line.js" defer></script>
+</head>
+<body>
+<header class="page-head colored" id="head"><div class="wrap" style="display:flex;gap:20px;align-items:center">
+  <img id="roundel" src="/assets/logo/t.svg" alt="" width="84" height="84" style="background:#fff;border-radius:50%;flex-shrink:0">
+  <div><div class="crumbs"><a href="/">Home</a> / <a href="/lines.html">Lines</a> / <span id="crumb"></span></div>
+  <h1 id="title" style="margin:0 0 6px"></h1><p class="lede" id="blurb" style="margin:0"></p></div>
+</div></header>
+<main id="main">
+  <section class="section tight"><div class="wrap"><div class="alert-item" id="status"></div></div></section>
+  <section class="section tight"><div class="wrap grid four" id="stats"></div></section>
+  <section class="section"><div class="wrap grid two" style="align-items:start">
+    <div class="card"><h2>Stations</h2><div id="strip"></div></div>
+    <div>
+      <a class="map-card" id="poster" data-lightbox><div class="thumb" style="aspect-ratio:auto"><img id="poster-img" alt=""></div><div class="body"><b>Line map</b><span>Click to enlarge.</span></div></a>
+      <p class="small" style="margin:8px 0 0"><a id="pdf">Download the PDF</a></p>
+      <div class="card" style="margin-top:20px"><h2>How often trains run</h2>
+        <table class="data"><thead><tr><th>Time</th><th class="num">Weekdays</th><th class="num">Weekends</th></tr></thead><tbody id="headways"></tbody></table>
+        <p class="small muted" style="margin:10px 0 0">Service runs 24 hours. Overnight trains are driverless and stop at every station.</p>
+      </div>
+      <div class="card" style="margin-top:20px"><h2>Busiest stations</h2><div class="bars" id="busy"></div></div>
+    </div>
+  </div></section>
+</main>
+</body>
+</html>

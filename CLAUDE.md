@@ -24,7 +24,7 @@ Any assembled data needs 2 named sources before it's called accurate. Say where 
 
 - Reference maps are for comparison only. Never copy one.
 - Credit reads "Map: Maxwell Howe", no handle.
-- Anything using the T roundel must say it isn't affiliated with the MBTA. The main map uses Max's disclaimer paragraph. Posters use "NOT A REAL MBTA MAP".
+- The main map carries Max's disclaimer paragraph (not affiliated with the MBTA). Since November 7 the posters drop the red "NOT A REAL MBTA MAP": the redesigned three-layer T and NERTA mark make it plain (Max's call). Keep the disclaimer in the post caption.
 - Don't name the Patriots or Tom Brady.
 - New stops and offshoots must be grounded in a real proposal or real plan. Label invented ones as invented in `boston-map/data/line_audit.md`.
 - Posts get the split credit: Max's concept and design, Claude Code's scripts.

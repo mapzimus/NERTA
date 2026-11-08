@@ -16,13 +16,23 @@ Everything is in `boston-map/output/` unless noted.
 | `line_<name>.pdf` | The same posters as vector PDFs. |
 | `day08_rapid_transit_max_edits.ai` | Max's hand-edited file, kept for reference. Its edits are now in the code. |
 
+## Work in progress, after Day 8
+
+| File | What it is |
+|---|---|
+| `copies/hq_2026-11-07/` | **High-quality set of the map as it stands:** `current_map` (600 dpi PNG and vector PDF), all eight `line_*` posters (600 dpi and PDF) and the five `ferry5_*` ferry posters (600 dpi). |
+| `copies/wide_v3_lbl.png`, `.pdf` | Newest working render: five ferry routes, wider sheet, Beverly. |
+| `copies/ferry5_*.png` | The five ferry route posters at 160 dpi. |
+| `copies/archive/` | Every earlier draft render from November 7, Cursor's and Claude's. Nothing deleted. |
+
 ## Older
 
 | File | What it is |
 |---|---|
-| `map.png`, `map_hires.png`, `map.pdf` | The first idea: "What if the MBTA covered all of New England." A geographic map of the whole region, later dropped from Day 8. |
-| `regional_map.png`, `regional_map_hires.png`, `regional_map.pdf` | A second regional poster, also dropped. |
-| `draft_network.png` | Early network draft. |
+| `archive/map.png`, `map_hires.png`, `map.pdf` | The first idea: "What if the MBTA covered all of New England." A geographic map of the whole region, later dropped from Day 8. |
+| `archive/regional_map.png`, `regional_map_hires.png`, `regional_map.pdf` | A second regional poster, also dropped. |
+| `archive/draft_network.png` | Early network draft. |
+| `archive/day08_rapid_transit [Recovered]*.ai` | Two Illustrator crash recoveries. No hand edits worth keeping. |
 
 ## How the map evolved
 

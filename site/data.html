@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ridership &amp; Performance Data | NERTA</title>
+<meta name="description" content="NERTA ridership by line and station, on-time performance, and open data downloads.">
+<link rel="icon" href="/assets/logo/t.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/css/site.css">
+<script src="/js/common.js" defer></script>
+<script src="/js/data.js" defer></script>
+</head>
+<body>
+<header class="page-head"><div class="wrap">
+  <div class="crumbs"><a href="/">Home</a> / Ridership Data</div>
+  <h1>Ridership &amp; Performance</h1>
+  <p class="lede">How many people ride, where, and how reliably we get them there. Updated every month.</p>
+  <span class="pill-note" id="period"></span>
+</div></header>
+<main id="main">
+  <section class="section tight"><div class="wrap grid four" id="tiles"></div></section>
+  <section class="section tight"><div class="wrap grid two" style="align-items:start">
+    <div class="card"><h2>Average weekday riders by line</h2><div class="bars" id="by-line"></div></div>
+    <div class="card"><h2>Systemwide weekday riders</h2><p class="small muted" style="margin-top:-4px">Last 24 months</p><div id="trend"></div></div>
+  </div></section>
+  <section class="section tight" id="performance"><div class="wrap card">
+    <h2>On-time performance</h2>
+    <p class="small muted" style="margin-top:-4px">Share of trips arriving within 3 minutes of schedule. Goal: 90%.</p>
+    <div class="table-scroll"><table class="data"><thead><tr><th>Line</th><th class="num">This month</th><th class="num">Last month</th><th class="num">12-month average</th><th class="num">Trips run</th><th>Status</th></tr></thead><tbody id="otp"></tbody></table></div>
+  </div></section>
+  <section class="section tight"><div class="wrap card">
+    <h2>Busiest stations</h2>
+    <div class="table-scroll"><table class="data"><thead><tr><th>#</th><th>Station</th><th>Lines</th><th class="num">Weekday boardings</th><th class="num">Change from last year</th></tr></thead><tbody id="top"></tbody></table></div>
+    <p class="small" style="margin:12px 0 0"><a href="/stops.html">All stations</a></p>
+  </div></section>
+  <section class="section tight" id="downloads"><div class="wrap card">
+    <h2>Open data</h2>
+    <p class="muted">Free to use. One row per station, refreshed monthly.</p>
+    <div class="row" style="max-width:640px">
+      <button class="btn" id="csv">Download station ridership (CSV)</button>
+      <a class="btn ghost" href="/data/network.json" download>Network file (JSON)</a>
+    </div>
+  </div></section>
+</main>
+</body>
+</html>
