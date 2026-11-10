@@ -65,6 +65,10 @@ Max's decisions for the NERTA tram network, November 7, 2026, from the tram post
 
 - The station display may grow past the ferry display's size (about 30 x 37 in, same type) so its core reads cleanly (Max, after seeing v7).
 
+- **Trams on the main map** (Max, after v1 "dominates the map way too much"): only a thin pink line (about 1.2 pt) with a tiny black center strip, and stops as small pink outlined triangles ("triangles are stops"). No names, route numbers or FREE tag, drawn under the T lines. Preview: `boston-map/output/copies/main_with_trams_v2` (`src/make_main_with_trams.py`).
+
+- **Max: put the light trams on the real main map** ("Yes, add them"). Handed to the main session, which owns `make_tmap.py`.
+
 ## Open
 
 - Which extra routes (pending the candidate list).

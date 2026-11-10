@@ -292,6 +292,7 @@
 "#da291c"
 ],
 "status": [
+"dash",
 "stripe"
 ],
 "sources": [
@@ -398,30 +399,6 @@
 ],
 "verified": false,
 "note": ""
-}
-},
-{
-"type": "Feature",
-"geometry": {
-"type": "Point",
-"coordinates": [
--71.110663,
-42.3523916
-]
-},
-"properties": {
-"name": "BU Bridge",
-"colors": [
-"#f5c400"
-],
-"status": [
-"stripe"
-],
-"sources": [
-"Nominatim (OSM)"
-],
-"verified": false,
-"note": "Boston University Bridge, Cambridgeport, Cambridge, Middlesex County, Massachuse"
 }
 },
 {
@@ -766,31 +743,6 @@
 ],
 "verified": true,
 "note": "MBTA and OSM 15 m apart"
-}
-},
-{
-"type": "Feature",
-"geometry": {
-"type": "Point",
-"coordinates": [
--71.2230264,
-42.3690782
-]
-},
-"properties": {
-"name": "Bleachery",
-"colors": [
-"#00843d",
-"#da291c"
-],
-"status": [
-"stripe"
-],
-"sources": [
-"Nominatim (OSM)"
-],
-"verified": false,
-"note": "Bleachery Dam, Waltham, Middlesex County, Massachusetts, 02454, United States"
 }
 },
 {
@@ -1173,6 +1125,31 @@
 "geometry": {
 "type": "Point",
 "coordinates": [
+-71.1956111,
+42.5048167
+]
+},
+"properties": {
+"name": "Burlington",
+"colors": [
+"#00843d",
+"#da291c"
+],
+"status": [
+"dash"
+],
+"sources": [
+"Nominatim (OSM)"
+],
+"verified": false,
+"note": "Burlington, Middlesex County, Massachusetts, United States"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
 -71.062519,
 42.272429
 ]
@@ -1191,6 +1168,30 @@
 ],
 "verified": true,
 "note": "MBTA and OSM 0 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.1107,
+42.3524
+]
+},
+"properties": {
+"name": "Cambridgeport",
+"colors": [
+"#f5c400"
+],
+"status": [
+"stripe"
+],
+"sources": [
+"placed by hand"
+],
+"verified": false,
+"note": "Yellow stop at the BU Bridge, Cambridge side (renamed from BU Bridge, Max, Nov 8)"
 }
 },
 {
@@ -2564,6 +2565,30 @@
 "geometry": {
 "type": "Point",
 "coordinates": [
+-71.2847041,
+42.467843
+]
+},
+"properties": {
+"name": "Hanscom",
+"colors": [
+"#da291c"
+],
+"status": [
+"dash"
+],
+"sources": [
+"Nominatim (OSM)"
+],
+"verified": false,
+"note": "Laurence G. Hanscom Field, South Road, Bedford, Middlesex County, Massachusetts,"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
 -70.882438,
 42.043967
 ]
@@ -3202,6 +3227,7 @@
 "#da291c"
 ],
 "status": [
+"dash",
 "stripe"
 ],
 "sources": [
@@ -4424,6 +4450,30 @@
 ],
 "verified": true,
 "note": "MBTA and OSM 7 m apart"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.0331,
+42.3478
+]
+},
+"properties": {
+"name": "Pavilion",
+"colors": [
+"#00a9c9"
+],
+"status": [
+"dash"
+],
+"sources": [
+"placed by hand"
+],
+"verified": false,
+"note": "Leader Bank Pavilion, Seaport (NERTA Cyan stop)"
 }
 },
 {
@@ -5982,6 +6032,7 @@
 "#00843d"
 ],
 "status": [
+"dash",
 "stripe"
 ],
 "sources": [
@@ -6154,9 +6205,11 @@
 "properties": {
 "name": "Winchester",
 "colors": [
+"#00843d",
 "#80276c"
 ],
 "status": [
+"dash",
 "solid"
 ],
 "sources": [
@@ -6189,6 +6242,30 @@
 ],
 "verified": false,
 "note": "Winthrop"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-71.1522766,
+42.4792618
+]
+},
+"properties": {
+"name": "Woburn",
+"colors": [
+"#00843d"
+],
+"status": [
+"dash"
+],
+"sources": [
+"Nominatim (OSM)"
+],
+"verified": false,
+"note": "Woburn, Middlesex County, Massachusetts, 01801, United States"
 }
 },
 {

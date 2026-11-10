@@ -10,6 +10,7 @@ Writes boston-map/output/copies/tram_map_vN.png (300 dpi) and tram_map_vN.pdf un
 """
 import argparse
 import math
+import os
 import sys
 import time
 from pathlib import Path
@@ -24,7 +25,7 @@ from matplotlib.patches import Circle, FancyBboxPatch, Polygon  # noqa: E402
 from matplotlib.textpath import TextPath  # noqa: E402
 from matplotlib.transforms import Bbox  # noqa: E402
 from shapely.geometry import LineString, Point, box  # noqa: E402
-from shapely.ops import unary_union  # noqa: E402
+from shapely.ops import nearest_points, unary_union  # noqa: E402
 from shapely.strtree import STRtree  # noqa: E402
 
 sys.path.insert(0, str(Path(__file__).parent))
@@ -61,11 +62,11 @@ MAP_DROP_FIT = {
     "23": ["Whiting St", "Waumbeck St", "Woodbine St"],
     "34": ["Cowing St", "Birchwood St", "Granfield Ave", "Beech St", "Carol Circle"],
     "38": ["Allenwood St", "Sedgwick St", "Goldsmith St", "Whitcomb Ave"],
-    "60": ["Henry St", "Catlin Rd"],
+    "60": ["Henry St", "Catlin Rd", "Duffley Ct"],
     "64": ["Riverview Rd", "Tremont St"],
     "70": ["Palmer St", "Hillside Rd", "Louise St"],
     "75": ["Fountain Ter"],
-    "78": ["Staunton Rd"],
+    "78": ["Staunton Rd", "Eliot Rd"],
     "95": ["Middlesex Ave"],
     "100": ["Mystic Valley Pkwy"],
     "101": ["South Medford"],
@@ -75,8 +76,8 @@ MAP_DROP_FIT = {
     "116": ["Chester Ave", "Eleanor St", "Stockton St"],
     "215": ["Milton St", "Guilford Rd", "Emerson Rd", "Guild St", "Stedman St", "Cross St"],
     "216": ["Newcomb St", "Southern Artery", "Roach St", "Figurehead Ln"],
-    "220": ["Blackstone Rd", "Lincoln St", "Bradley Woods Dr", "Planters Field Ln", "Burditt Ave", "Sumner St", "Bulow Rd", "Daley Rd"],
-    "222": ["Curtis St", "Weymouth Heights", "James Rd", "Fairmount Ave", "Lorraine St", "Moreland Rd", "Sumner St", "Maple St"],
+    "220": ["Evans St", "Blackstone Rd", "Lincoln St", "Bradley Woods Dr", "Planters Field Ln", "Burditt Ave", "Sumner St", "Bulow Rd", "Daley Rd"],
+    "222": ["Evans St", "Curtis St", "Weymouth Heights", "James Rd", "Fairmount Ave", "Lorraine St", "Moreland Rd", "Sumner St", "Maple St"],
     "225": ["Blanchard Rd", "Dartmouth St", "Arnold St", "West Howard St", "Dewey Rd", "Audubon Ave", "Allen St", "Brookside Rd", "King Ave"],
     "240": ["Brook Rd", "Clifton Rd", "Pleasant St", "North Randolph", "Fairmount St", "Frederickson Dr", "Columbine Rd", "Milton Center", "Hallen Ave", "Woodland Pkwy", "Acorn Dr", "Hilltop St", "Chickatawbut Rd"],
     "34E": ["Cowing St", "Birchwood St", "Providence Hwy", "Ellis Ave", "Achorn St", "Granfield Ave", "Beech St", "Carol Circle", "Richards St", "East Walpole"],
@@ -119,6 +120,16 @@ def row_clash(b, c_own, c_other, band=None, slack=None):
     slack = 0.2 * SC if slack is None else slack
     x0, y0, x1, y1 = b.bounds
     if not (y0 - band <= c_other[1] <= y1 + band):
+        return False
+    return Point(c_other).distance(b) < Point(c_own).distance(b) + slack
+
+
+def col_clash(b, c_own, c_other, band=None, slack=None):
+    """Round-4 audit (Duffley Ct): another stop straight above or below a name, nearer it than its own stop, pairs with it."""
+    band = 0.15 * SC if band is None else band
+    slack = 0.2 * SC if slack is None else slack
+    x0, y0, x1, y1 = b.bounds
+    if not (x0 - band <= c_other[0] <= x1 + band):
         return False
     return Point(c_other).distance(b) < Point(c_own).distance(b) + slack
 
@@ -396,6 +407,33 @@ def place_labels(ax, lay, ppu, placer, header_boxes, log):
         wgt = 6.0 if kind == "T" else 2.0
         placer.soft.append((LineString(xy).buffer((st.NW if kind == "T" else st.CW) / 2), wgt, "nerta"))
     placer.build()
+    keypts = []   # bends and crossings of the tram lines: a name over one hides where the line goes
+    allstops = [(np.asarray(s_["center"], float), s_["r"]) for s_ in stops.values()]
+
+    def _free(q):
+        return all(math.hypot(q[0] - c_[0], q[1] - c_[1]) > 1.25 * r_ for c_, r_ in allstops)
+    lines_ = {rid: LineString(xy) for rid, xy in lay.lines.items() if len(xy) > 1}
+    for rid, ln in lines_.items():
+        L = ln.length
+        ss = np.arange(0.0, L, 0.1)
+        if len(ss) < 7:
+            continue
+        pts_ = np.array([[ln.interpolate(t_).x, ln.interpolate(t_).y] for t_ in ss])
+        hd = np.arctan2(*np.diff(pts_, axis=0).T[::-1])
+        for i in range(3, len(hd) - 3):
+            dlt = abs((hd[i + 3] - hd[i - 3] + math.pi) % (2 * math.pi) - math.pi)
+            if dlt > math.radians(35) and _free(pts_[i]):
+                keypts.append(pts_[i])
+    rl = list(lines_.items())
+    for i in range(len(rl)):
+        for j in range(i + 1, len(rl)):
+            if not rl[i][1].intersects(rl[j][1]):
+                continue
+            x_ = rl[i][1].intersection(rl[j][1])
+            for g_ in getattr(x_, "geoms", [x_]):
+                if g_.geom_type == "Point" and _free((g_.x, g_.y)):
+                    keypts.append(np.array([g_.x, g_.y]))
+    ktree = STRtree([Point(q) for q in keypts]) if keypts else None
 
     class Placed(list):
         """Placed label and badge boxes, with a coarse grid so each test only looks nearby."""
@@ -480,6 +518,32 @@ def place_labels(ax, lay, ppu, placer, header_boxes, log):
                     bb = box(cx - bw / 2, cy - bh / 2, cx + bw / 2, cy + bh / 2)
                     pref = (0.0 if abs(np.dot(e, d)) > 0.6 else 1.5) + 0.3 * t + 3.0 * extra + 0.8 * abs(rows - (2 if len(rids) >= 3 else 1)) + 0.4 * bw
                     cl.append((pref, cx, cy, bb, rows))
+        if len(rids) >= 4:   # round-4 audit (Harvard): two short rows hugging the stop on opposite sides
+            nA = (len(rids) + 1) // 2
+            parts = [(rids[:nA], ws[:nA]), (rids[nA:], ws[nA:])]
+            for ang in (0.0, 45.0, 90.0, 135.0):
+                for flip in (0, 1):
+                    for extra in (0.0, 0.3, 0.6):
+                        boxes, info, tt = [], [], 0.0
+                        for pi, (rr, ww) in enumerate(parts):
+                            a_ = math.radians(ang + 180.0 * ((pi + flip) % 2))
+                            e = np.array([math.cos(a_), math.sin(a_)])
+                            bw = sum(ww) + gapb * (len(ww) - 1)
+                            t = 0.0
+                            while True:
+                                cx, cy = c + e * t
+                                bb = box(cx - bw / 2, cy - hb / 2, cx + bw / 2, cy + hb / 2)
+                                if not bb.intersects(clear):
+                                    break
+                                t += 0.15
+                            cx, cy = c + e * (t + extra)
+                            boxes.append(box(cx - bw / 2, cy - hb / 2, cx + bw / 2, cy + hb / 2))
+                            info.append((cx, cy, rr, ww))
+                            tt += t
+                        if boxes[0].buffer(0.2).intersects(boxes[1]):
+                            continue
+                        pref = 0.6 + 0.3 * tt / 2 + 3.0 * extra + 0.4 * max(b_.bounds[2] - b_.bounds[0] for b_ in boxes)
+                        cl.append((pref, c[0], c[1], unary_union(boxes), ("split", info)))
         bspec[k] = dict(rids=rids, ws=ws, hb=hb, fsb=fsb, gapb=gapb, total=total, cands=cl)
     bchoice = {}
 
@@ -495,22 +559,52 @@ def place_labels(ax, lay, ppu, placer, header_boxes, log):
         if any(h.intersects(bb) for h in placer.hard):   # the header, the Key and the FREE tags
             hard.append("frame")
         c0 = stops[k]["center"]
-        q = bb.centroid
-        d_own_c = math.hypot(q.x - c0[0], q.y - c0[1])
-        for kk in near_stops(bb.buffer(4.0)):   # a badge block reads with the nearest stop: it must be its own, edge and center
-            ck = stops[kk]["center"]
-            if kk != k and (Point(ck).distance(bb) < Point(c0).distance(bb) + (0.3 if strict else -1.0)
-                            or (strict and math.hypot(q.x - ck[0], q.y - ck[1]) < d_own_c + 0.2)):
-                hard.append("near:" + kk)
-        x0b, y0b, x1b, y1b = bb.bounds
-        for g, tg in placed.near(bb.buffer(1.0)):   # level beside a name, it reads as that name's route
-            if not tg.startswith("lab:"):
-                continue
-            gx0, gy0, gx1, gy1 = g.bounds
-            vo = min(y1b, gy1) - max(y0b, gy0)
-            hgap = max(gx0 - x1b, x0b - gx1)
-            if vo > 0.3 * min(y1b - y0b, gy1 - gy0) and 0 <= hgap < 1.2 * SC:
-                hard.append("row:" + tg)
+        r0 = stops[k]["r"]
+        for part in getattr(bb, "geoms", [bb]):   # a split block: each half answers for itself
+            q = part.centroid
+            d_own_c = math.hypot(q.x - c0[0], q.y - c0[1])
+            for kk in near_stops(part.buffer(4.0)):   # a badge block reads with the nearest stop: it must be its own, edge and center
+                ck = stops[kk]["center"]
+                if kk != k and (Point(ck).distance(part) < Point(c0).distance(part) + (0.3 if strict else -1.0)
+                                or (strict and math.hypot(q.x - ck[0], q.y - ck[1]) < d_own_c + 0.5)):
+                    hard.append("near:" + kk)
+            if strict and dtree is not None:   # round-4 audit (106 at Lebanon St): nearer its stop than any station dot too
+                for i in dtree.query(part.buffer(3.0)):
+                    dq = dots_tree_pts[i]
+                    if math.hypot(q.x - dq[0], q.y - dq[1]) < d_own_c + 0.3:
+                        hard.append("near:dot")
+                        break
+            x0b, y0b, x1b, y1b = part.bounds
+            for g, tg in placed.near(part.buffer(1.0)):   # level beside a name, it reads as that name's route
+                if not tg.startswith("lab:"):
+                    continue
+                gx0, gy0, gx1, gy1 = g.bounds
+                vo = min(y1b, gy1) - max(y0b, gy0)
+                hgap = max(gx0 - x1b, x0b - gx1)
+                if vo > 0.3 * min(y1b - y0b, gy1 - gy0) and 0 <= hgap < 1.2 * SC:
+                    hard.append("row:" + tg)
+            # round-4 audit: right by its stop (Forest Hills, Harvard), nothing drawn between (a commuter rail line)
+            gap_own = Point(c0).distance(part) - r0
+            if gap_own > (1.0 if strict else 1.8):
+                hard.append("far")
+            npt = nearest_points(Point(c0), part)[1]
+            dv = np.array([npt.x - c0[0], npt.y - c0[1]])
+            if np.hypot(*dv) > r0 + 0.05 and ltree is not None:
+                seg = LineString([c0 + dv / np.hypot(*dv) * (r0 + 0.05), (npt.x, npt.y)])
+                for i in ltree.query(seg, predicate="intersects"):
+                    if lgeoms[i].distance(Point(c0)) > r0 * 0.9:
+                        hard.append("across")
+                        break
+            # never level with another stop or a station close by (106 at Lebanon St, Quincy Center)
+            others = [(stops[kk]["center"], stops[kk]["r"]) for kk in near_stops(part.buffer(2.0)) if kk != k]
+            if dtree is not None:
+                others += [(dots_tree_pts[i], dots_r[i]) for i in dtree.query(part.buffer(2.0))]
+            for co, ro in others:
+                if y0b - ro <= co[1] <= y1b + ro:
+                    hg = max(co[0] - ro - x1b, x0b - (co[0] + ro))
+                    if -0.01 <= hg < 1.2 * SC:
+                        hard.append("level")
+                        break
         if dtree is not None:   # station dots and commuter rail squares
             for i in dtree.query(bb.buffer(0.3)):
                 if Point(dots_tree_pts[i]).buffer(dots_r[i] + 0.15).intersects(bb):
@@ -593,7 +687,8 @@ def place_labels(ax, lay, ppu, placer, header_boxes, log):
         station capsule, and no other stop may sit level with it and nearer."""
         c0 = stops[k]["center"]
         out = [kk for kk in near_stops(b.buffer(4.0)) if kk != k and (not clearly_own(b, c0, stops[k]["r"], stops[kk]["center"], stops[kk]["r"])
-                                                                      or row_clash(b, c0, stops[kk]["center"], 0.55 * SC, 0.45 * SC))]
+                                                                      or row_clash(b, c0, stops[kk]["center"], 0.55 * SC, 0.8 * SC)
+                                                                      or col_clash(b, c0, stops[kk]["center"], 0.1 * SC, 0.8 * SC))]
         if dtree is not None:
             out += ["dot" for i in dtree.query(b.buffer(4.0))
                     if not clearly_own(b, c0, stops[k]["r"], dots_tree_pts[i], dots_r[i], NEAR_MARGIN * SC * 1.8) or row_clash(b, c0, dots_tree_pts[i], 0.55 * SC, 0.45 * SC)]
@@ -646,6 +741,8 @@ def place_labels(ax, lay, ppu, placer, header_boxes, log):
             vgap = max(gy0 - y1, y0 - gy1)
             if ho > 0 and 0 <= vgap < 0.45 * SC:
                 cost += 300.0   # stacked like a list
+        if ktree is not None and len(ktree.query(b.buffer(0.3), predicate="intersects")):
+            cost += 1500.0   # over a bend or a crossing of the tram lines: only where nothing else fits
         # right beside its own stop: nearer it than any other stop or station dot
         own = stops[k]["shape"].distance(b)
         cost += 2.0 * own
@@ -809,53 +906,83 @@ def place_labels(ax, lay, ppu, placer, header_boxes, log):
         c_, hard = score(k, choice[k][1])
         choice[k] = (c_, choice[k][1], hard)
         placed.append((choice[k][1][6], "lab:" + k))
+    for k in choice if os.environ.get("NERTA_TRAM_DEBUG") else []:
+        if stops[k]["name"] in os.environ["NERTA_TRAM_DEBUG"].split(","):
+            b = choice[k][1][6]
+            c0 = stops[k]["center"]
+            print("DEBUG", stops[k]["name"], np.round(b.bounds, 2), "own", np.round(c0, 2), round(Point(c0).distance(b), 3), "hard", choice[k][2])
+            for kk in near_stops(b.buffer(4.0)):
+                if kk != k:
+                    ck = stops[kk]["center"]
+                    print("   ", stops[kk]["name"], np.round(ck, 2), round(Point(ck).distance(b), 3),
+                          clearly_own(b, c0, stops[k]["r"], ck, stops[kk]["r"]), row_clash(b, c0, ck, 0.55 * SC, 0.45 * SC))
+    def kick_badge(k, strict):
+        """Take a badge spot only names block (the hub's own name included), and move those names on."""
+        opts = []
+        for cand in bspec[k]["cands"]:
+            c_, hard = badge_score(k, cand, strict)
+            if hard and all(h.startswith("lab:") for h in hard):
+                opts.append((c_ - 2000.0 * len(hard), cand, [h[4:] for h in set(hard)]))
+        opts.sort(key=lambda t_: t_[0])
+        placed.remove_tag("badge:" + k)
+        for c_, cand, js in opts[:200]:
+            saved = {j: choice[j] for j in js}
+            placed.append((cand[3], "badge:" + k))
+            for j in js:
+                placed.remove_tag("lab:" + j)
+            ok = True
+            for j in js:
+                best = None
+                for cdj in cands[j]:
+                    cj, hj = score(j, cdj)
+                    if not hj and (best is None or cj < best[0]):
+                        best = (cj, cdj)
+                if best is None:
+                    ok = False
+                    break
+                choice[j] = (best[0], best[1], [])
+                placed.append((best[1][6], "lab:" + j))
+            if ok:
+                bchoice[k] = (badge_score(k, cand, strict)[0], cand, [])
+                return True
+            for j in js:
+                placed.remove_tag("lab:" + j)
+                choice[j] = saved[j]
+                placed.append((saved[j][1][6], "lab:" + j))
+            placed.remove_tag("badge:" + k)
+        placed.append((bchoice[k][1][3], "badge:" + k))
+        return False
+
     for k in late:
+        # round-4 audit (Harvard): first the strict spots, moving names if need be; only then a looser spot
         place_badge(k)
+        if bchoice[k][2]:
+            kick_badge(k, True)
         if bchoice[k][2]:   # a crowded hub: let the badges sit a little nearer a neighbor, never on a name or a stop
             placed.remove_tag("badge:" + k)
             place_badge(k, strict=False)
-            if bchoice[k][2]:   # kick: take a spot only names block, and move those names on
-                opts = []
-                for cand in bspec[k]["cands"]:
-                    c_, hard = badge_score(k, cand, False)
-                    if hard and all(h.startswith("lab:") for h in hard):
-                        opts.append((c_ - 2000.0 * len(hard), cand, [h[4:] for h in hard]))
-                opts.sort(key=lambda t_: t_[0])
-                placed.remove_tag("badge:" + k)
-                for c_, cand, js in opts[:200]:
-                    saved = {j: choice[j] for j in js}
-                    placed.append((cand[3], "badge:" + k))
-                    for j in js:
-                        placed.remove_tag("lab:" + j)
-                    ok = True
-                    for j in js:
-                        best = None
-                        for cdj in cands[j]:
-                            cj, hj = score(j, cdj)
-                            if not hj and (best is None or cj < best[0]):
-                                best = (cj, cdj)
-                        if best is None:
-                            ok = False
-                            break
-                        choice[j] = (best[0], best[1], [])
-                        placed.append((best[1][6], "lab:" + j))
-                    if ok:
-                        bchoice[k] = (badge_score(k, cand, False)[0], cand, [])
-                        break
-                    for j in js:
-                        placed.remove_tag("lab:" + j)
-                        choice[j] = saved[j]
-                        placed.append((saved[j][1][6], "lab:" + j))
-                    placed.remove_tag("badge:" + k)
-                else:
-                    placed.append((bchoice[k][1][3], "badge:" + k))
             if bchoice[k][2]:
-                from collections import Counter as _C
-                cnt = _C(h.split("|")[0] if "|" in h else h for cand in bspec[k]["cands"] for h in set(badge_score(k, cand, False)[1]))
-                log(f"  badge spots at {lay.net.nodes[k]['name']}: {len(bspec[k]['cands'])} tried; blocked by {dict(cnt)}")
+                kick_badge(k, False)
+        if bchoice[k][2]:
+            from collections import Counter as _C
+            cnt = _C(h.split("|")[0] if "|" in h else h for cand in bspec[k]["cands"] for h in set(badge_score(k, cand, False)[1]))
+            log(f"  badge spots at {lay.net.nodes[k]['name']}: {len(bspec[k]['cands'])} tried; blocked by {dict(cnt)}")
     for k, (c_, cand, hard) in bchoice.items():
         sp = bspec[k]
         _, cx, cy, bb, rows = cand
+        if isinstance(rows, tuple):   # a split block: one row each side of the stop
+            for pcx, pcy, rr, ww in rows[1]:
+                x = pcx - (sum(ww) + sp["gapb"] * (len(ww) - 1)) / 2
+                for rid, wdt in zip(rr, ww):
+                    ax.add_patch(FancyBboxPatch((x, pcy - sp["hb"] / 2), wdt, sp["hb"], boxstyle=f"round,pad=0,rounding_size={sp['hb'] / 2}",
+                                                fc=PINK, ec=PAPER, lw=0.8, zorder=24))
+                    ax.text(x + wdt / 2, pcy - 0.04 * sp["hb"], rid, fontsize=sp["fsb"], fontweight="bold", color=WHITE, ha="center", va="center", zorder=24.5)
+                    x += wdt + sp["gapb"]
+            for part in bb.geoms:
+                lay.badge_boxes.append(part)
+            if hard:
+                log(f"  badge at {lay.net.nodes[k]['name']} touches {', '.join(hard)}")
+            continue
         per = -(-len(sp["rids"]) // rows)
         groups = [(sp["rids"][i:i + per], sp["ws"][i:i + per]) for i in range(0, len(sp["rids"]), per)]
         ng = len(groups)
@@ -1078,6 +1205,69 @@ def check(fig, ax, lay, texts):
     return bad
 
 
+def watermarks(fig, ax, lay, ppu, sheet, frames, n_max=12, spacing=13.0):
+    """@mapzimus in open water, the main map's style (Max, November 8 evening: everywhere, more prevalent in the water):
+    7 pt, make_tmap.WATERMARK, level, just above the water. Only in the sea, clear of every line, name, badge, stop, dot,
+    capsule, the header, the Key and the FREE tags. Spots: the main map's own first, then the most spread-out open water."""
+    st = lay.st
+    fig.canvas.draw()
+    rend = fig.canvas.get_renderer()
+    inv = ax.transData.inverted()
+    obst = []
+    for t in ax.texts:
+        if t.get_visible() and t.get_text().strip():
+            e = t.get_window_extent(rend)
+            (a0, b0), (a1, b1) = inv.transform([(e.x0, e.y0), (e.x1, e.y1)])
+            obst.append(box(min(a0, a1), min(b0, b1), max(a0, a1), max(b0, b1)))
+    obst += [LineString(xy).buffer(st.W) for xy in lay.lines.values() if len(xy) > 1]
+    obst += [LineString(xy).buffer((st.NW if kind == "T" else st.CW)) for _c, xy, kind in lay.geo]
+    obst += [s_["shape"] for s_ in lay.stops.values()]
+    obst += [Point(p_).buffer(st.DOT * 2.0) for p_ in lay.sch.values()]
+    obst += [LineString([a_, b_]).buffer(st.DOT * 2.0) for a_, b_ in M.CAPSULES]
+    obst += list(lay.badge_boxes) + list(getattr(lay, "free_boxes", [])) + list(getattr(lay, "extra_shapes", []))
+    obst += [box(*f) for f in frames]
+    tree = STRtree(obst)
+    sea = M.SEA
+    wbox = tw("@mapzimus", 7.0) / ppu
+    hbox = 7.0 * 1.05 / ppu
+    x0f, x1f, y0f, y1f = sheet[0] + 1.0, sheet[1] - 1.0, sheet[2] + 1.0, sheet[3] - 1.0
+
+    def ok(c):
+        b = box(c[0] - wbox / 2, c[1] - hbox / 2, c[0] + wbox / 2, c[1] + hbox / 2)
+        if b.bounds[0] < x0f or b.bounds[2] > x1f or b.bounds[1] < y0f or b.bounds[3] > y1f:
+            return None
+        if not sea.contains(b.buffer(0.5)):
+            return None
+        g = b.buffer(0.6)
+        if any(obst[i].intersects(g) for i in tree.query(g)):
+            return None
+        return b
+    cands = [np.array(p_, float) for p_ in getattr(M, "WATERMARKS", [])]
+    main_n = len(cands)
+    xs = np.arange(x0f + wbox / 2, x1f - wbox / 2, 2.0)
+    ys = np.arange(y0f + hbox / 2, y1f - hbox / 2, 2.0)
+    cands += [np.array([x, y]) for x in xs for y in ys]
+    good = [(c, ok(c), i < main_n) for i, c in enumerate(cands)]
+    good = [(c, b, m) for c, b, m in good if b is not None]
+    chosen = []
+    for c, b, m in good:   # the main map's spots first, kept apart
+        if m and all(np.hypot(*(c - q)) >= spacing for q, _ in chosen):
+            chosen.append((c, b))
+    rest = [(c, b) for c, b, m in good if not m]
+    while len(chosen) < n_max and rest:   # then the open water farthest from every mark so far
+        if chosen:
+            dmin = [min(np.hypot(*(c - q)) for q, _ in chosen) for c, _ in rest]
+            j = int(np.argmax(dmin))
+            if dmin[j] < spacing:
+                break
+        else:
+            j = 0
+        chosen.append(rest.pop(j))
+    for c, b in chosen[:n_max]:
+        ax.text(c[0], c[1], "@mapzimus", fontsize=7.0, color=M.WATERMARK, ha="center", va="center", zorder=1.5)
+    return [b for _c, b in chosen[:n_max]], obst
+
+
 # ---------------------------------------------------------------------------------------------------------------
 CROPS = {   # area: (center x, center y, half width, half height) in drawing units
     "harvard": (60, 120, 16, 12),
@@ -1094,6 +1284,21 @@ CROPS = {   # area: (center x, center y, half width, half height) in drawing uni
     "north_reading": (114, 192, 14, 16),
     "waltham_bleachery": (-14, 136, 14, 12),
     "kenmore_fenway": (52, 80, 12, 10),
+    # round-4 audit spots
+    "mission_park": (52.7, 49.7, 7, 5),
+    "beth_israel": (40.7, 71.4, 7, 5),
+    "forest_hills": (45, 27, 9, 7),
+    "lebanon_106": (111.5, 189.5, 7, 5),
+    "egleston_seaver": (72, 42, 10, 6),
+    "oakwood": (131, 27, 7, 5),
+    "memorial_pkwy": (79, -6.4, 7, 5),
+    "sagamore": (171, 167, 7, 5),
+    "duffley": (21, 65, 7, 5),
+    # main-map change, November 8 evening: Red to Burlington and Hanscom, Green E to Woburn, A ends at Watertown, Seaport
+    "watertown": (-10, 124, 12, 10),
+    "burlington_woburn": (36, 180, 18, 12),
+    "seaport": (134, 78, 12, 9),
+    "cambridgeport": (64, 98, 12, 9),   # the old BU Bridge stop on the Yellow (v1.1), by the 64 and 70
 }
 
 
@@ -1156,10 +1361,10 @@ def main():
         q = cr.interpolate(cr.project(Point(c)))
         q = np.array([q.x, q.y])
         cw = lay.st.R * 2 * ppu
-        ax.plot([c[0], q[0]], [c[1], q[1]], color=INK, lw=cw * 0.62, zorder=21.4, solid_capstyle="round")
-        ax.plot([c[0], q[0]], [c[1], q[1]], color=WHITE, lw=cw * 0.62 - 1.8, zorder=21.45, solid_capstyle="round")
+        ax.plot([c[0], q[0]], [c[1], q[1]], color=INK, lw=cw * 0.62, zorder=19.2, solid_capstyle="round")
+        ax.plot([c[0], q[0]], [c[1], q[1]], color=WHITE, lw=cw * 0.62 - 1.8, zorder=19.25, solid_capstyle="round")
         d = lay.st.DOT * 1.1
-        ax.add_patch(FancyBboxPatch((q[0] - d, q[1] - d), 2 * d, 2 * d, boxstyle="square,pad=0", fc=M.PURPLE, ec="none", zorder=21.5))
+        ax.add_patch(FancyBboxPatch((q[0] - d, q[1] - d), 2 * d, 2 * d, boxstyle="square,pad=0", fc=M.PURPLE, ec="none", zorder=19.3))
         lay.extra_shapes.append(LineString([c, q]).buffer(cw * 0.31 / ppu))
     hb, bottom = header(ax, ppu, sheet[0], sheet[3], args.web)
     kb = key_panel(ax, lay, ppu, sheet[1], sheet[2], len(lay.net.routes), args.web)
@@ -1197,6 +1402,14 @@ def main():
     for bb_ in lay.badge_boxes + getattr(lay, "free_boxes", []):
         if bb_.intersects(vb):
             bad.append("pill/version")
+    frames = [tuple(h_) for h_ in hb] + [tuple(kb)]
+    wm_boxes, wm_obst = watermarks(fig, ax, lay, ppu, sheet, frames)
+    for i_, wb in enumerate(wm_boxes):   # a watermark touches only water
+        if not M.SEA.contains(wb) or any(o.intersects(wb) for o in wm_obst):
+            bad.append(f"watermark/{i_}")
+        if i_ < 4:
+            CROPS[f"watermark{i_ + 1}"] = (wb.centroid.x, wb.centroid.y, 9, 6)
+    print(f"{len(wm_boxes)} @mapzimus watermarks in open water")
     for b in bad:
         print("  overlap:", b)
     print(f"{len(bad)} overlaps among tram labels and symbols")

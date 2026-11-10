@@ -136,6 +136,8 @@ LONG = {      # (junction, junction) -> factor: that stretch gets this many time
 }
 SPLIT = set()   # stop names that count as junctions, so a long stretch can bend there
 SIDE = {      # stop name -> label side: r, l, t, b, tr, tl, br, bl
+    "Roslindale Village": "r", "Metropolitan Ave": "r", "David Ortiz": "r", "Fenway": "l",
+    "Newmarket": "r", "Edward Everett Sq": "r",   # round 4: each level with its own stop, like the rest of its line
     "Mission Park": "t", "Winthrop St": "t", "Hastings Ln": "b", "Roxbury Crossing": "b", "Cambridge St": "r", "Forest Hills": "t", "Arborway": "b",
     "Richardson St": "t", "Pierce St": "b", "Wellington": "b", "Keenan St": "l",
 }
@@ -1035,7 +1037,7 @@ def off_crossings(SK, clear=0.8, step=0.3):
         if DISPLAY and foreign and on_line(ts):
             # first, the whole run slid a little along its line
             best_ = (on_line(ts), 0.0)
-            for d_ in sorted(np.arange(-0.45, 0.4501, 0.05), key=abs):
+            for d_ in sorted(np.arange(-0.9, 0.9001, 0.05), key=abs):
                 ts2 = [t + d_ for t in ts]
                 if ts2[0] >= 0.45 and ts2[-1] <= L - 0.45 and on_line(ts2) < best_[0]:
                     best_ = (on_line(ts2), d_)
@@ -1103,6 +1105,9 @@ def geometry(nodes, routes, SK, pos):
                    else spread(e["path"], len(e["mids"]), e.get("split"), tuple(clear)))
     off_crossings(SK)
     for e in SK.values():
+        if DISPLAY:   # a stop slid by hand along its own line, off another route's crossing
+            e["ts"] = [t + STOP_SHIFT_DISPLAY.get(nodes[nid]["name"], 0.0)
+                       for nid, t in zip(e["mids"], e["ts"])]
         for nid, t in zip(e["mids"], e["ts"]):
             pos[nid], nodes[nid]["ang"] = point_at(e["path"], t)
     # junction cross direction: the way most lines pass through
@@ -1404,8 +1409,8 @@ def cost(board, item, shapes, canvas):
         x0, y0, x1, y1 = unary_union([s_ for _, s_ in shapes]).bounds
         c = ((x0 + x1) / 2, (y0 + y1) / 2)
         for j in board.ctree.query_ball_point(c, math.hypot(x1 - x0, y1 - y0) / 2 + ARMU + 3.0):
-            if any(s_.distance(Point(board.cxy[j])) < ARMU + 2.5 for _, s_ in shapes):
-                s += 15
+            if any(s_.distance(Point(board.cxy[j])) < ARMU + (3.5 if not DISPLAY else 2.5) for _, s_ in shapes):
+                s += 60 if not DISPLAY else 15   # a route name close by a stop reads as the stop's name
     for _, fshp in REG["free"]:   # the FREE tag keeps a little paper round it
         if any(sh.distance(fshp) < (4.0 if item.kind == "caption" else 1.0) for _, sh in shapes):
             s += 300
@@ -1500,8 +1505,13 @@ def near_others(board, item, shapes, margin=None):
     x0, y0, x1, y1 = row.bounds
     c = ((x0 + x1) / 2, (y0 + y1) / 2)
     out = []
+    # a name level with its own stop reads as that stop's (round 4): then only another stop also level with it counts
+    lo, hi = y0 + 0.15 * (y1 - y0), y1 - 0.15 * (y1 - y0)
+    own_level = item.kind == "label" and not DISPLAY and lo <= item.center[1] <= hi
     for j in board.ctree.query_ball_point(c, math.hypot(x1 - x0, y1 - y0) / 2 + d_own + margin + 0.5):
         if board.cid[j] == item.owner:
+            continue
+        if own_level and not lo <= board.cxy[j][1] <= hi:
             continue
         dj = row.distance(Point(board.cxy[j]))
         if dj < d_own + margin:
@@ -1523,7 +1533,7 @@ def level_others(board, item, shapes):
     own = np.asarray(item.center, float)
     own_level = lo <= own[1] <= hi
     out = []
-    reach = max(6.0, 3.0 * h)   # "close beside": within about three text heights
+    reach = max(9.0, 4.5 * h) if not DISPLAY else max(6.0, 3.0 * h)   # "close beside" (round 4: up to about 8 units on the big poster)
     for j in board.ctree.query_ball_point(((x0 + x1) / 2, (y0 + y1) / 2), (x1 - x0) / 2 + reach + 1.0):
         if board.cid[j] == item.owner:
             continue
@@ -1563,7 +1573,7 @@ def level_with(board, part, owner, own_xy=None, reach=None):
     x0, y0, x1, y1 = part.bounds
     h = y1 - y0
     lo, hi = y0 + 0.15 * h, y1 - 0.15 * h
-    reach = reach or max(6.0, 3.0 * h)
+    reach = reach or (max(9.0, 4.5 * h) if not DISPLAY else max(6.0, 3.0 * h))
 
     def hgap(x):
         return max(x0 - x, x - x1, 0.0)
@@ -2155,7 +2165,7 @@ def main():
 
     base = "tram_display" if DISPLAY else "tram_network"
     v = next_version(base)
-    stem = f"{base}{'_nodisc' if NODISC else '_web' if web else ''}_v{v}"
+    stem = f"{base}_v{v}_no-disclaimer" if NODISC else f"{base}{'_web' if web else ''}_v{v}"
     png, pdf = OUT / f"{stem}.png", OUT / f"{stem}.pdf"
     draft = arg("--draft")
     if draft:
@@ -2218,7 +2228,7 @@ def main():
             text = text.upper()
         pref = {"r": 0.0, "l": 0.3, "t": 0.5, "b": 0.5, "tr": 0.9, "br": 0.9, "tl": 1.1, "bl": 1.1}
         if nd["name"] in SIDE:
-            pref = {s: (0.0 if s == SIDE[nd["name"]] else 50.0) for s in SIDES}
+            pref = {s: (0.0 if s == SIDE[nd["name"]] else (50.0 if DISPLAY else 400.0)) for s in SIDES}   # the big poster's hand sides hold
         cands = []
         for k_, tx in enumerate([text] + ([wrap2(text)] if wrap2(text) else [])):   # a long name may also go on two lines
             row = [("text", tx, FS_END if term else FS, "bold" if term else "normal", INK)] + [("pill", c) for c in nd["pills"]]
@@ -2536,7 +2546,7 @@ def crops(fig, ax, nodes, pos_u, ext, folder, stem, dpi, pad=28.0, boxes=None, o
 
 
 SIDE_DISPLAY = {"Arlington Ctr": "r", "Irving St": "r", "Walnut St": "r", "Hancock St": "l", "Hastings Ln": "br",
-                "Brookline Village": "l", "Sylvia Rd": "b", "Dewey Rd": "r", "Audubon Ave": "r", "Allen St": "r", "Brookside Rd": "r",
+                "Sylvia Rd": "b", "Dewey Rd": "r", "Audubon Ave": "r", "Allen St": "r", "Brookside Rd": "r",
                 "Kingman St": "r"}   # the 225's names all on the right, like Blanchard Rd to West Howard St   # display-only label sides
 BADGE_SIDE_DISPLAY = {}   # display-only badge sides
 BADGE_ROW_DISPLAY = {}   # display-only badges to a row
@@ -2545,12 +2555,12 @@ LONG_DISPLAY = {("Allston", "Brookline Village"): 1.35, ("Brookline Village", "K
 TEXT_DISPLAY = {"Arlington Ctr": "Arlington" + chr(10) + "Center"}   # boxed in between the 95 and the 78
 AT_DISPLAY_M = 0.577   # the display's spacing factor the pins below were set at
 AT_DISPLAY = {          # display-only pins, in the display's own grid steps
-    "Arlington Ctr": (-13.2, 12.6),   # the end of the 95, clear of the 78
     "Watertown": (-15.9, 0.4),        # straight down-left from Barry's Corner: the 70 runs straight, no swing out and back
 }
 DIR_DISPLAY = {("Barry's Corner", "Watertown"): "SW"}   # display-only directions
-PILL_ROW = {}   # station name -> where its pills go: "row" (after the name), "under" or "over"
-PILL_ROW_DISPLAY = {"Brigham Circle": "row", "West Station": "over"}   # display: set by hand
+STOP_SHIFT_DISPLAY = {"Allen St": -0.62, "Audubon Ave": -0.25}   # grid steps along its stretch, off the 222 (minus: back toward its first junction)
+PILL_ROW = {"Orient Heights": "over", "Fenway": "over", "Roslindale Village": "row"}   # station name -> where its pills go: "row" (after the name), "under" or "over"
+PILL_ROW_DISPLAY = {"West Station": "over", "Brookline Village": "row"}   # display: set by hand
 NUDGE_DISPLAY = {"Kendall/MIT": (0.4, 0.4)}   # grid steps, after the layout: Kendall on along its own line, off the 95 and 101
 DISPLAY_TOP = 36.0     # header band above the network, drawing units
 CONN_W = 0.0           # the Connections strip's width, measured at run time
@@ -2696,7 +2706,7 @@ def display_furniture(ax, board, nodes, routes, web, ext):
     return {"connections": placed["connections"].bounds}
 
 
-CAPTION_SEG = {"9": ("Dover", "Broadway")}   # route -> (stop, stop): its name goes beside that stretch only
+CAPTION_SEG = {"9": ("K St", "City Point"), "215": [("Bates Ave", "Cross St"), ("Quarry St", "Bates Ave")], "16": ("Four Corners", "Seaver St")}   # route -> (stop, stop): its name goes beside that stretch only
 CAPTION_SEG_DISPLAY = {   # display: each beside a stretch of its own, clear of the lines it could be mistaken for
     "16": [("Newmarket", "Edward Everett Sq"), ("Andrew", "Newmarket"), ("Seaver St", "Four Corners"), ("Arborway", "Seaver St")], "23": ("Vassar St", "Melville Ave"), "22": [("Egleston Sq", "Harold St"), ("Wales St", "Angell St"), ("Angell St", "Talbot Ave")],
     "9": [("Broadway", "West Broadway"), ("West Broadway", "Dorchester St")],

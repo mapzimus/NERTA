@@ -98,6 +98,8 @@ HAND = {
     "Wu Sq": (42.2861, -71.1385, "Invented NERTA stop, midway Roslindale Village to Bellevue"),
     "Wyoma Sq": (42.4790, -70.9660, "Wyoma Sq, Lynn"),
     "Arlington Heights": (42.4245, -71.1830, "Mass Ave at Park Ave, today's bus terminal"),
+    "Cambridgeport": (42.3524, -71.1107, "Yellow stop at the BU Bridge, Cambridge side (renamed from BU Bridge, Max, Nov 8)"),
+    "Pavilion": (42.3478, -71.0331, "Leader Bank Pavilion, Seaport (NERTA Cyan stop)"),
     "Market St": (42.5320, -71.0275, "MarketStreet, Lynnfield (NERTA Orange loop stop)"),
     "Langone Ferryport": (42.3685, -71.0547, "Langone Park, Commercial St, North End (NERTA station, was North End)"),
 }

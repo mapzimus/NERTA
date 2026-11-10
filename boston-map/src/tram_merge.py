@@ -681,6 +681,14 @@ class Layout:
                 F.add_lines(F.dR, xy)
         dots = np.array([p for n, p in self.sch.items()])
         F.add_points(F.dD, dots)
+        # round-4 audit: rings and line ends are drawn bigger than a dot; every dot gets a little more paper round it
+        ends, rings = set(getattr(M, "ENDS", {})), set(getattr(M, "RINGS", []))
+        margin = 1.6 / st.ppu
+        served = {nd["name"] for nd in self.net.nodes.values() if nd.get("nerta")}   # trams run into these: no extra room
+        for grow, pick in ((0.6, lambda n: n in ends), (0.45, lambda n: n in rings and n not in ends), (0.0, lambda n: n not in ends and n not in rings)):
+            pts = np.array([p for n, p in self.sch.items() if pick(n) and n not in served])
+            if len(pts):
+                F.add_points(F.dD, pts, minus=grow * st.DOT + margin)
         if sea is not None:
             import shapely
             self.sea = sea
